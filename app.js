@@ -259,7 +259,11 @@ const liveMeta = document.querySelector("#live-meta");
 const dataQuality = document.querySelector("#data-quality");
 const CLIENT_POLL_MS = 120000;
 const STALE_SNAPSHOT_MINUTES = 15;
-const LIVE_ENDPOINTS = ["/api/market-data", "data/latest.json"];
+const API_ENDPOINT = "/api/market-data";
+const STATIC_SNAPSHOT_ENDPOINT = "data/latest.json";
+const API_TIMEOUT_MS = 30000;
+const STATIC_TIMEOUT_MS = 8000;
+const STATIC_FALLBACK_DELAY_MS = 2500;
 
 function thresholdScore(value, rules, direction = "above") {
   return rules.reduce((score, threshold) => {
@@ -720,33 +724,88 @@ function updateDashboard(context = {}) {
   drawRiskMap(scores, regime);
 }
 
-async function fetchLiveSnapshot() {
-  const errors = [];
-  for (const endpoint of LIVE_ENDPOINTS) {
-    const separator = endpoint.includes("?") ? "&" : "?";
-    const url = `${endpoint}${separator}ts=${Date.now()}`;
-    try {
-      const response = await fetch(url, { cache: "no-store" });
-      if (!response.ok) throw new Error(`${endpoint} HTTP ${response.status}`);
-      const snapshot = await response.json();
-      snapshot.clientSource = endpoint;
-      return snapshot;
-    } catch (error) {
-      errors.push(error.message);
+function delay(ms) {
+  return new Promise((resolve) => {
+    window.setTimeout(resolve, ms);
+  });
+}
+
+async function fetchSnapshotFromEndpoint(endpoint, timeoutMs) {
+  const separator = endpoint.includes("?") ? "&" : "?";
+  const url = `${endpoint}${separator}ts=${Date.now()}`;
+  const controller = new AbortController();
+  const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    const response = await fetch(url, { cache: "no-store", signal: controller.signal });
+    if (!response.ok) throw new Error(`${endpoint} HTTP ${response.status}`);
+    const snapshot = await response.json();
+    snapshot.clientSource = endpoint;
+    return snapshot;
+  } catch (error) {
+    if (error.name === "AbortError") {
+      throw new Error(`${endpoint} timed out after ${Math.round(timeoutMs / 1000)}s`);
     }
+    throw error;
+  } finally {
+    window.clearTimeout(timeout);
   }
-  throw new Error(errors.join(" | "));
+}
+
+async function fetchLiveSnapshot() {
+  const apiPromise = fetchSnapshotFromEndpoint(API_ENDPOINT, API_TIMEOUT_MS);
+  const staticPromise = delay(STATIC_FALLBACK_DELAY_MS).then(() =>
+    fetchSnapshotFromEndpoint(STATIC_SNAPSHOT_ENDPOINT, STATIC_TIMEOUT_MS)
+  );
+
+  const apiResult = apiPromise
+    .then((snapshot) => ({ ok: true, source: "api", snapshot }))
+    .catch((error) => ({ ok: false, source: "api", error }));
+  const staticResult = staticPromise
+    .then((snapshot) => ({ ok: true, source: "static", snapshot }))
+    .catch((error) => ({ ok: false, source: "static", error }));
+
+  const first = await Promise.race([apiResult, staticResult]);
+  if (first.ok) {
+    return {
+      snapshot: first.snapshot,
+      background: first.source === "static" ? apiPromise : null
+    };
+  }
+
+  const second = first.source === "api" ? await staticResult : await apiResult;
+  if (second.ok) {
+    return {
+      snapshot: second.snapshot,
+      background: second.source === "static" ? apiPromise : null
+    };
+  }
+
+  throw new Error(`${first.source}: ${first.error.message} | ${second.source}: ${second.error.message}`);
+}
+
+function applyLiveSnapshot(snapshot) {
+  liveSnapshot = snapshot;
+  setValues(liveSnapshot.values);
+  applyFieldMeta(liveSnapshot.fieldMeta);
+  activePreset = "live";
+  presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === "live"));
+  updateDashboard({ mode: "live", snapshot: liveSnapshot });
 }
 
 async function loadLiveData(options = {}) {
   if (!options.silent) renderLiveMeta({ mode: "loading" });
   try {
-    liveSnapshot = await fetchLiveSnapshot();
-    setValues(liveSnapshot.values);
-    applyFieldMeta(liveSnapshot.fieldMeta);
-    activePreset = "live";
-    presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === "live"));
-    updateDashboard({ mode: "live", snapshot: liveSnapshot });
+    const result = await fetchLiveSnapshot();
+    applyLiveSnapshot(result.snapshot);
+    if (result.background) {
+      result.background
+        .then((snapshot) => {
+          if (activePreset === "live") applyLiveSnapshot(snapshot);
+        })
+        .catch((error) => {
+          console.warn("Background live API refresh failed", error);
+        });
+    }
   } catch (error) {
     if (options.silent) {
       console.warn("Live data refresh failed", error);

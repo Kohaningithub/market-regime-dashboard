@@ -1,7 +1,9 @@
 from __future__ import annotations
 
 import json
+import queue
 import sys
+import threading
 import time
 from http.server import BaseHTTPRequestHandler
 from pathlib import Path
@@ -15,6 +17,7 @@ from scripts.update_data import build_snapshot  # noqa: E402
 
 
 CACHE_SECONDS = 120
+BUILD_TIMEOUT_SECONDS = 25
 _CACHE: dict[str, Any] = {"snapshot": None, "timestamp": 0.0}
 
 
@@ -31,6 +34,28 @@ def fallback_snapshot(error: Exception) -> dict[str, Any] | None:
     return snapshot
 
 
+def build_snapshot_with_timeout() -> dict[str, Any]:
+    result: queue.Queue[tuple[str, Any]] = queue.Queue(maxsize=1)
+
+    def run() -> None:
+        try:
+            result.put(("ok", build_snapshot()))
+        except Exception as error:
+            result.put(("error", error))
+
+    thread = threading.Thread(target=run, daemon=True)
+    thread.start()
+
+    try:
+        status, payload = result.get(timeout=BUILD_TIMEOUT_SECONDS)
+    except queue.Empty as error:
+        raise TimeoutError(f"Live data build exceeded {BUILD_TIMEOUT_SECONDS}s") from error
+
+    if status == "error":
+        raise payload
+    return payload
+
+
 def get_snapshot() -> dict[str, Any]:
     now = time.time()
     cached = _CACHE.get("snapshot")
@@ -38,7 +63,7 @@ def get_snapshot() -> dict[str, Any]:
         return cached
 
     try:
-        snapshot = build_snapshot()
+        snapshot = build_snapshot_with_timeout()
         snapshot["apiStatus"] = "live"
     except Exception as error:  # Keep the public dashboard usable when one source fails.
         snapshot = fallback_snapshot(error)
