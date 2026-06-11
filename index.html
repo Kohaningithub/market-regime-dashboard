@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Market Regime Dashboard</title>
+    <meta
+      name="description"
+      content="A public market regime dashboard for classifying U.S. equity drawdowns by volatility, sentiment, credit stress, and systemic risk."
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">U.S. Equity Risk Classifier</p>
+        <h1>Market Regime Dashboard</h1>
+      </div>
+      <div class="topbar-actions" aria-label="Preset scenarios">
+        <button class="preset-button is-active" data-preset="normal">正常回调</button>
+        <button class="preset-button" data-preset="panic">恐慌回调</button>
+        <button class="preset-button" data-preset="extreme">极端恐慌</button>
+        <button class="preset-button" data-preset="systemic">系统性风险</button>
+        <button class="preset-button" data-preset="overheated">过热风险</button>
+      </div>
+    </header>
+
+    <main>
+      <section class="status-band" aria-labelledby="regime-title">
+        <div class="regime-panel">
+          <p class="eyebrow">Current Classification</p>
+          <h2 id="regime-title">--</h2>
+          <p id="regime-summary" class="regime-summary"></p>
+          <div id="overheated-banner" class="overheated-banner" hidden>
+            <strong>Overheated Risk</strong>
+            <span>市场情绪偏贪婪、估值偏高或上涨集中，避免追高和杠杆。</span>
+          </div>
+        </div>
+        <div class="score-grid" aria-label="Core scores">
+          <article class="score-card">
+            <div class="score-card-head">
+              <span>Volatility Panic</span>
+              <strong id="vol-score">0</strong>
+            </div>
+            <meter id="vol-meter" min="0" max="8" value="0"></meter>
+            <p id="vol-label">--</p>
+          </article>
+          <article class="score-card">
+            <div class="score-card-head">
+              <span>Credit Stress</span>
+              <strong id="credit-score">0</strong>
+            </div>
+            <meter id="credit-meter" min="0" max="18" value="0"></meter>
+            <p id="credit-label">--</p>
+          </article>
+          <article class="score-card">
+            <div class="score-card-head">
+              <span>Sentiment Fear</span>
+              <strong id="sentiment-score">0</strong>
+            </div>
+            <meter id="sentiment-meter" min="0" max="8" value="0"></meter>
+            <p id="sentiment-label">--</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="input-panel">
+          <div class="section-heading">
+            <p class="eyebrow">Inputs</p>
+            <h2>指标输入</h2>
+          </div>
+          <form id="metric-form" class="metric-form" aria-label="Market indicators"></form>
+        </div>
+
+        <aside class="insight-panel" aria-labelledby="insight-title">
+          <div class="section-heading">
+            <p class="eyebrow">Decision Trail</p>
+            <h2 id="insight-title">触发逻辑</h2>
+          </div>
+          <div class="mini-chart" aria-label="Risk map">
+            <canvas id="risk-canvas" width="520" height="300"></canvas>
+          </div>
+          <ul id="trigger-list" class="trigger-list"></ul>
+        </aside>
+      </section>
+
+      <section class="table-section" aria-labelledby="score-rules-title">
+        <div class="section-heading">
+          <p class="eyebrow">Scoring</p>
+          <h2 id="score-rules-title">核心分数规则</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>分数</th>
+                <th>打分规则</th>
+                <th>解释</th>
+              </tr>
+            </thead>
+            <tbody id="score-rules-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="table-section" aria-labelledby="scenario-title">
+        <div class="section-heading">
+          <p class="eyebrow">Regime Logic</p>
+          <h2 id="scenario-title">最终判断逻辑</h2>
+        </div>
+        <div class="scenario-grid" id="scenario-grid"></div>
+      </section>
+
+      <section class="table-section" aria-labelledby="indicator-title">
+        <div class="section-heading">
+          <p class="eyebrow">Indicator Library</p>
+          <h2 id="indicator-title">完整判断表</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>指标名称</th>
+                <th>数据代码或数据源</th>
+                <th>计算公式</th>
+                <th>阈值</th>
+                <th>模块</th>
+                <th>对应解释</th>
+                <th>对最终场景的影响</th>
+              </tr>
+            </thead>
+            <tbody id="indicator-table-body"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="notes-section" aria-label="Implementation notes">
+        <div>
+          <p class="eyebrow">Data Notes</p>
+          <p>
+            本站是静态前端规则引擎。FRED、Cboe、AAII、CNN、ETF价格和商业行情源可以作为生产数据源；
+            若接入自动更新，建议用 GitHub Actions 在后端脚本中拉取数据并生成公开 JSON，避免把 API key 暴露在浏览器。
+          </p>
+        </div>
+        <button id="reset-button" class="secondary-button" type="button">恢复当前预设</button>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
