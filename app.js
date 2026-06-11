@@ -259,6 +259,7 @@ const liveMeta = document.querySelector("#live-meta");
 const dataQuality = document.querySelector("#data-quality");
 const CLIENT_POLL_MS = 120000;
 const STALE_SNAPSHOT_MINUTES = 15;
+const LIVE_ENDPOINTS = ["/api/market-data", "data/latest.json"];
 
 function thresholdScore(value, rules, direction = "above") {
   return rules.reduce((score, threshold) => {
@@ -509,7 +510,7 @@ function renderLiveMeta(context = {}) {
     const ageMinutes = snapshotAgeMinutes(context.snapshot);
     const isStale = ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES;
     liveMeta.classList.toggle("is-stale", isStale);
-    liveMeta.textContent = `Live Snapshot | 生成 ${formatDateTime(context.snapshot.generatedAt)} | 距今 ${formatAge(ageMinutes)} | 数据日期 ${context.snapshot.asOf} | 估算项 ${estimatedCount}${isStale ? " | Stale: 等待 GitHub Actions 发布新快照" : ""}`;
+    liveMeta.textContent = `Live Snapshot | 生成 ${formatDateTime(context.snapshot.generatedAt)} | 距今 ${formatAge(ageMinutes)} | 数据日期 ${context.snapshot.asOf} | 估算项 ${estimatedCount}${isStale ? " | Stale: 等待实时 API 或数据源更新" : ""}`;
     return;
   }
 
@@ -535,12 +536,18 @@ function renderDataQuality(snapshot) {
 
   const notes = snapshot.notes || [];
   const ageMinutes = snapshotAgeMinutes(snapshot);
+  const apiLabel =
+    snapshot.apiStatus === "live"
+      ? "Vercel API live snapshot"
+      : snapshot.apiStatus === "fallback"
+        ? "Vercel API fallback snapshot"
+        : "Static snapshot";
   const freshnessItems = [
-    `<div class="data-quality-item"><strong>Refresh</strong> GitHub Actions 约每 5 分钟发布一次快照；浏览器每 2 分钟重新读取。</div>`
+    `<div class="data-quality-item"><strong>Refresh</strong> ${apiLabel}；浏览器每 2 分钟重新读取。</div>`
   ];
   if (ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES) {
     freshnessItems.push(
-      `<div class="data-quality-item warning"><strong>Stale</strong> 当前快照距今 ${formatAge(ageMinutes)}，GitHub 定时任务可能延迟或被跳过。</div>`
+      `<div class="data-quality-item warning"><strong>Stale</strong> 当前快照距今 ${formatAge(ageMinutes)}，实时 API 可能失败或数据源延迟。</div>`
     );
   }
   const sourceItems = (snapshot.sourceSummary || []).slice(0, 6).map(
@@ -713,12 +720,28 @@ function updateDashboard(context = {}) {
   drawRiskMap(scores, regime);
 }
 
+async function fetchLiveSnapshot() {
+  const errors = [];
+  for (const endpoint of LIVE_ENDPOINTS) {
+    const separator = endpoint.includes("?") ? "&" : "?";
+    const url = `${endpoint}${separator}ts=${Date.now()}`;
+    try {
+      const response = await fetch(url, { cache: "no-store" });
+      if (!response.ok) throw new Error(`${endpoint} HTTP ${response.status}`);
+      const snapshot = await response.json();
+      snapshot.clientSource = endpoint;
+      return snapshot;
+    } catch (error) {
+      errors.push(error.message);
+    }
+  }
+  throw new Error(errors.join(" | "));
+}
+
 async function loadLiveData(options = {}) {
   if (!options.silent) renderLiveMeta({ mode: "loading" });
   try {
-    const response = await fetch(`data/latest.json?ts=${Date.now()}`, { cache: "no-store" });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-    liveSnapshot = await response.json();
+    liveSnapshot = await fetchLiveSnapshot();
     setValues(liveSnapshot.values);
     applyFieldMeta(liveSnapshot.fieldMeta);
     activePreset = "live";

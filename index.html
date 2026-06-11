@@ -8,7 +8,7 @@
       name="description"
       content="A public market regime dashboard for classifying U.S. equity drawdowns by volatility, sentiment, credit stress, and systemic risk."
     />
-    <link rel="stylesheet" href="styles.css?v=20260611-1515" />
+    <link rel="stylesheet" href="styles.css?v=20260611-vercel" />
   </head>
   <body>
     <header class="topbar">
@@ -142,14 +142,14 @@
         <div>
           <p class="eyebrow">Data Notes</p>
           <p>
-            本站由 GitHub Actions 约每 5 分钟生成 <code>data/latest.json</code>，前端每 2 分钟读取一次最新快照后自动分类。
-            公开无密钥数据存在延迟：ETF/DXY通常为日内或日频，FRED多为T+1，NFCI为周频。
+            Vercel 版本优先通过 <code>/api/market-data</code> 服务端函数生成最新快照，前端每 2 分钟重新读取。
+            公开无密钥数据存在延迟：ETF/DXY通常为日内或日频，FRED多为T+1，NFCI为周频；GitHub Pages 会回退到静态快照。
           </p>
         </div>
         <button id="reset-button" class="secondary-button" type="button">重新读取快照</button>
       </section>
     </main>
 
-    <script src="app.js?v=20260611-1515"></script>
+    <script src="app.js?v=20260611-vercel"></script>
   </body>
 </html>

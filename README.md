@@ -1,44 +1,59 @@
 # Market Regime Dashboard
 
-公开静态网站，用五类指标判断美股当前风险状态。网站默认读取 `data/latest.json`，由 GitHub Actions 定时更新；前端在 Live Data 模式下每 2 分钟自动重新读取最新快照：
+美股市场状态判断工具。前端展示当前市场属于正常回调、恐慌回调、极端恐慌、系统性风险或过热风险中的哪一种，并把结论拆成波动率、回撤、情绪、信用和系统性风险五类指标。
 
-- 波动率指标
-- 股市回撤指标
-- 情绪指标
-- 信用市场指标
-- 系统性风险指标
+## Vercel Architecture
 
-核心输出：
+推荐部署到 Vercel。
 
-- Volatility Panic Score
-- Credit Stress Score
-- Sentiment Fear Score
-- 四种市场场景分类
-- Overheated Risk 覆盖提示
+- Frontend: `index.html`, `styles.css`, `app.js`
+- Live API: `api/market-data.py`
+- API cache: 120 秒
+- API fallback: 如果实时抓取失败，返回 `data/latest.json` 并在页面标注 fallback
 
-## Local preview
+前端读取顺序：
 
-实时数据模式需要通过静态服务器预览：
+1. `/api/market-data`
+2. `data/latest.json`
+
+所以同一份代码也能在 GitHub Pages 上运行，只是 GitHub Pages 没有服务端 API，会回退到静态快照。
+
+## Data Sources
+
+- Yahoo Finance chart endpoint: VIX, SPY, QQQ, HYG, JNK, KRE, RSP, DXY, MOVE
+- FRED: High Yield OAS, Investment Grade OAS, 10Y Treasury Yield, 10Y Real Yield, NFCI
+- CNN Fear & Greed official dataviz endpoint
+- AAII Sentiment Survey
+- Cboe Daily Market Statistics
+
+## Local Preview
+
+静态回退预览：
 
 ```powershell
 python scripts/update_data.py
 python -m http.server 4173 --bind 127.0.0.1
 ```
 
-然后打开 `http://127.0.0.1:4173/`。
+Vercel API 本地预览需要 Vercel CLI：
 
-## GitHub Pages
+```powershell
+npm i -g vercel
+vercel dev
+```
 
-这个项目不需要构建步骤，GitHub Pages 可以直接从 `main` 分支根目录发布。
+## Deployment
 
-生产数据接入建议：
+在 Vercel 导入这个 GitHub repo，Framework Preset 选 `Other`，Build Command 留空，Output Directory 留空。
 
-1. GitHub Actions 拉取 FRED、Yahoo Finance、Cboe、AAII、CNN Fear & Greed 数据。
-2. Actions 生成并提交公开 `data/latest.json`。
-3. 前端读取 JSON，避免在浏览器暴露 API key。
+或使用 CLI：
 
-当前限制：
+```powershell
+vercel --prod
+```
 
-- CNN Fear & Greed 使用官方 dataviz endpoint；如果 CNN 临时拒绝自动请求，才回退到 proxy 并在页面标记为 estimated。
-- Cboe 免费历史 Put/Call CSV 当前只到 2019，因此自动版使用 Cboe Daily Market Statistics 当前日 Equity Put/Call。
-- 估值分位暂无无密钥稳定数据源，自动版使用中性占位值，避免误触发过热。
+## Known Limits
+
+- 公共免费数据源并非 tick-by-tick 数据，FRED 和 NFCI 本身存在日频或周频延迟。
+- Vercel API 以 120 秒为缓存周期，适合作为准实时市场状态工具。
+- 估值分位暂无无密钥稳定数据源，当前使用中性占位值，避免误触发过热。
