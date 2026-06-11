@@ -183,24 +183,29 @@ const presets = {
 };
 
 const indicatorRows = [
-  ["VIX", "Cboe; FRED VIXCLS", "最新收盘值", ">20、>25、>35、>45", "波动率指标", "30天隐含波动率，衡量美股期权市场恐慌程度。", "提高 Volatility Panic Score；>35 支持场景三。"],
-  ["VIX 5日变化", "Cboe; FRED VIXCLS", "VIX(t) - VIX(t-5)", ">5点、>10点", "波动率指标", "衡量恐慌升温速度，过滤慢性高波动。", "快速上升会把场景一推向二或三。"],
-  ["SPY drawdown", "SPY adjusted close", "SPY / 252日高点 - 1", "<-5%、<-10%、<-20%", "股市回撤指标", "衡量美股大盘从近一年高点回撤深度。", "定义回调深度，配合信用压力决定是否可抄底。"],
-  ["QQQ drawdown", "QQQ adjusted close", "QQQ / 252日高点 - 1", "<-8%、<-15%、<-25%", "股市回撤指标", "衡量成长股和科技权重资产的风险偏好。", "QQQ深跌但信用稳定时偏场景二/三。"],
-  ["Fear & Greed Index", "CNN Markets；自动版可用 proxy", "0-100综合分；proxy由VIX、SPY、Put/Call、HYG、RSP/SPY、AAII合成", "<40、<25、<15；>75提示贪婪", "情绪指标", "综合动量、广度、期权、信用、波动和避险需求。", "低值提高 Sentiment Fear Score；高值触发 Overheated Risk。"],
+  ["VIX", "Yahoo Finance ^VIX / Cboe VIX", "最新收盘或最新可得值", ">20、>25、>35、>45", "波动率指标", "30天隐含波动率，衡量美股期权市场恐慌程度。", "提高 Volatility Panic Score；>35 支持场景三。"],
+  ["VIX 5日变化", "Yahoo Finance ^VIX / Cboe VIX", "VIX(t) - VIX(t-5)", ">5点、>10点", "波动率指标", "衡量恐慌升温速度，过滤慢性高波动。", "快速上升会把场景一推向二或三。"],
+  ["MOVE Index", "Yahoo Finance ^MOVE / ICE BofA MOVE Index", "最新收盘或最新可得值", ">120、>160、>180", "波动率指标", "美债隐含波动率，衡量利率市场是否失序。", "高值提高 Volatility Score；>160配合信用恶化触发场景四。"],
+  ["SPY drawdown", "Yahoo Finance SPY", "SPY / 252日高点 - 1", "<-5%、<-10%、<-20%", "股市回撤指标", "衡量美股大盘从近一年高点回撤深度。", "定义回调深度，配合信用压力决定是否可抄底。"],
+  ["QQQ drawdown", "Yahoo Finance QQQ", "QQQ / 252日高点 - 1", "<-8%、<-15%、<-25%", "股市回撤指标", "衡量成长股和科技权重资产的风险偏好。", "QQQ深跌但信用稳定时偏场景二/三。"],
+  ["RSP/SPY 60日相对表现", "Yahoo Finance RSP and SPY", "(RSP/SPY)(t) / (RSP/SPY)(t-60) - 1", "<-3%、<-6%", "股市回撤指标", "等权指数相对市值加权指数，衡量上涨集中度。", "走弱时提示广度恶化；高情绪下触发过热风险。"],
+  ["S&P 500估值分位", "中性占位；可替换为FactSet/Bloomberg/Yardeni", "Forward P/E历史分位或估值综合分位", ">80%、>90%", "股市回撤指标", "衡量估值安全边际。当前无公开稳定源，自动版默认65。", "只用于 Overheated Risk，不直接提高恐慌分。"],
+  ["Fear & Greed Index", "CNN Fear & Greed Index；失败时使用proxy", "CNN官方0-100分；proxy由VIX、SPY、Put/Call、HYG、RSP/SPY、AAII合成", "<40、<25、<15；>75提示贪婪", "情绪指标", "综合动量、广度、期权、信用、波动和避险需求。", "低值提高 Sentiment Fear Score；高值触发 Overheated Risk。"],
   ["AAII Bearish %", "AAII Sentiment Survey", "看跌投资者占比", ">40%、>50%、>60%", "情绪指标", "散户投资者悲观程度，极端高值常具反向含义。", "提高 Sentiment Fear Score，支持场景二/三。"],
-  ["Put/Call Ratio", "Cboe equity put/call", "Put成交量 / Call成交量；有历史源时用10日均值，无历史源时用Cboe当前日值", ">0.75、>0.90；<0.55提示贪婪", "情绪指标", "保护性需求或投机偏好变化。", "高值加恐惧分；低值加过热提示。"],
-  ["HYG 20日回报", "HYG adjusted close", "HYG(t) / HYG(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF价格压力。", "显著下跌提高 Credit Stress Score，场景四权重上升。"],
-  ["JNK 20日回报", "JNK adjusted close", "JNK(t) / JNK(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF第二确认信号。", "与HYG共振时优先检查系统性风险。"],
-  ["High Yield OAS", "FRED BAMLH0A0HYM2", "最新值；以及20日变化bp", ">4.5%、>6%；20日+75bp/+150bp", "信用市场指标", "垃圾债信用利差，衡量违约和流动性补偿。", "场景四核心指标；快速扩大优先防守。"],
-  ["Investment Grade OAS", "FRED BAMLC0A0CM", "最新值；以及20日变化bp", ">1.25%、>1.75%；20日+25bp/+60bp", "信用市场指标", "投资级债信用利差，衡量压力是否扩散到优质信用。", "IG也走坏时，防守优先级上升。"],
-  ["DXY 20日变化", "ICE DXY; FRED DTWEXBGS可替代", "DXY(t) / DXY(t-20) - 1", ">3%、>5%", "系统性风险指标", "美元快速走强常代表全球美元流动性压力或避险需求。", "配合信用恶化时强化场景四。"],
-  ["10Y Treasury Yield", "FRED DGS10", "最新值；20日变化bp", "20日+50bp；或快速下行且信用利差扩大", "系统性风险指标", "名义利率冲击或避险买债方向。", "单独不分类，和信用/美元/MOVE一起解释。"],
-  ["10Y Real Yield", "FRED DFII10", "最新值；20日变化bp", "20日+40bp", "系统性风险指标", "实际利率收紧，对长久期成长资产压力更大。", "解释QQQ压力，辅助场景二/四。"],
-  ["MOVE Index", "ICE BofA MOVE", "最新收盘值", ">120、>160、>180", "波动率/系统性风险指标", "美债隐含波动率，衡量利率市场是否失序。", "高值提高 Volatility Score；>160配合信用恶化触发场景四。"],
-  ["NFCI", "Chicago Fed; FRED NFCI", "周度金融条件指数", ">0、>0.5；4周明显上升", "系统性风险指标", "正值代表金融条件紧于历史平均。", ">0时提高 Credit Stress Score，场景四权重上升。"],
-  ["KRE relative performance vs SPY", "KRE and SPY adjusted close", "(KRE/SPY)(t) / (KRE/SPY)(t-20) - 1", "<-8%、<-15%", "系统性风险指标", "区域银行相对大盘表现，监测银行体系压力。", "大幅跑输是 Defensive Mode 重要触发器。"],
-  ["RSP/SPY ratio", "RSP and SPY adjusted close", "(RSP/SPY)(t) / (RSP/SPY)(t-60) - 1", "<-3%、<-6%", "股市回撤指标", "等权指数相对市值加权指数，衡量上涨集中度。", "走弱时提示广度恶化；高情绪下触发过热风险。"]
+  ["Put/Call Ratio", "Cboe Daily Market Statistics", "Put成交量 / Call成交量；有历史源时用10日均值，无历史源时用Cboe当前日值", ">0.75、>0.90；<0.55提示贪婪", "情绪指标", "保护性需求或投机偏好变化。", "高值加恐惧分；低值加过热提示。"],
+  ["HYG 20日回报", "Yahoo Finance HYG", "HYG(t) / HYG(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF价格压力。", "显著下跌提高 Credit Stress Score，场景四权重上升。"],
+  ["JNK 20日回报", "Yahoo Finance JNK", "JNK(t) / JNK(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF第二确认信号。", "与HYG共振时优先检查系统性风险。"],
+  ["High Yield OAS", "FRED BAMLH0A0HYM2 / ICE BofA", "最新值", ">4.5%、>6%", "信用市场指标", "垃圾债信用利差，衡量违约和流动性补偿。", "高值提高 Credit Stress Score；场景四权重上升。"],
+  ["HY OAS 20日扩大", "FRED BAMLH0A0HYM2 / ICE BofA", "(HY OAS(t) - HY OAS(t-20)) * 100bp", ">75bp、>150bp", "信用市场指标", "衡量高收益债信用压力恶化速度。", "快速扩大是场景四核心触发信号。"],
+  ["Investment Grade OAS", "FRED BAMLC0A0CM / ICE BofA", "最新值", ">1.25%、>1.75%", "信用市场指标", "投资级债信用利差，衡量压力是否扩散到优质信用。", "IG也走坏时，防守优先级上升。"],
+  ["IG OAS 20日扩大", "FRED BAMLC0A0CM / ICE BofA", "(IG OAS(t) - IG OAS(t-20)) * 100bp", ">25bp、>60bp", "信用市场指标", "衡量投资级信用压力恶化速度。", "快速扩大说明压力开始扩散，强化场景四。"],
+  ["DXY 20日变化", "Yahoo Finance DX-Y.NYB", "DXY(t) / DXY(t-20) - 1", ">3%、>5%", "系统性风险指标", "美元快速走强常代表全球美元流动性压力或避险需求。", "配合信用恶化时强化场景四。"],
+  ["10Y Treasury Yield", "FRED DGS10", "最新值", "水平本身不单独打分", "系统性风险指标", "名义利率水平，用来解释利率冲击或避险买债方向。", "和信用、美元、MOVE组合解释。"],
+  ["10Y Yield 20日变化", "FRED DGS10", "(10Y(t) - 10Y(t-20)) * 100bp", ">50bp；或快速下行且信用利差扩大", "系统性风险指标", "衡量名义利率冲击速度。", "辅助解释成长股压力和系统性风险。"],
+  ["10Y Real Yield", "FRED DFII10", "最新值", "水平本身不单独打分", "系统性风险指标", "实际利率水平，对长久期成长资产影响较大。", "解释QQQ压力，辅助场景二/四。"],
+  ["10Y Real Yield 20日变化", "FRED DFII10", "(10Y Real Yield(t) - 10Y Real Yield(t-20)) * 100bp", ">40bp", "系统性风险指标", "衡量实际利率收紧速度。", "实际利率快速上升时提高成长股压力解释权重。"],
+  ["NFCI", "FRED NFCI / Chicago Fed", "周度金融条件指数", ">0、>0.5；4周明显上升", "系统性风险指标", "正值代表金融条件紧于历史平均。", ">0时提高 Credit Stress Score，场景四权重上升。"],
+  ["KRE vs SPY 20日相对表现", "Yahoo Finance KRE and SPY", "(KRE/SPY)(t) / (KRE/SPY)(t-20) - 1", "<-8%、<-15%", "系统性风险指标", "区域银行相对大盘表现，监测银行体系压力。", "大幅跑输是 Defensive Mode 重要触发器。"]
 ];
 
 const scoreRules = [

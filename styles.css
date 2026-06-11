@@ -170,6 +170,10 @@ main {
   color: #493015;
 }
 
+.overheated-banner[hidden] {
+  display: none;
+}
+
 .score-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
