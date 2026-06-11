@@ -1,22 +1,17 @@
 # Market Regime Dashboard
 
-美股市场状态判断工具。前端展示当前市场属于正常回调、恐慌回调、极端恐慌、系统性风险或过热风险中的哪一种，并把结论拆成波动率、回撤、情绪、信用和系统性风险五类指标。
+美股市场状态判断工具。页面读取最近一次保存的市场快照，用波动率、回撤、情绪、信用和系统性风险五类指标判断当前属于正常回调、恐慌回调、极端恐慌、系统性风险或过热风险。
 
-## Vercel Architecture
+## Data Update Model
 
-推荐部署到 Vercel。
+推荐部署方式是 GitHub Pages + GitHub Actions。
 
-- Frontend: `index.html`, `styles.css`, `app.js`
-- Live API: `api/market-data.py`
-- API cache: 120 秒
-- API fallback: 如果实时抓取失败，返回 `data/latest.json` 并在页面标注 fallback
+- `scripts/update_data.py` 抓取公开数据源并生成 `data/latest.json`
+- GitHub Actions 每天美东时间 8:00、12:00、15:00 自动运行
+- 前端只读取 `data/latest.json`，不在用户打开网页时现场抓取数据
+- 浏览器每 2 分钟重新读取一次最近快照
 
-前端读取顺序：
-
-1. `/api/market-data`
-2. `data/latest.json`
-
-所以同一份代码也能在 GitHub Pages 上运行，只是 GitHub Pages 没有服务端 API，会回退到静态快照。
+这样页面打开速度快，也避免公共数据源的 CORS、冷启动和临时阻塞问题。
 
 ## Data Sources
 
@@ -28,32 +23,26 @@
 
 ## Local Preview
 
-静态回退预览：
-
 ```powershell
 python scripts/update_data.py
 python -m http.server 4173 --bind 127.0.0.1
 ```
 
-Vercel API 本地预览需要 Vercel CLI：
+Then open `http://127.0.0.1:4173/`.
 
-```powershell
-npm i -g vercel
-vercel dev
-```
+## GitHub Actions Schedule
 
-## Deployment
+GitHub cron runs in UTC. The workflow schedules candidate UTC hours for both EST and EDT, then a bash gate checks `America/New_York` time and only proceeds at:
 
-在 Vercel 导入这个 GitHub repo，Framework Preset 选 `Other`，Build Command 留空，Output Directory 留空。
+- 8:00 AM ET
+- 12:00 PM ET
+- 3:00 PM ET
 
-或使用 CLI：
-
-```powershell
-vercel --prod
-```
+Manual runs through `workflow_dispatch` always run immediately.
 
 ## Known Limits
 
-- 公共免费数据源并非 tick-by-tick 数据，FRED 和 NFCI 本身存在日频或周频延迟。
-- Vercel API 以 120 秒为缓存周期，适合作为准实时市场状态工具。
-- 估值分位暂无无密钥稳定数据源，当前使用中性占位值，避免误触发过热。
+- Public no-key data sources are not tick-by-tick.
+- FRED credit/yield data is often T+1.
+- NFCI is weekly.
+- Valuation percentile currently uses a neutral placeholder because there is no stable no-key source wired in.

@@ -258,12 +258,9 @@ const resetButton = document.querySelector("#reset-button");
 const liveMeta = document.querySelector("#live-meta");
 const dataQuality = document.querySelector("#data-quality");
 const CLIENT_POLL_MS = 120000;
-const STALE_SNAPSHOT_MINUTES = 15;
-const API_ENDPOINT = "/api/market-data";
+const STALE_SNAPSHOT_MINUTES = 1440;
 const STATIC_SNAPSHOT_ENDPOINT = "data/latest.json";
-const API_TIMEOUT_MS = 30000;
 const STATIC_TIMEOUT_MS = 8000;
-const STATIC_FALLBACK_DELAY_MS = 2500;
 
 function thresholdScore(value, rules, direction = "above") {
   return rules.reduce((score, threshold) => {
@@ -514,7 +511,7 @@ function renderLiveMeta(context = {}) {
     const ageMinutes = snapshotAgeMinutes(context.snapshot);
     const isStale = ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES;
     liveMeta.classList.toggle("is-stale", isStale);
-    liveMeta.textContent = `Live Snapshot | 生成 ${formatDateTime(context.snapshot.generatedAt)} | 距今 ${formatAge(ageMinutes)} | 数据日期 ${context.snapshot.asOf} | 估算项 ${estimatedCount}${isStale ? " | Stale: 等待实时 API 或数据源更新" : ""}`;
+    liveMeta.textContent = `Latest Snapshot | 生成 ${formatDateTime(context.snapshot.generatedAt)} | 距今 ${formatAge(ageMinutes)} | 数据日期 ${context.snapshot.asOf} | 估算项 ${estimatedCount}${isStale ? " | Stale: 等待下一次 GitHub 抓取" : ""}`;
     return;
   }
 
@@ -528,7 +525,7 @@ function renderLiveMeta(context = {}) {
     return;
   }
 
-  liveMeta.textContent = "Live Snapshot | 正在读取最新市场快照...";
+  liveMeta.textContent = "Latest Snapshot | 正在读取最近一次市场快照...";
 }
 
 function renderDataQuality(snapshot) {
@@ -540,18 +537,12 @@ function renderDataQuality(snapshot) {
 
   const notes = snapshot.notes || [];
   const ageMinutes = snapshotAgeMinutes(snapshot);
-  const apiLabel =
-    snapshot.apiStatus === "live"
-      ? "Vercel API live snapshot"
-      : snapshot.apiStatus === "fallback"
-        ? "Vercel API fallback snapshot"
-        : "Static snapshot";
   const freshnessItems = [
-    `<div class="data-quality-item"><strong>Refresh</strong> ${apiLabel}；浏览器每 2 分钟重新读取。</div>`
+    `<div class="data-quality-item"><strong>Refresh</strong> GitHub Actions 每天美东 8:00、12:00、15:00 生成快照；浏览器每 2 分钟重新读取最近一次文件。</div>`
   ];
   if (ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES) {
     freshnessItems.push(
-      `<div class="data-quality-item warning"><strong>Stale</strong> 当前快照距今 ${formatAge(ageMinutes)}，实时 API 可能失败或数据源延迟。</div>`
+      `<div class="data-quality-item warning"><strong>Stale</strong> 当前快照距今 ${formatAge(ageMinutes)}，GitHub 定时抓取可能失败或数据源延迟。</div>`
     );
   }
   const sourceItems = (snapshot.sourceSummary || []).slice(0, 6).map(
@@ -724,17 +715,12 @@ function updateDashboard(context = {}) {
   drawRiskMap(scores, regime);
 }
 
-function delay(ms) {
-  return new Promise((resolve) => {
-    window.setTimeout(resolve, ms);
-  });
-}
-
-async function fetchSnapshotFromEndpoint(endpoint, timeoutMs) {
+async function fetchLatestSnapshot() {
+  const endpoint = STATIC_SNAPSHOT_ENDPOINT;
   const separator = endpoint.includes("?") ? "&" : "?";
   const url = `${endpoint}${separator}ts=${Date.now()}`;
   const controller = new AbortController();
-  const timeout = window.setTimeout(() => controller.abort(), timeoutMs);
+  const timeout = window.setTimeout(() => controller.abort(), STATIC_TIMEOUT_MS);
   try {
     const response = await fetch(url, { cache: "no-store", signal: controller.signal });
     if (!response.ok) throw new Error(`${endpoint} HTTP ${response.status}`);
@@ -743,44 +729,12 @@ async function fetchSnapshotFromEndpoint(endpoint, timeoutMs) {
     return snapshot;
   } catch (error) {
     if (error.name === "AbortError") {
-      throw new Error(`${endpoint} timed out after ${Math.round(timeoutMs / 1000)}s`);
+      throw new Error(`${endpoint} timed out after ${Math.round(STATIC_TIMEOUT_MS / 1000)}s`);
     }
     throw error;
   } finally {
     window.clearTimeout(timeout);
   }
-}
-
-async function fetchLiveSnapshot() {
-  const apiPromise = fetchSnapshotFromEndpoint(API_ENDPOINT, API_TIMEOUT_MS);
-  const staticPromise = delay(STATIC_FALLBACK_DELAY_MS).then(() =>
-    fetchSnapshotFromEndpoint(STATIC_SNAPSHOT_ENDPOINT, STATIC_TIMEOUT_MS)
-  );
-
-  const apiResult = apiPromise
-    .then((snapshot) => ({ ok: true, source: "api", snapshot }))
-    .catch((error) => ({ ok: false, source: "api", error }));
-  const staticResult = staticPromise
-    .then((snapshot) => ({ ok: true, source: "static", snapshot }))
-    .catch((error) => ({ ok: false, source: "static", error }));
-
-  const first = await Promise.race([apiResult, staticResult]);
-  if (first.ok) {
-    return {
-      snapshot: first.snapshot,
-      background: first.source === "static" ? apiPromise : null
-    };
-  }
-
-  const second = first.source === "api" ? await staticResult : await apiResult;
-  if (second.ok) {
-    return {
-      snapshot: second.snapshot,
-      background: second.source === "static" ? apiPromise : null
-    };
-  }
-
-  throw new Error(`${first.source}: ${first.error.message} | ${second.source}: ${second.error.message}`);
 }
 
 function applyLiveSnapshot(snapshot) {
@@ -795,17 +749,7 @@ function applyLiveSnapshot(snapshot) {
 async function loadLiveData(options = {}) {
   if (!options.silent) renderLiveMeta({ mode: "loading" });
   try {
-    const result = await fetchLiveSnapshot();
-    applyLiveSnapshot(result.snapshot);
-    if (result.background) {
-      result.background
-        .then((snapshot) => {
-          if (activePreset === "live") applyLiveSnapshot(snapshot);
-        })
-        .catch((error) => {
-          console.warn("Background live API refresh failed", error);
-        });
-    }
+    applyLiveSnapshot(await fetchLatestSnapshot());
   } catch (error) {
     if (options.silent) {
       console.warn("Live data refresh failed", error);
@@ -818,7 +762,7 @@ async function loadLiveData(options = {}) {
     updateDashboard({ mode: "preset" });
     if (liveMeta) {
       liveMeta.classList.add("is-error");
-      liveMeta.textContent = `Live Snapshot 暂不可用，已显示正常回调预设。错误：${error.message}`;
+      liveMeta.textContent = `Latest Snapshot 暂不可用，已显示正常回调预设。错误：${error.message}`;
     }
   }
 }
