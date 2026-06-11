@@ -534,7 +534,12 @@ function applyFieldMeta(fieldMeta = {}) {
 function renderStatus(values, scores, regime, context = {}) {
   document.querySelector("#regime-title").textContent = regime.title;
   document.querySelector("#regime-summary").textContent = regime.summary;
-  document.querySelector("#overheated-banner").hidden = !regime.overheated;
+  const overheatedBanner = document.querySelector("#overheated-banner");
+  const showOverheated = Boolean(regime.overheated);
+  overheatedBanner.hidden = !showOverheated;
+  overheatedBanner.classList.toggle("is-visible", showOverheated);
+  overheatedBanner.style.display = showOverheated ? "flex" : "none";
+  overheatedBanner.setAttribute("aria-hidden", String(!showOverheated));
   renderLiveMeta(context);
 
   document.querySelector("#vol-score").textContent = scores.volatility;

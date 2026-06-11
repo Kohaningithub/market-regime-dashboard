@@ -161,7 +161,7 @@ main {
 }
 
 .overheated-banner {
-  display: flex;
+  display: none;
   gap: 10px;
   align-items: center;
   padding: 12px 14px;
@@ -170,8 +170,13 @@ main {
   color: #493015;
 }
 
+.overheated-banner:not([hidden]),
+.overheated-banner.is-visible {
+  display: flex;
+}
+
 .overheated-banner[hidden] {
-  display: none;
+  display: none !important;
 }
 
 .score-grid {
