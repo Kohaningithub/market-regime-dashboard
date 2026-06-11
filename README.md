@@ -1,6 +1,6 @@
 # Market Regime Dashboard
 
-公开静态网站，用五类指标判断美股当前风险状态。网站默认读取 `data/latest.json`，由 GitHub Actions 定时更新：
+公开静态网站，用五类指标判断美股当前风险状态。网站默认读取 `data/latest.json`，由 GitHub Actions 定时更新；前端在 Live Data 模式下每 2 分钟自动重新读取最新快照：
 
 - 波动率指标
 - 股市回撤指标

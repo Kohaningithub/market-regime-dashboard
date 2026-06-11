@@ -672,8 +672,8 @@ function updateDashboard(context = {}) {
   drawRiskMap(scores, regime);
 }
 
-async function loadLiveData() {
-  renderLiveMeta({ mode: "loading" });
+async function loadLiveData(options = {}) {
+  if (!options.silent) renderLiveMeta({ mode: "loading" });
   try {
     const response = await fetch(`data/latest.json?ts=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
@@ -684,6 +684,10 @@ async function loadLiveData() {
     presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === "live"));
     updateDashboard({ mode: "live", snapshot: liveSnapshot });
   } catch (error) {
+    if (options.silent) {
+      console.warn("Live data refresh failed", error);
+      return;
+    }
     liveSnapshot = null;
     activePreset = "normal";
     presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === "normal"));
@@ -719,3 +723,7 @@ resetButton.addEventListener("click", () => {
 buildForm();
 renderTables();
 loadLiveData();
+
+setInterval(() => {
+  if (activePreset === "live") loadLiveData({ silent: true });
+}, 120000);
