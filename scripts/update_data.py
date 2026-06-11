@@ -26,6 +26,10 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 OUT_FILE = ROOT / "data" / "latest.json"
 USER_AGENT = "Mozilla/5.0 market-regime-dashboard/1.0"
+CNN_USER_AGENT = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+)
 
 
 @dataclass
@@ -37,11 +41,14 @@ class DataPoint:
     note: str | None = None
 
 
-def fetch_text(url: str, timeout: int = 25, retries: int = 2) -> str:
+def fetch_text(url: str, timeout: int = 35, retries: int = 3, headers: dict[str, str] | None = None) -> str:
     last_error: Exception | None = None
+    request_headers = {"User-Agent": USER_AGENT, "Accept": "*/*"}
+    if headers:
+        request_headers.update(headers)
     for attempt in range(retries + 1):
         try:
-            request = Request(url, headers={"User-Agent": USER_AGENT, "Accept": "*/*"})
+            request = Request(url, headers=request_headers)
             with urlopen(request, timeout=timeout) as response:
                 return response.read().decode("utf-8", errors="replace")
         except (HTTPError, URLError, TimeoutError) as exc:
@@ -78,7 +85,7 @@ def round_value(value: float, digits: int = 2) -> float:
     return round(float(value), digits)
 
 
-def fred_series(series_id: str, start_days: int = 460) -> list[tuple[str, float]]:
+def fred_series(series_id: str, start_days: int = 150) -> list[tuple[str, float]]:
     start = (date.today() - timedelta(days=start_days)).isoformat()
     url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}&cosd={start}"
     text = fetch_text(url)
@@ -213,6 +220,32 @@ def fetch_put_call_ratio() -> DataPoint:
     )
 
 
+def fetch_cnn_fear_greed() -> DataPoint:
+    data = json.loads(
+        fetch_text(
+            "https://production.dataviz.cnn.io/index/fearandgreed/graphdata",
+            headers={
+                "User-Agent": CNN_USER_AGENT,
+                "Accept": "application/json,text/plain,*/*",
+                "Referer": "https://www.cnn.com/markets/fear-and-greed",
+                "Origin": "https://www.cnn.com",
+            },
+        )
+    )
+    current = data.get("fear_and_greed") or {}
+    score = parse_float(current.get("score"))
+    if score is None:
+        raise RuntimeError("CNN Fear & Greed response did not include a numeric score")
+
+    timestamp = current.get("timestamp") or datetime.now(UTC).replace(microsecond=0).isoformat()
+    return DataPoint(
+        value=round_value(score, 0),
+        as_of=str(timestamp),
+        source="CNN Fear & Greed Index",
+        note=None,
+    )
+
+
 def fear_greed_proxy(values: dict[str, float], aaii: float, put_call: float) -> DataPoint:
     components = [
         scale_inverse(values["vix"], 12, 45),
@@ -335,7 +368,6 @@ def build_snapshot() -> dict[str, Any]:
     fields: dict[str, DataPoint] = {}
 
     fred_ids = {
-        "vix": "VIXCLS",
         "hyOas": "BAMLH0A0HYM2",
         "igOas": "BAMLC0A0CM",
         "tenYYield": "DGS10",
@@ -345,6 +377,7 @@ def build_snapshot() -> dict[str, Any]:
     fred = {name: fred_series(series_id) for name, series_id in fred_ids.items()}
 
     yahoo_symbols = {
+        "vix": "^VIX",
         "spy": "SPY",
         "qqq": "QQQ",
         "hyg": "HYG",
@@ -356,12 +389,12 @@ def build_snapshot() -> dict[str, Any]:
     }
     yahoo = {name: yahoo_series(symbol) for name, symbol in yahoo_symbols.items()}
 
-    vix_date, vix_value = latest(fred["vix"])
-    fields["vix"] = data_point(vix_value, vix_date, "FRED VIXCLS / Cboe")
+    vix_date, vix_value = latest(yahoo["vix"])
+    fields["vix"] = data_point(vix_value, vix_date, "Yahoo Finance ^VIX / Cboe VIX")
     fields["vixChange5d"] = data_point(
-        vix_value - previous(fred["vix"], 5)[1],
+        vix_value - previous(yahoo["vix"], 5)[1],
         vix_date,
-        "FRED VIXCLS / Cboe",
+        "Yahoo Finance ^VIX / Cboe VIX",
     )
 
     move_date, move_value = latest(yahoo["move"])
@@ -452,7 +485,12 @@ def build_snapshot() -> dict[str, Any]:
         )
 
     values = {key: point.value for key, point in fields.items()}
-    fields["fearGreed"] = fear_greed_proxy(values, values["aaiiBearish"], values["putCall"])
+    try:
+        fields["fearGreed"] = fetch_cnn_fear_greed()
+    except RuntimeError as exc:
+        proxy = fear_greed_proxy(values, values["aaiiBearish"], values["putCall"])
+        proxy.note = f"{proxy.note} CNN fetch failed: {exc}"
+        fields["fearGreed"] = proxy
     values = {key: point.value for key, point in fields.items()}
 
     for key, point in fields.items():
@@ -472,7 +510,7 @@ def build_snapshot() -> dict[str, Any]:
         for key, point in fields.items()
     }
 
-    latest_as_of = max(point.as_of for point in fields.values())
+    latest_as_of = max(point.as_of[:10] for point in fields.values())
     generated_at = datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
     return {
@@ -485,11 +523,11 @@ def build_snapshot() -> dict[str, Any]:
         "fieldMeta": field_meta,
         "notes": notes,
         "sourceSummary": [
-            "FRED: VIX, credit OAS, Treasury yields, NFCI",
+            "FRED: credit OAS, Treasury yields, NFCI",
             "Yahoo Finance chart endpoint: ETFs, DXY, MOVE",
             "Cboe daily market statistics: current equity put/call ratio",
             "AAII public sentiment survey page: weekly bearish percentage",
-            "Fear & Greed is a proxy when CNN blocks automated requests",
+            "CNN Fear & Greed Index official endpoint, with proxy fallback if CNN blocks requests",
         ],
     }
 

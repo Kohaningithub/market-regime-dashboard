@@ -507,7 +507,7 @@ function renderDataQuality(snapshot) {
   }
 
   const notes = snapshot.notes || [];
-  const sourceItems = (snapshot.sourceSummary || []).slice(0, 3).map(
+  const sourceItems = (snapshot.sourceSummary || []).slice(0, 6).map(
     (source) => `<div class="data-quality-item"><strong>Source</strong> ${source}</div>`
   );
   const noteItems = notes.slice(0, 4).map(

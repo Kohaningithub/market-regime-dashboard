@@ -33,12 +33,12 @@ python -m http.server 4173 --bind 127.0.0.1
 
 生产数据接入建议：
 
-1. GitHub Actions 拉取 FRED、Yahoo Finance、Cboe、AAII 数据。
+1. GitHub Actions 拉取 FRED、Yahoo Finance、Cboe、AAII、CNN Fear & Greed 数据。
 2. Actions 生成并提交公开 `data/latest.json`。
 3. 前端读取 JSON，避免在浏览器暴露 API key。
 
 当前限制：
 
-- CNN Fear & Greed endpoint 会拒绝自动请求，因此自动版使用 proxy 并在页面标记为 estimated。
+- CNN Fear & Greed 使用官方 dataviz endpoint；如果 CNN 临时拒绝自动请求，才回退到 proxy 并在页面标记为 estimated。
 - Cboe 免费历史 Put/Call CSV 当前只到 2019，因此自动版使用 Cboe Daily Market Statistics 当前日 Equity Put/Call。
 - 估值分位暂无无密钥稳定数据源，自动版使用中性占位值，避免误触发过热。

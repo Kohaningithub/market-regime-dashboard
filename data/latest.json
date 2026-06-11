@@ -1,36 +1,36 @@
 {
-  "generatedAt": "2026-06-11T16:13:49Z",
+  "generatedAt": "2026-06-11T17:19:28Z",
   "asOf": "2026-06-11",
   "mode": "live",
   "values": {
-    "vix": 22.22,
-    "vixChange5d": 6.16,
+    "vix": 21.72,
+    "vixChange5d": 6.32,
     "move": 73.95,
-    "spyDrawdown": -3.91,
-    "qqqDrawdown": -5.61,
-    "rspSpyRel60d": -2.41,
+    "spyDrawdown": -4.46,
+    "qqqDrawdown": -6.45,
+    "rspSpyRel60d": -2.22,
     "valuationPctile": 65,
-    "hygRet20d": 0.22,
-    "jnkRet20d": 0.32,
+    "hygRet20d": 0.13,
+    "jnkRet20d": 0.23,
     "hyOas": 2.8,
     "hyOasChange20d": 4.0,
     "igOas": 0.75,
     "igOasChange20d": -1.0,
-    "dxyChange20d": 1.78,
+    "dxyChange20d": 1.84,
     "tenYYield": 4.53,
     "tenYChange20d": 11.0,
     "realTenY": 2.2,
     "realTenYChange20d": 25.0,
     "nfci": -0.51,
-    "kreRel20d": 8.26,
+    "kreRel20d": 8.74,
     "aaiiBearish": 47.7,
     "putCall": 0.66,
-    "fearGreed": 67.0
+    "fearGreed": 26.0
   },
   "scores": {
     "volatility": 2,
     "credit": 0,
-    "sentiment": 1
+    "sentiment": 2
   },
   "regime": {
     "key": "normal",
@@ -41,13 +41,13 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-06-10",
-      "source": "FRED VIXCLS / Cboe",
+      "asOf": "2026-06-11",
+      "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-06-10",
-      "source": "FRED VIXCLS / Cboe",
+      "asOf": "2026-06-11",
+      "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "move": {
@@ -153,22 +153,20 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-06-11",
-      "source": "Fear & Greed proxy",
-      "status": "estimated",
-      "note": "CNN endpoint blocks automated requests; proxy blends VIX, SPY drawdown, Put/Call, HYG, RSP/SPY, and AAII."
+      "asOf": "2026-06-11T17:13:18+00:00",
+      "source": "CNN Fear & Greed Index",
+      "status": "ok"
     }
   },
   "notes": [
     "valuationPctile: Public no-key forward P/E percentile source is not wired; default neutral value avoids false overheat calls.",
-    "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019.",
-    "fearGreed: CNN endpoint blocks automated requests; proxy blends VIX, SPY drawdown, Put/Call, HYG, RSP/SPY, and AAII."
+    "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
   ],
   "sourceSummary": [
-    "FRED: VIX, credit OAS, Treasury yields, NFCI",
+    "FRED: credit OAS, Treasury yields, NFCI",
     "Yahoo Finance chart endpoint: ETFs, DXY, MOVE",
     "Cboe daily market statistics: current equity put/call ratio",
     "AAII public sentiment survey page: weekly bearish percentage",
-    "Fear & Greed is a proxy when CNN blocks automated requests"
+    "CNN Fear & Greed Index official endpoint, with proxy fallback if CNN blocks requests"
   ]
 }
