@@ -257,6 +257,8 @@ const presetButtons = Array.from(document.querySelectorAll(".preset-button"));
 const resetButton = document.querySelector("#reset-button");
 const liveMeta = document.querySelector("#live-meta");
 const dataQuality = document.querySelector("#data-quality");
+const CLIENT_POLL_MS = 120000;
+const STALE_SNAPSHOT_MINUTES = 15;
 
 function thresholdScore(value, rules, direction = "above") {
   return rules.reduce((score, threshold) => {
@@ -482,12 +484,32 @@ function formatDateTime(value) {
   });
 }
 
+function snapshotAgeMinutes(snapshot) {
+  if (!snapshot?.generatedAt) return null;
+  const parsed = new Date(snapshot.generatedAt);
+  if (Number.isNaN(parsed.getTime())) return null;
+  return Math.max(0, Math.round((Date.now() - parsed.getTime()) / 60000));
+}
+
+function formatAge(minutes) {
+  if (minutes === null) return "--";
+  if (minutes < 1) return "刚刚";
+  if (minutes < 60) return `${minutes}分钟前`;
+  const hours = Math.floor(minutes / 60);
+  const rest = minutes % 60;
+  return rest ? `${hours}小时${rest}分钟前` : `${hours}小时前`;
+}
+
 function renderLiveMeta(context = {}) {
   if (!liveMeta) return;
+  liveMeta.classList.remove("is-stale", "is-error");
 
   if (context.mode === "live" && context.snapshot) {
     const estimatedCount = Object.values(context.snapshot.fieldMeta || {}).filter((item) => item.status !== "ok").length;
-    liveMeta.textContent = `Live Data | 更新 ${formatDateTime(context.snapshot.generatedAt)} | 数据日期 ${context.snapshot.asOf} | 估算项 ${estimatedCount}`;
+    const ageMinutes = snapshotAgeMinutes(context.snapshot);
+    const isStale = ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES;
+    liveMeta.classList.toggle("is-stale", isStale);
+    liveMeta.textContent = `Live Snapshot | 生成 ${formatDateTime(context.snapshot.generatedAt)} | 距今 ${formatAge(ageMinutes)} | 数据日期 ${context.snapshot.asOf} | 估算项 ${estimatedCount}${isStale ? " | Stale: 等待 GitHub Actions 发布新快照" : ""}`;
     return;
   }
 
@@ -501,7 +523,7 @@ function renderLiveMeta(context = {}) {
     return;
   }
 
-  liveMeta.textContent = "Live Data | 正在读取实时快照...";
+  liveMeta.textContent = "Live Snapshot | 正在读取最新市场快照...";
 }
 
 function renderDataQuality(snapshot) {
@@ -512,6 +534,15 @@ function renderDataQuality(snapshot) {
   }
 
   const notes = snapshot.notes || [];
+  const ageMinutes = snapshotAgeMinutes(snapshot);
+  const freshnessItems = [
+    `<div class="data-quality-item"><strong>Refresh</strong> GitHub Actions 约每 5 分钟发布一次快照；浏览器每 2 分钟重新读取。</div>`
+  ];
+  if (ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES) {
+    freshnessItems.push(
+      `<div class="data-quality-item warning"><strong>Stale</strong> 当前快照距今 ${formatAge(ageMinutes)}，GitHub 定时任务可能延迟或被跳过。</div>`
+    );
+  }
   const sourceItems = (snapshot.sourceSummary || []).slice(0, 6).map(
     (source) => `<div class="data-quality-item"><strong>Source</strong> ${source}</div>`
   );
@@ -519,7 +550,7 @@ function renderDataQuality(snapshot) {
     (note) => `<div class="data-quality-item warning"><strong>Note</strong> ${note}</div>`
   );
 
-  dataQuality.innerHTML = [...sourceItems, ...noteItems].join("");
+  dataQuality.innerHTML = [...freshnessItems, ...sourceItems, ...noteItems].join("");
 }
 
 function applyFieldMeta(fieldMeta = {}) {
@@ -703,7 +734,10 @@ async function loadLiveData(options = {}) {
     presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === "normal"));
     setValues(presets.normal);
     updateDashboard({ mode: "preset" });
-    if (liveMeta) liveMeta.textContent = `Live Data 暂不可用，已显示正常回调预设。错误：${error.message}`;
+    if (liveMeta) {
+      liveMeta.classList.add("is-error");
+      liveMeta.textContent = `Live Snapshot 暂不可用，已显示正常回调预设。错误：${error.message}`;
+    }
   }
 }
 
@@ -736,4 +770,4 @@ loadLiveData();
 
 setInterval(() => {
   if (activePreset === "live") loadLiveData({ silent: true });
-}, 120000);
+}, CLIENT_POLL_MS);

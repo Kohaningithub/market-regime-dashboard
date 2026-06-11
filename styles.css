@@ -160,6 +160,18 @@ main {
   font-size: 0.86rem;
 }
 
+.live-meta.is-stale {
+  border-color: #e2c486;
+  background: #fff9ec;
+  color: #65410c;
+}
+
+.live-meta.is-error {
+  border-color: #d69a94;
+  background: #fff2f1;
+  color: #74312b;
+}
+
 .overheated-banner {
   display: none;
   gap: 10px;

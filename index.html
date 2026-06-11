@@ -8,7 +8,7 @@
       name="description"
       content="A public market regime dashboard for classifying U.S. equity drawdowns by volatility, sentiment, credit stress, and systemic risk."
     />
-    <link rel="stylesheet" href="styles.css?v=20260611-1505" />
+    <link rel="stylesheet" href="styles.css?v=20260611-1515" />
   </head>
   <body>
     <header class="topbar">
@@ -32,7 +32,7 @@
           <p class="eyebrow">Current Classification</p>
           <h2 id="regime-title">--</h2>
           <p id="regime-summary" class="regime-summary"></p>
-          <div id="live-meta" class="live-meta">正在读取实时数据...</div>
+          <div id="live-meta" class="live-meta">正在读取最新市场快照...</div>
           <div id="overheated-banner" class="overheated-banner" hidden aria-hidden="true" style="display: none">
             <strong>Overheated Risk</strong>
             <span>市场情绪偏贪婪、估值偏高或上涨集中，避免追高和杠杆。</span>
@@ -142,14 +142,14 @@
         <div>
           <p class="eyebrow">Data Notes</p>
           <p>
-            本站由 GitHub Actions 定时生成 <code>data/latest.json</code>，前端读取快照后自动分类。
+            本站由 GitHub Actions 约每 5 分钟生成 <code>data/latest.json</code>，前端每 2 分钟读取一次最新快照后自动分类。
             公开无密钥数据存在延迟：ETF/DXY通常为日内或日频，FRED多为T+1，NFCI为周频。
           </p>
         </div>
-        <button id="reset-button" class="secondary-button" type="button">重新读取/恢复</button>
+        <button id="reset-button" class="secondary-button" type="button">重新读取快照</button>
       </section>
     </main>
 
-    <script src="app.js?v=20260611-1505"></script>
+    <script src="app.js?v=20260611-1515"></script>
   </body>
 </html>
