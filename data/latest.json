@@ -1,0 +1,174 @@
+{
+  "generatedAt": "2026-06-11T16:08:14Z",
+  "asOf": "2026-06-11",
+  "mode": "live",
+  "values": {
+    "vix": 22.22,
+    "vixChange5d": 6.16,
+    "move": 73.95,
+    "spyDrawdown": -4.06,
+    "qqqDrawdown": -5.85,
+    "rspSpyRel60d": -2.33,
+    "valuationPctile": 65,
+    "hygRet20d": 0.2,
+    "jnkRet20d": 0.31,
+    "hyOas": 2.8,
+    "hyOasChange20d": 4.0,
+    "igOas": 0.75,
+    "igOasChange20d": -1.0,
+    "dxyChange20d": 1.78,
+    "tenYYield": 4.53,
+    "tenYChange20d": 11.0,
+    "realTenY": 2.2,
+    "realTenYChange20d": 25.0,
+    "nfci": -0.51,
+    "kreRel20d": 8.47,
+    "aaiiBearish": 47.7,
+    "putCall": 0.66,
+    "fearGreed": 67.0
+  },
+  "scores": {
+    "volatility": 2,
+    "credit": 0,
+    "sentiment": 1
+  },
+  "regime": {
+    "key": "normal",
+    "title": "场景一：正常或温和回调",
+    "summary": "信用市场稳定，波动率未进入失控区。若指数只是普通调整，可以维持正常定投和再平衡纪律。",
+    "tone": "calm",
+    "overheated": false
+  },
+  "fieldMeta": {
+    "vix": {
+      "asOf": "2026-06-10",
+      "source": "FRED VIXCLS / Cboe",
+      "status": "ok"
+    },
+    "vixChange5d": {
+      "asOf": "2026-06-10",
+      "source": "FRED VIXCLS / Cboe",
+      "status": "ok"
+    },
+    "move": {
+      "asOf": "2026-06-10",
+      "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
+      "status": "ok"
+    },
+    "spyDrawdown": {
+      "asOf": "2026-06-11",
+      "source": "Yahoo Finance SPY",
+      "status": "ok"
+    },
+    "qqqDrawdown": {
+      "asOf": "2026-06-11",
+      "source": "Yahoo Finance QQQ",
+      "status": "ok"
+    },
+    "rspSpyRel60d": {
+      "asOf": "2026-06-11",
+      "source": "Yahoo Finance RSP/SPY",
+      "status": "ok"
+    },
+    "valuationPctile": {
+      "asOf": "2026-06-11",
+      "source": "Neutral placeholder",
+      "status": "estimated",
+      "note": "Public no-key forward P/E percentile source is not wired; default neutral value avoids false overheat calls."
+    },
+    "hygRet20d": {
+      "asOf": "2026-06-11",
+      "source": "Yahoo Finance HYG",
+      "status": "ok"
+    },
+    "jnkRet20d": {
+      "asOf": "2026-06-11",
+      "source": "Yahoo Finance JNK",
+      "status": "ok"
+    },
+    "hyOas": {
+      "asOf": "2026-06-10",
+      "source": "FRED BAMLH0A0HYM2 / ICE BofA",
+      "status": "ok"
+    },
+    "hyOasChange20d": {
+      "asOf": "2026-06-10",
+      "source": "FRED BAMLH0A0HYM2 / ICE BofA",
+      "status": "ok"
+    },
+    "igOas": {
+      "asOf": "2026-06-10",
+      "source": "FRED BAMLC0A0CM / ICE BofA",
+      "status": "ok"
+    },
+    "igOasChange20d": {
+      "asOf": "2026-06-10",
+      "source": "FRED BAMLC0A0CM / ICE BofA",
+      "status": "ok"
+    },
+    "dxyChange20d": {
+      "asOf": "2026-06-11",
+      "source": "Yahoo Finance DX-Y.NYB",
+      "status": "ok"
+    },
+    "tenYYield": {
+      "asOf": "2026-06-09",
+      "source": "FRED DGS10",
+      "status": "ok"
+    },
+    "tenYChange20d": {
+      "asOf": "2026-06-09",
+      "source": "FRED DGS10",
+      "status": "ok"
+    },
+    "realTenY": {
+      "asOf": "2026-06-09",
+      "source": "FRED DFII10",
+      "status": "ok"
+    },
+    "realTenYChange20d": {
+      "asOf": "2026-06-09",
+      "source": "FRED DFII10",
+      "status": "ok"
+    },
+    "nfci": {
+      "asOf": "2026-06-05",
+      "source": "FRED NFCI / Chicago Fed",
+      "status": "ok"
+    },
+    "kreRel20d": {
+      "asOf": "2026-06-11",
+      "source": "Yahoo Finance KRE/SPY",
+      "status": "ok"
+    },
+    "aaiiBearish": {
+      "asOf": "2026-06-10",
+      "source": "AAII Sentiment Survey",
+      "status": "ok"
+    },
+    "putCall": {
+      "asOf": "2026-06-11",
+      "source": "Cboe Daily Market Statistics",
+      "status": "ok",
+      "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
+    },
+    "fearGreed": {
+      "asOf": "2026-06-11",
+      "source": "Fear & Greed proxy",
+      "status": "estimated",
+      "note": "CNN endpoint blocks automated requests; proxy blends VIX, SPY drawdown, Put/Call, HYG, RSP/SPY, and AAII."
+    }
+  },
+  "notes": [
+    "valuationPctile: Public no-key forward P/E percentile source is not wired; default neutral value avoids false overheat calls.",
+    "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019.",
+    "fearGreed: CNN endpoint blocks automated requests; proxy blends VIX, SPY drawdown, Put/Call, HYG, RSP/SPY, and AAII."
+  ],
+  "sourceSummary": [
+    "FRED: VIX, credit OAS, Treasury yields, NFCI",
+    "Yahoo Finance chart endpoint: ETFs, DXY, MOVE",
+    "Cboe daily market statistics: current equity put/call ratio",
+    "AAII public sentiment survey page: weekly bearish percentage",
+    "Fear & Greed is a proxy when CNN blocks automated requests"
+  ]
+}

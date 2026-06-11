@@ -24,7 +24,7 @@ const modules = [
     fields: [
       { key: "fearGreed", label: "Fear & Greed Index", suffix: "", step: 1 },
       { key: "aaiiBearish", label: "AAII Bearish %", suffix: "%", step: 0.1 },
-      { key: "putCall", label: "Put/Call Ratio 10日均值", suffix: "", step: 0.01 }
+      { key: "putCall", label: "Put/Call Ratio", suffix: "", step: 0.01 }
     ]
   },
   {
@@ -187,9 +187,9 @@ const indicatorRows = [
   ["VIX 5日变化", "Cboe; FRED VIXCLS", "VIX(t) - VIX(t-5)", ">5点、>10点", "波动率指标", "衡量恐慌升温速度，过滤慢性高波动。", "快速上升会把场景一推向二或三。"],
   ["SPY drawdown", "SPY adjusted close", "SPY / 252日高点 - 1", "<-5%、<-10%、<-20%", "股市回撤指标", "衡量美股大盘从近一年高点回撤深度。", "定义回调深度，配合信用压力决定是否可抄底。"],
   ["QQQ drawdown", "QQQ adjusted close", "QQQ / 252日高点 - 1", "<-8%、<-15%、<-25%", "股市回撤指标", "衡量成长股和科技权重资产的风险偏好。", "QQQ深跌但信用稳定时偏场景二/三。"],
-  ["Fear & Greed Index", "CNN Markets", "0-100综合分", "<40、<25、<15；>75提示贪婪", "情绪指标", "综合动量、广度、期权、信用、波动和避险需求。", "低值提高 Sentiment Fear Score；高值触发 Overheated Risk。"],
+  ["Fear & Greed Index", "CNN Markets；自动版可用 proxy", "0-100综合分；proxy由VIX、SPY、Put/Call、HYG、RSP/SPY、AAII合成", "<40、<25、<15；>75提示贪婪", "情绪指标", "综合动量、广度、期权、信用、波动和避险需求。", "低值提高 Sentiment Fear Score；高值触发 Overheated Risk。"],
   ["AAII Bearish %", "AAII Sentiment Survey", "看跌投资者占比", ">40%、>50%、>60%", "情绪指标", "散户投资者悲观程度，极端高值常具反向含义。", "提高 Sentiment Fear Score，支持场景二/三。"],
-  ["Put/Call Ratio", "Cboe equity put/call", "Put成交量 / Call成交量，建议10日均值", ">0.75、>0.90；<0.55提示贪婪", "情绪指标", "保护性需求或投机偏好变化。", "高值加恐惧分；低值加过热提示。"],
+  ["Put/Call Ratio", "Cboe equity put/call", "Put成交量 / Call成交量；有历史源时用10日均值，无历史源时用Cboe当前日值", ">0.75、>0.90；<0.55提示贪婪", "情绪指标", "保护性需求或投机偏好变化。", "高值加恐惧分；低值加过热提示。"],
   ["HYG 20日回报", "HYG adjusted close", "HYG(t) / HYG(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF价格压力。", "显著下跌提高 Credit Stress Score，场景四权重上升。"],
   ["JNK 20日回报", "JNK adjusted close", "JNK(t) / JNK(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF第二确认信号。", "与HYG共振时优先检查系统性风险。"],
   ["High Yield OAS", "FRED BAMLH0A0HYM2", "最新值；以及20日变化bp", ">4.5%、>6%；20日+75bp/+150bp", "信用市场指标", "垃圾债信用利差，衡量违约和流动性补偿。", "场景四核心指标；快速扩大优先防守。"],
@@ -216,7 +216,7 @@ const scoreRules = [
   ],
   [
     "Sentiment Fear Score",
-    "Fear & Greed <40 +1，<25 再+1，<15 再+1；AAII Bearish >40% +1，>50% 再+1，>60% 再+1；Put/Call 10日均值 >0.75 +1，>0.90 再+1。",
+    "Fear & Greed <40 +1，<25 再+1，<15 再+1；AAII Bearish >40% +1，>50% 再+1，>60% 再+1；Put/Call 当前值或10日均值 >0.75 +1，>0.90 再+1。",
     "0-2 正常，3-4 恐惧，5+ 极端悲观。"
   ]
 ];
@@ -244,11 +244,14 @@ const scenarios = [
   }
 ];
 
-let activePreset = "normal";
+let activePreset = "live";
+let liveSnapshot = null;
 
 const form = document.querySelector("#metric-form");
 const presetButtons = Array.from(document.querySelectorAll(".preset-button"));
 const resetButton = document.querySelector("#reset-button");
+const liveMeta = document.querySelector("#live-meta");
+const dataQuality = document.querySelector("#data-quality");
 
 function thresholdScore(value, rules, direction = "above") {
   return rules.reduce((score, threshold) => {
@@ -283,7 +286,11 @@ function buildForm() {
     })
     .join("");
 
-  form.addEventListener("input", updateDashboard);
+  form.addEventListener("input", () => {
+    activePreset = "manual";
+    presetButtons.forEach((button) => button.classList.remove("is-active"));
+    updateDashboard({ mode: "manual" });
+  });
 }
 
 function setValues(values) {
@@ -458,10 +465,72 @@ function labelForScore(type, score) {
   return "情绪正常";
 }
 
-function renderStatus(values, scores, regime) {
+function formatDateTime(value) {
+  if (!value) return "--";
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return parsed.toLocaleString("zh-CN", {
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+}
+
+function renderLiveMeta(context = {}) {
+  if (!liveMeta) return;
+
+  if (context.mode === "live" && context.snapshot) {
+    const estimatedCount = Object.values(context.snapshot.fieldMeta || {}).filter((item) => item.status !== "ok").length;
+    liveMeta.textContent = `Live Data | 更新 ${formatDateTime(context.snapshot.generatedAt)} | 数据日期 ${context.snapshot.asOf} | 估算项 ${estimatedCount}`;
+    return;
+  }
+
+  if (context.mode === "manual") {
+    liveMeta.textContent = "Manual Override | 你正在手动调整指标，分类会即时重算。";
+    return;
+  }
+
+  if (context.mode === "preset") {
+    liveMeta.textContent = "Scenario Preset | 当前是情景演示数据，不代表实时市场。";
+    return;
+  }
+
+  liveMeta.textContent = "Live Data | 正在读取实时快照...";
+}
+
+function renderDataQuality(snapshot) {
+  if (!dataQuality) return;
+  if (!snapshot) {
+    dataQuality.innerHTML = `<div class="data-quality-item">当前为预设或手动模式。</div>`;
+    return;
+  }
+
+  const notes = snapshot.notes || [];
+  const sourceItems = (snapshot.sourceSummary || []).slice(0, 3).map(
+    (source) => `<div class="data-quality-item"><strong>Source</strong> ${source}</div>`
+  );
+  const noteItems = notes.slice(0, 4).map(
+    (note) => `<div class="data-quality-item warning"><strong>Note</strong> ${note}</div>`
+  );
+
+  dataQuality.innerHTML = [...sourceItems, ...noteItems].join("");
+}
+
+function applyFieldMeta(fieldMeta = {}) {
+  Object.entries(fieldMeta).forEach(([key, meta]) => {
+    const input = document.querySelector(`#${key}`);
+    if (!input) return;
+    input.title = `${meta.source || "source unknown"} | as of ${meta.asOf || "--"}${meta.note ? ` | ${meta.note}` : ""}`;
+    input.dataset.status = meta.status || "ok";
+  });
+}
+
+function renderStatus(values, scores, regime, context = {}) {
   document.querySelector("#regime-title").textContent = regime.title;
   document.querySelector("#regime-summary").textContent = regime.summary;
   document.querySelector("#overheated-banner").hidden = !regime.overheated;
+  renderLiveMeta(context);
 
   document.querySelector("#vol-score").textContent = scores.volatility;
   document.querySelector("#credit-score").textContent = scores.credit;
@@ -592,29 +661,61 @@ function renderTables() {
     .join("");
 }
 
-function updateDashboard() {
+function updateDashboard(context = {}) {
   const values = getValues();
   const scores = calculateScores(values);
   const regime = classify(values, scores);
 
-  renderStatus(values, scores, regime);
+  renderStatus(values, scores, regime, context);
   renderTriggers(scores, regime);
+  renderDataQuality(context.snapshot);
   drawRiskMap(scores, regime);
+}
+
+async function loadLiveData() {
+  renderLiveMeta({ mode: "loading" });
+  try {
+    const response = await fetch(`data/latest.json?ts=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    liveSnapshot = await response.json();
+    setValues(liveSnapshot.values);
+    applyFieldMeta(liveSnapshot.fieldMeta);
+    activePreset = "live";
+    presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === "live"));
+    updateDashboard({ mode: "live", snapshot: liveSnapshot });
+  } catch (error) {
+    liveSnapshot = null;
+    activePreset = "normal";
+    presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === "normal"));
+    setValues(presets.normal);
+    updateDashboard({ mode: "preset" });
+    if (liveMeta) liveMeta.textContent = `Live Data 暂不可用，已显示正常回调预设。错误：${error.message}`;
+  }
 }
 
 function selectPreset(name) {
   activePreset = name;
   presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === name));
+  if (name === "live") {
+    loadLiveData();
+    return;
+  }
   setValues(presets[name]);
-  updateDashboard();
+  updateDashboard({ mode: "preset" });
 }
 
 presetButtons.forEach((button) => {
   button.addEventListener("click", () => selectPreset(button.dataset.preset));
 });
 
-resetButton.addEventListener("click", () => selectPreset(activePreset));
+resetButton.addEventListener("click", () => {
+  if (activePreset === "live" || activePreset === "manual") {
+    loadLiveData();
+    return;
+  }
+  selectPreset(activePreset);
+});
 
 buildForm();
 renderTables();
-selectPreset(activePreset);
+loadLiveData();

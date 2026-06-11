@@ -17,7 +17,8 @@
         <h1>Market Regime Dashboard</h1>
       </div>
       <div class="topbar-actions" aria-label="Preset scenarios">
-        <button class="preset-button is-active" data-preset="normal">正常回调</button>
+        <button class="preset-button is-active" data-preset="live">Live Data</button>
+        <button class="preset-button" data-preset="normal">正常回调</button>
         <button class="preset-button" data-preset="panic">恐慌回调</button>
         <button class="preset-button" data-preset="extreme">极端恐慌</button>
         <button class="preset-button" data-preset="systemic">系统性风险</button>
@@ -31,6 +32,7 @@
           <p class="eyebrow">Current Classification</p>
           <h2 id="regime-title">--</h2>
           <p id="regime-summary" class="regime-summary"></p>
+          <div id="live-meta" class="live-meta">正在读取实时数据...</div>
           <div id="overheated-banner" class="overheated-banner" hidden>
             <strong>Overheated Risk</strong>
             <span>市场情绪偏贪婪、估值偏高或上涨集中，避免追高和杠杆。</span>
@@ -82,6 +84,7 @@
             <canvas id="risk-canvas" width="520" height="300"></canvas>
           </div>
           <ul id="trigger-list" class="trigger-list"></ul>
+          <div id="data-quality" class="data-quality"></div>
         </aside>
       </section>
 
@@ -139,11 +142,11 @@
         <div>
           <p class="eyebrow">Data Notes</p>
           <p>
-            本站是静态前端规则引擎。FRED、Cboe、AAII、CNN、ETF价格和商业行情源可以作为生产数据源；
-            若接入自动更新，建议用 GitHub Actions 在后端脚本中拉取数据并生成公开 JSON，避免把 API key 暴露在浏览器。
+            本站由 GitHub Actions 定时生成 <code>data/latest.json</code>，前端读取快照后自动分类。
+            公开无密钥数据存在延迟：ETF/DXY通常为日内或日频，FRED多为T+1，NFCI为周频。
           </p>
         </div>
-        <button id="reset-button" class="secondary-button" type="button">恢复当前预设</button>
+        <button id="reset-button" class="secondary-button" type="button">重新读取/恢复</button>
       </section>
     </main>
 

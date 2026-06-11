@@ -36,6 +36,12 @@ button {
   cursor: pointer;
 }
 
+code {
+  background: var(--soft);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
 .topbar {
   display: flex;
   align-items: end;
@@ -138,6 +144,20 @@ main {
   max-width: 720px;
   margin-bottom: 16px;
   color: var(--muted);
+}
+
+.live-meta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #f8fbfb;
+  color: #3a4b56;
+  padding: 8px 10px;
+  font-size: 0.86rem;
 }
 
 .overheated-banner {
@@ -319,6 +339,30 @@ meter {
 
 .trigger-list li.danger {
   border-left-color: var(--red);
+}
+
+.data-quality {
+  display: grid;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.data-quality-item {
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: #fbfcfd;
+  padding: 9px 10px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.data-quality-item strong {
+  color: var(--ink);
+}
+
+.data-quality-item.warning {
+  border-color: #e2c486;
+  background: #fff9ec;
 }
 
 .table-section {
