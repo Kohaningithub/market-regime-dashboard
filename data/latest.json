@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-12T13:01:40Z",
+  "generatedAt": "2026-06-12T17:59:53Z",
   "asOf": "2026-06-12",
   "mode": "live",
   "values": {
-    "vix": 19.41,
-    "vixChange5d": -2.1,
+    "vix": 18.29,
+    "vixChange5d": -3.22,
     "move": 69.45,
-    "spyDrawdown": -2.87,
-    "qqqDrawdown": -3.89,
-    "rspSpyRel60d": -2.57,
+    "spyDrawdown": -2.41,
+    "qqqDrawdown": -3.22,
+    "rspSpyRel60d": -2.26,
     "valuationPctile": 65,
-    "hygRet20d": 0.55,
-    "jnkRet20d": 0.65,
+    "hygRet20d": 0.64,
+    "jnkRet20d": 0.76,
     "hyOas": 2.8,
     "hyOasChange20d": 4.0,
     "igOas": 0.75,
     "igOasChange20d": -1.0,
-    "dxyChange20d": 0.99,
+    "dxyChange20d": 0.87,
     "tenYYield": 4.55,
     "tenYChange20d": 9.0,
     "realTenY": 2.21,
     "realTenYChange20d": 22.0,
     "nfci": -0.51,
-    "kreRel20d": 8.42,
+    "kreRel20d": 9.05,
     "aaiiBearish": 47.7,
     "putCall": 0.56,
-    "fearGreed": 31.0
+    "fearGreed": 34.0
   },
   "scores": {
     "volatility": 0,
@@ -56,17 +56,17 @@
       "status": "ok"
     },
     "spyDrawdown": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "Yahoo Finance SPY",
       "status": "ok"
     },
     "qqqDrawdown": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "Yahoo Finance QQQ",
       "status": "ok"
     },
     "rspSpyRel60d": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
     },
@@ -77,12 +77,12 @@
       "note": "Public no-key forward P/E percentile source is not wired; default neutral value avoids false overheat calls."
     },
     "hygRet20d": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "Yahoo Finance HYG",
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
@@ -137,7 +137,7 @@
       "status": "ok"
     },
     "kreRel20d": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "Yahoo Finance KRE/SPY",
       "status": "ok"
     },
@@ -153,7 +153,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-06-12T12:45:16+00:00",
+      "asOf": "2026-06-12T17:56:00+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
