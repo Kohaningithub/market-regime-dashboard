@@ -345,7 +345,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
         return {
             "key": "panic",
             "title": "恐慌回调",
-            "summary": "市场情绪进入恐惧区，指数回调较深，但信用和美元流动性没有明显失控。适合用计划分批加仓。",
+            "summary": "市场情绪进入恐惧区，指数回调较深，但信用和美元流动性尚未出现失序信号。适合按计划分批加仓。",
             "tone": "warning",
             "overheated": overheated,
         }

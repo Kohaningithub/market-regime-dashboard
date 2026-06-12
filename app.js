@@ -333,7 +333,7 @@ const scenarios = [
     title: "恐慌回调",
     posture: "分批加仓",
     rule: "Credit Stress Score <= 3，同时 Volatility 与 Sentiment 进入恐慌区，SPY/QQQ回撤较深。",
-    meaning: "市场情绪很差，但信用和美元流动性没有明显失控。",
+    meaning: "风险偏好明显转弱，但信用和美元流动性尚未出现失序信号。",
     action: "适合用预设计划分批加仓，避免一次性打满。"
   },
   {
@@ -567,7 +567,7 @@ function classify(values, scores) {
       key: "panic",
       title: "恐慌回调",
       summary:
-        "市场情绪进入恐惧区，指数回调较深，但信用和美元流动性没有明显失控。适合用计划分批加仓。",
+        "市场情绪进入恐惧区，指数回调较深，但信用和美元流动性尚未出现失序信号。适合按计划分批加仓。",
       tone: "warning",
       overheated
     };
@@ -641,9 +641,9 @@ function investmentImplications(regime, scores, values) {
   }
 
   return {
-    primary: "保持纪律",
-    allocation: "维持目标配置，避免把短期噪音当趋势",
-    watch: "估值、上涨集中度和情绪是否转向过热"
+    primary: "维持目标配置",
+    allocation: "按既定再平衡规则执行，暂不主动提高风险暴露",
+    watch: "估值分位、上涨集中度和情绪过热信号"
   };
 }
 
@@ -777,15 +777,15 @@ function renderList(id, items, emptyText) {
 function renderScoreDetails(values, scores) {
   const contributors = contributorList(values);
   document.querySelector("#vol-detail").textContent =
-    "看 VIX、VIX 5日变化和 MOVE。分数越高，说明避险需求和波动冲击越强。";
+    "综合衡量美股隐含波动率、波动率变化速度和美债波动率。分数越高，代表避险需求和波动冲击越强。";
   document.querySelector("#credit-detail").textContent =
-    "看高收益债、信用利差、美元、金融条件和银行股。这个分数优先级最高，因为信用压力会改变投资动作。";
+    "综合衡量高收益债、信用利差、美元流动性、金融条件和银行股相对表现。该分数优先级最高，因为信用压力会直接改变风险预算。";
   document.querySelector("#sentiment-detail").textContent =
-    "看 Fear & Greed、AAII 看跌比例和 Put/Call。低情绪本身未必坏，关键是信用是否也恶化。";
+    "综合衡量投资者风险偏好、看跌比例和期权保护需求。情绪恐惧在信用稳定时可作为反向参考；若与信用压力同步恶化，则应降低风险预算。";
 
-  renderList("vol-contributors", contributors.vol, `当前没有明显波动率触发项，Volatility Panic = ${scores.volatility}。`);
-  renderList("credit-contributors", contributors.credit, `当前信用触发项很少，Credit Stress = ${scores.credit}。`);
-  renderList("sentiment-contributors", contributors.sentiment, `当前情绪触发项有限，Sentiment Fear = ${scores.sentiment}。`);
+  renderList("vol-contributors", contributors.vol, `未触发主要波动率压力阈值，Volatility Panic = ${scores.volatility}。`);
+  renderList("credit-contributors", contributors.credit, `信用压力阈值基本未触发，Credit Stress = ${scores.credit}。`);
+  renderList("sentiment-contributors", contributors.sentiment, `情绪压力阈值触发有限，Sentiment Fear = ${scores.sentiment}。`);
 }
 
 function renderInvestmentImplications(regime, scores, values) {
