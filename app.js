@@ -54,6 +54,101 @@ const modules = [
   }
 ];
 
+const sourceLinks = {
+  vix: {
+    label: "Cboe VIX",
+    url: "https://www.cboe.com/tradable_products/vix/"
+  },
+  vixChange5d: {
+    label: "Cboe VIX",
+    url: "https://www.cboe.com/tradable_products/vix/"
+  },
+  move: {
+    label: "Yahoo ^MOVE",
+    url: "https://finance.yahoo.com/quote/%5EMOVE/"
+  },
+  spyDrawdown: {
+    label: "Yahoo SPY",
+    url: "https://finance.yahoo.com/quote/SPY/"
+  },
+  qqqDrawdown: {
+    label: "Yahoo QQQ",
+    url: "https://finance.yahoo.com/quote/QQQ/"
+  },
+  rspSpyRel60d: {
+    label: "Yahoo RSP",
+    url: "https://finance.yahoo.com/quote/RSP/"
+  },
+  valuationPctile: {
+    label: "Yardeni",
+    url: "https://www.yardeni.com/pub/stockmktperatio.pdf"
+  },
+  fearGreed: {
+    label: "CNN F&G",
+    url: "https://www.cnn.com/markets/fear-and-greed"
+  },
+  aaiiBearish: {
+    label: "AAII",
+    url: "https://www.aaii.com/sentimentsurvey"
+  },
+  putCall: {
+    label: "Cboe Stats",
+    url: "https://www.cboe.com/us/options/market_statistics/daily/"
+  },
+  hygRet20d: {
+    label: "Yahoo HYG",
+    url: "https://finance.yahoo.com/quote/HYG/"
+  },
+  jnkRet20d: {
+    label: "Yahoo JNK",
+    url: "https://finance.yahoo.com/quote/JNK/"
+  },
+  hyOas: {
+    label: "FRED HY OAS",
+    url: "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
+  },
+  hyOasChange20d: {
+    label: "FRED HY OAS",
+    url: "https://fred.stlouisfed.org/series/BAMLH0A0HYM2"
+  },
+  igOas: {
+    label: "FRED IG OAS",
+    url: "https://fred.stlouisfed.org/series/BAMLC0A0CM"
+  },
+  igOasChange20d: {
+    label: "FRED IG OAS",
+    url: "https://fred.stlouisfed.org/series/BAMLC0A0CM"
+  },
+  dxyChange20d: {
+    label: "Yahoo DXY",
+    url: "https://finance.yahoo.com/quote/DX-Y.NYB/"
+  },
+  tenYYield: {
+    label: "FRED DGS10",
+    url: "https://fred.stlouisfed.org/series/DGS10"
+  },
+  tenYChange20d: {
+    label: "FRED DGS10",
+    url: "https://fred.stlouisfed.org/series/DGS10"
+  },
+  realTenY: {
+    label: "FRED DFII10",
+    url: "https://fred.stlouisfed.org/series/DFII10"
+  },
+  realTenYChange20d: {
+    label: "FRED DFII10",
+    url: "https://fred.stlouisfed.org/series/DFII10"
+  },
+  nfci: {
+    label: "FRED NFCI",
+    url: "https://fred.stlouisfed.org/series/NFCI"
+  },
+  kreRel20d: {
+    label: "Yahoo KRE",
+    url: "https://finance.yahoo.com/quote/KRE/"
+  }
+};
+
 const presets = {
   normal: {
     vix: 21.8,
@@ -183,28 +278,28 @@ const presets = {
 };
 
 const indicatorRows = [
-  ["VIX", "Yahoo Finance ^VIX / Cboe VIX", "最新收盘或最新可得值", ">20、>25、>35、>45", "波动率指标", "30天隐含波动率，衡量美股期权市场恐慌程度。", "提高 Volatility Panic Score；>35 支持场景三。"],
-  ["VIX 5日变化", "Yahoo Finance ^VIX / Cboe VIX", "VIX(t) - VIX(t-5)", ">5点、>10点", "波动率指标", "衡量恐慌升温速度，过滤慢性高波动。", "快速上升会把场景一推向二或三。"],
-  ["MOVE Index", "Yahoo Finance ^MOVE / ICE BofA MOVE Index", "最新收盘或最新可得值", ">120、>160、>180", "波动率指标", "美债隐含波动率，衡量利率市场是否失序。", "高值提高 Volatility Score；>160配合信用恶化触发场景四。"],
+  ["VIX", "Yahoo Finance ^VIX / Cboe VIX", "最新收盘或最新可得值", ">20、>25、>35、>45", "波动率指标", "30天隐含波动率，衡量美股期权市场恐慌程度。", "提高 Volatility Panic Score；>35 支持极端恐慌判断。"],
+  ["VIX 5日变化", "Yahoo Finance ^VIX / Cboe VIX", "VIX(t) - VIX(t-5)", ">5点、>10点", "波动率指标", "衡量恐慌升温速度，过滤慢性高波动。", "快速上升会把正常回调推向恐慌回调或极端恐慌。"],
+  ["MOVE Index", "Yahoo Finance ^MOVE / ICE BofA MOVE Index", "最新收盘或最新可得值", ">120、>160、>180", "波动率指标", "美债隐含波动率，衡量利率市场是否失序。", "高值提高 Volatility Score；>160配合信用恶化触发防守模式。"],
   ["SPY drawdown", "Yahoo Finance SPY", "SPY / 252日高点 - 1", "<-5%、<-10%、<-20%", "股市回撤指标", "衡量美股大盘从近一年高点回撤深度。", "定义回调深度，配合信用压力决定是否可抄底。"],
-  ["QQQ drawdown", "Yahoo Finance QQQ", "QQQ / 252日高点 - 1", "<-8%、<-15%、<-25%", "股市回撤指标", "衡量成长股和科技权重资产的风险偏好。", "QQQ深跌但信用稳定时偏场景二/三。"],
+  ["QQQ drawdown", "Yahoo Finance QQQ", "QQQ / 252日高点 - 1", "<-8%、<-15%、<-25%", "股市回撤指标", "衡量成长股和科技权重资产的风险偏好。", "QQQ深跌但信用稳定时偏恐慌回调或极端恐慌。"],
   ["RSP/SPY 60日相对表现", "Yahoo Finance RSP and SPY", "(RSP/SPY)(t) / (RSP/SPY)(t-60) - 1", "<-3%、<-6%", "股市回撤指标", "等权指数相对市值加权指数，衡量上涨集中度。", "走弱时提示广度恶化；高情绪下触发过热风险。"],
   ["S&P 500估值分位", "中性占位；可替换为FactSet/Bloomberg/Yardeni", "Forward P/E历史分位或估值综合分位", ">80%、>90%", "股市回撤指标", "衡量估值安全边际。当前无公开稳定源，自动版默认65。", "只用于 Overheated Risk，不直接提高恐慌分。"],
   ["Fear & Greed Index", "CNN Fear & Greed Index；失败时使用proxy", "CNN官方0-100分；proxy由VIX、SPY、Put/Call、HYG、RSP/SPY、AAII合成", "<40、<25、<15；>75提示贪婪", "情绪指标", "综合动量、广度、期权、信用、波动和避险需求。", "低值提高 Sentiment Fear Score；高值触发 Overheated Risk。"],
-  ["AAII Bearish %", "AAII Sentiment Survey", "看跌投资者占比", ">40%、>50%、>60%", "情绪指标", "散户投资者悲观程度，极端高值常具反向含义。", "提高 Sentiment Fear Score，支持场景二/三。"],
+  ["AAII Bearish %", "AAII Sentiment Survey", "看跌投资者占比", ">40%、>50%、>60%", "情绪指标", "散户投资者悲观程度，极端高值常具反向含义。", "提高 Sentiment Fear Score，支持恐慌或极端恐慌判断。"],
   ["Put/Call Ratio", "Cboe Daily Market Statistics", "Put成交量 / Call成交量；有历史源时用10日均值，无历史源时用Cboe当前日值", ">0.75、>0.90；<0.55提示贪婪", "情绪指标", "保护性需求或投机偏好变化。", "高值加恐惧分；低值加过热提示。"],
-  ["HYG 20日回报", "Yahoo Finance HYG", "HYG(t) / HYG(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF价格压力。", "显著下跌提高 Credit Stress Score，场景四权重上升。"],
+  ["HYG 20日回报", "Yahoo Finance HYG", "HYG(t) / HYG(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF价格压力。", "显著下跌提高 Credit Stress Score，防守模式权重上升。"],
   ["JNK 20日回报", "Yahoo Finance JNK", "JNK(t) / JNK(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF第二确认信号。", "与HYG共振时优先检查系统性风险。"],
-  ["High Yield OAS", "FRED BAMLH0A0HYM2 / ICE BofA", "最新值", ">4.5%、>6%", "信用市场指标", "垃圾债信用利差，衡量违约和流动性补偿。", "高值提高 Credit Stress Score；场景四权重上升。"],
-  ["HY OAS 20日扩大", "FRED BAMLH0A0HYM2 / ICE BofA", "(HY OAS(t) - HY OAS(t-20)) * 100bp", ">75bp、>150bp", "信用市场指标", "衡量高收益债信用压力恶化速度。", "快速扩大是场景四核心触发信号。"],
+  ["High Yield OAS", "FRED BAMLH0A0HYM2 / ICE BofA", "最新值", ">4.5%、>6%", "信用市场指标", "垃圾债信用利差，衡量违约和流动性补偿。", "高值提高 Credit Stress Score；防守模式权重上升。"],
+  ["HY OAS 20日扩大", "FRED BAMLH0A0HYM2 / ICE BofA", "(HY OAS(t) - HY OAS(t-20)) * 100bp", ">75bp、>150bp", "信用市场指标", "衡量高收益债信用压力恶化速度。", "快速扩大是防守模式核心触发信号。"],
   ["Investment Grade OAS", "FRED BAMLC0A0CM / ICE BofA", "最新值", ">1.25%、>1.75%", "信用市场指标", "投资级债信用利差，衡量压力是否扩散到优质信用。", "IG也走坏时，防守优先级上升。"],
-  ["IG OAS 20日扩大", "FRED BAMLC0A0CM / ICE BofA", "(IG OAS(t) - IG OAS(t-20)) * 100bp", ">25bp、>60bp", "信用市场指标", "衡量投资级信用压力恶化速度。", "快速扩大说明压力开始扩散，强化场景四。"],
-  ["DXY 20日变化", "Yahoo Finance DX-Y.NYB", "DXY(t) / DXY(t-20) - 1", ">3%、>5%", "系统性风险指标", "美元快速走强常代表全球美元流动性压力或避险需求。", "配合信用恶化时强化场景四。"],
+  ["IG OAS 20日扩大", "FRED BAMLC0A0CM / ICE BofA", "(IG OAS(t) - IG OAS(t-20)) * 100bp", ">25bp、>60bp", "信用市场指标", "衡量投资级信用压力恶化速度。", "快速扩大说明压力开始扩散，强化防守模式。"],
+  ["DXY 20日变化", "Yahoo Finance DX-Y.NYB", "DXY(t) / DXY(t-20) - 1", ">3%、>5%", "系统性风险指标", "美元快速走强常代表全球美元流动性压力或避险需求。", "配合信用恶化时强化防守模式。"],
   ["10Y Treasury Yield", "FRED DGS10", "最新值", "水平本身不单独打分", "系统性风险指标", "名义利率水平，用来解释利率冲击或避险买债方向。", "和信用、美元、MOVE组合解释。"],
   ["10Y Yield 20日变化", "FRED DGS10", "(10Y(t) - 10Y(t-20)) * 100bp", ">50bp；或快速下行且信用利差扩大", "系统性风险指标", "衡量名义利率冲击速度。", "辅助解释成长股压力和系统性风险。"],
-  ["10Y Real Yield", "FRED DFII10", "最新值", "水平本身不单独打分", "系统性风险指标", "实际利率水平，对长久期成长资产影响较大。", "解释QQQ压力，辅助场景二/四。"],
+  ["10Y Real Yield", "FRED DFII10", "最新值", "水平本身不单独打分", "系统性风险指标", "实际利率水平，对长久期成长资产影响较大。", "解释QQQ压力，辅助恐慌回调或防守判断。"],
   ["10Y Real Yield 20日变化", "FRED DFII10", "(10Y Real Yield(t) - 10Y Real Yield(t-20)) * 100bp", ">40bp", "系统性风险指标", "衡量实际利率收紧速度。", "实际利率快速上升时提高成长股压力解释权重。"],
-  ["NFCI", "FRED NFCI / Chicago Fed", "周度金融条件指数", ">0、>0.5；4周明显上升", "系统性风险指标", "正值代表金融条件紧于历史平均。", ">0时提高 Credit Stress Score，场景四权重上升。"],
+  ["NFCI", "FRED NFCI / Chicago Fed", "周度金融条件指数", ">0、>0.5；4周明显上升", "系统性风险指标", "正值代表金融条件紧于历史平均。", ">0时提高 Credit Stress Score，防守模式权重上升。"],
   ["KRE vs SPY 20日相对表现", "Yahoo Finance KRE and SPY", "(KRE/SPY)(t) / (KRE/SPY)(t-20) - 1", "<-8%、<-15%", "系统性风险指标", "区域银行相对大盘表现，监测银行体系压力。", "大幅跑输是 Defensive Mode 重要触发器。"]
 ];
 
@@ -228,24 +323,39 @@ const scoreRules = [
 
 const scenarios = [
   {
-    title: "场景一：正常回调",
-    rule: "Credit Stress Score <= 2，VIX温和升高，指数小幅回撤，信用市场稳定。",
-    action: "可以正常定投，保持组合纪律。"
+    title: "正常或温和回调",
+    posture: "维持计划",
+    rule: "Credit Stress Score <= 2，VIX温和升高，指数只是小幅回撤，信用市场稳定。",
+    meaning: "市场更像普通调整，而不是流动性或信用危机。",
+    action: "可以维持正常定投、再平衡和质量资产配置。"
   },
   {
-    title: "场景二：恐慌回调",
+    title: "恐慌回调",
+    posture: "分批加仓",
     rule: "Credit Stress Score <= 3，同时 Volatility 与 Sentiment 进入恐慌区，SPY/QQQ回撤较深。",
-    action: "可以分批加仓，避免一次性打满。"
+    meaning: "市场情绪很差，但信用和美元流动性没有明显失控。",
+    action: "适合用预设计划分批加仓，避免一次性打满。"
   },
   {
-    title: "场景三：极端恐慌",
+    title: "极端恐慌",
+    posture: "寻找机会",
     rule: "Credit Stress Score <= 3，但 VIX、MOVE 或情绪指标极端，指数明显下跌。",
-    action: "关注抄底机会，但仍用分批和风控执行。"
+    meaning: "恐慌程度接近反向机会区，但还没有进入系统性信用压力。",
+    action: "关注抄底窗口，仍然用分层现金和风控执行。"
   },
   {
-    title: "场景四：Defensive Mode",
+    title: "系统性风险",
+    posture: "先防守",
     rule: "Credit Stress Score >= 6，或信用、银行、美元、美债流动性出现多点共振恶化。",
-    action: "先防守，降低风险敞口，不急着抄底。"
+    meaning: "这类下跌可能不是单纯情绪杀跌，而是融资和流动性压力。",
+    action: "优先降低风险敞口，等待信用压力稳定后再考虑加仓。"
+  },
+  {
+    title: "过热风险",
+    posture: "避免追高",
+    rule: "Fear & Greed > 75，Put/Call < 0.55，且估值偏高或上涨集中。",
+    meaning: "市场可能已经过度乐观，价格对好消息更敏感，对坏消息更脆弱。",
+    action: "减少杠杆和追高，考虑再平衡、获利回收和提高安全边际。"
   }
 ];
 
@@ -257,9 +367,15 @@ const presetButtons = Array.from(document.querySelectorAll(".preset-button"));
 const resetButton = document.querySelector("#reset-button");
 const liveMeta = document.querySelector("#live-meta");
 const dataQuality = document.querySelector("#data-quality");
+const briefingMeta = document.querySelector("#briefing-meta");
+const briefingSummary = document.querySelector("#briefing-summary");
+const briefingList = document.querySelector("#briefing-list");
+const libraryTabs = Array.from(document.querySelectorAll(".library-tab"));
 const CLIENT_POLL_MS = 120000;
+const BRIEFING_POLL_MS = 300000;
 const STALE_SNAPSHOT_MINUTES = 1440;
 const STATIC_SNAPSHOT_ENDPOINT = "data/latest.json";
+const BRIEFING_ENDPOINT = "data/briefing.json";
 const STATIC_TIMEOUT_MS = 8000;
 
 function thresholdScore(value, rules, direction = "above") {
@@ -274,14 +390,23 @@ function buildForm() {
   form.innerHTML = modules
     .map((module) => {
       const fields = module.fields
-        .map(
-          (field) => `
+        .map((field) => {
+          const source = sourceLinks[field.key];
+          return `
             <div class="field">
-              <label for="${field.key}">${field.label}${field.suffix ? ` (${field.suffix})` : ""}</label>
+              <div class="field-label-row">
+                <label for="${field.key}">${field.label}${field.suffix ? ` (${field.suffix})` : ""}</label>
+                ${
+                  source
+                    ? `<a class="source-link" href="${source.url}" target="_blank" rel="noopener" title="${source.label}">Source</a>`
+                    : ""
+                }
+              </div>
               <input id="${field.key}" name="${field.key}" type="number" step="${field.step}" inputmode="decimal" />
+              <small id="${field.key}-meta" class="field-meta"></small>
             </div>
-          `
-        )
+          `;
+        })
         .join("");
       return `
         <fieldset class="module-block">
@@ -409,7 +534,7 @@ function classify(values, scores) {
   if (scores.credit >= 6 || systemicCluster) {
     return {
       key: "defensive",
-      title: "场景四：Defensive Mode",
+      title: "系统性风险",
       summary:
         "信用压力优先级最高。股市下跌同时伴随信用、银行、美元或美债波动恶化时，先降低风险敞口，不急着抄底。",
       tone: "danger",
@@ -424,7 +549,7 @@ function classify(values, scores) {
   ) {
     return {
       key: "extreme",
-      title: "场景三：极端恐慌",
+      title: "极端恐慌",
       summary:
         "波动率和情绪已经极端，但信用市场尚未失控。可以开始关注抄底窗口，执行上仍应分批和控制仓位。",
       tone: "danger",
@@ -440,7 +565,7 @@ function classify(values, scores) {
   ) {
     return {
       key: "panic",
-      title: "场景二：恐慌回调",
+      title: "恐慌回调",
       summary:
         "市场情绪进入恐惧区，指数回调较深，但信用和美元流动性没有明显失控。适合用计划分批加仓。",
       tone: "warning",
@@ -450,7 +575,7 @@ function classify(values, scores) {
 
   return {
     key: "normal",
-    title: "场景一：正常或温和回调",
+    title: "正常或温和回调",
     summary:
       "信用市场稳定，波动率未进入失控区。若指数只是普通调整，可以维持正常定投和再平衡纪律。",
     tone: "calm",
@@ -472,6 +597,54 @@ function labelForScore(type, score) {
   if (score >= 5) return "极端悲观";
   if (score >= 3) return "恐惧区间";
   return "情绪正常";
+}
+
+function investmentImplications(regime, scores, values) {
+  if (regime.key === "defensive") {
+    return {
+      primary: "先防守，不急着抄底",
+      allocation: "降低高 beta、杠杆和低质量信用敞口",
+      watch: "HY/IG OAS、HYG/JNK、KRE、DXY 是否稳定"
+    };
+  }
+
+  if (regime.key === "extreme") {
+    return {
+      primary: "关注抄底窗口",
+      allocation: "用现金分层买入，保留后续弹药",
+      watch: "信用利差是否保持稳定，VIX 是否见顶回落"
+    };
+  }
+
+  if (regime.key === "panic") {
+    return {
+      primary: "按计划分批加仓",
+      allocation: "优先宽基、质量股和长期核心仓位",
+      watch: "恐慌是否扩散到信用市场和银行股"
+    };
+  }
+
+  if (regime.overheated) {
+    return {
+      primary: "避免追高",
+      allocation: "控制杠杆，考虑再平衡和获利回收",
+      watch: "Fear & Greed、Put/Call、RSP/SPY 广度"
+    };
+  }
+
+  if (values.spyDrawdown < -3 || values.qqqDrawdown < -5 || scores.volatility > 0) {
+    return {
+      primary: "维持定投和再平衡",
+      allocation: "不用因为普通回调改变长期计划",
+      watch: "VIX 是否继续上行，信用分数是否抬头"
+    };
+  }
+
+  return {
+    primary: "保持纪律",
+    allocation: "维持目标配置，避免把短期噪音当趋势",
+    watch: "估值、上涨集中度和情绪是否转向过热"
+  };
 }
 
 function formatDateTime(value) {
@@ -558,10 +731,68 @@ function renderDataQuality(snapshot) {
 function applyFieldMeta(fieldMeta = {}) {
   Object.entries(fieldMeta).forEach(([key, meta]) => {
     const input = document.querySelector(`#${key}`);
-    if (!input) return;
-    input.title = `${meta.source || "source unknown"} | as of ${meta.asOf || "--"}${meta.note ? ` | ${meta.note}` : ""}`;
-    input.dataset.status = meta.status || "ok";
+    const metaNode = document.querySelector(`#${key}-meta`);
+    if (input) {
+      input.title = `${meta.source || "source unknown"} | as of ${meta.asOf || "--"}${meta.note ? ` | ${meta.note}` : ""}`;
+      input.dataset.status = meta.status || "ok";
+    }
+    if (metaNode) {
+      const status = meta.status === "estimated" ? "estimated" : "ok";
+      metaNode.classList.toggle("is-estimated", status === "estimated");
+      metaNode.textContent = `${meta.asOf || "--"} | ${status === "estimated" ? "估算" : "已更新"}`;
+    }
   });
+}
+
+function contributorList(values) {
+  const vol = [];
+  if (values.vix > 20) vol.push(`VIX ${values.vix.toFixed(1)} 高于 20`);
+  if (values.vixChange5d > 5) vol.push(`VIX 5日变化 ${values.vixChange5d.toFixed(1)} 点`);
+  if (values.move > 120) vol.push(`MOVE ${values.move.toFixed(1)} 高于 120`);
+
+  const credit = [];
+  if (values.hygRet20d < -3) credit.push(`HYG 20日 ${values.hygRet20d.toFixed(1)}%`);
+  if (values.jnkRet20d < -3) credit.push(`JNK 20日 ${values.jnkRet20d.toFixed(1)}%`);
+  if (values.hyOas > 4.5 || values.hyOasChange20d > 75) credit.push(`HY OAS ${values.hyOas.toFixed(2)}%，20日 ${values.hyOasChange20d.toFixed(0)} bp`);
+  if (values.igOas > 1.25 || values.igOasChange20d > 25) credit.push(`IG OAS ${values.igOas.toFixed(2)}%，20日 ${values.igOasChange20d.toFixed(0)} bp`);
+  if (values.dxyChange20d > 3) credit.push(`DXY 20日 ${values.dxyChange20d.toFixed(1)}%`);
+  if (values.nfci > 0) credit.push(`NFCI ${values.nfci.toFixed(2)} 高于 0`);
+  if (values.kreRel20d < -8) credit.push(`KRE/SPY 20日 ${values.kreRel20d.toFixed(1)}%`);
+
+  const sentiment = [];
+  if (values.fearGreed < 40) sentiment.push(`Fear & Greed ${values.fearGreed.toFixed(0)} 低于 40`);
+  if (values.aaiiBearish > 40) sentiment.push(`AAII Bearish ${values.aaiiBearish.toFixed(1)}%`);
+  if (values.putCall > 0.75) sentiment.push(`Put/Call ${values.putCall.toFixed(2)}`);
+
+  return { vol, credit, sentiment };
+}
+
+function renderList(id, items, emptyText) {
+  const node = document.querySelector(`#${id}`);
+  if (!node) return;
+  const list = items.length ? items : [emptyText];
+  node.innerHTML = list.map((item) => `<li>${item}</li>`).join("");
+}
+
+function renderScoreDetails(values, scores) {
+  const contributors = contributorList(values);
+  document.querySelector("#vol-detail").textContent =
+    "看 VIX、VIX 5日变化和 MOVE。分数越高，说明避险需求和波动冲击越强。";
+  document.querySelector("#credit-detail").textContent =
+    "看高收益债、信用利差、美元、金融条件和银行股。这个分数优先级最高，因为信用压力会改变投资动作。";
+  document.querySelector("#sentiment-detail").textContent =
+    "看 Fear & Greed、AAII 看跌比例和 Put/Call。低情绪本身未必坏，关键是信用是否也恶化。";
+
+  renderList("vol-contributors", contributors.vol, `当前没有明显波动率触发项，Volatility Panic = ${scores.volatility}。`);
+  renderList("credit-contributors", contributors.credit, `当前信用触发项很少，Credit Stress = ${scores.credit}。`);
+  renderList("sentiment-contributors", contributors.sentiment, `当前情绪触发项有限，Sentiment Fear = ${scores.sentiment}。`);
+}
+
+function renderInvestmentImplications(regime, scores, values) {
+  const implications = investmentImplications(regime, scores, values);
+  document.querySelector("#primary-action").textContent = implications.primary;
+  document.querySelector("#allocation-cue").textContent = implications.allocation;
+  document.querySelector("#watch-cue").textContent = implications.watch;
 }
 
 function renderStatus(values, scores, regime, context = {}) {
@@ -586,6 +817,8 @@ function renderStatus(values, scores, regime, context = {}) {
   document.querySelector("#vol-label").textContent = labelForScore("vol", scores.volatility);
   document.querySelector("#credit-label").textContent = labelForScore("credit", scores.credit);
   document.querySelector("#sentiment-label").textContent = labelForScore("sentiment", scores.sentiment);
+  renderInvestmentImplications(regime, scores, values);
+  renderScoreDetails(values, scores);
 }
 
 function renderTriggers(scores, regime) {
@@ -686,7 +919,9 @@ function renderTables() {
       (scenario) => `
         <article class="scenario-card">
           <h3>${scenario.title}</h3>
+          <em>${scenario.posture}</em>
           <p>${scenario.rule}</p>
+          <p>${scenario.meaning}</p>
           <strong>${scenario.action}</strong>
         </article>
       `
@@ -715,8 +950,16 @@ function updateDashboard(context = {}) {
   drawRiskMap(scores, regime);
 }
 
-async function fetchLatestSnapshot() {
-  const endpoint = STATIC_SNAPSHOT_ENDPOINT;
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+async function fetchStaticJson(endpoint) {
   const separator = endpoint.includes("?") ? "&" : "?";
   const url = `${endpoint}${separator}ts=${Date.now()}`;
   const controller = new AbortController();
@@ -734,6 +977,62 @@ async function fetchLatestSnapshot() {
     throw error;
   } finally {
     window.clearTimeout(timeout);
+  }
+}
+
+async function fetchLatestSnapshot() {
+  const snapshot = await fetchStaticJson(STATIC_SNAPSHOT_ENDPOINT);
+  snapshot.clientSource = STATIC_SNAPSHOT_ENDPOINT;
+  return snapshot;
+}
+
+function renderBriefing(briefing) {
+  if (!briefingMeta || !briefingSummary || !briefingList) return;
+  const itemCount = Array.isArray(briefing.items) ? briefing.items.length : 0;
+  briefingMeta.textContent = `更新 ${formatDateTime(briefing.generatedAt)} | ${briefing.source || "每日投资简报"} | ${itemCount} 条线索`;
+  briefingSummary.textContent = briefing.summary || "今日暂无简报摘要。";
+  const items = (briefing.items || []).slice(0, 6);
+  if (!items.length) {
+    briefingList.innerHTML = `<article class="briefing-card"><h3>等待更新</h3><p>简报发布器还没有写入有效线索。</p><strong>影响：不改变当前模型分数。</strong></article>`;
+    return;
+  }
+
+  briefingList.innerHTML = items
+    .map((item) => {
+      const sourceLink = item.sourceUrl
+        ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener">${escapeHtml(item.sourceLabel || "Source")}</a>`
+        : escapeHtml(item.sourceLabel || "");
+      return `
+        <article class="briefing-card">
+          <h3>${escapeHtml(item.title)}</h3>
+          <p>${escapeHtml(item.detail)}</p>
+          <strong>投资含义：${escapeHtml(item.impact || "观察其对风险偏好、利率和信用的影响。")}</strong>
+          ${sourceLink ? `<div class="source-meta">${sourceLink}</div>` : ""}
+        </article>
+      `;
+    })
+    .join("");
+}
+
+function renderBriefingError(error) {
+  if (!briefingMeta || !briefingSummary || !briefingList) return;
+  briefingMeta.textContent = "每日投资简报暂不可用";
+  briefingSummary.textContent = `等待简报发布器写入 data/briefing.json。错误：${error.message}`;
+  briefingList.innerHTML = `
+    <article class="briefing-card">
+      <h3>简报数据未就绪</h3>
+      <p>市场状态模型仍会读取最新指标；这里只影响“今日影响线索”模块。</p>
+      <strong>投资含义：先以量化状态和触发信号为准。</strong>
+    </article>
+  `;
+}
+
+async function loadBriefing(options = {}) {
+  try {
+    renderBriefing(await fetchStaticJson(BRIEFING_ENDPOINT));
+  } catch (error) {
+    if (options.silent) return;
+    renderBriefingError(error);
   }
 }
 
@@ -782,18 +1081,43 @@ presetButtons.forEach((button) => {
   button.addEventListener("click", () => selectPreset(button.dataset.preset));
 });
 
-resetButton.addEventListener("click", () => {
-  if (activePreset === "live" || activePreset === "manual") {
-    loadLiveData();
-    return;
-  }
-  selectPreset(activePreset);
+if (resetButton) {
+  resetButton.addEventListener("click", () => {
+    if (activePreset === "live" || activePreset === "manual") {
+      loadLiveData();
+      loadBriefing();
+      return;
+    }
+    selectPreset(activePreset);
+    loadBriefing();
+  });
+}
+
+libraryTabs.forEach((button) => {
+  button.addEventListener("click", () => {
+    const target = button.dataset.tab;
+    libraryTabs.forEach((tab) => {
+      const selected = tab.dataset.tab === target;
+      tab.classList.toggle("is-active", selected);
+      tab.setAttribute("aria-selected", String(selected));
+    });
+    document.querySelectorAll(".library-pane").forEach((pane) => {
+      const selected = pane.id === `library-${target}`;
+      pane.classList.toggle("is-active", selected);
+      pane.hidden = !selected;
+    });
+  });
 });
 
 buildForm();
 renderTables();
 loadLiveData();
+loadBriefing();
 
 setInterval(() => {
   if (activePreset === "live") loadLiveData({ silent: true });
 }, CLIENT_POLL_MS);
+
+setInterval(() => {
+  loadBriefing({ silent: true });
+}, BRIEFING_POLL_MS);

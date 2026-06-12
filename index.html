@@ -3,82 +3,116 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Market Regime Dashboard</title>
+    <title>Market Investment Readout</title>
     <meta
       name="description"
-      content="A public market regime dashboard for classifying U.S. equity drawdowns by volatility, sentiment, credit stress, and systemic risk."
+      content="A client-facing market regime readout for judging whether U.S. equities favor investing, rebalancing, adding risk, or defensive positioning."
     />
-    <link rel="stylesheet" href="styles.css?v=20260611-github3x" />
+    <link rel="stylesheet" href="styles.css?v=20260612-client1" />
   </head>
   <body>
     <header class="topbar">
       <div>
-        <p class="eyebrow">U.S. Equity Risk Classifier</p>
-        <h1>Market Regime Dashboard</h1>
+        <p class="eyebrow">Client Market Readout</p>
+        <h1>Market Investment Readout</h1>
+        <p class="topbar-copy">用波动率、回撤、情绪、信用和系统性风险指标判断当前更适合定投、分批加仓、等待抄底，还是先防守。</p>
       </div>
-      <div class="topbar-actions" aria-label="Preset scenarios">
-        <button class="preset-button is-active" data-preset="live">Live Data</button>
-        <button class="preset-button" data-preset="normal">正常回调</button>
-        <button class="preset-button" data-preset="panic">恐慌回调</button>
-        <button class="preset-button" data-preset="extreme">极端恐慌</button>
-        <button class="preset-button" data-preset="systemic">系统性风险</button>
-        <button class="preset-button" data-preset="overheated">过热风险</button>
+      <div class="topbar-actions" aria-label="Live data controls">
+        <button class="preset-button is-active" data-preset="live" type="button">Live Data</button>
+        <button id="reset-button" class="secondary-button" type="button">重新读取快照</button>
       </div>
     </header>
 
     <main>
       <section class="status-band" aria-labelledby="regime-title">
         <div class="regime-panel">
-          <p class="eyebrow">Current Classification</p>
+          <p class="eyebrow">Current Investment Posture</p>
           <h2 id="regime-title">--</h2>
           <p id="regime-summary" class="regime-summary"></p>
           <div id="live-meta" class="live-meta">正在读取最近一次市场快照...</div>
+
+          <div class="implication-grid" aria-label="Investment implications">
+            <article class="implication-card">
+              <span>当前动作</span>
+              <strong id="primary-action">--</strong>
+            </article>
+            <article class="implication-card">
+              <span>仓位提示</span>
+              <strong id="allocation-cue">--</strong>
+            </article>
+            <article class="implication-card">
+              <span>优先观察</span>
+              <strong id="watch-cue">--</strong>
+            </article>
+          </div>
+
           <div id="overheated-banner" class="overheated-banner" hidden aria-hidden="true" style="display: none">
             <strong>Overheated Risk</strong>
             <span>市场情绪偏贪婪、估值偏高或上涨集中，避免追高和杠杆。</span>
           </div>
         </div>
-        <div class="score-grid" aria-label="Core scores">
-          <article class="score-card">
-            <div class="score-card-head">
+
+        <div class="score-grid" aria-label="Core stress scores">
+          <details class="score-card" open>
+            <summary>
               <span>Volatility Panic</span>
               <strong id="vol-score">0</strong>
-            </div>
+            </summary>
             <meter id="vol-meter" min="0" max="8" value="0"></meter>
             <p id="vol-label">--</p>
-          </article>
-          <article class="score-card">
-            <div class="score-card-head">
+            <div class="score-card-detail">
+              <p id="vol-detail"></p>
+              <ul id="vol-contributors" class="mini-list"></ul>
+            </div>
+          </details>
+
+          <details class="score-card" open>
+            <summary>
               <span>Credit Stress</span>
               <strong id="credit-score">0</strong>
-            </div>
+            </summary>
             <meter id="credit-meter" min="0" max="18" value="0"></meter>
             <p id="credit-label">--</p>
-          </article>
-          <article class="score-card">
-            <div class="score-card-head">
+            <div class="score-card-detail">
+              <p id="credit-detail"></p>
+              <ul id="credit-contributors" class="mini-list"></ul>
+            </div>
+          </details>
+
+          <details class="score-card" open>
+            <summary>
               <span>Sentiment Fear</span>
               <strong id="sentiment-score">0</strong>
-            </div>
+            </summary>
             <meter id="sentiment-meter" min="0" max="8" value="0"></meter>
             <p id="sentiment-label">--</p>
-          </article>
+            <div class="score-card-detail">
+              <p id="sentiment-detail"></p>
+              <ul id="sentiment-contributors" class="mini-list"></ul>
+            </div>
+          </details>
         </div>
       </section>
 
-      <section class="workspace">
-        <div class="input-panel">
-          <div class="section-heading">
-            <p class="eyebrow">Inputs</p>
-            <h2>指标输入</h2>
+      <section class="briefing-section" aria-labelledby="briefing-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Market Context</p>
+            <h2 id="briefing-title">今日影响线索</h2>
           </div>
-          <form id="metric-form" class="metric-form" aria-label="Market indicators"></form>
+          <div id="briefing-meta" class="source-meta">正在读取每日投资简报...</div>
         </div>
+        <p id="briefing-summary" class="briefing-summary">--</p>
+        <div id="briefing-list" class="briefing-grid"></div>
+      </section>
 
+      <section class="workspace">
         <aside class="insight-panel" aria-labelledby="insight-title">
           <div class="section-heading">
-            <p class="eyebrow">Decision Trail</p>
-            <h2 id="insight-title">触发逻辑</h2>
+            <div>
+              <p class="eyebrow">Decision Trail</p>
+              <h2 id="insight-title">为什么是这个判断</h2>
+            </div>
           </div>
           <div class="mini-chart" aria-label="Risk map">
             <canvas id="risk-canvas" width="520" height="300"></canvas>
@@ -86,55 +120,73 @@
           <ul id="trigger-list" class="trigger-list"></ul>
           <div id="data-quality" class="data-quality"></div>
         </aside>
-      </section>
 
-      <section class="table-section" aria-labelledby="score-rules-title">
-        <div class="section-heading">
-          <p class="eyebrow">Scoring</p>
-          <h2 id="score-rules-title">核心分数规则</h2>
-        </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>分数</th>
-                <th>打分规则</th>
-                <th>解释</th>
-              </tr>
-            </thead>
-            <tbody id="score-rules-body"></tbody>
-          </table>
+        <div class="input-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Live Inputs</p>
+              <h2>指标输入与来源</h2>
+            </div>
+            <span class="section-note">点击 Source 查看对应数据源</span>
+          </div>
+          <form id="metric-form" class="metric-form" aria-label="Market indicators"></form>
         </div>
       </section>
 
-      <section class="table-section" aria-labelledby="scenario-title">
+      <section class="regime-guide" aria-labelledby="regime-guide-title">
         <div class="section-heading">
-          <p class="eyebrow">Regime Logic</p>
-          <h2 id="scenario-title">最终判断逻辑</h2>
+          <div>
+            <p class="eyebrow">Regime Guide</p>
+            <h2 id="regime-guide-title">五种市场状态和投资含义</h2>
+          </div>
         </div>
         <div class="scenario-grid" id="scenario-grid"></div>
       </section>
 
-      <section class="table-section" aria-labelledby="indicator-title">
+      <section class="table-section model-library" aria-labelledby="model-library-title">
         <div class="section-heading">
-          <p class="eyebrow">Indicator Library</p>
-          <h2 id="indicator-title">完整判断表</h2>
+          <div>
+            <p class="eyebrow">Model Library</p>
+            <h2 id="model-library-title">模型解释</h2>
+          </div>
         </div>
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>指标名称</th>
-                <th>数据代码或数据源</th>
-                <th>计算公式</th>
-                <th>阈值</th>
-                <th>模块</th>
-                <th>对应解释</th>
-                <th>对最终场景的影响</th>
-              </tr>
-            </thead>
-            <tbody id="indicator-table-body"></tbody>
-          </table>
+        <div class="library-tabs" role="tablist" aria-label="Model library tabs">
+          <button class="library-tab is-active" type="button" data-tab="indicators" role="tab" aria-selected="true">指标库</button>
+          <button class="library-tab" type="button" data-tab="scoring" role="tab" aria-selected="false">评分规则</button>
+        </div>
+
+        <div id="library-indicators" class="library-pane is-active" role="tabpanel">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>指标名称</th>
+                  <th>数据代码或数据源</th>
+                  <th>计算公式</th>
+                  <th>阈值</th>
+                  <th>模块</th>
+                  <th>对应解释</th>
+                  <th>对最终状态的影响</th>
+                </tr>
+              </thead>
+              <tbody id="indicator-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="library-scoring" class="library-pane" role="tabpanel" hidden>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>分数</th>
+                  <th>打分规则</th>
+                  <th>解释</th>
+                </tr>
+              </thead>
+              <tbody id="score-rules-body"></tbody>
+            </table>
+          </div>
         </div>
       </section>
 
@@ -142,14 +194,14 @@
         <div>
           <p class="eyebrow">Data Notes</p>
           <p>
-            GitHub Actions 每天美东 8:00、12:00、15:00 抓取并保存 <code>data/latest.json</code>。
-            网页直接读取最近一次快照，因此打开速度更快；公开无密钥数据存在延迟：FRED多为T+1，NFCI为周频。
+            GitHub Actions 每天美东 8:00、12:00、15:00 抓取市场指标并保存 <code>data/latest.json</code>。
+            每日投资简报发布器会写入 <code>data/briefing.json</code>，网页直接读取最近一次快照。
+            公开无密钥数据存在延迟：FRED 多为 T+1，NFCI 为周频。
           </p>
         </div>
-        <button id="reset-button" class="secondary-button" type="button">重新读取快照</button>
       </section>
     </main>
 
-    <script src="app.js?v=20260611-github3x"></script>
+    <script src="app.js?v=20260612-client1"></script>
   </body>
 </html>

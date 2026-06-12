@@ -317,7 +317,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
     if scores["credit"] >= 6 or has_systemic_cluster(values, scores["credit"]):
         return {
             "key": "defensive",
-            "title": "场景四：Defensive Mode",
+            "title": "系统性风险",
             "summary": "信用压力优先级最高。股市下跌同时伴随信用、银行、美元或美债波动恶化时，先降低风险敞口，不急着抄底。",
             "tone": "danger",
             "overheated": overheated,
@@ -330,7 +330,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
     ):
         return {
             "key": "extreme",
-            "title": "场景三：极端恐慌",
+            "title": "极端恐慌",
             "summary": "波动率和情绪已经极端，但信用市场尚未失控。可以开始关注抄底窗口，执行上仍应分批和控制仓位。",
             "tone": "danger",
             "overheated": overheated,
@@ -344,7 +344,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
     ):
         return {
             "key": "panic",
-            "title": "场景二：恐慌回调",
+            "title": "恐慌回调",
             "summary": "市场情绪进入恐惧区，指数回调较深，但信用和美元流动性没有明显失控。适合用计划分批加仓。",
             "tone": "warning",
             "overheated": overheated,
@@ -352,7 +352,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
 
     return {
         "key": "normal",
-        "title": "场景一：正常或温和回调",
+        "title": "正常或温和回调",
         "summary": "信用市场稳定，波动率未进入失控区。若指数只是普通调整，可以维持正常定投和再平衡纪律。",
         "tone": "calm",
         "overheated": overheated,

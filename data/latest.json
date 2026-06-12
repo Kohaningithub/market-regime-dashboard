@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-12T12:22:21Z",
+  "generatedAt": "2026-06-12T13:01:40Z",
   "asOf": "2026-06-12",
   "mode": "live",
   "values": {
-    "vix": 18.97,
-    "vixChange5d": -2.54,
+    "vix": 19.41,
+    "vixChange5d": -2.1,
     "move": 69.45,
     "spyDrawdown": -2.87,
     "qqqDrawdown": -3.89,
@@ -16,7 +16,7 @@
     "hyOasChange20d": 4.0,
     "igOas": 0.75,
     "igOasChange20d": -1.0,
-    "dxyChange20d": 0.93,
+    "dxyChange20d": 0.99,
     "tenYYield": 4.55,
     "tenYChange20d": 9.0,
     "realTenY": 2.21,
@@ -34,7 +34,7 @@
   },
   "regime": {
     "key": "normal",
-    "title": "场景一：正常或温和回调",
+    "title": "正常或温和回调",
     "summary": "信用市场稳定，波动率未进入失控区。若指数只是普通调整，可以维持正常定投和再平衡纪律。",
     "tone": "calm",
     "overheated": false
@@ -153,7 +153,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-06-12T12:05:01+00:00",
+      "asOf": "2026-06-12T12:45:16+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
