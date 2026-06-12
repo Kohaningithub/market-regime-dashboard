@@ -32,13 +32,13 @@ Then open `http://127.0.0.1:4173/`.
 
 ## GitHub Actions Schedule
 
-GitHub cron runs in UTC. The workflow schedules candidate UTC hours for both EST and EDT, then a bash gate checks `America/New_York` time and only proceeds at:
+GitHub cron runs in UTC. The workflow runs directly at the three scheduled UTC times below:
 
-- 8:00 AM ET
-- 12:00 PM ET
-- 3:00 PM ET
+- `12:00 UTC` = 8:00 AM America/New_York during US daylight time
+- `16:00 UTC` = 12:00 PM America/New_York during US daylight time
+- `19:00 UTC` = 3:00 PM America/New_York during US daylight time
 
-Manual runs through `workflow_dispatch` always run immediately.
+GitHub may start scheduled workflows late, so the job does not gate on the actual runtime hour. Whenever the schedule fires, it generates `data/latest.json` and commits it when values changed. Manual runs through `workflow_dispatch` always run immediately.
 
 ## Known Limits
 
