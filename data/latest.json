@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-13T20:11:23Z",
-  "asOf": "2026-06-13",
+  "generatedAt": "2026-06-14T13:41:19Z",
+  "asOf": "2026-06-14",
   "mode": "live",
   "values": {
     "vix": 17.68,
@@ -71,7 +71,7 @@
       "status": "ok"
     },
     "valuationPctile": {
-      "asOf": "2026-06-13",
+      "asOf": "2026-06-14",
       "source": "Neutral placeholder",
       "status": "estimated",
       "note": "Public no-key forward P/E percentile source is not wired; default neutral value avoids false overheat calls."
@@ -147,7 +147,7 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-06-13",
+      "asOf": "2026-06-14",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
