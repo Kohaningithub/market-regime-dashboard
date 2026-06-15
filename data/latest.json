@@ -1,36 +1,36 @@
 {
-  "generatedAt": "2026-06-14T20:15:05Z",
-  "asOf": "2026-06-14",
+  "generatedAt": "2026-06-15T17:01:04Z",
+  "asOf": "2026-06-15",
   "mode": "live",
   "values": {
-    "vix": 17.68,
-    "vixChange5d": -3.83,
+    "vix": 16.05,
+    "vixChange5d": -2.87,
     "move": 69.36,
-    "spyDrawdown": -2.35,
-    "qqqDrawdown": -3.33,
-    "rspSpyRel60d": -2.3,
+    "spyDrawdown": -0.5,
+    "qqqDrawdown": -0.33,
+    "rspSpyRel60d": -3.4,
     "valuationPctile": 65,
-    "hygRet20d": 0.63,
-    "jnkRet20d": 0.73,
-    "hyOas": 2.78,
-    "hyOasChange20d": -2.0,
-    "igOas": 0.75,
-    "igOasChange20d": 0.0,
-    "dxyChange20d": 0.88,
+    "hygRet20d": 1.37,
+    "jnkRet20d": 1.43,
+    "hyOas": 2.71,
+    "hyOasChange20d": -12.0,
+    "igOas": 0.74,
+    "igOasChange20d": -1.0,
+    "dxyChange20d": 0.32,
     "tenYYield": 4.45,
     "tenYChange20d": -1.0,
     "realTenY": 2.16,
     "realTenYChange20d": 17.0,
     "nfci": -0.51,
-    "kreRel20d": 9.31,
+    "kreRel20d": 6.43,
     "aaiiBearish": 47.7,
     "putCall": 0.54,
-    "fearGreed": 34.0
+    "fearGreed": 42.0
   },
   "scores": {
     "volatility": 0,
     "credit": 0,
-    "sentiment": 2
+    "sentiment": 1
   },
   "regime": {
     "key": "normal",
@@ -41,12 +41,12 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
@@ -56,58 +56,58 @@
       "status": "ok"
     },
     "spyDrawdown": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance SPY",
       "status": "ok"
     },
     "qqqDrawdown": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance QQQ",
       "status": "ok"
     },
     "rspSpyRel60d": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
     },
     "valuationPctile": {
-      "asOf": "2026-06-14",
+      "asOf": "2026-06-15",
       "source": "Neutral placeholder",
       "status": "estimated",
       "note": "Public no-key forward P/E percentile source is not wired; default neutral value avoids false overheat calls."
     },
     "hygRet20d": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance HYG",
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
@@ -137,7 +137,7 @@
       "status": "ok"
     },
     "kreRel20d": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance KRE/SPY",
       "status": "ok"
     },
@@ -147,13 +147,13 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-06-14",
+      "asOf": "2026-06-15",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-06-12T23:59:56+00:00",
+      "asOf": "2026-06-15T16:55:09+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
