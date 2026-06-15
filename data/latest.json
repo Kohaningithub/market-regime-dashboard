@@ -1,31 +1,31 @@
 {
-  "generatedAt": "2026-06-15T17:01:04Z",
+  "generatedAt": "2026-06-15T21:39:22Z",
   "asOf": "2026-06-15",
   "mode": "live",
   "values": {
-    "vix": 16.05,
-    "vixChange5d": -2.87,
-    "move": 69.36,
-    "spyDrawdown": -0.5,
-    "qqqDrawdown": -0.33,
-    "rspSpyRel60d": -3.4,
+    "vix": 16.2,
+    "vixChange5d": -2.72,
+    "move": 69.38,
+    "spyDrawdown": -0.62,
+    "qqqDrawdown": -0.29,
+    "rspSpyRel60d": -3.6,
     "valuationPctile": 65,
-    "hygRet20d": 1.37,
-    "jnkRet20d": 1.43,
+    "hygRet20d": 1.25,
+    "jnkRet20d": 1.31,
     "hyOas": 2.71,
     "hyOasChange20d": -12.0,
     "igOas": 0.74,
     "igOasChange20d": -1.0,
-    "dxyChange20d": 0.32,
-    "tenYYield": 4.45,
-    "tenYChange20d": -1.0,
-    "realTenY": 2.16,
+    "dxyChange20d": 0.41,
+    "tenYYield": 4.48,
+    "tenYChange20d": 1.0,
+    "realTenY": 2.17,
     "realTenYChange20d": 17.0,
     "nfci": -0.51,
-    "kreRel20d": 6.43,
+    "kreRel20d": 5.62,
     "aaiiBearish": 47.7,
     "putCall": 0.54,
-    "fearGreed": 42.0
+    "fearGreed": 41.0
   },
   "scores": {
     "volatility": 0,
@@ -51,7 +51,7 @@
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-15",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -112,22 +112,22 @@
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "FRED DFII10",
       "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-06-11",
+      "asOf": "2026-06-12",
       "source": "FRED DFII10",
       "status": "ok"
     },
@@ -153,7 +153,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-06-15T16:55:09+00:00",
+      "asOf": "2026-06-15T21:19:56+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
