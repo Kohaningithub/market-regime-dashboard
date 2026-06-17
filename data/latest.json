@@ -1,31 +1,30 @@
 {
-  "generatedAt": "2026-06-17T14:53:17Z",
+  "generatedAt": "2026-06-17T17:58:47Z",
   "asOf": "2026-06-17",
   "mode": "live",
   "values": {
-    "vix": 16.63,
-    "vixChange5d": -5.59,
+    "vix": 16.84,
+    "vixChange5d": -5.38,
     "move": 69.36,
-    "spyDrawdown": -1.27,
-    "qqqDrawdown": -1.83,
-    "rspSpyRel60d": -3.18,
-    "valuationPctile": 65,
-    "hygRet20d": 1.35,
-    "jnkRet20d": 1.47,
+    "spyDrawdown": -1.21,
+    "qqqDrawdown": -1.69,
+    "rspSpyRel60d": -3.29,
+    "hygRet20d": 1.41,
+    "jnkRet20d": 1.51,
     "hyOas": 2.71,
     "hyOasChange20d": -9.0,
     "igOas": 0.75,
     "igOasChange20d": 0.0,
-    "dxyChange20d": 0.36,
+    "dxyChange20d": 0.38,
     "tenYYield": 4.47,
     "tenYChange20d": -12.0,
     "realTenY": 2.15,
     "realTenYChange20d": 5.0,
     "nfci": -0.51,
-    "kreRel20d": 4.63,
+    "kreRel20d": 5.3,
     "aaiiBearish": 47.7,
     "putCall": 0.59,
-    "fearGreed": 41.0
+    "fearGreed": 40.0
   },
   "scores": {
     "volatility": 0,
@@ -69,12 +68,6 @@
       "asOf": "2026-06-17",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
-    },
-    "valuationPctile": {
-      "asOf": "2026-06-17",
-      "source": "Neutral placeholder",
-      "status": "estimated",
-      "note": "Public no-key forward P/E percentile source is not wired; default neutral value avoids false overheat calls."
     },
     "hygRet20d": {
       "asOf": "2026-06-17",
@@ -153,15 +146,20 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-06-17T14:43:02+00:00",
+      "asOf": "2026-06-17T17:54:20+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
   },
   "notes": [
-    "valuationPctile: Public no-key forward P/E percentile source is not wired; default neutral value avoids false overheat calls.",
-    "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
+    "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019.",
+    "model: Valuation percentile is unavailable from a stable public no-key source and is excluded from live scoring."
   ],
+  "modelMeta": {
+    "valuationInScore": false,
+    "valuationStatus": "unavailable",
+    "historyEndpoint": "data/history.json"
+  },
   "sourceSummary": [
     "FRED: credit OAS, Treasury yields, NFCI",
     "Yahoo Finance chart endpoint: ETFs, DXY, MOVE",

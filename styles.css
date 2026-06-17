@@ -139,6 +139,7 @@ main {
 .input-panel,
 .insight-panel,
 .table-section,
+.history-section,
 .briefing-section,
 .regime-guide,
 .notes-section {
@@ -338,16 +339,134 @@ meter {
   font-size: 0.8rem;
 }
 
+.history-section,
 .briefing-section,
 .regime-guide {
   margin-top: 18px;
   padding: 20px;
 }
 
+.history-summary,
 .source-meta,
 .section-note {
   color: var(--muted);
   font-size: 0.82rem;
+}
+
+.history-summary {
+  max-width: 980px;
+  margin-bottom: 14px;
+}
+
+.history-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.history-stat {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfd;
+  padding: 12px;
+}
+
+.history-stat span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 760;
+}
+
+.history-stat strong {
+  display: block;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.history-stat p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.history-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.history-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+}
+
+.history-strip {
+  display: flex;
+  align-items: end;
+  gap: 3px;
+  min-height: 92px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: linear-gradient(180deg, #fcfdfe 0%, #f4f7f9 100%);
+  padding: 12px;
+  overflow: hidden;
+}
+
+.history-bar {
+  flex: 1 1 0;
+  min-width: 3px;
+  border-radius: 4px 4px 0 0;
+  opacity: 0.86;
+}
+
+.history-bar.is-current {
+  outline: 2px solid rgba(24, 32, 39, 0.75);
+  outline-offset: 1px;
+  opacity: 1;
+}
+
+.history-empty {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.legend-swatch.regime-normal,
+.history-bar.regime-normal {
+  background: #1d7c75;
+}
+
+.legend-swatch.regime-panic,
+.history-bar.regime-panic {
+  background: #d39a2d;
+}
+
+.legend-swatch.regime-extreme,
+.history-bar.regime-extreme {
+  background: #b8668c;
+}
+
+.legend-swatch.regime-defensive,
+.history-bar.regime-defensive {
+  background: #a63c34;
+}
+
+.legend-swatch.regime-overheated,
+.history-bar.regime-overheated {
+  background: #5d6ec6;
 }
 
 .briefing-summary {
@@ -718,6 +837,10 @@ tr:last-child td {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .history-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .briefing-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -736,6 +859,7 @@ tr:last-child td {
   .input-grid,
   .briefing-grid,
   .implication-grid,
+  .history-stats,
   .scenario-grid {
     grid-template-columns: 1fr;
   }

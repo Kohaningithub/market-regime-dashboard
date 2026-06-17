@@ -25,6 +25,8 @@ from urllib.request import Request, urlopen
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT_FILE = ROOT / "data" / "latest.json"
+HISTORY_FILE = ROOT / "data" / "history.json"
+MAX_HISTORY_ENTRIES = 1200
 USER_AGENT = "Mozilla/5.0 market-regime-dashboard/1.0"
 CNN_USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
@@ -311,7 +313,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
     overheated = (
         values["fearGreed"] > 75
         and values["putCall"] < 0.55
-        and (values["valuationPctile"] > 80 or values["rspSpyRel60d"] < -3)
+        and values["rspSpyRel60d"] < -3
     )
 
     if scores["credit"] >= 6 or has_systemic_cluster(values, scores["credit"]):
@@ -363,7 +365,69 @@ def data_point(value: float, as_of: str, source: str, status: str = "ok", note: 
     return DataPoint(round_value(value), as_of, source, status, note)
 
 
-def build_snapshot() -> dict[str, Any]:
+def load_history() -> dict[str, Any]:
+    if not HISTORY_FILE.exists():
+        return {"generatedAt": None, "entries": []}
+
+    try:
+        raw = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        return {"generatedAt": None, "entries": []}
+
+    if isinstance(raw, list):
+        entries = raw
+        generated_at = None
+    elif isinstance(raw, dict):
+        entries = raw.get("entries") or []
+        generated_at = raw.get("generatedAt")
+    else:
+        return {"generatedAt": None, "entries": []}
+
+    clean_entries = [entry for entry in entries if isinstance(entry, dict)]
+    return {"generatedAt": generated_at, "entries": clean_entries}
+
+
+def build_history_entry(snapshot: dict[str, Any], spy_close: float) -> dict[str, Any]:
+    estimated_count = sum(1 for meta in snapshot.get("fieldMeta", {}).values() if meta.get("status") != "ok")
+    return {
+        "generatedAt": snapshot["generatedAt"],
+        "asOf": snapshot["asOf"],
+        "regime": snapshot["regime"]["key"],
+        "regimeTitle": snapshot["regime"]["title"],
+        "scores": snapshot["scores"],
+        "spyClose": round_value(spy_close, 2),
+        "spyDrawdown": snapshot["values"]["spyDrawdown"],
+        "qqqDrawdown": snapshot["values"]["qqqDrawdown"],
+        "fearGreed": snapshot["values"]["fearGreed"],
+        "rspSpyRel60d": snapshot["values"]["rspSpyRel60d"],
+        "estimatedCount": estimated_count,
+        "valuationInScore": bool(snapshot.get("modelMeta", {}).get("valuationInScore")),
+    }
+
+
+def write_history(snapshot: dict[str, Any], spy_close: float) -> dict[str, Any]:
+    history = load_history()
+    entries = history["entries"]
+    entry = build_history_entry(snapshot, spy_close)
+
+    if entries and entries[-1].get("generatedAt") == entry["generatedAt"]:
+        entries[-1] = entry
+    else:
+        entries.append(entry)
+
+    if len(entries) > MAX_HISTORY_ENTRIES:
+        entries = entries[-MAX_HISTORY_ENTRIES:]
+
+    payload = {
+        "generatedAt": snapshot["generatedAt"],
+        "entries": entries,
+    }
+    HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
+    HISTORY_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    return payload
+
+
+def build_snapshot() -> tuple[dict[str, Any], float]:
     notes: list[str] = []
     fields: dict[str, DataPoint] = {}
 
@@ -400,7 +464,7 @@ def build_snapshot() -> dict[str, Any]:
     move_date, move_value = latest(yahoo["move"])
     fields["move"] = data_point(move_value, move_date, "Yahoo Finance ^MOVE / ICE BofA MOVE Index")
 
-    spy_date, _spy_value = latest(yahoo["spy"])
+    spy_date, spy_value = latest(yahoo["spy"])
     qqq_date, _qqq_value = latest(yahoo["qqq"])
     fields["spyDrawdown"] = data_point(drawdown_from_high(yahoo["spy"]), spy_date, "Yahoo Finance SPY")
     fields["qqqDrawdown"] = data_point(drawdown_from_high(yahoo["qqq"]), qqq_date, "Yahoo Finance QQQ")
@@ -408,13 +472,6 @@ def build_snapshot() -> dict[str, Any]:
         relative_return(yahoo["rsp"], yahoo["spy"], 60),
         latest(yahoo["rsp"])[0],
         "Yahoo Finance RSP/SPY",
-    )
-    fields["valuationPctile"] = DataPoint(
-        65,
-        date.today().isoformat(),
-        "Neutral placeholder",
-        "estimated",
-        "Public no-key forward P/E percentile source is not wired; default neutral value avoids false overheat calls.",
     )
 
     fields["hygRet20d"] = data_point(pct_return(yahoo["hyg"], 20), latest(yahoo["hyg"])[0], "Yahoo Finance HYG")
@@ -496,6 +553,9 @@ def build_snapshot() -> dict[str, Any]:
     for key, point in fields.items():
         if point.status != "ok" or point.note:
             notes.append(f"{key}: {point.note or point.status}")
+    notes.append(
+        "model: Valuation percentile is unavailable from a stable public no-key source and is excluded from live scoring."
+    )
 
     scores = calculate_scores(values)
     regime = classify(values, scores)
@@ -522,6 +582,11 @@ def build_snapshot() -> dict[str, Any]:
         "regime": regime,
         "fieldMeta": field_meta,
         "notes": notes,
+        "modelMeta": {
+            "valuationInScore": False,
+            "valuationStatus": "unavailable",
+            "historyEndpoint": "data/history.json",
+        },
         "sourceSummary": [
             "FRED: credit OAS, Treasury yields, NFCI",
             "Yahoo Finance chart endpoint: ETFs, DXY, MOVE",
@@ -529,16 +594,18 @@ def build_snapshot() -> dict[str, Any]:
             "AAII public sentiment survey page: weekly bearish percentage",
             "CNN Fear & Greed Index official endpoint, with proxy fallback if CNN blocks requests",
         ],
-    }
+    }, spy_value
 
 
 def main() -> int:
-    snapshot = build_snapshot()
+    snapshot, spy_close = build_snapshot()
     OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     OUT_FILE.write_text(json.dumps(snapshot, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    history = write_history(snapshot, spy_close)
     print(
         f"Wrote {OUT_FILE.relative_to(ROOT)} | regime={snapshot['regime']['key']} | "
-        f"V={snapshot['scores']['volatility']} C={snapshot['scores']['credit']} S={snapshot['scores']['sentiment']}"
+        f"V={snapshot['scores']['volatility']} C={snapshot['scores']['credit']} S={snapshot['scores']['sentiment']} | "
+        f"history={len(history['entries'])}"
     )
     return 0
 

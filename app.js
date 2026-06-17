@@ -14,8 +14,7 @@ const modules = [
     fields: [
       { key: "spyDrawdown", label: "SPY drawdown", suffix: "%", step: 0.1 },
       { key: "qqqDrawdown", label: "QQQ drawdown", suffix: "%", step: 0.1 },
-      { key: "rspSpyRel60d", label: "RSP/SPY 60日相对表现", suffix: "%", step: 0.1 },
-      { key: "valuationPctile", label: "S&P 500估值分位", suffix: "%", step: 1 }
+      { key: "rspSpyRel60d", label: "RSP/SPY 60日相对表现", suffix: "%", step: 0.1 }
     ]
   },
   {
@@ -78,10 +77,6 @@ const sourceLinks = {
   rspSpyRel60d: {
     label: "Yahoo RSP",
     url: "https://finance.yahoo.com/quote/RSP/"
-  },
-  valuationPctile: {
-    label: "Yardeni",
-    url: "https://www.yardeni.com/pub/stockmktperatio.pdf"
   },
   fearGreed: {
     label: "CNN F&G",
@@ -157,7 +152,6 @@ const presets = {
     spyDrawdown: -5.2,
     qqqDrawdown: -7.5,
     rspSpyRel60d: -1.2,
-    valuationPctile: 72,
     fearGreed: 38,
     aaiiBearish: 41,
     putCall: 0.78,
@@ -182,7 +176,6 @@ const presets = {
     spyDrawdown: -11.5,
     qqqDrawdown: -15.8,
     rspSpyRel60d: -2.7,
-    valuationPctile: 65,
     fearGreed: 22,
     aaiiBearish: 52,
     putCall: 0.93,
@@ -207,7 +200,6 @@ const presets = {
     spyDrawdown: -18,
     qqqDrawdown: -24,
     rspSpyRel60d: -3.8,
-    valuationPctile: 55,
     fearGreed: 12,
     aaiiBearish: 64,
     putCall: 1.05,
@@ -232,7 +224,6 @@ const presets = {
     spyDrawdown: -16,
     qqqDrawdown: -21,
     rspSpyRel60d: -6.8,
-    valuationPctile: 58,
     fearGreed: 16,
     aaiiBearish: 58,
     putCall: 0.98,
@@ -257,7 +248,6 @@ const presets = {
     spyDrawdown: -0.8,
     qqqDrawdown: -1.3,
     rspSpyRel60d: -4.9,
-    valuationPctile: 91,
     fearGreed: 82,
     aaiiBearish: 24,
     putCall: 0.5,
@@ -284,7 +274,7 @@ const indicatorRows = [
   ["SPY drawdown", "Yahoo Finance SPY", "SPY / 252日高点 - 1", "<-5%、<-10%、<-20%", "股市回撤指标", "衡量美股大盘从近一年高点回撤深度。", "定义回调深度，配合信用压力决定是否可抄底。"],
   ["QQQ drawdown", "Yahoo Finance QQQ", "QQQ / 252日高点 - 1", "<-8%、<-15%、<-25%", "股市回撤指标", "衡量成长股和科技权重资产的风险偏好。", "QQQ深跌但信用稳定时偏恐慌回调或极端恐慌。"],
   ["RSP/SPY 60日相对表现", "Yahoo Finance RSP and SPY", "(RSP/SPY)(t) / (RSP/SPY)(t-60) - 1", "<-3%、<-6%", "股市回撤指标", "等权指数相对市值加权指数，衡量上涨集中度。", "走弱时提示广度恶化；高情绪下触发过热风险。"],
-  ["S&P 500估值分位", "中性占位；可替换为FactSet/Bloomberg/Yardeni", "Forward P/E历史分位或估值综合分位", ">80%、>90%", "股市回撤指标", "衡量估值安全边际。当前无公开稳定源，自动版默认65。", "只用于 Overheated Risk，不直接提高恐慌分。"],
+  ["S&P 500估值分位", "暂未接入稳定公开源", "未来可接入 Forward P/E 历史分位或估值综合分位", "当前不参与自动评分", "股市回撤指标", "估值属于慢变量，但当前公开免密钥源稳定性不足。", "自动版暂不使用，避免把占位值伪装成实时测量。"],
   ["Fear & Greed Index", "CNN Fear & Greed Index；失败时使用proxy", "CNN官方0-100分；proxy由VIX、SPY、Put/Call、HYG、RSP/SPY、AAII合成", "<40、<25、<15；>75提示贪婪", "情绪指标", "综合动量、广度、期权、信用、波动和避险需求。", "低值提高 Sentiment Fear Score；高值触发 Overheated Risk。"],
   ["AAII Bearish %", "AAII Sentiment Survey", "看跌投资者占比", ">40%、>50%、>60%", "情绪指标", "散户投资者悲观程度，极端高值常具反向含义。", "提高 Sentiment Fear Score，支持恐慌或极端恐慌判断。"],
   ["Put/Call Ratio", "Cboe Daily Market Statistics", "Put成交量 / Call成交量；有历史源时用10日均值，无历史源时用Cboe当前日值", ">0.75、>0.90；<0.55提示贪婪", "情绪指标", "保护性需求或投机偏好变化。", "高值加恐惧分；低值加过热提示。"],
@@ -353,8 +343,8 @@ const scenarios = [
   {
     title: "过热风险",
     posture: "避免追高",
-    rule: "Fear & Greed > 75，Put/Call < 0.55，且估值偏高或上涨集中。",
-    meaning: "市场可能已经过度乐观，价格对好消息更敏感，对坏消息更脆弱。",
+    rule: "Fear & Greed > 75，Put/Call < 0.55，且上涨集中度偏高。",
+    meaning: "市场可能已经过度乐观，且上涨主要集中在少数权重资产上。",
     action: "减少杠杆和追高，考虑再平衡、获利回收和提高安全边际。"
   }
 ];
@@ -367,6 +357,10 @@ const presetButtons = Array.from(document.querySelectorAll(".preset-button"));
 const resetButton = document.querySelector("#reset-button");
 const liveMeta = document.querySelector("#live-meta");
 const dataQuality = document.querySelector("#data-quality");
+const historyMeta = document.querySelector("#history-meta");
+const historySummary = document.querySelector("#history-summary");
+const historyStats = document.querySelector("#history-stats");
+const historyStrip = document.querySelector("#history-strip");
 const briefingMeta = document.querySelector("#briefing-meta");
 const briefingSummary = document.querySelector("#briefing-summary");
 const briefingList = document.querySelector("#briefing-list");
@@ -375,8 +369,10 @@ const CLIENT_POLL_MS = 120000;
 const BRIEFING_POLL_MS = 300000;
 const STALE_SNAPSHOT_MINUTES = 1440;
 const STATIC_SNAPSHOT_ENDPOINT = "data/latest.json";
+const HISTORY_ENDPOINT = "data/history.json";
 const BRIEFING_ENDPOINT = "data/briefing.json";
 const STATIC_TIMEOUT_MS = 8000;
+const HISTORY_WINDOW = 180;
 
 function thresholdScore(value, rules, direction = "above") {
   return rules.reduce((score, threshold) => {
@@ -529,7 +525,7 @@ function classify(values, scores) {
   const overheated =
     values.fearGreed > 75 &&
     values.putCall < 0.55 &&
-    (values.valuationPctile > 80 || values.rspSpyRel60d < -3);
+    values.rspSpyRel60d < -3;
 
   if (scores.credit >= 6 || systemicCluster) {
     return {
@@ -643,7 +639,7 @@ function investmentImplications(regime, scores, values) {
   return {
     primary: "维持目标配置",
     allocation: "按既定再平衡规则执行，暂不主动提高风险暴露",
-    watch: "估值分位、上涨集中度和情绪过热信号"
+    watch: "上涨集中度和情绪过热信号"
   };
 }
 
@@ -673,6 +669,116 @@ function formatAge(minutes) {
   const hours = Math.floor(minutes / 60);
   const rest = minutes % 60;
   return rest ? `${hours}小时${rest}分钟前` : `${hours}小时前`;
+}
+
+function formatShortDate(value) {
+  if (!value) return "--";
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return parsed.toLocaleDateString("zh-CN", {
+    month: "2-digit",
+    day: "2-digit"
+  });
+}
+
+function countUniqueAsOf(entries) {
+  return new Set(entries.map((entry) => entry.asOf).filter(Boolean)).size;
+}
+
+function getHistoryStreak(entries) {
+  if (!entries.length) return null;
+  const current = entries[entries.length - 1];
+  const streak = [];
+
+  for (let index = entries.length - 1; index >= 0; index -= 1) {
+    if (entries[index].regime !== current.regime) break;
+    streak.push(entries[index]);
+  }
+
+  return {
+    current,
+    snapshots: streak.length,
+    tradingDays: countUniqueAsOf(streak),
+    startedAt: streak[streak.length - 1]?.generatedAt || current.generatedAt
+  };
+}
+
+function getLastRegimeChange(entries) {
+  if (entries.length < 2) return null;
+  const current = entries[entries.length - 1];
+  for (let index = entries.length - 2; index >= 0; index -= 1) {
+    if (entries[index].regime !== current.regime) {
+      return {
+        at: entries[index + 1].generatedAt,
+        from: entries[index].regimeTitle || entries[index].regime,
+        to: current.regimeTitle || current.regime
+      };
+    }
+  }
+  return null;
+}
+
+function renderHistory(history) {
+  if (!historyMeta || !historySummary || !historyStats || !historyStrip) return;
+  const entries = Array.isArray(history?.entries) ? history.entries : [];
+
+  if (!entries.length) {
+    historyMeta.textContent = "状态历史暂不可用";
+    historySummary.textContent = "等待 GitHub Actions 累积首批历史快照。";
+    historyStats.innerHTML = "";
+    historyStrip.innerHTML = `<div class="history-empty">历史文件还没有有效快照。</div>`;
+    return;
+  }
+
+  const windowed = entries.slice(-HISTORY_WINDOW);
+  const streak = getHistoryStreak(entries);
+  const lastChange = getLastRegimeChange(entries);
+  const current = entries[entries.length - 1];
+
+  historyMeta.textContent = `最近 ${windowed.length} 次快照 | 当前状态已持续 ${streak.snapshots} 次快照 / ${streak.tradingDays} 个交易日`;
+  historySummary.textContent = lastChange
+    ? `最近一次状态变化发生在 ${formatDateTime(lastChange.at)}，由 ${lastChange.from} 转为 ${lastChange.to}。`
+    : `当前历史序列中尚未出现状态切换，最新状态为 ${current.regimeTitle || current.regime}。`;
+
+  historyStats.innerHTML = `
+    <article class="history-stat">
+      <span>当前状态</span>
+      <strong>${current.regimeTitle || current.regime}</strong>
+      <p>数据日期 ${current.asOf || "--"}</p>
+    </article>
+    <article class="history-stat">
+      <span>状态持续</span>
+      <strong>${streak.tradingDays} 天</strong>
+      <p>共 ${streak.snapshots} 次已保存快照</p>
+    </article>
+    <article class="history-stat">
+      <span>最近变化</span>
+      <strong>${lastChange ? formatShortDate(lastChange.at) : "--"}</strong>
+      <p>${lastChange ? `${lastChange.from} → ${lastChange.to}` : "暂无切换"}</p>
+    </article>
+    <article class="history-stat">
+      <span>最新 SPY</span>
+      <strong>${typeof current.spyClose === "number" ? current.spyClose.toFixed(2) : "--"}</strong>
+      <p>回撤 ${typeof current.spyDrawdown === "number" ? current.spyDrawdown.toFixed(1) : "--"}%</p>
+    </article>
+  `;
+
+  historyStrip.innerHTML = windowed
+    .map((entry, index) => {
+      const scoreTotal = (entry.scores?.volatility || 0) + (entry.scores?.credit || 0) + (entry.scores?.sentiment || 0);
+      const height = Math.max(18, Math.min(74, 18 + Math.abs(entry.spyDrawdown || 0) * 3 + scoreTotal * 2));
+      const title = `${entry.asOf || "--"} | ${entry.regimeTitle || entry.regime} | SPY ${typeof entry.spyClose === "number" ? entry.spyClose.toFixed(2) : "--"} | Drawdown ${typeof entry.spyDrawdown === "number" ? entry.spyDrawdown.toFixed(1) : "--"}% | V/C/S ${entry.scores?.volatility ?? "--"}/${entry.scores?.credit ?? "--"}/${entry.scores?.sentiment ?? "--"}`;
+      return `<div class="history-bar regime-${entry.regime}${index === windowed.length - 1 ? " is-current" : ""}" style="height:${height}px" title="${escapeHtml(title)}"></div>`;
+    })
+    .join("");
+}
+
+function renderHistoryError(error) {
+  if (!historyMeta || !historySummary || !historyStats || !historyStrip) return;
+  historyMeta.textContent = "状态历史暂不可用";
+  historySummary.textContent = `等待 data/history.json。错误：${error.message}`;
+  historyStats.innerHTML = "";
+  historyStrip.innerHTML = `<div class="history-empty">历史状态文件尚未加载成功。</div>`;
 }
 
 function renderLiveMeta(context = {}) {
@@ -708,7 +814,7 @@ function renderDataQuality(snapshot) {
     return;
   }
 
-  const notes = snapshot.notes || [];
+  const notes = (snapshot.notes || []).filter((note) => !String(note).startsWith("model:"));
   const ageMinutes = snapshotAgeMinutes(snapshot);
   const freshnessItems = [
     `<div class="data-quality-item"><strong>Refresh</strong> GitHub Actions 每天美东 8:00、12:00、15:00 生成快照；浏览器每 2 分钟重新读取最近一次文件。</div>`
@@ -724,6 +830,11 @@ function renderDataQuality(snapshot) {
   const noteItems = notes.slice(0, 4).map(
     (note) => `<div class="data-quality-item warning"><strong>Note</strong> ${note}</div>`
   );
+  if (snapshot.modelMeta?.valuationInScore === false) {
+    noteItems.unshift(
+      `<div class="data-quality-item warning"><strong>Model</strong> 估值分位暂未接入稳定公开源，本次状态判断不使用占位值。</div>`
+    );
+  }
 
   dataQuality.innerHTML = [...freshnessItems, ...sourceItems, ...noteItems].join("");
 }
@@ -828,7 +939,7 @@ function renderTriggers(scores, regime) {
   if (regime.overheated) {
     items.unshift({
       severity: "warning",
-      text: "Overheated Risk：情绪贪婪、Put/Call偏低，且估值或上涨集中度偏高。"
+      text: "Overheated Risk：情绪贪婪、Put/Call偏低，且上涨集中度偏高。"
     });
   }
 
@@ -986,6 +1097,15 @@ async function fetchLatestSnapshot() {
   return snapshot;
 }
 
+async function loadHistory(options = {}) {
+  try {
+    renderHistory(await fetchStaticJson(HISTORY_ENDPOINT));
+  } catch (error) {
+    if (options.silent) return;
+    renderHistoryError(error);
+  }
+}
+
 function renderBriefing(briefing) {
   if (!briefingMeta || !briefingSummary || !briefingList) return;
   const itemCount = Array.isArray(briefing.items) ? briefing.items.length : 0;
@@ -1085,10 +1205,12 @@ if (resetButton) {
   resetButton.addEventListener("click", () => {
     if (activePreset === "live" || activePreset === "manual") {
       loadLiveData();
+      loadHistory();
       loadBriefing();
       return;
     }
     selectPreset(activePreset);
+    loadHistory();
     loadBriefing();
   });
 }
@@ -1112,10 +1234,14 @@ libraryTabs.forEach((button) => {
 buildForm();
 renderTables();
 loadLiveData();
+loadHistory();
 loadBriefing();
 
 setInterval(() => {
-  if (activePreset === "live") loadLiveData({ silent: true });
+  if (activePreset === "live") {
+    loadLiveData({ silent: true });
+    loadHistory({ silent: true });
+  }
 }, CLIENT_POLL_MS);
 
 setInterval(() => {

@@ -6,11 +6,12 @@
 
 推荐部署方式是 GitHub Pages + GitHub Actions。
 
-- `scripts/update_data.py` 抓取公开数据源并生成 `data/latest.json`
+- `scripts/update_data.py` 抓取公开数据源并生成 `data/latest.json` 与 `data/history.json`
 - GitHub Actions 每天美东时间 8:00、12:00、15:00 自动运行
 - `scripts/update_briefing_from_codex.py` 从本地 Codex 投资简报自动化提取主要线索并生成 `data/briefing.json`
-- 前端只读取 `data/latest.json` 和 `data/briefing.json`，不在用户打开网页时现场抓取数据
+- 前端只读取 `data/latest.json`、`data/history.json` 和 `data/briefing.json`，不在用户打开网页时现场抓取数据
 - 浏览器每 2 分钟重新读取一次市场快照，每 5 分钟重新读取一次简报线索
+- 估值分位当前未接入稳定公开免密钥数据源，因此暂不参与自动评分
 
 这样页面打开速度快，也避免公共数据源的 CORS、冷启动和临时阻塞问题。
 
@@ -40,7 +41,7 @@ GitHub cron runs in UTC. The workflow runs directly at the three scheduled UTC t
 - `16:00 UTC` = 12:00 PM America/New_York during US daylight time
 - `19:00 UTC` = 3:00 PM America/New_York during US daylight time
 
-GitHub may start scheduled workflows late, so the job does not gate on the actual runtime hour. Whenever the schedule fires, it generates `data/latest.json` and commits it when values changed. Manual runs through `workflow_dispatch` always run immediately.
+GitHub may start scheduled workflows late, so the job does not gate on the actual runtime hour. Whenever the schedule fires, it regenerates `data/latest.json` and appends the latest regime snapshot to `data/history.json`. Manual runs through `workflow_dispatch` always run immediately.
 
 ## Briefing Publisher
 
@@ -60,4 +61,4 @@ The website reads the latest committed `data/briefing.json`.
 - Public no-key data sources are not tick-by-tick.
 - FRED credit/yield data is often T+1.
 - NFCI is weekly.
-- Valuation percentile currently uses a neutral placeholder because there is no stable no-key source wired in.
+- Valuation percentile is intentionally excluded from automatic scoring until a stable public source is wired in.

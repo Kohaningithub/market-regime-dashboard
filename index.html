@@ -8,7 +8,7 @@
       name="description"
       content="A client-facing market regime readout for judging whether U.S. equities favor investing, rebalancing, adding risk, or defensive positioning."
     />
-    <link rel="stylesheet" href="styles.css?v=20260612-client1" />
+    <link rel="stylesheet" href="styles.css?v=20260617-history1" />
   </head>
   <body>
     <header class="topbar">
@@ -48,7 +48,7 @@
 
           <div id="overheated-banner" class="overheated-banner" hidden aria-hidden="true" style="display: none">
             <strong>Overheated Risk</strong>
-            <span>市场情绪偏贪婪、估值偏高或上涨集中，避免追高和杠杆。</span>
+            <span>市场情绪偏贪婪且上涨集中，避免追高和杠杆。</span>
           </div>
         </div>
 
@@ -92,6 +92,26 @@
             </div>
           </details>
         </div>
+      </section>
+
+      <section class="history-section" aria-labelledby="history-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Regime History</p>
+            <h2 id="history-title">历史状态序列</h2>
+          </div>
+          <div id="history-meta" class="source-meta">正在读取状态历史...</div>
+        </div>
+        <p id="history-summary" class="history-summary">--</p>
+        <div id="history-stats" class="history-stats"></div>
+        <div class="history-legend" aria-hidden="true">
+          <span><i class="legend-swatch regime-normal"></i>Normal</span>
+          <span><i class="legend-swatch regime-panic"></i>Panic</span>
+          <span><i class="legend-swatch regime-extreme"></i>Extreme</span>
+          <span><i class="legend-swatch regime-defensive"></i>Systemic</span>
+          <span><i class="legend-swatch regime-overheated"></i>Overheated</span>
+        </div>
+        <div id="history-strip" class="history-strip" role="img" aria-label="Recent saved regime history"></div>
       </section>
 
       <section class="briefing-section" aria-labelledby="briefing-title">
@@ -195,13 +215,14 @@
           <p class="eyebrow">Data Notes</p>
           <p>
             GitHub Actions 每天美东 8:00、12:00、15:00 抓取市场指标并保存 <code>data/latest.json</code>。
+            同步维护 <code>data/history.json</code> 作为状态历史序列。
             每日投资简报发布器会写入 <code>data/briefing.json</code>，网页直接读取最近一次快照。
-            公开无密钥数据存在延迟：FRED 多为 T+1，NFCI 为周频。
+            当前估值分位未接入稳定公开源，因此不参与自动判断。公开无密钥数据存在延迟：FRED 多为 T+1，NFCI 为周频。
           </p>
         </div>
       </section>
     </main>
 
-    <script src="app.js?v=20260612-copy1"></script>
+    <script src="app.js?v=20260617-history1"></script>
   </body>
 </html>
