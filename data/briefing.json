@@ -1,53 +1,53 @@
 {
-  "generatedAt": "2026-06-17T17:12:03Z",
-  "asOf": "2026-06-17",
+  "generatedAt": "2026-06-17T21:11:00Z",
+  "asOf": "2026-06-16",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation",
-    "automation-3"
+    "automation-3",
+    "automation"
   ],
-  "summary": "早盘主线从“等待Fed”升级为“零售销售超预期 + Fed前利率重新定价 + 油价继续回落”。美国 Census 8:30 ET 公布 5月零售销售环比 +0.9%，强于市场预期约 +0.5%。",
+  "summary": "本次生成的是 2026-06-17 运行的收盘版；由于生成时美股尚未开盘，对应最近一个完整美股常规交易日为 2026-06-16。",
   "items": [
     {
-      "title": "市场主线",
-      "detail": "早盘主线从“等待Fed”升级为“零售销售超预期 + Fed前利率重新定价 + 油价继续回落”。美国 Census 8:30 ET 公布 5月零售销售环比 +0.9%，强于市场预期约 +0.5%。",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
-    },
-    {
-      "title": "盘前结构",
-      "detail": "盘前结构：Yahoo Finance 显示纳指期货约 +143、标普期货约 +2.5、道指期货约 -30；10Y 美债约 4.437%，2Y 约 4.058%；WTI 约 76.3、Brent 约 79.3、黄金约 4322、BTC 约 64751。",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
-    },
-    {
-      "title": "强势焦点",
-      "detail": "强势焦点：LZB（业绩大超预期）、KMX（Q1收入/EPS胜预期）、INTC/MU/MRVL（芯片反弹）、SpaceX（IPO后惯性上冲）。",
+      "title": "本次生成的是 2026-06-17 ",
+      "detail": "本次生成的是 2026-06-17 运行的收盘版；由于生成时美股尚未开盘，对应最近一个完整美股常规交易日为 2026-06-16。",
       "impact": "作为定性背景，辅助解释量化指标的变化。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
+      "sourceLabel": "收盘投资简报",
       "sourceUrl": ""
     },
     {
-      "title": "弱势焦点",
-      "detail": "弱势焦点：GIL（做空报告/渠道压货指控）、HUN（与OLN换股并购被市场质疑）、CBOE（预测市场竞争与监管变化）、ORCL（AI capex/债务争议延续）、SPCE（股权稀释/债务交换后遗症）。",
+      "title": "市场主线",
+      "detail": "核心主线确认两条：1) 油价继续回落、Dow/金融/工业相对占优；2) 半导体与高估值 AI 链继续去风险，导致 Nasdaq 与 S&P 500 承压。",
       "impact": "影响科技成长主线和高 beta 风险偏好。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
+      "sourceLabel": "收盘投资简报",
       "sourceUrl": ""
     },
     {
       "title": "结构信号",
-      "detail": "结构信号：HY OAS 2.71%、BBB OAS 0.93%，说明信用市场仍未进入系统性风险模式；但黄金高位与VIX仍偏高，表明地缘风险溢价并未完全消退。",
+      "detail": "结构信号：SMH -4.8%、XLK -2.8%，但 XLF +1.5%、XLI +0.7%、TLT +0.6%、LQD +0.1%、HYG 基本持平，说明更像股权久期/估值重定价，而非系统性信用压力。",
       "impact": "帮助验证风险偏好是否扩散到信用和市场结构。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
+      "sourceLabel": "收盘投资简报",
+      "sourceUrl": ""
+    },
+    {
+      "title": "市场主线",
+      "detail": "个股主线：上涨侧集中在 SpaceX、SSR Mining、JPM、WDC/STX、AMKR；下跌侧集中在 HUN、MPWR、LITE、SNAP、PLAY，以及更广泛的 AI/空间高 beta。",
+      "impact": "影响科技成长主线和高 beta 风险偏好。",
+      "sourceLabel": "收盘投资简报",
       "sourceUrl": ""
     },
     {
       "title": "后续关注",
-      "detail": "下一次继续跟踪：1) 10:00 ET pending home sales / inventories；2) 14:00 ET FOMC与点阵图；3) 14:30 ET Warsh发布会措辞；4) 芯片反弹是技术修复还是AI主升恢复；5) 油价回落后航空/化工/能源的相对强弱。",
-      "impact": "影响科技成长主线和高 beta 风险偏好。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
+      "detail": "次日优先跟踪：6/17 08:30 ET 零售销售、14:00 ET FOMC 决议与 14:30 ET Warsh 首场发布会；Juneteenth 假期前的仓位调整也需留意。",
+      "impact": "作为定性背景，辅助解释量化指标的变化。",
+      "sourceLabel": "收盘投资简报",
+      "sourceUrl": ""
+    },
+    {
+      "title": "本轮运行耗时约 23 分钟。",
+      "detail": "本轮运行耗时约 23 分钟。",
+      "impact": "作为定性背景，辅助解释量化指标的变化。",
+      "sourceLabel": "收盘投资简报",
       "sourceUrl": ""
     }
   ]
