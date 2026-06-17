@@ -1,8 +1,7 @@
 """Publish a compact briefing JSON from local Codex investment brief memories.
 
-This is intended for the local Codex automation publisher. GitHub Actions
-cannot see the user's local Codex automation files, so this script runs locally
-and writes data/briefing.json for the static site to read.
+This runs locally because GitHub Actions cannot read the user's Codex
+automation files. It writes ``data/briefing.json`` for the static site.
 """
 
 from __future__ import annotations
@@ -19,7 +18,9 @@ from typing import Any
 ROOT = Path(__file__).resolve().parents[1]
 OUT_FILE = ROOT / "data" / "briefing.json"
 AUTOMATIONS_DIR = Path.home() / ".codex" / "automations"
-KEYWORDS = ("投资", "简报", "动态")
+LOCAL_TZ = datetime.now().astimezone().tzinfo or timezone.utc
+DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+BRIEF_KEYWORDS = ("投资", "简报", "动态")
 
 
 @dataclass
@@ -27,6 +28,7 @@ class MemoryDoc:
     name: str
     automation_id: str
     updated_at: float
+    updated_dt: datetime
     text: str
 
 
@@ -51,21 +53,26 @@ def load_memory_docs() -> list[MemoryDoc]:
     for folder in AUTOMATIONS_DIR.iterdir():
         if not folder.is_dir():
             continue
+
         meta = read_toml(folder / "automation.toml")
         name = str(meta.get("name") or folder.name)
         prompt = str(meta.get("prompt") or "")
         memory_path = folder / "memory.md"
         if not memory_path.exists() or not is_investment_brief(name, prompt):
             continue
+
         try:
             text = memory_path.read_text(encoding="utf-8")
         except UnicodeDecodeError:
             text = memory_path.read_text(encoding="utf-8-sig", errors="replace")
+
+        stat = memory_path.stat()
         docs.append(
             MemoryDoc(
                 name=name,
                 automation_id=str(meta.get("id") or folder.name),
-                updated_at=memory_path.stat().st_mtime,
+                updated_at=stat.st_mtime,
+                updated_dt=datetime.fromtimestamp(stat.st_mtime, tz=timezone.utc),
                 text=text,
             )
         )
@@ -86,28 +93,43 @@ def bullet_lines(text: str) -> list[str]:
     ]
 
 
+def extract_content_as_of(text: str, fallback: datetime) -> str:
+    for line in bullet_lines(text):
+        if "对应" in line and "收盘" in line:
+            matches = DATE_RE.findall(line)
+            if matches:
+                return matches[-1]
+
+    for line in bullet_lines(text):
+        matches = DATE_RE.findall(line)
+        if matches:
+            return matches[-1]
+
+    return fallback.astimezone(LOCAL_TZ).date().isoformat()
+
+
 def title_for(text: str) -> str:
     pairs = [
         ("mainline", "市场主线"),
         ("主线", "市场主线"),
-        ("Macro", "宏观数据"),
+        ("macro", "宏观数据"),
         ("宏观", "宏观数据"),
-        ("Market reaction", "市场反应"),
+        ("market reaction", "市场反应"),
         ("市场反应", "市场反应"),
         ("gainers", "上涨线索"),
         ("大涨", "上涨线索"),
         ("laggards", "风险信号"),
         ("大跌", "风险信号"),
-        ("Structure", "市场结构"),
+        ("structure", "市场结构"),
         ("资金", "市场结构"),
-        ("Hidden", "隐藏信号"),
+        ("hidden", "隐藏信号"),
         ("隐藏", "隐藏信号"),
-        ("Follow-up", "后续关注"),
+        ("follow-up", "后续关注"),
         ("跟踪", "后续关注"),
     ]
     lowered = text.lower()
     for needle, title in pairs:
-        if needle.lower() in lowered:
+        if needle in lowered:
             return title
     if "：" in text:
         return text.split("：", 1)[0][:18]
@@ -135,6 +157,10 @@ def build_briefing() -> dict[str, Any]:
     docs = load_memory_docs()
     now = datetime.now(timezone.utc).replace(microsecond=0)
     source_docs = docs[:2]
+    content_as_of = now.astimezone(LOCAL_TZ).date().isoformat()
+    if source_docs:
+        content_as_of = extract_content_as_of(source_docs[0].text, source_docs[0].updated_dt)
+
     bullets: list[tuple[MemoryDoc, str]] = []
     for doc in source_docs:
         bullets.extend((doc, bullet) for bullet in bullet_lines(doc.text))
@@ -156,7 +182,7 @@ def build_briefing() -> dict[str, Any]:
 
     return {
         "generatedAt": now.isoformat().replace("+00:00", "Z"),
-        "asOf": now.date().isoformat(),
+        "asOf": content_as_of,
         "source": "Codex 每日投资简报",
         "sourceAutomationIds": [doc.automation_id for doc in source_docs],
         "summary": summary,

@@ -1,52 +1,52 @@
 {
-  "generatedAt": "2026-06-17T12:29:51Z",
+  "generatedAt": "2026-06-17T12:50:30Z",
   "asOf": "2026-06-17",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation-3",
-    "automation"
+    "automation",
+    "automation-3"
   ],
-  "summary": "本次生成的是 2026-06-13 运行的收盘版，实际对应美国市场最近一次收盘为 2026-06-12。",
+  "summary": "早盘主线从“等待Fed”升级为“零售销售超预期 + Fed前利率重新定价 + 油价继续回落”。美国 Census 8:30 ET 公布 5月零售销售环比 +0.9%，强于市场预期约 +0.5%。",
   "items": [
     {
-      "title": "本次生成的是 2026-06-13 ",
-      "detail": "本次生成的是 2026-06-13 运行的收盘版，实际对应美国市场最近一次收盘为 2026-06-12。",
-      "impact": "作为定性背景，辅助解释量化指标的变化。",
-      "sourceLabel": "收盘投资简报",
-      "sourceUrl": ""
-    },
-    {
       "title": "市场主线",
-      "detail": "当天主线是两条：1) SpaceX IPO 引爆风险偏好并抽血/重估整个 space 链；2) 油价因美伊和谈预期回落，推动小盘、金融和广谱风险资产修复。",
-      "impact": "影响通胀预期、能源板块和避险需求。",
-      "sourceLabel": "收盘投资简报",
-      "sourceUrl": ""
-    },
-    {
-      "title": "关键市场数据",
-      "detail": "关键市场数据：S&P 500 7431.46 (+0.5%)，Dow 51202.26 (+0.7%)，Nasdaq 25888.84 (+0.3%)，Russell 2000 2943.99 (+0.8%)；Brent -3.4% 至 87.33 美元；10Y UST 4.48%。",
+      "detail": "早盘主线从“等待Fed”升级为“零售销售超预期 + Fed前利率重新定价 + 油价继续回落”。美国 Census 8:30 ET 公布 5月零售销售环比 +0.9%，强于市场预期约 +0.5%。",
       "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "收盘投资简报",
+      "sourceLabel": "每日投资动态简报 - 早盘推送",
       "sourceUrl": ""
     },
     {
-      "title": "重点上涨线索",
-      "detail": "重点上涨线索：SPCX、AMD、ARM、CRWV/RKLB/NBIS/TER 的指数纳入或风险偏好受益；重点下跌线索：SPCE、ASTS、EchoStar、Firefly、ADBE，核心是 SpaceX 对可比估值的挤压和 Adobe 的 AI 货币化担忧。",
+      "title": "盘前结构",
+      "detail": "盘前结构：Yahoo Finance 显示纳指期货约 +143、标普期货约 +2.5、道指期货约 -30；10Y 美债约 4.437%，2Y 约 4.058%；WTI 约 76.3、Brent 约 79.3、黄金约 4322、BTC 约 64751。",
+      "impact": "影响利率路径、估值折现和成长股风险偏好。",
+      "sourceLabel": "每日投资动态简报 - 早盘推送",
+      "sourceUrl": ""
+    },
+    {
+      "title": "强势焦点",
+      "detail": "强势焦点：LZB（业绩大超预期）、KMX（Q1收入/EPS胜预期）、INTC/MU/MRVL（芯片反弹）、SpaceX（IPO后惯性上冲）。",
+      "impact": "作为定性背景，辅助解释量化指标的变化。",
+      "sourceLabel": "每日投资动态简报 - 早盘推送",
+      "sourceUrl": ""
+    },
+    {
+      "title": "弱势焦点",
+      "detail": "弱势焦点：GIL（做空报告/渠道压货指控）、HUN（与OLN换股并购被市场质疑）、CBOE（预测市场竞争与监管变化）、ORCL（AI capex/债务争议延续）、SPCE（股权稀释/债务交换后遗症）。",
       "impact": "影响科技成长主线和高 beta 风险偏好。",
-      "sourceLabel": "收盘投资简报",
+      "sourceLabel": "每日投资动态简报 - 早盘推送",
+      "sourceUrl": ""
+    },
+    {
+      "title": "结构信号",
+      "detail": "结构信号：HY OAS 2.71%、BBB OAS 0.93%，说明信用市场仍未进入系统性风险模式；但黄金高位与VIX仍偏高，表明地缘风险溢价并未完全消退。",
+      "impact": "帮助验证风险偏好是否扩散到信用和市场结构。",
+      "sourceLabel": "每日投资动态简报 - 早盘推送",
       "sourceUrl": ""
     },
     {
       "title": "后续关注",
-      "detail": "下次优先跟踪：SpaceX 上市后 3-5 个交易日成交与 ETF/杠杆产品扩散、6/17 FOMC + 零售销售、美伊谈判/油价与通胀预期的二阶传导。",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "收盘投资简报",
-      "sourceUrl": ""
-    },
-    {
-      "title": "市场主线",
-      "detail": "早盘主线：美伊缓和预期压低油价，带动美股期货与全球风险资产反弹；但美国 5 月 CPI/PPI 已抬高通胀黏性，10Y 美债收益率仍在约 4.46% 一线，意味着这更像“地缘风险溢价回吐”而非“政策宽松交易”。",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
+      "detail": "下一次继续跟踪：1) 10:00 ET pending home sales / inventories；2) 14:00 ET FOMC与点阵图；3) 14:30 ET Warsh发布会措辞；4) 芯片反弹是技术修复还是AI主升恢复；5) 油价回落后航空/化工/能源的相对强弱。",
+      "impact": "影响科技成长主线和高 beta 风险偏好。",
       "sourceLabel": "每日投资动态简报 - 早盘推送",
       "sourceUrl": ""
     }
