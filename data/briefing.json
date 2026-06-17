@@ -1,53 +1,53 @@
 {
-  "generatedAt": "2026-06-12T12:59:54Z",
-  "asOf": "2026-06-12",
+  "generatedAt": "2026-06-17T12:29:51Z",
+  "asOf": "2026-06-17",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation",
-    "automation-2"
+    "automation-3",
+    "automation"
   ],
-  "summary": "早盘主线：美伊缓和预期压低油价，带动美股期货与全球风险资产反弹；但美国 5 月 CPI/PPI 已抬高通胀黏性，10Y 美债收益率仍在约 4.46% 一线，意味着这更像“地缘风险溢价回吐”而非“政策宽松交易”。",
+  "summary": "本次生成的是 2026-06-13 运行的收盘版，实际对应美国市场最近一次收盘为 2026-06-12。",
   "items": [
+    {
+      "title": "本次生成的是 2026-06-13 ",
+      "detail": "本次生成的是 2026-06-13 运行的收盘版，实际对应美国市场最近一次收盘为 2026-06-12。",
+      "impact": "作为定性背景，辅助解释量化指标的变化。",
+      "sourceLabel": "收盘投资简报",
+      "sourceUrl": ""
+    },
+    {
+      "title": "市场主线",
+      "detail": "当天主线是两条：1) SpaceX IPO 引爆风险偏好并抽血/重估整个 space 链；2) 油价因美伊和谈预期回落，推动小盘、金融和广谱风险资产修复。",
+      "impact": "影响通胀预期、能源板块和避险需求。",
+      "sourceLabel": "收盘投资简报",
+      "sourceUrl": ""
+    },
+    {
+      "title": "关键市场数据",
+      "detail": "关键市场数据：S&P 500 7431.46 (+0.5%)，Dow 51202.26 (+0.7%)，Nasdaq 25888.84 (+0.3%)，Russell 2000 2943.99 (+0.8%)；Brent -3.4% 至 87.33 美元；10Y UST 4.48%。",
+      "impact": "影响利率路径、估值折现和成长股风险偏好。",
+      "sourceLabel": "收盘投资简报",
+      "sourceUrl": ""
+    },
+    {
+      "title": "重点上涨线索",
+      "detail": "重点上涨线索：SPCX、AMD、ARM、CRWV/RKLB/NBIS/TER 的指数纳入或风险偏好受益；重点下跌线索：SPCE、ASTS、EchoStar、Firefly、ADBE，核心是 SpaceX 对可比估值的挤压和 Adobe 的 AI 货币化担忧。",
+      "impact": "影响科技成长主线和高 beta 风险偏好。",
+      "sourceLabel": "收盘投资简报",
+      "sourceUrl": ""
+    },
+    {
+      "title": "后续关注",
+      "detail": "下次优先跟踪：SpaceX 上市后 3-5 个交易日成交与 ETF/杠杆产品扩散、6/17 FOMC + 零售销售、美伊谈判/油价与通胀预期的二阶传导。",
+      "impact": "影响利率路径、估值折现和成长股风险偏好。",
+      "sourceLabel": "收盘投资简报",
+      "sourceUrl": ""
+    },
     {
       "title": "市场主线",
       "detail": "早盘主线：美伊缓和预期压低油价，带动美股期货与全球风险资产反弹；但美国 5 月 CPI/PPI 已抬高通胀黏性，10Y 美债收益率仍在约 4.46% 一线，意味着这更像“地缘风险溢价回吐”而非“政策宽松交易”。",
       "impact": "影响利率路径、估值折现和成长股风险偏好。",
       "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
-    },
-    {
-      "title": "关键个股",
-      "detail": "关键个股：SpaceX IPO/Space 产业链、Adobe 因 CFO 离任和 freemium AI 策略承压、Oracle 因 AI capex/融资压力下跌、Lennar 反映高按揭利率与住房需求疲弱、EchoStar/Rocket Lab 等受 SpaceX 情绪外溢拉升。",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
-    },
-    {
-      "title": "结构信号",
-      "detail": "结构信号：VIX 期货显著回落但黄金仍强、BlackRock 5 月 ETP 数据显示固收流入创纪录而权益流入边际放缓、英国上市公司继续向美国流动性池迁移（Flutter 退伦敦）。",
-      "impact": "作为定性背景，辅助解释量化指标的变化。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
-    },
-    {
-      "title": "市场结构",
-      "detail": "下次延续跟踪：1) Michigan sentiment 与通胀预期；2) 油价是否继续跌破并稳在 85-90 美元区间；3) SpaceX 上市首日表现是否引发 AI/航天/指数被动资金再定价；4) 高收益信用利差是否同步收窄，验证风险偏好修复质量。",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
-    },
-    {
-      "title": "市场主线",
-      "detail": "2026-06-11 noon brief mainline: U.S. midday market led by AI-chain rebound plus SpaceX IPO risk appetite, despite hotter-than-expected May PPI.",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "中午投资动态",
-      "sourceUrl": ""
-    },
-    {
-      "title": "宏观数据",
-      "detail": "Macro facts used: BLS PPI final demand +1.1% m/m, +6.5% y/y; core ex food/energy/trade +0.8% m/m, +5.1% y/y. DOL initial jobless claims 229k.",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "中午投资动态",
       "sourceUrl": ""
     }
   ]
