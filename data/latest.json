@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-06-18T18:22:01Z",
+  "generatedAt": "2026-06-18T19:40:09Z",
   "asOf": "2026-06-18",
   "mode": "live",
   "values": {
-    "vix": 16.79,
-    "vixChange5d": -2.65,
+    "vix": 16.85,
+    "vixChange5d": -2.59,
     "move": 69.36,
-    "spyDrawdown": -1.7,
-    "qqqDrawdown": -0.87,
-    "rspSpyRel60d": -4.08,
-    "hygRet20d": 0.68,
-    "jnkRet20d": 0.84,
+    "spyDrawdown": -1.66,
+    "qqqDrawdown": -0.78,
+    "rspSpyRel60d": -4.21,
+    "hygRet20d": 0.67,
+    "jnkRet20d": 0.83,
     "hyOas": 2.63,
     "hyOasChange20d": -15.0,
     "igOas": 0.74,
     "igOasChange20d": -1.0,
-    "dxyChange20d": 1.7,
+    "dxyChange20d": 1.82,
     "tenYYield": 4.43,
     "tenYChange20d": -18.0,
     "realTenY": 2.14,
     "realTenYChange20d": 1.0,
     "nfci": -0.51,
-    "kreRel20d": 3.2,
+    "kreRel20d": 2.79,
     "aaiiBearish": 39.4,
     "putCall": 0.59,
     "fearGreed": 37.0
@@ -33,7 +33,7 @@
   },
   "regime": {
     "key": "normal",
-    "title": "正常或温和回调",
+    "title": "Normal / Mild Pullback",
     "summary": "信用市场稳定，波动率未进入失控区。若指数只是普通调整，可以维持正常定投和再平衡纪律。",
     "tone": "calm",
     "overheated": false
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-06-18T18:15:50+00:00",
+      "asOf": "2026-06-18T19:36:31+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }

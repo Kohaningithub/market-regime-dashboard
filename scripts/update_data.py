@@ -26,12 +26,19 @@ from urllib.request import Request, urlopen
 ROOT = Path(__file__).resolve().parents[1]
 OUT_FILE = ROOT / "data" / "latest.json"
 HISTORY_FILE = ROOT / "data" / "history.json"
-MAX_HISTORY_ENTRIES = 1200
+MAX_RECENT_UPDATES = 120
+MAX_DAILY_HISTORY = 756
 USER_AGENT = "Mozilla/5.0 market-regime-dashboard/1.0"
 CNN_USER_AGENT = (
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
 )
+REGIME_TITLES = {
+    "normal": "Normal / Mild Pullback",
+    "panic": "Panic Pullback",
+    "extreme": "Extreme Panic",
+    "defensive": "Systemic Stress",
+}
 
 
 @dataclass
@@ -319,7 +326,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
     if scores["credit"] >= 6 or has_systemic_cluster(values, scores["credit"]):
         return {
             "key": "defensive",
-            "title": "系统性风险",
+            "title": "Systemic Stress",
             "summary": "信用压力优先级最高。股市下跌同时伴随信用、银行、美元或美债波动恶化时，先降低风险敞口，不急着抄底。",
             "tone": "danger",
             "overheated": overheated,
@@ -332,7 +339,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
     ):
         return {
             "key": "extreme",
-            "title": "极端恐慌",
+            "title": "Extreme Panic",
             "summary": "波动率和情绪已经极端，但信用市场尚未失控。可以开始关注抄底窗口，执行上仍应分批和控制仓位。",
             "tone": "danger",
             "overheated": overheated,
@@ -346,7 +353,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
     ):
         return {
             "key": "panic",
-            "title": "恐慌回调",
+            "title": "Panic Pullback",
             "summary": "市场情绪进入恐惧区，指数回调较深，但信用和美元流动性尚未出现失序信号。适合按计划分批加仓。",
             "tone": "warning",
             "overheated": overheated,
@@ -354,7 +361,7 @@ def classify(values: dict[str, float], scores: dict[str, int]) -> dict[str, Any]
 
     return {
         "key": "normal",
-        "title": "正常或温和回调",
+        "title": "Normal / Mild Pullback",
         "summary": "信用市场稳定，波动率未进入失控区。若指数只是普通调整，可以维持正常定投和再平衡纪律。",
         "tone": "calm",
         "overheated": overheated,
@@ -365,26 +372,75 @@ def data_point(value: float, as_of: str, source: str, status: str = "ok", note: 
     return DataPoint(round_value(value), as_of, source, status, note)
 
 
+def clean_history_entries(entries: Any) -> list[dict[str, Any]]:
+    cleaned: list[dict[str, Any]] = []
+    for entry in entries or []:
+        if not isinstance(entry, dict):
+            continue
+        normalized = dict(entry)
+        regime_key = normalized.get("regime")
+        if regime_key in REGIME_TITLES:
+            normalized["regimeTitle"] = REGIME_TITLES[regime_key]
+        cleaned.append(normalized)
+    return cleaned
+
+
+def build_daily_history(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    daily: list[dict[str, Any]] = []
+    for entry in entries:
+        if daily and daily[-1].get("asOf") == entry.get("asOf"):
+            daily[-1] = entry
+        else:
+            daily.append(entry)
+    return daily
+
+
+def compress_recent_updates(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    compressed: list[dict[str, Any]] = []
+    for entry in entries:
+        generated_at = entry.get("generatedAt")
+        as_of = entry.get("asOf")
+        if compressed and compressed[-1].get("asOf") == as_of:
+            previous_generated_at = compressed[-1].get("generatedAt")
+            try:
+                current_dt = datetime.fromisoformat(str(generated_at).replace("Z", "+00:00"))
+                previous_dt = datetime.fromisoformat(str(previous_generated_at).replace("Z", "+00:00"))
+            except ValueError:
+                current_dt = None
+                previous_dt = None
+            if current_dt and previous_dt and abs((current_dt - previous_dt).total_seconds()) < 30 * 60:
+                compressed[-1] = entry
+                continue
+        compressed.append(entry)
+    return compressed
+
+
 def load_history() -> dict[str, Any]:
     if not HISTORY_FILE.exists():
-        return {"generatedAt": None, "entries": []}
+        return {"generatedAt": None, "recentUpdates": [], "dailyHistory": []}
 
     try:
         raw = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
     except json.JSONDecodeError:
-        return {"generatedAt": None, "entries": []}
+        return {"generatedAt": None, "recentUpdates": [], "dailyHistory": []}
 
     if isinstance(raw, list):
-        entries = raw
-        generated_at = None
+        recent_updates = clean_history_entries(raw)
+        daily_history = build_daily_history(recent_updates)
+        generated_at = recent_updates[-1].get("generatedAt") if recent_updates else None
     elif isinstance(raw, dict):
-        entries = raw.get("entries") or []
+        legacy_entries = clean_history_entries(raw.get("entries") or [])
+        recent_updates = clean_history_entries(raw.get("recentUpdates") or legacy_entries)
+        daily_history = clean_history_entries(raw.get("dailyHistory") or build_daily_history(recent_updates))
         generated_at = raw.get("generatedAt")
     else:
-        return {"generatedAt": None, "entries": []}
+        return {"generatedAt": None, "recentUpdates": [], "dailyHistory": []}
 
-    clean_entries = [entry for entry in entries if isinstance(entry, dict)]
-    return {"generatedAt": generated_at, "entries": clean_entries}
+    return {
+        "generatedAt": generated_at,
+        "recentUpdates": compress_recent_updates(recent_updates),
+        "dailyHistory": daily_history,
+    }
 
 
 def build_history_entry(snapshot: dict[str, Any], spy_close: float) -> dict[str, Any]:
@@ -407,20 +463,33 @@ def build_history_entry(snapshot: dict[str, Any], spy_close: float) -> dict[str,
 
 def write_history(snapshot: dict[str, Any], spy_close: float) -> dict[str, Any]:
     history = load_history()
-    entries = history["entries"]
     entry = build_history_entry(snapshot, spy_close)
+    recent_updates = history["recentUpdates"]
+    daily_history = history["dailyHistory"]
 
-    if entries and entries[-1].get("generatedAt") == entry["generatedAt"]:
-        entries[-1] = entry
+    if recent_updates and recent_updates[-1].get("generatedAt") == entry["generatedAt"]:
+        recent_updates[-1] = entry
     else:
-        entries.append(entry)
+        recent_updates.append(entry)
 
-    if len(entries) > MAX_HISTORY_ENTRIES:
-        entries = entries[-MAX_HISTORY_ENTRIES:]
+    if daily_history and daily_history[-1].get("asOf") == entry["asOf"]:
+        daily_history[-1] = entry
+    else:
+        daily_history.append(entry)
+
+    if len(recent_updates) > MAX_RECENT_UPDATES:
+        recent_updates = recent_updates[-MAX_RECENT_UPDATES:]
+    recent_updates = compress_recent_updates(recent_updates)
+
+    if len(daily_history) > MAX_DAILY_HISTORY:
+        daily_history = daily_history[-MAX_DAILY_HISTORY:]
 
     payload = {
         "generatedAt": snapshot["generatedAt"],
-        "entries": entries,
+        "historyStartedAt": daily_history[0].get("asOf") if daily_history else None,
+        "recentUpdates": recent_updates,
+        "dailyHistory": daily_history,
+        "entries": recent_updates,
     }
     HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
     HISTORY_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
@@ -605,7 +674,7 @@ def main() -> int:
     print(
         f"Wrote {OUT_FILE.relative_to(ROOT)} | regime={snapshot['regime']['key']} | "
         f"V={snapshot['scores']['volatility']} C={snapshot['scores']['credit']} S={snapshot['scores']['sentiment']} | "
-        f"history={len(history['entries'])}"
+        f"recentUpdates={len(history['recentUpdates'])} dailyHistory={len(history['dailyHistory'])}"
     )
     return 0
 

@@ -1,4 +1,4 @@
-"""Publish a compact briefing JSON from local Codex investment brief memories.
+"""Publish a structured briefing JSON from local Codex investment brief memories.
 
 This runs locally because GitHub Actions cannot read the user's Codex
 automation files. It writes ``data/briefing.json`` for the static site.
@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 import re
 import tomllib
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -20,7 +20,123 @@ OUT_FILE = ROOT / "data" / "briefing.json"
 AUTOMATIONS_DIR = Path.home() / ".codex" / "automations"
 LOCAL_TZ = datetime.now().astimezone().tzinfo or timezone.utc
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
-BRIEF_KEYWORDS = ("投资", "简报", "动态")
+TIME_RE = re.compile(r"\b\d{1,2}:\d{2}\b")
+SOURCE_BLOCK_RE = re.compile(
+    r"\[\[SOURCE\|(?P<name>[^|\]]+)\|(?P<published>[^|\]]+)\|(?P<event_date>[^|\]]+)\|(?P<url>https?://[^\]]+)\]\]"
+)
+LOG_PATTERNS = (
+    re.compile(r"运行时长"),
+    re.compile(r"运行耗时"),
+    re.compile(r"耗时约"),
+    re.compile(r"本次生成的是"),
+    re.compile(r"本轮切换为"),
+)
+MAINLINE_LABELS = ("主线", "市场主线", "核心主线", "核心事实", "宏观对照")
+EVENT_KEYWORDS = ("初请", "联储", "央行", "Conference Board", "LEI", "财报", "讲话", "零售销售", "FOMC")
+WATCH_LABELS = ("当日需继续跟踪", "次日优先跟踪", "后续关注", "继续跟踪", "重点盯", "留意")
+STRUCTURE_LABELS = ("结构信号", "市场反应", "市场结构", "宏观对照", "资金信号")
+STOCK_MOVER_KEYWORDS = ("上涨关注", "下跌关注", "个股主线", "大涨", "大跌")
+
+DATE_SPECIFIC_SOURCE_BACKFILLS: dict[tuple[str, str, str], list[dict[str, str]]] = {
+    (
+        "2026-06-18",
+        "早盘版",
+        "macro",
+    ): [
+        {
+            "name": "Federal Reserve",
+            "publishedAt": "2026-06-17T14:00:00-04:00",
+            "eventDate": "2026-06-17",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+        },
+        {
+            "name": "Federal Reserve Projections",
+            "publishedAt": "2026-06-17T14:00:00-04:00",
+            "eventDate": "2026-06-17",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617b.htm",
+        },
+        {
+            "name": "AP News",
+            "publishedAt": "2026-06-17",
+            "eventDate": "2026-06-17",
+            "url": "https://apnews.com/article/iran-us-israel-war-oil-deal-june-17-2026-19652f4611b704c0a991bf1f5bc9a4b9",
+        },
+    ],
+    (
+        "2026-06-18",
+        "早盘版",
+        "events",
+    ): [
+        {
+            "name": "U.S. Department of Labor",
+            "publishedAt": "2026-06-18T08:30:00-04:00",
+            "eventDate": "2026-06-18",
+            "url": "https://www.dol.gov/ui/data.pdf",
+        },
+        {
+            "name": "Philadelphia Fed",
+            "publishedAt": "2026-06-18T08:30:00-04:00",
+            "eventDate": "2026-06-18",
+            "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-06",
+        },
+        {
+            "name": "The Conference Board",
+            "publishedAt": "2026-06-18T10:00:00-04:00",
+            "eventDate": "2026-06-18",
+            "url": "https://www.conference-board.org/topics/us-leading-indicators/",
+        },
+    ],
+    (
+        "2026-06-18",
+        "早盘版",
+        "impact",
+    ): [
+        {
+            "name": "Federal Reserve",
+            "publishedAt": "2026-06-17T14:00:00-04:00",
+            "eventDate": "2026-06-17",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+        },
+        {
+            "name": "AP News",
+            "publishedAt": "2026-06-17",
+            "eventDate": "2026-06-17",
+            "url": "https://apnews.com/article/iran-us-israel-war-oil-deal-june-17-2026-19652f4611b704c0a991bf1f5bc9a4b9",
+        },
+    ],
+    (
+        "2026-06-18",
+        "早盘版",
+        "watch",
+    ): [
+        {
+            "name": "U.S. Department of Labor",
+            "publishedAt": "2026-06-18T08:30:00-04:00",
+            "eventDate": "2026-06-18",
+            "url": "https://www.dol.gov/ui/data.pdf",
+        },
+        {
+            "name": "Philadelphia Fed",
+            "publishedAt": "2026-06-18T08:30:00-04:00",
+            "eventDate": "2026-06-18",
+            "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-06",
+        },
+        {
+            "name": "The Conference Board",
+            "publishedAt": "2026-06-18T10:00:00-04:00",
+            "eventDate": "2026-06-18",
+            "url": "https://www.conference-board.org/topics/us-leading-indicators/",
+        },
+    ],
+}
+
+
+@dataclass
+class SourceRef:
+    name: str
+    publishedAt: str
+    eventDate: str
+    url: str
 
 
 @dataclass
@@ -30,6 +146,12 @@ class MemoryDoc:
     updated_at: float
     updated_dt: datetime
     text: str
+
+
+@dataclass
+class BriefLine:
+    text: str
+    sources: list[SourceRef]
 
 
 def read_toml(path: Path) -> dict[str, Any]:
@@ -84,108 +206,268 @@ def clean_bullet(line: str) -> str:
     return re.sub(r"^\s*[-*]\s+", "", line).strip()
 
 
-def bullet_lines(text: str) -> list[str]:
-    bullets = [clean_bullet(line) for line in text.splitlines() if re.match(r"^\s*[-*]\s+", line)]
-    return [
-        bullet
-        for bullet in bullets
-        if not bullet.lower().startswith(("runtime:", "run time:", "generated at:", "last updated:"))
+def is_log_line(line: str) -> bool:
+    return any(pattern.search(line) for pattern in LOG_PATTERNS)
+
+
+def extract_sources(text: str) -> tuple[str, list[SourceRef]]:
+    sources = [
+        SourceRef(
+            name=match.group("name").strip(),
+            publishedAt=match.group("published").strip(),
+            eventDate=match.group("event_date").strip(),
+            url=match.group("url").strip(),
+        )
+        for match in SOURCE_BLOCK_RE.finditer(text)
     ]
+    clean_text = SOURCE_BLOCK_RE.sub("", text).strip()
+    return clean_text, sources
+
+
+def bullet_lines(text: str) -> list[BriefLine]:
+    lines: list[BriefLine] = []
+    for raw_line in text.splitlines():
+        if not re.match(r"^\s*[-*]\s+", raw_line):
+            continue
+        bullet = clean_bullet(raw_line)
+        if not bullet or is_log_line(bullet):
+            continue
+        clean_text, sources = extract_sources(bullet)
+        lines.append(BriefLine(text=clean_text, sources=sources))
+    return lines
 
 
 def extract_content_as_of(text: str, fallback: datetime) -> str:
     for line in bullet_lines(text):
-        if "对应" in line and "收盘" in line:
-            matches = DATE_RE.findall(line)
-            if matches:
-                return matches[-1]
-
-    for line in bullet_lines(text):
-        matches = DATE_RE.findall(line)
+        matches = DATE_RE.findall(line.text)
         if matches:
             return matches[-1]
-
     return fallback.astimezone(LOCAL_TZ).date().isoformat()
 
 
-def title_for(text: str) -> str:
-    pairs = [
-        ("mainline", "市场主线"),
-        ("主线", "市场主线"),
-        ("macro", "宏观数据"),
-        ("宏观", "宏观数据"),
-        ("market reaction", "市场反应"),
-        ("市场反应", "市场反应"),
-        ("gainers", "上涨线索"),
-        ("大涨", "上涨线索"),
-        ("laggards", "风险信号"),
-        ("大跌", "风险信号"),
-        ("structure", "市场结构"),
-        ("资金", "市场结构"),
-        ("hidden", "隐藏信号"),
-        ("隐藏", "隐藏信号"),
-        ("follow-up", "后续关注"),
-        ("跟踪", "后续关注"),
-    ]
-    lowered = text.lower()
-    for needle, title in pairs:
-        if needle in lowered:
-            return title
+def edition_for(doc: MemoryDoc) -> str:
+    if "早盘" in doc.name:
+        return "早盘版"
+    if "收盘" in doc.name:
+        return "收盘版"
+    return "简报版"
+
+
+def strip_prefix(text: str) -> str:
     if "：" in text:
-        return text.split("：", 1)[0][:18]
+        return text.split("：", 1)[1].strip()
     if ":" in text:
-        return text.split(":", 1)[0][:18]
-    return text[:18]
+        return text.split(":", 1)[1].strip()
+    return text.strip()
 
 
-def impact_for(text: str) -> str:
-    lowered = text.lower()
-    if any(token in lowered for token in ("ppi", "cpi", "jobless", "10y", "ust", "rates", "yield", "初请", "通胀", "利率")):
-        return "影响利率路径、估值折现和成长股风险偏好。"
-    if any(token in lowered for token in ("ai", "semiconductor", "semi", "tech", "oracle", "nvda", "smci", "半导体", "科技")):
-        return "影响科技成长主线和高 beta 风险偏好。"
-    if any(token in lowered for token in ("oil", "wti", "brent", "iran", "energy", "油", "伊朗", "能源")):
-        return "影响通胀预期、能源板块和避险需求。"
-    if any(token in lowered for token in ("credit", "spread", "hyg", "jnk", "etf", "option", "flow", "信用", "期权", "资金")):
-        return "帮助验证风险偏好是否扩散到信用和市场结构。"
-    if any(token in lowered for token in ("risk", "drawdown", "跌", "弱势", "压力")):
-        return "提示需要观察风险是否从个股扩散到行业或宏观层面。"
-    return "作为定性背景，辅助解释量化指标的变化。"
+def has_label(text: str, labels: tuple[str, ...]) -> bool:
+    return any(text.startswith(label) or text.startswith(f"{label}：") or text.startswith(f"{label}:") for label in labels)
+
+
+def unique_join(lines: list[str]) -> str:
+    seen: set[str] = set()
+    ordered: list[str] = []
+    for line in lines:
+        normalized = line.strip()
+        if not normalized or normalized in seen:
+            continue
+        seen.add(normalized)
+        ordered.append(normalized)
+    return "；".join(ordered)
+
+
+def dedupe_sources(sources: list[SourceRef]) -> list[SourceRef]:
+    deduped: list[SourceRef] = []
+    seen: set[str] = set()
+    for source in sources:
+        if not source.url or source.url in seen:
+            continue
+        seen.add(source.url)
+        deduped.append(source)
+    return deduped
+
+
+def fallback_sources(content_as_of: str, edition: str, key: str) -> list[SourceRef]:
+    rows = DATE_SPECIFIC_SOURCE_BACKFILLS.get((content_as_of, edition, key), [])
+    return [SourceRef(**row) for row in rows]
+
+
+def impact_for(title: str) -> str:
+    if title == "宏观主线":
+        return "影响利率路径、美元方向和成长资产估值折现。"
+    if title == "当日重要事件":
+        return "决定盘中利率预期是否继续强化或修正。"
+    if title == "行业或资产影响":
+        return "帮助判断风险偏好变化首先传导到哪些板块或资产。"
+    return "用于跟踪当前叙事是否扩散到更广泛的市场结构。"
+
+
+def lines_to_sources(lines: list[BriefLine], content_as_of: str, edition: str, key: str) -> list[SourceRef]:
+    sources = dedupe_sources([source for line in lines for source in line.sources])
+    if sources:
+        return sources
+    return fallback_sources(content_as_of, edition, key)
+
+
+def make_item(
+    key: str,
+    title: str,
+    detail: str,
+    doc: MemoryDoc,
+    content_as_of: str,
+    edition: str,
+    sources: list[SourceRef],
+) -> dict[str, Any]:
+    source_payload = [asdict(source) for source in sources]
+    first_source = source_payload[0] if source_payload else {}
+    return {
+        "key": key,
+        "title": title,
+        "detail": detail,
+        "impact": impact_for(title),
+        "sourceName": first_source.get("name", doc.name),
+        "sourceUrl": first_source.get("url", ""),
+        "publishedAt": first_source.get("publishedAt", doc.updated_dt.replace(microsecond=0).isoformat().replace("+00:00", "Z")),
+        "eventDate": first_source.get("eventDate", content_as_of),
+        "edition": edition,
+        "sources": source_payload,
+    }
+
+
+def build_items(doc: MemoryDoc, content_as_of: str) -> tuple[list[dict[str, Any]], int]:
+    lines = bullet_lines(doc.text)
+    edition = edition_for(doc)
+    mainline_lines = [line for line in lines if has_label(line.text, MAINLINE_LABELS)]
+    event_lines = [
+        line
+        for line in lines
+        if (has_label(line.text, WATCH_LABELS) or TIME_RE.search(line.text) or any(keyword in line.text for keyword in EVENT_KEYWORDS))
+        and not has_label(line.text, MAINLINE_LABELS)
+    ]
+    watch_lines = [line for line in lines if has_label(line.text, WATCH_LABELS)]
+    structure_lines = [line for line in lines if has_label(line.text, STRUCTURE_LABELS)]
+    stock_lines = [line for line in lines if any(keyword in line.text for keyword in STOCK_MOVER_KEYWORDS)]
+
+    if not mainline_lines:
+        mainline_lines = [line for line in lines if "主线" in line.text][:1]
+
+    items: list[dict[str, Any]] = []
+    mainline = unique_join([strip_prefix(line.text) for line in mainline_lines[:2]])
+    events = unique_join([strip_prefix(line.text) for line in event_lines[:2]])
+    structure = unique_join([strip_prefix(line.text) for line in structure_lines[:2]])
+    watch = unique_join([strip_prefix(line.text) for line in watch_lines[:2]])
+
+    if mainline:
+        items.append(
+            make_item(
+                "macro",
+                "宏观主线",
+                mainline,
+                doc,
+                content_as_of,
+                edition,
+                lines_to_sources(mainline_lines[:2], content_as_of, edition, "macro"),
+            )
+        )
+    if events:
+        items.append(
+            make_item(
+                "events",
+                "当日重要事件",
+                events,
+                doc,
+                content_as_of,
+                edition,
+                lines_to_sources(event_lines[:2], content_as_of, edition, "events"),
+            )
+        )
+    if structure:
+        items.append(
+            make_item(
+                "impact",
+                "行业或资产影响",
+                structure,
+                doc,
+                content_as_of,
+                edition,
+                lines_to_sources(structure_lines[:2], content_as_of, edition, "impact"),
+            )
+        )
+    elif mainline:
+        items.append(
+            make_item(
+                "impact",
+                "行业或资产影响",
+                mainline,
+                doc,
+                content_as_of,
+                edition,
+                lines_to_sources(mainline_lines[:2], content_as_of, edition, "impact"),
+            )
+        )
+    if watch:
+        watch_detail = watch
+        if watch == events:
+            watch_detail = "继续观察上述催化是否进一步强化美元、短端利率与风险偏好方向。"
+        items.append(
+            make_item(
+                "watch",
+                "后续观察点",
+                watch_detail,
+                doc,
+                content_as_of,
+                edition,
+                lines_to_sources(watch_lines[:2] or event_lines[:2], content_as_of, edition, "watch"),
+            )
+        )
+    elif events:
+        items.append(
+            make_item(
+                "watch",
+                "后续观察点",
+                "继续观察上述事件是否进一步强化美元、利率与风险偏好方向。",
+                doc,
+                content_as_of,
+                edition,
+                lines_to_sources(event_lines[:2], content_as_of, edition, "watch"),
+            )
+        )
+
+    suppressed_stock_lines = sum(1 for line in stock_lines if not line.sources)
+    return items[:4], suppressed_stock_lines
 
 
 def build_briefing() -> dict[str, Any]:
     docs = load_memory_docs()
     now = datetime.now(timezone.utc).replace(microsecond=0)
-    source_docs = docs[:2]
-    content_as_of = now.astimezone(LOCAL_TZ).date().isoformat()
-    if source_docs:
-        content_as_of = extract_content_as_of(source_docs[0].text, source_docs[0].updated_dt)
 
-    bullets: list[tuple[MemoryDoc, str]] = []
-    for doc in source_docs:
-        bullets.extend((doc, bullet) for bullet in bullet_lines(doc.text))
-
-    items = [
-        {
-            "title": title_for(text),
-            "detail": text,
-            "impact": impact_for(text),
-            "sourceLabel": doc.name,
-            "sourceUrl": "",
+    if not docs:
+        return {
+            "generatedAt": now.isoformat().replace("+00:00", "Z"),
+            "asOf": now.astimezone(LOCAL_TZ).date().isoformat(),
+            "source": "Codex 每日投资简报",
+            "sourceAutomationIds": [],
+            "summary": "等待最新投资简报写入本地 memory。",
+            "suppressedCount": 0,
+            "linkCoverage": 0,
+            "items": [],
         }
-        for doc, text in bullets[:6]
-    ]
 
-    summary = "等待每日投资简报写入最新线索。"
-    if items:
-        summary = items[0]["detail"]
+    doc = docs[0]
+    content_as_of = extract_content_as_of(doc.text, doc.updated_dt)
+    items, suppressed_count = build_items(doc, content_as_of)
+    sourced_items = sum(1 for item in items if item.get("sources"))
+    summary = items[0]["detail"] if items else "最新简报尚未提供可展示的市场上下文。"
 
     return {
         "generatedAt": now.isoformat().replace("+00:00", "Z"),
         "asOf": content_as_of,
         "source": "Codex 每日投资简报",
-        "sourceAutomationIds": [doc.automation_id for doc in source_docs],
+        "sourceAutomationIds": [doc.automation_id],
         "summary": summary,
+        "suppressedCount": suppressed_count,
+        "linkCoverage": sourced_items,
         "items": items,
     }
 
@@ -194,7 +476,12 @@ def main() -> None:
     OUT_FILE.parent.mkdir(parents=True, exist_ok=True)
     briefing = build_briefing()
     OUT_FILE.write_text(json.dumps(briefing, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {OUT_FILE.relative_to(ROOT)} | items={len(briefing['items'])}")
+    print(
+        f"Wrote {OUT_FILE.relative_to(ROOT)} | "
+        f"items={len(briefing['items'])} | "
+        f"sourced={briefing.get('linkCoverage', 0)} | "
+        f"suppressed={briefing.get('suppressedCount', 0)}"
+    )
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@
       name="description"
       content="A client-facing market regime readout for judging whether U.S. equities favor investing, rebalancing, adding risk, or defensive positioning."
     />
-    <link rel="stylesheet" href="styles.css?v=20260617-history1" />
+    <link rel="stylesheet" href="styles.css?v=20260618-clarity1" />
   </head>
   <body>
     <header class="topbar">
@@ -26,8 +26,10 @@
     <main>
       <section class="status-band" aria-labelledby="regime-title">
         <div class="regime-panel">
-          <p class="eyebrow">Current Investment Posture</p>
+          <p class="eyebrow">Current Regime</p>
           <h2 id="regime-title">--</h2>
+          <p id="regime-internal" class="regime-internal">--</p>
+          <p id="regime-change" class="regime-change">--</p>
           <p id="regime-summary" class="regime-summary"></p>
           <div id="live-meta" class="live-meta">正在读取最近一次市场快照...</div>
 
@@ -55,8 +57,11 @@
         <div class="score-grid" aria-label="Core stress scores">
           <details class="score-card" open>
             <summary>
-              <span>Volatility Panic</span>
-              <strong id="vol-score">0</strong>
+              <span>Volatility Pressure</span>
+              <div class="score-summary-metrics">
+                <strong id="vol-score">Low</strong>
+                <small id="vol-score-range">0 / 8 raw</small>
+              </div>
             </summary>
             <meter id="vol-meter" min="0" max="8" value="0"></meter>
             <p id="vol-label">--</p>
@@ -68,8 +73,11 @@
 
           <details class="score-card" open>
             <summary>
-              <span>Credit Stress</span>
-              <strong id="credit-score">0</strong>
+              <span>Credit Pressure</span>
+              <div class="score-summary-metrics">
+                <strong id="credit-score">Low</strong>
+                <small id="credit-score-range">0 / 18 raw</small>
+              </div>
             </summary>
             <meter id="credit-meter" min="0" max="18" value="0"></meter>
             <p id="credit-label">--</p>
@@ -82,7 +90,10 @@
           <details class="score-card" open>
             <summary>
               <span>Sentiment Fear</span>
-              <strong id="sentiment-score">0</strong>
+              <div class="score-summary-metrics">
+                <strong id="sentiment-score">Low</strong>
+                <small id="sentiment-score-range">0 / 8 raw</small>
+              </div>
             </summary>
             <meter id="sentiment-meter" min="0" max="8" value="0"></meter>
             <p id="sentiment-label">--</p>
@@ -97,33 +108,61 @@
       <section class="history-section" aria-labelledby="history-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Regime History</p>
-            <h2 id="history-title">历史状态序列</h2>
+            <p class="eyebrow">History</p>
+            <h2 id="history-title">Recent Updates & Regime History</h2>
           </div>
-          <div id="history-meta" class="source-meta">正在读取状态历史...</div>
         </div>
-        <p id="history-summary" class="history-summary">--</p>
-        <div id="history-stats" class="history-stats"></div>
-        <div class="history-legend" aria-hidden="true">
-          <span><i class="legend-swatch regime-normal"></i>Normal</span>
-          <span><i class="legend-swatch regime-panic"></i>Panic</span>
-          <span><i class="legend-swatch regime-extreme"></i>Extreme</span>
-          <span><i class="legend-swatch regime-defensive"></i>Systemic</span>
-          <span><i class="legend-swatch regime-overheated"></i>Overheated</span>
+        <div class="history-layout">
+          <article class="history-panel">
+            <div class="section-heading history-panel-heading">
+              <div>
+                <p class="eyebrow">Recent Updates</p>
+                <h3>盘中快照</h3>
+              </div>
+              <div id="recent-updates-meta" class="source-meta">正在读取最近更新...</div>
+            </div>
+            <div id="recent-updates" class="recent-updates"></div>
+          </article>
+
+          <article class="history-panel">
+            <div class="section-heading history-panel-heading">
+              <div>
+                <p class="eyebrow">Regime History</p>
+                <h3>日度收盘状态</h3>
+              </div>
+              <div class="history-range-controls" role="group" aria-label="History range">
+                <button class="history-range-button" type="button" data-range="30">1M</button>
+                <button class="history-range-button is-active" type="button" data-range="90">3M</button>
+                <button class="history-range-button" type="button" data-range="180">6M</button>
+                <button class="history-range-button" type="button" data-range="365">1Y</button>
+              </div>
+            </div>
+            <div id="history-meta" class="source-meta">正在读取状态历史...</div>
+            <p id="history-summary" class="history-summary">--</p>
+            <div id="history-stats" class="history-stats"></div>
+            <div class="history-legend" aria-hidden="true">
+              <span><i class="legend-swatch regime-normal"></i>Normal</span>
+              <span><i class="legend-swatch regime-panic"></i>Panic</span>
+              <span><i class="legend-swatch regime-extreme"></i>Extreme</span>
+              <span><i class="legend-swatch regime-defensive"></i>Systemic</span>
+              <span><i class="legend-swatch regime-overheated"></i>Overheated</span>
+            </div>
+            <div id="history-strip" class="history-strip" role="img" aria-label="Saved daily regime history"></div>
+          </article>
         </div>
-        <div id="history-strip" class="history-strip" role="img" aria-label="Recent saved regime history"></div>
       </section>
 
       <section class="briefing-section" aria-labelledby="briefing-title">
         <div class="section-heading">
           <div>
             <p class="eyebrow">Market Context</p>
-            <h2 id="briefing-title">今日影响线索</h2>
+            <h2 id="briefing-title">Context Brief</h2>
           </div>
           <div id="briefing-meta" class="source-meta">正在读取每日投资简报...</div>
         </div>
         <p id="briefing-summary" class="briefing-summary">--</p>
         <div id="briefing-list" class="briefing-grid"></div>
+        <div id="briefing-footer" class="briefing-footer">Briefing generated at --</div>
       </section>
 
       <section class="workspace">
@@ -223,6 +262,6 @@
       </section>
     </main>
 
-    <script src="app.js?v=20260617-history1"></script>
+    <script src="app.js?v=20260618-clarity1"></script>
   </body>
 </html>

@@ -1,54 +1,131 @@
 {
-  "generatedAt": "2026-06-18T13:11:20Z",
+  "generatedAt": "2026-06-18T19:37:01Z",
   "asOf": "2026-06-18",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation",
-    "automation-3"
+    "automation"
   ],
-  "summary": "主线：偏鹰FOMC维持利率3.50%-3.75%，Warsh强调通胀仍高于2%且中值利率路径指向年末3.8%；同时美伊协议推动油价回落、风险偏好回升，形成“短端利率/美元偏强 + 纳指期货反弹 + 能源承压”的组合。",
+  "summary": "偏鹰FOMC维持利率3.50%-3.75%，Warsh强调通胀仍高于2%且中值利率路径指向年末3.8%；同时美伊协议推动油价回落、风险偏好回升，形成“短端利率/美元偏强 + 纳指期货反弹 + 能源承压”的组合。",
+  "suppressedCount": 2,
+  "linkCoverage": 4,
   "items": [
     {
-      "title": "市场主线",
-      "detail": "主线：偏鹰FOMC维持利率3.50%-3.75%，Warsh强调通胀仍高于2%且中值利率路径指向年末3.8%；同时美伊协议推动油价回落、风险偏好回升，形成“短端利率/美元偏强 + 纳指期货反弹 + 能源承压”的组合。",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
+      "key": "macro",
+      "title": "宏观主线",
+      "detail": "偏鹰FOMC维持利率3.50%-3.75%，Warsh强调通胀仍高于2%且中值利率路径指向年末3.8%；同时美伊协议推动油价回落、风险偏好回升，形成“短端利率/美元偏强 + 纳指期货反弹 + 能源承压”的组合。",
+      "impact": "影响利率路径、美元方向和成长资产估值折现。",
+      "sourceName": "Federal Reserve",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+      "publishedAt": "2026-06-17T14:00:00-04:00",
+      "eventDate": "2026-06-17",
+      "edition": "早盘版",
+      "sources": [
+        {
+          "name": "Federal Reserve",
+          "publishedAt": "2026-06-17T14:00:00-04:00",
+          "eventDate": "2026-06-17",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm"
+        },
+        {
+          "name": "Federal Reserve Projections",
+          "publishedAt": "2026-06-17T14:00:00-04:00",
+          "eventDate": "2026-06-17",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617b.htm"
+        },
+        {
+          "name": "AP News",
+          "publishedAt": "2026-06-17",
+          "eventDate": "2026-06-17",
+          "url": "https://apnews.com/article/iran-us-israel-war-oil-deal-june-17-2026-19652f4611b704c0a991bf1f5bc9a4b9"
+        }
+      ]
     },
     {
-      "title": "重点上涨关注",
-      "detail": "重点上涨关注：INTC（Apple美国造芯叙事）、MU/MRVL/WDC（Apple提价与AI存储/半导体供给紧张）、SWBI（业绩超预期）、RUM（Northern Data并购完成+Quake AI重组）。",
-      "impact": "影响科技成长主线和高 beta 风险偏好。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
+      "key": "events",
+      "title": "当日重要事件",
+      "detail": "8:30初请与费城联储，10:00 Conference Board LEI，欧洲央行/英国央行/瑞士央行相关表态对美元和全球利率预期的二次影响。",
+      "impact": "决定盘中利率预期是否继续强化或修正。",
+      "sourceName": "U.S. Department of Labor",
+      "sourceUrl": "https://www.dol.gov/ui/data.pdf",
+      "publishedAt": "2026-06-18T08:30:00-04:00",
+      "eventDate": "2026-06-18",
+      "edition": "早盘版",
+      "sources": [
+        {
+          "name": "U.S. Department of Labor",
+          "publishedAt": "2026-06-18T08:30:00-04:00",
+          "eventDate": "2026-06-18",
+          "url": "https://www.dol.gov/ui/data.pdf"
+        },
+        {
+          "name": "Philadelphia Fed",
+          "publishedAt": "2026-06-18T08:30:00-04:00",
+          "eventDate": "2026-06-18",
+          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-06"
+        },
+        {
+          "name": "The Conference Board",
+          "publishedAt": "2026-06-18T10:00:00-04:00",
+          "eventDate": "2026-06-18",
+          "url": "https://www.conference-board.org/topics/us-leading-indicators/"
+        }
+      ]
     },
     {
-      "title": "重点下跌关注",
-      "detail": "重点下跌关注：ACN（营收/订单与指引承压）、KR（销售好但利润率与价格投资拖累）、SNBR（破产出售余波）、ELTX（AMPLIFY-7P结果与开发策略调整引发高波动）。",
-      "impact": "提示需要观察风险是否从个股扩散到行业或宏观层面。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
+      "key": "impact",
+      "title": "行业或资产影响",
+      "detail": "偏鹰FOMC维持利率3.50%-3.75%，Warsh强调通胀仍高于2%且中值利率路径指向年末3.8%；同时美伊协议推动油价回落、风险偏好回升，形成“短端利率/美元偏强 + 纳指期货反弹 + 能源承压”的组合。",
+      "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
+      "sourceName": "Federal Reserve",
+      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
+      "publishedAt": "2026-06-17T14:00:00-04:00",
+      "eventDate": "2026-06-17",
+      "edition": "早盘版",
+      "sources": [
+        {
+          "name": "Federal Reserve",
+          "publishedAt": "2026-06-17T14:00:00-04:00",
+          "eventDate": "2026-06-17",
+          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm"
+        },
+        {
+          "name": "AP News",
+          "publishedAt": "2026-06-17",
+          "eventDate": "2026-06-17",
+          "url": "https://apnews.com/article/iran-us-israel-war-oil-deal-june-17-2026-19652f4611b704c0a991bf1f5bc9a4b9"
+        }
+      ]
     },
     {
-      "title": "后续关注",
-      "detail": "当日需继续跟踪：8:30初请与费城联储，10:00 Conference Board LEI，欧洲央行/英国央行/瑞士央行相关表态对美元和全球利率预期的二次影响。",
-      "impact": "影响利率路径、估值折现和成长股风险偏好。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
-    },
-    {
-      "title": "本次运行时长",
-      "detail": "本次运行时长：约 17 分钟。",
-      "impact": "作为定性背景，辅助解释量化指标的变化。",
-      "sourceLabel": "每日投资动态简报 - 早盘推送",
-      "sourceUrl": ""
-    },
-    {
-      "title": "本次生成的是 2026-06-17 ",
-      "detail": "本次生成的是 2026-06-17 运行的收盘版；由于生成时美股尚未开盘，对应最近一个完整美股常规交易日为 2026-06-16。",
-      "impact": "作为定性背景，辅助解释量化指标的变化。",
-      "sourceLabel": "收盘投资简报",
-      "sourceUrl": ""
+      "key": "watch",
+      "title": "后续观察点",
+      "detail": "继续观察上述催化是否进一步强化美元、短端利率与风险偏好方向。",
+      "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
+      "sourceName": "U.S. Department of Labor",
+      "sourceUrl": "https://www.dol.gov/ui/data.pdf",
+      "publishedAt": "2026-06-18T08:30:00-04:00",
+      "eventDate": "2026-06-18",
+      "edition": "早盘版",
+      "sources": [
+        {
+          "name": "U.S. Department of Labor",
+          "publishedAt": "2026-06-18T08:30:00-04:00",
+          "eventDate": "2026-06-18",
+          "url": "https://www.dol.gov/ui/data.pdf"
+        },
+        {
+          "name": "Philadelphia Fed",
+          "publishedAt": "2026-06-18T08:30:00-04:00",
+          "eventDate": "2026-06-18",
+          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-06"
+        },
+        {
+          "name": "The Conference Board",
+          "publishedAt": "2026-06-18T10:00:00-04:00",
+          "eventDate": "2026-06-18",
+          "url": "https://www.conference-board.org/topics/us-leading-indicators/"
+        }
+      ]
     }
   ]
 }

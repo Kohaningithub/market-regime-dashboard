@@ -351,19 +351,28 @@ const scenarios = [
 
 let activePreset = "live";
 let liveSnapshot = null;
+let latestHistory = null;
+let dashboardState = { mode: "loading", snapshot: null, history: null };
+let historyRangeDays = 90;
 
 const form = document.querySelector("#metric-form");
 const presetButtons = Array.from(document.querySelectorAll(".preset-button"));
 const resetButton = document.querySelector("#reset-button");
+const regimeInternal = document.querySelector("#regime-internal");
+const regimeChange = document.querySelector("#regime-change");
 const liveMeta = document.querySelector("#live-meta");
 const dataQuality = document.querySelector("#data-quality");
+const recentUpdatesMeta = document.querySelector("#recent-updates-meta");
+const recentUpdates = document.querySelector("#recent-updates");
 const historyMeta = document.querySelector("#history-meta");
 const historySummary = document.querySelector("#history-summary");
 const historyStats = document.querySelector("#history-stats");
 const historyStrip = document.querySelector("#history-strip");
+const historyRangeButtons = Array.from(document.querySelectorAll(".history-range-button"));
 const briefingMeta = document.querySelector("#briefing-meta");
 const briefingSummary = document.querySelector("#briefing-summary");
 const briefingList = document.querySelector("#briefing-list");
+const briefingFooter = document.querySelector("#briefing-footer");
 const libraryTabs = Array.from(document.querySelectorAll(".library-tab"));
 const CLIENT_POLL_MS = 120000;
 const BRIEFING_POLL_MS = 300000;
@@ -372,7 +381,12 @@ const STATIC_SNAPSHOT_ENDPOINT = "data/latest.json";
 const HISTORY_ENDPOINT = "data/history.json";
 const BRIEFING_ENDPOINT = "data/briefing.json";
 const STATIC_TIMEOUT_MS = 8000;
-const HISTORY_WINDOW = 180;
+const ET_TIMEZONE = "America/New_York";
+const SCORE_MAX = {
+  volatility: 8,
+  credit: 18,
+  sentiment: 8
+};
 
 function thresholdScore(value, rules, direction = "above") {
   return rules.reduce((score, threshold) => {
@@ -530,7 +544,7 @@ function classify(values, scores) {
   if (scores.credit >= 6 || systemicCluster) {
     return {
       key: "defensive",
-      title: "系统性风险",
+      title: "Systemic Stress",
       summary:
         "信用压力优先级最高。股市下跌同时伴随信用、银行、美元或美债波动恶化时，先降低风险敞口，不急着抄底。",
       tone: "danger",
@@ -545,7 +559,7 @@ function classify(values, scores) {
   ) {
     return {
       key: "extreme",
-      title: "极端恐慌",
+      title: "Extreme Panic",
       summary:
         "波动率和情绪已经极端，但信用市场尚未失控。可以开始关注抄底窗口，执行上仍应分批和控制仓位。",
       tone: "danger",
@@ -561,7 +575,7 @@ function classify(values, scores) {
   ) {
     return {
       key: "panic",
-      title: "恐慌回调",
+      title: "Panic Pullback",
       summary:
         "市场情绪进入恐惧区，指数回调较深，但信用和美元流动性尚未出现失序信号。适合按计划分批加仓。",
       tone: "warning",
@@ -571,28 +585,12 @@ function classify(values, scores) {
 
   return {
     key: "normal",
-    title: "正常或温和回调",
+    title: "Normal / Mild Pullback",
     summary:
       "信用市场稳定，波动率未进入失控区。若指数只是普通调整，可以维持正常定投和再平衡纪律。",
     tone: "calm",
     overheated
   };
-}
-
-function labelForScore(type, score) {
-  if (type === "credit") {
-    if (score >= 6) return "系统性风险优先";
-    if (score >= 3) return "信用压力观察";
-    return "信用市场稳定";
-  }
-  if (type === "vol") {
-    if (score >= 5) return "极端恐慌";
-    if (score >= 3) return "恐慌升温";
-    return "温和波动";
-  }
-  if (score >= 5) return "极端悲观";
-  if (score >= 3) return "恐惧区间";
-  return "情绪正常";
 }
 
 function investmentImplications(regime, scores, values) {
@@ -681,6 +679,127 @@ function formatShortDate(value) {
   });
 }
 
+function formatLongDate(value) {
+  if (!value) return "--";
+  const parsed = new Date(`${value}T00:00:00Z`);
+  if (Number.isNaN(parsed.getTime())) {
+    const direct = new Date(value);
+    if (Number.isNaN(direct.getTime())) return value;
+    return direct.toLocaleDateString("en-US", {
+      month: "long",
+      day: "numeric",
+      year: "numeric"
+    });
+  }
+  return parsed.toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    timeZone: "UTC"
+  });
+}
+
+function formatEtTime(value) {
+  if (!value) return "--";
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return `${parsed.toLocaleTimeString("en-US", {
+    timeZone: ET_TIMEZONE,
+    hour: "numeric",
+    minute: "2-digit"
+  })} ET`;
+}
+
+function formatBriefingSourceTime(value) {
+  if (!value) return "--";
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    return formatLongDate(value);
+  }
+  const parsed = new Date(value);
+  if (Number.isNaN(parsed.getTime())) return value;
+  return `${parsed.toLocaleString("en-US", {
+    timeZone: ET_TIMEZONE,
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit"
+  })} ET`;
+}
+
+function rangeLabel(days) {
+  if (days === 30) return "1M";
+  if (days === 90) return "3M";
+  if (days === 180) return "6M";
+  if (days === 365) return "1Y";
+  return `${days}D`;
+}
+
+function historyCollections(history) {
+  const legacyEntries = Array.isArray(history?.entries) ? history.entries : [];
+  const recent = Array.isArray(history?.recentUpdates) && history.recentUpdates.length ? history.recentUpdates : legacyEntries;
+  const dailySource = Array.isArray(history?.dailyHistory) && history.dailyHistory.length ? history.dailyHistory : recent;
+  const daily = dailySource.reduce((items, entry) => {
+    if (!entry) return items;
+    if (items.length && items[items.length - 1].asOf === entry.asOf) {
+      items[items.length - 1] = entry;
+    } else {
+      items.push(entry);
+    }
+    return items;
+  }, []);
+  return { recentUpdates: recent, dailyHistory: daily };
+}
+
+function windowDailyHistory(entries, days) {
+  if (!entries.length) return [];
+  const current = entries[entries.length - 1];
+  const currentDate = new Date(`${current.asOf}T00:00:00Z`);
+  if (Number.isNaN(currentDate.getTime())) return entries;
+  const cutoff = currentDate.getTime() - days * 24 * 60 * 60 * 1000;
+  const filtered = entries.filter((entry) => {
+    const parsed = new Date(`${entry.asOf}T00:00:00Z`);
+    return !Number.isNaN(parsed.getTime()) && parsed.getTime() >= cutoff;
+  });
+  return filtered.length ? filtered : entries;
+}
+
+function pressureLevel(type, score) {
+  if (type === "credit") {
+    if (score >= 6) return "High";
+    if (score >= 3) return "Moderate";
+    return "Low";
+  }
+  if (type === "vol") {
+    if (score >= 5) return "High";
+    if (score >= 3) return "Moderate";
+    return "Low";
+  }
+  if (score >= 5) return "High";
+  if (score >= 1) return "Moderate";
+  return "Low";
+}
+
+function labelForScore(type, score) {
+  if (type === "credit") {
+    if (score >= 6) return "Stressed";
+    if (score >= 3) return "Watching";
+    return "Stable";
+  }
+  if (type === "vol") {
+    if (score >= 5) return "Stressed";
+    if (score >= 3) return "Elevated";
+    return "Calm";
+  }
+  if (score >= 5) return "Extreme fear";
+  if (score >= 3) return "Fearful";
+  if (score >= 1) return "Cautious";
+  return "Neutral";
+}
+
+function internalConditionText(scores) {
+  return `Internal condition: Credit ${labelForScore("credit", scores.credit).toLowerCase()} · Volatility ${labelForScore("vol", scores.volatility).toLowerCase()} · Sentiment ${labelForScore("sentiment", scores.sentiment).toLowerCase()}`;
+}
+
 function countUniqueAsOf(entries) {
   return new Set(entries.map((entry) => entry.asOf).filter(Boolean)).size;
 }
@@ -718,38 +837,129 @@ function getLastRegimeChange(entries) {
   return null;
 }
 
-function renderHistory(history) {
-  if (!historyMeta || !historySummary || !historyStats || !historyStrip) return;
-  const entries = Array.isArray(history?.entries) ? history.entries : [];
+function previousRecentUpdate(snapshot, history) {
+  const recent = historyCollections(history).recentUpdates;
+  if (recent.length < 2) return null;
+  const currentIndex = recent.findIndex((entry) => entry.generatedAt === snapshot?.generatedAt);
+  if (currentIndex > 0) return recent[currentIndex - 1];
+  return recent[recent.length - 2];
+}
 
+function compareWithPrevious(snapshot, history, mode) {
+  if (mode !== "live" || !snapshot) {
+    return "Compared with previous update: live comparison is shown in Live Data mode.";
+  }
+  const previous = previousRecentUpdate(snapshot, history);
+  if (!previous) {
+    return "Compared with previous update: no prior saved snapshot yet.";
+  }
+
+  const messages = [];
+  const currentRegimeKey = snapshot.regime?.key || "--";
+  const currentRegimeTitle = snapshot.regime?.title || currentRegimeKey;
+  const previousRegimeKey = previous.regime || "--";
+  const previousRegimeTitle = previous.regimeTitle || previousRegimeKey;
+
+  if (currentRegimeKey === previousRegimeKey) {
+    messages.push("regime unchanged");
+  } else {
+    messages.push(`regime changed from ${previousRegimeTitle} to ${currentRegimeTitle}`);
+  }
+
+  const currentScores = snapshot.scores || {};
+  const previousScores = previous.scores || {};
+  const fearGreedDelta = (snapshot.values?.fearGreed ?? previous.fearGreed ?? 0) - (previous.fearGreed ?? 0);
+  const drawdownDelta = (snapshot.values?.spyDrawdown ?? previous.spyDrawdown ?? 0) - (previous.spyDrawdown ?? 0);
+
+  if ((currentScores.sentiment ?? 0) > (previousScores.sentiment ?? 0) || fearGreedDelta <= -5) {
+    messages.unshift("sentiment weakened");
+  } else if ((currentScores.sentiment ?? 0) < (previousScores.sentiment ?? 0) || fearGreedDelta >= 5) {
+    messages.unshift("sentiment improved");
+  }
+
+  if ((currentScores.credit ?? 0) > (previousScores.credit ?? 0)) {
+    messages.push("credit pressure increased");
+  } else if ((currentScores.credit ?? 0) < (previousScores.credit ?? 0)) {
+    messages.push("credit pressure eased");
+  }
+
+  if ((currentScores.volatility ?? 0) > (previousScores.volatility ?? 0)) {
+    messages.push("volatility rose");
+  } else if ((currentScores.volatility ?? 0) < (previousScores.volatility ?? 0)) {
+    messages.push("volatility eased");
+  }
+
+  if (drawdownDelta <= -0.5) {
+    messages.push("drawdown deepened");
+  } else if (drawdownDelta >= 0.5) {
+    messages.push("drawdown narrowed");
+  }
+
+  return `Compared with previous update: ${messages.slice(0, 2).join(", ")}.`;
+}
+
+function renderRecentUpdates(history) {
+  if (!recentUpdatesMeta || !recentUpdates) return;
+  const entries = historyCollections(history).recentUpdates;
   if (!entries.length) {
-    historyMeta.textContent = "状态历史暂不可用";
-    historySummary.textContent = "等待 GitHub Actions 累积首批历史快照。";
-    historyStats.innerHTML = "";
-    historyStrip.innerHTML = `<div class="history-empty">历史文件还没有有效快照。</div>`;
+    recentUpdatesMeta.textContent = "盘中快照暂不可用";
+    recentUpdates.innerHTML = `<div class="history-empty">等待首批盘中快照写入。</div>`;
     return;
   }
 
-  const windowed = entries.slice(-HISTORY_WINDOW);
-  const streak = getHistoryStreak(entries);
-  const lastChange = getLastRegimeChange(entries);
-  const current = entries[entries.length - 1];
+  const windowed = entries.slice(-4);
+  recentUpdatesMeta.textContent = `Showing ${windowed.length} saved intraday snapshots`;
+  recentUpdates.innerHTML = windowed
+    .map((entry, index) => {
+      const scoreLabel = `${pressureLevel("sentiment", entry.scores?.sentiment ?? 0)} sentiment`;
+      return `
+        <article class="recent-update-card${index === windowed.length - 1 ? " is-current" : ""}">
+          <div class="recent-update-meta">${escapeHtml(formatEtTime(entry.generatedAt))} · ${escapeHtml(entry.regimeTitle || entry.regime || "--")}</div>
+          <strong>${escapeHtml(scoreLabel)}</strong>
+          <p>SPY drawdown ${typeof entry.spyDrawdown === "number" ? entry.spyDrawdown.toFixed(1) : "--"}% · Fear & Greed ${typeof entry.fearGreed === "number" ? entry.fearGreed.toFixed(0) : "--"} · Raw ${entry.scores?.volatility ?? "--"}/${entry.scores?.credit ?? "--"}/${entry.scores?.sentiment ?? "--"}</p>
+        </article>
+      `;
+    })
+    .join("");
+}
 
-  historyMeta.textContent = `最近 ${windowed.length} 次快照 | 当前状态已持续 ${streak.snapshots} 次快照 / ${streak.tradingDays} 个交易日`;
-  historySummary.textContent = lastChange
-    ? `最近一次状态变化发生在 ${formatDateTime(lastChange.at)}，由 ${lastChange.from} 转为 ${lastChange.to}。`
-    : `当前历史序列中尚未出现状态切换，最新状态为 ${current.regimeTitle || current.regime}。`;
+function renderHistory(history) {
+  if (!historyMeta || !historySummary || !historyStats || !historyStrip) return;
+  const { dailyHistory } = historyCollections(history);
+  renderRecentUpdates(history);
+
+  if (!dailyHistory.length) {
+    historyMeta.textContent = "日度历史暂不可用";
+    historySummary.textContent = "等待 GitHub Actions 累积首批收盘状态。";
+    historyStats.innerHTML = "";
+    historyStrip.innerHTML = `<div class="history-empty">历史文件还没有有效的日度收盘记录。</div>`;
+    return;
+  }
+
+  const windowed = windowDailyHistory(dailyHistory, historyRangeDays);
+  const streak = getHistoryStreak(dailyHistory);
+  const lastChange = getLastRegimeChange(dailyHistory);
+  const current = dailyHistory[dailyHistory.length - 1];
+  const startedAt = dailyHistory[0]?.asOf;
+
+  historyMeta.textContent = `${rangeLabel(historyRangeDays)} view | ${windowed.length} trading days shown | ${dailyHistory.length} daily closes saved`;
+  historySummary.textContent =
+    dailyHistory.length < 20
+      ? `History collection started ${formatLongDate(startedAt)}. Daily close history is still short, so this chart focuses on saved closing states.`
+      : lastChange
+        ? `Latest regime change was on ${formatDateTime(lastChange.at)}, from ${lastChange.from} to ${lastChange.to}.`
+        : `History collection started ${formatLongDate(startedAt)}. Latest saved regime is ${current.regimeTitle || current.regime}.`;
 
   historyStats.innerHTML = `
     <article class="history-stat">
       <span>当前状态</span>
       <strong>${current.regimeTitle || current.regime}</strong>
-      <p>数据日期 ${current.asOf || "--"}</p>
+      <p>收盘日期 ${current.asOf || "--"}</p>
     </article>
     <article class="history-stat">
       <span>状态持续</span>
       <strong>${streak.tradingDays} 天</strong>
-      <p>共 ${streak.snapshots} 次已保存快照</p>
+      <p>同一状态连续 ${streak.tradingDays} 个交易日</p>
     </article>
     <article class="history-stat">
       <span>最近变化</span>
@@ -767,7 +977,7 @@ function renderHistory(history) {
     .map((entry, index) => {
       const scoreTotal = (entry.scores?.volatility || 0) + (entry.scores?.credit || 0) + (entry.scores?.sentiment || 0);
       const height = Math.max(18, Math.min(74, 18 + Math.abs(entry.spyDrawdown || 0) * 3 + scoreTotal * 2));
-      const title = `${entry.asOf || "--"} | ${entry.regimeTitle || entry.regime} | SPY ${typeof entry.spyClose === "number" ? entry.spyClose.toFixed(2) : "--"} | Drawdown ${typeof entry.spyDrawdown === "number" ? entry.spyDrawdown.toFixed(1) : "--"}% | V/C/S ${entry.scores?.volatility ?? "--"}/${entry.scores?.credit ?? "--"}/${entry.scores?.sentiment ?? "--"}`;
+      const title = `${entry.asOf || "--"} | ${entry.regimeTitle || entry.regime} | SPY ${typeof entry.spyClose === "number" ? entry.spyClose.toFixed(2) : "--"} | Drawdown ${typeof entry.spyDrawdown === "number" ? entry.spyDrawdown.toFixed(1) : "--"}% | Raw ${entry.scores?.volatility ?? "--"}/${entry.scores?.credit ?? "--"}/${entry.scores?.sentiment ?? "--"}`;
       return `<div class="history-bar regime-${entry.regime}${index === windowed.length - 1 ? " is-current" : ""}" style="height:${height}px" title="${escapeHtml(title)}"></div>`;
     })
     .join("");
@@ -775,7 +985,11 @@ function renderHistory(history) {
 
 function renderHistoryError(error) {
   if (!historyMeta || !historySummary || !historyStats || !historyStrip) return;
-  historyMeta.textContent = "状态历史暂不可用";
+  if (recentUpdatesMeta && recentUpdates) {
+    recentUpdatesMeta.textContent = "盘中快照暂不可用";
+    recentUpdates.innerHTML = `<div class="history-empty">最近更新尚未加载成功。</div>`;
+  }
+  historyMeta.textContent = "日度历史暂不可用";
   historySummary.textContent = `等待 data/history.json。错误：${error.message}`;
   historyStats.innerHTML = "";
   historyStrip.innerHTML = `<div class="history-empty">历史状态文件尚未加载成功。</div>`;
@@ -894,9 +1108,9 @@ function renderScoreDetails(values, scores) {
   document.querySelector("#sentiment-detail").textContent =
     "综合衡量投资者风险偏好、看跌比例和期权保护需求。情绪恐惧在信用稳定时可作为反向参考；若与信用压力同步恶化，则应降低风险预算。";
 
-  renderList("vol-contributors", contributors.vol, `未触发主要波动率压力阈值，Volatility Panic = ${scores.volatility}。`);
-  renderList("credit-contributors", contributors.credit, `信用压力阈值基本未触发，Credit Stress = ${scores.credit}。`);
-  renderList("sentiment-contributors", contributors.sentiment, `情绪压力阈值触发有限，Sentiment Fear = ${scores.sentiment}。`);
+  renderList("vol-contributors", contributors.vol, `未触发主要波动率压力阈值，Volatility Pressure raw score = ${scores.volatility}。`);
+  renderList("credit-contributors", contributors.credit, `信用压力阈值基本未触发，Credit Pressure raw score = ${scores.credit}。`);
+  renderList("sentiment-contributors", contributors.sentiment, `情绪压力阈值触发有限，Sentiment Fear raw score = ${scores.sentiment}。`);
 }
 
 function renderInvestmentImplications(regime, scores, values) {
@@ -908,6 +1122,12 @@ function renderInvestmentImplications(regime, scores, values) {
 
 function renderStatus(values, scores, regime, context = {}) {
   document.querySelector("#regime-title").textContent = regime.title;
+  if (regimeInternal) {
+    regimeInternal.textContent = internalConditionText(scores);
+  }
+  if (regimeChange) {
+    regimeChange.textContent = compareWithPrevious(context.snapshot, context.history, context.mode);
+  }
   document.querySelector("#regime-summary").textContent = regime.summary;
   const overheatedBanner = document.querySelector("#overheated-banner");
   const showOverheated = Boolean(regime.overheated);
@@ -917,9 +1137,12 @@ function renderStatus(values, scores, regime, context = {}) {
   overheatedBanner.setAttribute("aria-hidden", String(!showOverheated));
   renderLiveMeta(context);
 
-  document.querySelector("#vol-score").textContent = scores.volatility;
-  document.querySelector("#credit-score").textContent = scores.credit;
-  document.querySelector("#sentiment-score").textContent = scores.sentiment;
+  document.querySelector("#vol-score").textContent = pressureLevel("vol", scores.volatility);
+  document.querySelector("#credit-score").textContent = pressureLevel("credit", scores.credit);
+  document.querySelector("#sentiment-score").textContent = pressureLevel("sentiment", scores.sentiment);
+  document.querySelector("#vol-score-range").textContent = `${scores.volatility} / ${SCORE_MAX.volatility} raw`;
+  document.querySelector("#credit-score-range").textContent = `${scores.credit} / ${SCORE_MAX.credit} raw`;
+  document.querySelector("#sentiment-score-range").textContent = `${scores.sentiment} / ${SCORE_MAX.sentiment} raw`;
 
   document.querySelector("#vol-meter").value = scores.volatility;
   document.querySelector("#credit-meter").value = scores.credit;
@@ -986,7 +1209,7 @@ function drawRiskMap(scores, regime) {
 
   ctx.fillStyle = "#2f3e49";
   ctx.font = "13px system-ui, sans-serif";
-  ctx.fillText("Credit Stress", width / 2 - 40, height - 14);
+  ctx.fillText("Credit Pressure", width / 2 - 46, height - 14);
   ctx.save();
   ctx.translate(16, height / 2 + 38);
   ctx.rotate(-Math.PI / 2);
@@ -1051,13 +1274,17 @@ function renderTables() {
 }
 
 function updateDashboard(context = {}) {
+  dashboardState = { ...dashboardState, ...context, history: latestHistory };
+  if (dashboardState.mode !== "live") {
+    dashboardState.snapshot = null;
+  }
   const values = getValues();
   const scores = calculateScores(values);
   const regime = classify(values, scores);
 
-  renderStatus(values, scores, regime, context);
+  renderStatus(values, scores, regime, dashboardState);
   renderTriggers(scores, regime);
-  renderDataQuality(context.snapshot);
+  renderDataQuality(dashboardState.snapshot);
   drawRiskMap(scores, regime);
 }
 
@@ -1068,6 +1295,22 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function briefingSources(item) {
+  const sources = Array.isArray(item?.sources)
+    ? item.sources.filter((source) => source && (source.url || source.name))
+    : [];
+  if (sources.length) return sources;
+  if (!item || (!item.sourceName && !item.sourceUrl && !item.publishedAt)) return [];
+  return [
+    {
+      name: item.sourceName || "Local brief memory",
+      url: item.sourceUrl || "",
+      publishedAt: item.publishedAt || "",
+      eventDate: item.eventDate || ""
+    }
+  ];
 }
 
 async function fetchStaticJson(endpoint) {
@@ -1099,7 +1342,9 @@ async function fetchLatestSnapshot() {
 
 async function loadHistory(options = {}) {
   try {
-    renderHistory(await fetchStaticJson(HISTORY_ENDPOINT));
+    latestHistory = await fetchStaticJson(HISTORY_ENDPOINT);
+    renderHistory(latestHistory);
+    updateDashboard({});
   } catch (error) {
     if (options.silent) return;
     renderHistoryError(error);
@@ -1109,25 +1354,44 @@ async function loadHistory(options = {}) {
 function renderBriefing(briefing) {
   if (!briefingMeta || !briefingSummary || !briefingList) return;
   const itemCount = Array.isArray(briefing.items) ? briefing.items.length : 0;
-  briefingMeta.textContent = `更新 ${formatDateTime(briefing.generatedAt)} | ${briefing.source || "每日投资简报"} | ${itemCount} 条线索`;
+  const suppressed = Number(briefing.suppressedCount || 0);
+  const coverage = Number(briefing.linkCoverage || 0);
+  briefingMeta.textContent = `更新 ${formatDateTime(briefing.generatedAt)} | ${briefing.source || "每日投资简报"} | ${itemCount} 个上下文卡片 | ${coverage}/${itemCount || 0} 个卡片已附原始链接${suppressed ? ` | ${suppressed} 条缺原始链接的个股线索已隐藏` : ""}`;
   briefingSummary.textContent = briefing.summary || "今日暂无简报摘要。";
-  const items = (briefing.items || []).slice(0, 6);
+  if (briefingFooter) {
+    briefingFooter.textContent = `Briefing generated at ${formatEtTime(briefing.generatedAt)}`;
+  }
+  const items = (briefing.items || []).slice(0, 4);
   if (!items.length) {
-    briefingList.innerHTML = `<article class="briefing-card"><h3>等待更新</h3><p>简报发布器还没有写入有效线索。</p><strong>影响：不改变当前模型分数。</strong></article>`;
+    briefingList.innerHTML = `<article class="briefing-card"><h3>等待更新</h3><p>最新本地简报还没有写入可展示的 source-backed 市场上下文。</p><strong>影响：这里只影响 Market Context，不改变当前模型分数。</strong></article>`;
     return;
   }
 
   briefingList.innerHTML = items
     .map((item) => {
-      const sourceLink = item.sourceUrl
-        ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noopener">${escapeHtml(item.sourceLabel || "Source")}</a>`
-        : escapeHtml(item.sourceLabel || "");
+      const sources = briefingSources(item);
+      const sourceLinks = sources.length
+        ? sources
+            .map((source) => {
+              const label = `${source.name || "Local brief memory"} - ${formatBriefingSourceTime(source.publishedAt)}`;
+              if (!source.url) {
+                return `<span class="briefing-card-link">${escapeHtml(label)}</span>`;
+              }
+              return `<a class="briefing-card-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`;
+            })
+            .join("")
+        : `<span class="briefing-card-link">Original link unavailable in local memory</span>`;
       return `
         <article class="briefing-card">
           <h3>${escapeHtml(item.title)}</h3>
+          <div class="briefing-card-meta">
+            <span>${escapeHtml(item.edition || "--")}</span>
+            <span>Event date ${escapeHtml(item.eventDate || briefing.asOf || "--")}</span>
+            <span>${escapeHtml(`${sources.length || 1} source${sources.length === 1 ? "" : "s"}`)}</span>
+          </div>
           <p>${escapeHtml(item.detail)}</p>
-          <strong>投资含义：${escapeHtml(item.impact || "观察其对风险偏好、利率和信用的影响。")}</strong>
-          ${sourceLink ? `<div class="source-meta">${sourceLink}</div>` : ""}
+          <strong>Why it matters: ${escapeHtml(item.impact || "观察其对风险偏好、利率和信用的影响。")}</strong>
+          <div class="source-meta briefing-source-list">${sourceLinks}</div>
         </article>
       `;
     })
@@ -1138,6 +1402,9 @@ function renderBriefingError(error) {
   if (!briefingMeta || !briefingSummary || !briefingList) return;
   briefingMeta.textContent = "每日投资简报暂不可用";
   briefingSummary.textContent = `等待简报发布器写入 data/briefing.json。错误：${error.message}`;
+  if (briefingFooter) {
+    briefingFooter.textContent = "Briefing generated at --";
+  }
   briefingList.innerHTML = `
     <article class="briefing-card">
       <h3>简报数据未就绪</h3>
@@ -1199,6 +1466,16 @@ function selectPreset(name) {
 
 presetButtons.forEach((button) => {
   button.addEventListener("click", () => selectPreset(button.dataset.preset));
+});
+
+historyRangeButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    historyRangeDays = Number(button.dataset.range) || 90;
+    historyRangeButtons.forEach((item) => item.classList.toggle("is-active", item === button));
+    if (latestHistory) {
+      renderHistory(latestHistory);
+    }
+  });
 });
 
 if (resetButton) {
