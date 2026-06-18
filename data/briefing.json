@@ -1,131 +1,49 @@
 {
-  "generatedAt": "2026-06-18T19:37:01Z",
-  "asOf": "2026-06-18",
+  "generatedAt": "2026-06-18T21:12:06Z",
+  "asOf": "2026-06-22",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation"
+    "automation-3"
   ],
-  "summary": "偏鹰FOMC维持利率3.50%-3.75%，Warsh强调通胀仍高于2%且中值利率路径指向年末3.8%；同时美伊协议推动油价回落、风险偏好回升，形成“短端利率/美元偏强 + 纳指期货反弹 + 能源承压”的组合。",
-  "suppressedCount": 2,
-  "linkCoverage": 4,
+  "summary": "INTC、MU、MRVL、SNDK/WDC 走强，KMX 与 SWBI 属于财报或基本面独立 alpha。；下一个高优先级观察窗是 2026-06-22 复市后的油价延续性、IT 服务板块 read-through、以及 6/23 FedEx / 6/24 Micron 财报对宏观与 AI 链的验证。",
+  "suppressedCount": 0,
+  "linkCoverage": 0,
   "items": [
-    {
-      "key": "macro",
-      "title": "宏观主线",
-      "detail": "偏鹰FOMC维持利率3.50%-3.75%，Warsh强调通胀仍高于2%且中值利率路径指向年末3.8%；同时美伊协议推动油价回落、风险偏好回升，形成“短端利率/美元偏强 + 纳指期货反弹 + 能源承压”的组合。",
-      "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "Federal Reserve",
-      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
-      "publishedAt": "2026-06-17T14:00:00-04:00",
-      "eventDate": "2026-06-17",
-      "edition": "早盘版",
-      "sources": [
-        {
-          "name": "Federal Reserve",
-          "publishedAt": "2026-06-17T14:00:00-04:00",
-          "eventDate": "2026-06-17",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm"
-        },
-        {
-          "name": "Federal Reserve Projections",
-          "publishedAt": "2026-06-17T14:00:00-04:00",
-          "eventDate": "2026-06-17",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617b.htm"
-        },
-        {
-          "name": "AP News",
-          "publishedAt": "2026-06-17",
-          "eventDate": "2026-06-17",
-          "url": "https://apnews.com/article/iran-us-israel-war-oil-deal-june-17-2026-19652f4611b704c0a991bf1f5bc9a4b9"
-        }
-      ]
-    },
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "8:30初请与费城联储，10:00 Conference Board LEI，欧洲央行/英国央行/瑞士央行相关表态对美元和全球利率预期的二次影响。",
+      "detail": "INTC、MU、MRVL、SNDK/WDC 走强，KMX 与 SWBI 属于财报或基本面独立 alpha。；下一个高优先级观察窗是 2026-06-22 复市后的油价延续性、IT 服务板块 read-through、以及 6/23 FedEx / 6/24 Micron 财报对宏观与 AI 链的验证。",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "U.S. Department of Labor",
-      "sourceUrl": "https://www.dol.gov/ui/data.pdf",
-      "publishedAt": "2026-06-18T08:30:00-04:00",
-      "eventDate": "2026-06-18",
-      "edition": "早盘版",
-      "sources": [
-        {
-          "name": "U.S. Department of Labor",
-          "publishedAt": "2026-06-18T08:30:00-04:00",
-          "eventDate": "2026-06-18",
-          "url": "https://www.dol.gov/ui/data.pdf"
-        },
-        {
-          "name": "Philadelphia Fed",
-          "publishedAt": "2026-06-18T08:30:00-04:00",
-          "eventDate": "2026-06-18",
-          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-06"
-        },
-        {
-          "name": "The Conference Board",
-          "publishedAt": "2026-06-18T10:00:00-04:00",
-          "eventDate": "2026-06-18",
-          "url": "https://www.conference-board.org/topics/us-leading-indicators/"
-        }
-      ]
+      "sourceName": "收盘投资简报",
+      "sourceUrl": "",
+      "publishedAt": "2026-06-18T20:05:57Z",
+      "eventDate": "2026-06-22",
+      "edition": "收盘版",
+      "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "偏鹰FOMC维持利率3.50%-3.75%，Warsh强调通胀仍高于2%且中值利率路径指向年末3.8%；同时美伊协议推动油价回落、风险偏好回升，形成“短端利率/美元偏强 + 纳指期货反弹 + 能源承压”的组合。",
+      "detail": "VIX 回落至 16.62，HYG/LQD 收涨，TLT 反而回落，说明市场更像是在消化增长与供给主题，而不是重新交易紧缩恐慌；BTC、金银偏弱，避险溢价同步压缩。",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "Federal Reserve",
-      "sourceUrl": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm",
-      "publishedAt": "2026-06-17T14:00:00-04:00",
-      "eventDate": "2026-06-17",
-      "edition": "早盘版",
-      "sources": [
-        {
-          "name": "Federal Reserve",
-          "publishedAt": "2026-06-17T14:00:00-04:00",
-          "eventDate": "2026-06-17",
-          "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260617a.htm"
-        },
-        {
-          "name": "AP News",
-          "publishedAt": "2026-06-17",
-          "eventDate": "2026-06-17",
-          "url": "https://apnews.com/article/iran-us-israel-war-oil-deal-june-17-2026-19652f4611b704c0a991bf1f5bc9a4b9"
-        }
-      ]
+      "sourceName": "收盘投资简报",
+      "sourceUrl": "",
+      "publishedAt": "2026-06-18T20:05:57Z",
+      "eventDate": "2026-06-22",
+      "edition": "收盘版",
+      "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "继续观察上述催化是否进一步强化美元、短端利率与风险偏好方向。",
+      "detail": "继续观察上述事件是否进一步强化美元、利率与风险偏好方向。",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "U.S. Department of Labor",
-      "sourceUrl": "https://www.dol.gov/ui/data.pdf",
-      "publishedAt": "2026-06-18T08:30:00-04:00",
-      "eventDate": "2026-06-18",
-      "edition": "早盘版",
-      "sources": [
-        {
-          "name": "U.S. Department of Labor",
-          "publishedAt": "2026-06-18T08:30:00-04:00",
-          "eventDate": "2026-06-18",
-          "url": "https://www.dol.gov/ui/data.pdf"
-        },
-        {
-          "name": "Philadelphia Fed",
-          "publishedAt": "2026-06-18T08:30:00-04:00",
-          "eventDate": "2026-06-18",
-          "url": "https://www.philadelphiafed.org/surveys-and-data/regional-economic-analysis/mbos-2026-06"
-        },
-        {
-          "name": "The Conference Board",
-          "publishedAt": "2026-06-18T10:00:00-04:00",
-          "eventDate": "2026-06-18",
-          "url": "https://www.conference-board.org/topics/us-leading-indicators/"
-        }
-      ]
+      "sourceName": "收盘投资简报",
+      "sourceUrl": "",
+      "publishedAt": "2026-06-18T20:05:57Z",
+      "eventDate": "2026-06-22",
+      "edition": "收盘版",
+      "sources": []
     }
   ]
 }
