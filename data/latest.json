@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-06-18T21:17:25Z",
-  "asOf": "2026-06-18",
+  "generatedAt": "2026-06-19T14:44:49Z",
+  "asOf": "2026-06-19",
   "mode": "live",
   "values": {
-    "vix": 16.4,
-    "vixChange5d": -3.04,
-    "move": 65.39,
-    "spyDrawdown": -1.69,
+    "vix": 16.84,
+    "vixChange5d": -0.84,
+    "move": 69.36,
+    "spyDrawdown": -1.44,
     "qqqDrawdown": -0.74,
-    "rspSpyRel60d": -4.31,
+    "rspSpyRel60d": -4.55,
     "hygRet20d": 0.7,
     "jnkRet20d": 0.83,
     "hyOas": 2.63,
     "hyOasChange20d": -15.0,
     "igOas": 0.74,
     "igOasChange20d": -1.0,
-    "dxyChange20d": 1.7,
+    "dxyChange20d": 1.64,
     "tenYYield": 4.49,
     "tenYChange20d": -18.0,
     "realTenY": 2.23,
     "realTenYChange20d": 5.0,
     "nfci": -0.51,
-    "kreRel20d": 2.92,
+    "kreRel20d": 2.66,
     "aaiiBearish": 39.4,
-    "putCall": 0.59,
-    "fearGreed": 38.0
+    "putCall": 0.58,
+    "fearGreed": 37.0
   },
   "scores": {
     "volatility": 0,
@@ -40,17 +40,17 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-06-18",
+      "asOf": "2026-06-19",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-06-18",
+      "asOf": "2026-06-19",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-06-18",
+      "asOf": "2026-06-12",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -100,7 +100,7 @@
       "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-06-18",
+      "asOf": "2026-06-19",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
@@ -140,13 +140,13 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-06-18",
+      "asOf": "2026-06-19",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-06-18T20:56:56+00:00",
+      "asOf": "2026-06-19T00:59:47+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
