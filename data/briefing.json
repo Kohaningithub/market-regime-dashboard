@@ -1,12 +1,61 @@
 {
-  "generatedAt": "2026-06-19T17:11:22Z",
-  "asOf": "2026-06-19",
+  "generatedAt": "2026-06-19T21:12:18Z",
+  "asOf": "2026-06-22",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation"
+    "automation-3"
   ],
-  "summary": "最新简报尚未提供可展示的市场上下文。",
-  "suppressedCount": 0,
+  "summary": "1) 美伊 MoU 与霍尔木兹重开压低油价、抬升成长和运输链；2) Fed 6/17 维持利率不变但口径偏鹰，市场并未交易成二次杀估值，而是用利率回落和地缘缓和做风险修复；3) 领导板块高度集中在半导体/存储链与油价敏感消费运输，而非全面 risk-on。",
+  "suppressedCount": 1,
   "linkCoverage": 0,
-  "items": []
+  "items": [
+    {
+      "key": "macro",
+      "title": "宏观主线",
+      "detail": "1) 美伊 MoU 与霍尔木兹重开压低油价、抬升成长和运输链；2) Fed 6/17 维持利率不变但口径偏鹰，市场并未交易成二次杀估值，而是用利率回落和地缘缓和做风险修复；3) 领导板块高度集中在半导体/存储链与油价敏感消费运输，而非全面 risk-on。",
+      "impact": "影响利率路径、美元方向和成长资产估值折现。",
+      "sourceName": "收盘投资简报",
+      "sourceUrl": "",
+      "publishedAt": "2026-06-19T20:05:33Z",
+      "eventDate": "2026-06-22",
+      "edition": "收盘版",
+      "sources": []
+    },
+    {
+      "key": "events",
+      "title": "当日重要事件",
+      "detail": "INTC、MU、KMX、DAL、CCL；需要保留的弱势样本：ACN、KR、SPCX、OXY、CVX。各自催化分别来自美国制造/AI memory scarcity、财报超预期、油价下行受益，以及弱指引、混合财报、IPO后去泡沫、油价回落打击能源。；INTC、MU、MRVL、SNDK/WDC 走强，KMX 与 SWBI 属于财报或基本面独立 alpha。",
+      "impact": "决定盘中利率预期是否继续强化或修正。",
+      "sourceName": "收盘投资简报",
+      "sourceUrl": "",
+      "publishedAt": "2026-06-19T20:05:33Z",
+      "eventDate": "2026-06-22",
+      "edition": "收盘版",
+      "sources": []
+    },
+    {
+      "key": "impact",
+      "title": "行业或资产影响",
+      "detail": "SMH 大涨、JETS 上行、HYG 与 TLT 同涨、GLD 回落，说明收盘更像“地缘风险溢价回吐 + 成长修复 + 信用未恶化”，不是宏观衰退交易。；VIX 回落至 16.62，HYG/LQD 收涨，TLT 反而回落，说明市场更像是在消化增长与供给主题，而不是重新交易紧缩恐慌；BTC、金银偏弱，避险溢价同步压缩。",
+      "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
+      "sourceName": "收盘投资简报",
+      "sourceUrl": "",
+      "publishedAt": "2026-06-19T20:05:33Z",
+      "eventDate": "2026-06-22",
+      "edition": "收盘版",
+      "sources": []
+    },
+    {
+      "key": "watch",
+      "title": "后续观察点",
+      "detail": "继续观察上述事件是否进一步强化美元、利率与风险偏好方向。",
+      "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
+      "sourceName": "收盘投资简报",
+      "sourceUrl": "",
+      "publishedAt": "2026-06-19T20:05:33Z",
+      "eventDate": "2026-06-22",
+      "edition": "收盘版",
+      "sources": []
+    }
+  ]
 }
