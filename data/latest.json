@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-19T14:44:49Z",
+  "generatedAt": "2026-06-19T17:48:09Z",
   "asOf": "2026-06-19",
   "mode": "live",
   "values": {
-    "vix": 16.84,
-    "vixChange5d": -0.84,
+    "vix": 16.78,
+    "vixChange5d": -0.9,
     "move": 69.36,
     "spyDrawdown": -1.44,
     "qqqDrawdown": -0.74,
@@ -15,7 +15,7 @@
     "hyOasChange20d": -15.0,
     "igOas": 0.74,
     "igOasChange20d": -1.0,
-    "dxyChange20d": 1.64,
+    "dxyChange20d": 1.57,
     "tenYYield": 4.49,
     "tenYChange20d": -18.0,
     "realTenY": 2.23,
