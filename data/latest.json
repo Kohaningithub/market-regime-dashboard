@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-06-20T17:16:50Z",
+  "generatedAt": "2026-06-20T20:11:42Z",
   "asOf": "2026-06-20",
   "mode": "live",
   "values": {
-    "vix": 18.44,
-    "vixChange5d": -3.78,
+    "vix": 16.4,
+    "vixChange5d": -3.04,
     "move": 69.36,
     "spyDrawdown": -1.44,
     "qqqDrawdown": -0.74,
     "rspSpyRel60d": -4.55,
     "hygRet20d": 0.7,
-    "jnkRet20d": 1.09,
+    "jnkRet20d": 0.83,
     "hyOas": 2.63,
     "hyOasChange20d": -15.0,
     "igOas": 0.74,
     "igOasChange20d": -1.0,
-    "dxyChange20d": 1.75,
+    "dxyChange20d": 1.67,
     "tenYYield": 4.49,
     "tenYChange20d": -18.0,
     "realTenY": 2.23,
@@ -40,12 +40,12 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-06-17",
+      "asOf": "2026-06-18",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-06-17",
+      "asOf": "2026-06-18",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
@@ -75,7 +75,7 @@
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-06-17",
+      "asOf": "2026-06-18",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
