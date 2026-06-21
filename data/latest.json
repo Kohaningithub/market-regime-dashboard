@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-06-20T20:11:42Z",
-  "asOf": "2026-06-20",
+  "generatedAt": "2026-06-21T13:50:04Z",
+  "asOf": "2026-06-21",
   "mode": "live",
   "values": {
     "vix": 16.4,
     "vixChange5d": -3.04,
-    "move": 69.36,
+    "move": 65.39,
     "spyDrawdown": -1.44,
     "qqqDrawdown": -0.74,
     "rspSpyRel60d": -4.55,
@@ -15,7 +15,7 @@
     "hyOasChange20d": -15.0,
     "igOas": 0.74,
     "igOasChange20d": -1.0,
-    "dxyChange20d": 1.67,
+    "dxyChange20d": 1.76,
     "tenYYield": 4.49,
     "tenYChange20d": -18.0,
     "realTenY": 2.23,
@@ -50,7 +50,7 @@
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-06-12",
+      "asOf": "2026-06-18",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -100,7 +100,7 @@
       "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-06-19",
+      "asOf": "2026-06-18",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
@@ -140,7 +140,7 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-06-20",
+      "asOf": "2026-06-21",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
