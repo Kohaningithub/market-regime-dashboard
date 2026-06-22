@@ -20,6 +20,7 @@ OUT_FILE = ROOT / "data" / "briefing.json"
 AUTOMATIONS_DIR = Path.home() / ".codex" / "automations"
 LOCAL_TZ = datetime.now().astimezone().tzinfo or timezone.utc
 DATE_RE = re.compile(r"\d{4}-\d{2}-\d{2}")
+DATE_LINE_RE = re.compile(r"^\s*\d{4}-\d{2}-\d{2}\b")
 TIME_RE = re.compile(r"\b\d{1,2}:\d{2}\b")
 SOURCE_BLOCK_RE = re.compile(
     r"\[\[SOURCE\|(?P<name>[^|\]]+)\|(?P<published>[^|\]]+)\|(?P<event_date>[^|\]]+)\|(?P<url>https?://[^\]]+)\]\]"
@@ -224,6 +225,62 @@ def extract_sources(text: str) -> tuple[str, list[SourceRef]]:
     return clean_text, sources
 
 
+def split_memory_segments(text: str) -> list[str]:
+    segments: list[str] = []
+    current: list[str] = []
+    for raw_line in text.splitlines():
+        line = raw_line.rstrip()
+        if DATE_LINE_RE.match(line) and current:
+            segment = "\n".join(current).strip()
+            if segment:
+                segments.append(segment)
+            current = [line]
+            continue
+        if not line.strip() and current and not current[-1].strip():
+            continue
+        current.append(line)
+
+    if current:
+        segment = "\n".join(current).strip()
+        if segment:
+            segments.append(segment)
+    return segments
+
+
+def strip_run_prefix(text: str) -> str:
+    cleaned = text.strip()
+    cleaned = re.sub(r"^\d{4}-\d{2}-\d{2}(?:\s+\d{1,2}:\d{2}\s*(?:ET|UTC)?)?\s*", "", cleaned)
+    cleaned = re.sub(r"^[^:：]{0,30}[:：]\s*", "", cleaned)
+    cleaned = re.sub(r"(?:当前运行时长|本轮运行耗时).*$", "", cleaned).strip()
+    return cleaned
+
+
+def is_usable_segment(text: str) -> bool:
+    cleaned = strip_run_prefix(text)
+    if not cleaned:
+        return False
+    noise = cleaned.count("?") + cleaned.count("�")
+    return noise / max(len(cleaned), 1) < 0.15
+
+
+def narrative_lines(text: str) -> list[BriefLine]:
+    normalized = strip_run_prefix(text)
+    if not normalized:
+        return []
+
+    expanded = re.sub(r"([1-9][\)\）])", r"\n\1", normalized)
+    parts = re.split(r"[\n；。]+", expanded)
+    lines: list[BriefLine] = []
+    for part in parts:
+        candidate = re.sub(r"^\s*[1-9][\)\）]\s*", "", part).strip()
+        if not candidate or is_log_line(candidate):
+            continue
+        clean_text, sources = extract_sources(candidate)
+        if clean_text:
+            lines.append(BriefLine(text=clean_text, sources=sources))
+    return lines
+
+
 def bullet_lines(text: str) -> list[BriefLine]:
     lines: list[BriefLine] = []
     for raw_line in text.splitlines():
@@ -237,8 +294,15 @@ def bullet_lines(text: str) -> list[BriefLine]:
     return lines
 
 
+def content_lines(text: str) -> list[BriefLine]:
+    lines = bullet_lines(text)
+    if lines:
+        return lines
+    return narrative_lines(text)
+
+
 def extract_content_as_of(text: str, fallback: datetime) -> str:
-    for line in bullet_lines(text):
+    for line in content_lines(text):
         matches = DATE_RE.findall(line.text)
         if matches:
             return matches[-1]
@@ -336,7 +400,7 @@ def make_item(
 
 
 def build_items(doc: MemoryDoc, content_as_of: str) -> tuple[list[dict[str, Any]], int]:
-    lines = bullet_lines(doc.text)
+    lines = content_lines(doc.text)
     edition = edition_for(doc)
     mainline_lines = [line for line in lines if has_label(line.text, MAINLINE_LABELS)]
     event_lines = [
@@ -351,6 +415,18 @@ def build_items(doc: MemoryDoc, content_as_of: str) -> tuple[list[dict[str, Any]
 
     if not mainline_lines:
         mainline_lines = [line for line in lines if "主线" in line.text][:1]
+    if not mainline_lines:
+        mainline_lines = lines[:2]
+    if not event_lines:
+        event_lines = [line for line in lines if DATE_RE.search(line.text) or TIME_RE.search(line.text)][:2]
+    if not structure_lines:
+        structure_lines = [
+            line
+            for line in lines
+            if any(keyword in line.text for keyword in ("市场", "板块", "资产", "受益", "传导", "反应", "油价", "美元"))
+        ][:2]
+    if not watch_lines:
+        watch_lines = [line for line in lines if any(keyword in line.text for keyword in ("观察", "继续", "后续", "重开前"))][:2]
 
     items: list[dict[str, Any]] = []
     mainline = unique_join([strip_prefix(line.text) for line in mainline_lines[:2]])
@@ -454,17 +530,42 @@ def build_briefing() -> dict[str, Any]:
             "items": [],
         }
 
-    doc = docs[0]
-    content_as_of = extract_content_as_of(doc.text, doc.updated_dt)
-    items, suppressed_count = build_items(doc, content_as_of)
+    selected_doc = docs[0]
+    selected_as_of = extract_content_as_of(selected_doc.text, selected_doc.updated_dt)
+    items: list[dict[str, Any]] = []
+    suppressed_count = 0
+
+    for doc in docs:
+        segments = split_memory_segments(doc.text) or [doc.text]
+        for segment in reversed(segments):
+            if not is_usable_segment(segment):
+                continue
+            candidate_doc = MemoryDoc(
+                name=doc.name,
+                automation_id=doc.automation_id,
+                updated_at=doc.updated_at,
+                updated_dt=doc.updated_dt,
+                text=segment,
+            )
+            content_as_of = extract_content_as_of(segment, doc.updated_dt)
+            candidate_items, candidate_suppressed = build_items(candidate_doc, content_as_of)
+            if candidate_items:
+                selected_doc = candidate_doc
+                selected_as_of = content_as_of
+                items = candidate_items
+                suppressed_count = candidate_suppressed
+                break
+        if items:
+            break
+
     sourced_items = sum(1 for item in items if item.get("sources"))
     summary = items[0]["detail"] if items else "最新简报尚未提供可展示的市场上下文。"
 
     return {
         "generatedAt": now.isoformat().replace("+00:00", "Z"),
-        "asOf": content_as_of,
+        "asOf": selected_as_of,
         "source": "Codex 每日投资简报",
-        "sourceAutomationIds": [doc.automation_id],
+        "sourceAutomationIds": [selected_doc.automation_id],
         "summary": summary,
         "suppressedCount": suppressed_count,
         "linkCoverage": sourced_items,

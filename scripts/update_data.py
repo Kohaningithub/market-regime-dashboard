@@ -15,7 +15,7 @@ import re
 import sys
 import time
 from dataclasses import dataclass
-from datetime import UTC, date, datetime, timedelta
+from datetime import UTC, date, datetime, time as dt_time, timedelta
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -39,6 +39,8 @@ REGIME_TITLES = {
     "extreme": "Extreme Panic",
     "defensive": "Systemic Stress",
 }
+US_EASTERN = datetime.now().astimezone().tzinfo or UTC
+MARKET_CLOSE_BUFFER_ET = dt_time(16, 15)
 
 
 @dataclass
@@ -92,6 +94,97 @@ def clamp(value: float, low: float = 0, high: float = 100) -> float:
 
 def round_value(value: float, digits: int = 2) -> float:
     return round(float(value), digits)
+
+
+def nth_weekday_of_month(year: int, month: int, weekday: int, occurrence: int) -> date:
+    current = date(year, month, 1)
+    while current.weekday() != weekday:
+        current += timedelta(days=1)
+    current += timedelta(days=(occurrence - 1) * 7)
+    return current
+
+
+def last_weekday_of_month(year: int, month: int, weekday: int) -> date:
+    if month == 12:
+        current = date(year + 1, 1, 1) - timedelta(days=1)
+    else:
+        current = date(year, month + 1, 1) - timedelta(days=1)
+    while current.weekday() != weekday:
+        current -= timedelta(days=1)
+    return current
+
+
+def easter_sunday(year: int) -> date:
+    a = year % 19
+    b = year // 100
+    c = year % 100
+    d = b // 4
+    e = b % 4
+    f = (b + 8) // 25
+    g = (b - f + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i = c // 4
+    k = c % 4
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    month = (h + l - 7 * m + 114) // 31
+    day = ((h + l - 7 * m + 114) % 31) + 1
+    return date(year, month, day)
+
+
+def observed_fixed_holiday(year: int, month: int, day: int) -> date:
+    current = date(year, month, day)
+    if current.weekday() == 5:
+        return current - timedelta(days=1)
+    if current.weekday() == 6:
+        return current + timedelta(days=1)
+    return current
+
+
+def us_market_holidays(year: int) -> set[date]:
+    return {
+        observed_fixed_holiday(year, 1, 1),
+        nth_weekday_of_month(year, 1, 0, 3),
+        nth_weekday_of_month(year, 2, 0, 3),
+        easter_sunday(year) - timedelta(days=2),
+        last_weekday_of_month(year, 5, 0),
+        observed_fixed_holiday(year, 6, 19),
+        observed_fixed_holiday(year, 7, 4),
+        nth_weekday_of_month(year, 9, 0, 1),
+        nth_weekday_of_month(year, 11, 3, 4),
+        observed_fixed_holiday(year, 12, 25),
+    }
+
+
+def parse_iso_date(value: Any) -> date | None:
+    try:
+        return date.fromisoformat(str(value)[:10])
+    except ValueError:
+        return None
+
+
+def parse_iso_datetime(value: Any) -> datetime | None:
+    try:
+        return datetime.fromisoformat(str(value).replace("Z", "+00:00"))
+    except ValueError:
+        return None
+
+
+def is_confirmed_market_close(as_of: Any, generated_at: Any) -> bool:
+    as_of_date = parse_iso_date(as_of)
+    generated_dt = parse_iso_datetime(generated_at)
+    if not as_of_date or not generated_dt:
+        return False
+    if as_of_date.weekday() >= 5 or as_of_date in us_market_holidays(as_of_date.year):
+        return False
+
+    generated_local = generated_dt.astimezone(US_EASTERN)
+    generated_local_date = generated_local.date()
+    if generated_local_date > as_of_date:
+        return True
+    if generated_local_date < as_of_date:
+        return False
+    return generated_local.time() >= MARKET_CLOSE_BUFFER_ET
 
 
 def fred_series(series_id: str, start_days: int = 150) -> list[tuple[str, float]]:
@@ -388,6 +481,8 @@ def clean_history_entries(entries: Any) -> list[dict[str, Any]]:
 def build_daily_history(entries: list[dict[str, Any]]) -> list[dict[str, Any]]:
     daily: list[dict[str, Any]] = []
     for entry in entries:
+        if not is_confirmed_market_close(entry.get("asOf"), entry.get("generatedAt")):
+            continue
         if daily and daily[-1].get("asOf") == entry.get("asOf"):
             daily[-1] = entry
         else:
@@ -439,7 +534,7 @@ def load_history() -> dict[str, Any]:
     return {
         "generatedAt": generated_at,
         "recentUpdates": compress_recent_updates(recent_updates),
-        "dailyHistory": daily_history,
+        "dailyHistory": build_daily_history(daily_history),
     }
 
 
@@ -472,10 +567,11 @@ def write_history(snapshot: dict[str, Any], spy_close: float) -> dict[str, Any]:
     else:
         recent_updates.append(entry)
 
-    if daily_history and daily_history[-1].get("asOf") == entry["asOf"]:
-        daily_history[-1] = entry
-    else:
-        daily_history.append(entry)
+    if is_confirmed_market_close(entry["asOf"], entry["generatedAt"]):
+        if daily_history and daily_history[-1].get("asOf") == entry["asOf"]:
+            daily_history[-1] = entry
+        else:
+            daily_history.append(entry)
 
     if len(recent_updates) > MAX_RECENT_UPDATES:
         recent_updates = recent_updates[-MAX_RECENT_UPDATES:]
