@@ -1,60 +1,60 @@
 {
-  "generatedAt": "2026-06-24T17:11:15Z",
+  "generatedAt": "2026-06-24T23:14:47Z",
   "asOf": "2026-06-24",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation"
+    "automation-3"
   ],
-  "summary": "生成 2026-06-24 中文早盘投资动态简报，重点围绕 AI/芯片波动降温、油价大跌与航空受益、FedEx/Cerebras 财报分化、Alphabet 入道指、Sunrun/Tesla/虚拟电厂主题、美国新屋销售走弱、DOE 核电供应链贷款。；交叉参考了 AP、WSJ、Barron's、MarketWatch、Yahoo Finance、Census、Fed、BEA、EIA、DOE、S&P DJI、Take-Two、FedEx、Cerebras、Sunrun 等来源。",
-  "suppressedCount": 1,
+  "summary": "本轮切换到 2026-06-24 美股收盘版，主线从前一日的“AI估值/资本开支挤压”演变为“油价与长债回落未能带动科技全面修复，资金转向政策与供给改善受益板块”。",
+  "suppressedCount": 0,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "生成 2026-06-24 中文早盘投资动态简报，重点围绕 AI/芯片波动降温、油价大跌与航空受益、FedEx/Cerebras 财报分化、Alphabet 入道指、Sunrun/Tesla/虚拟电厂主题、美国新屋销售走弱、DOE 核电供应链贷款。；交叉参考了 AP、WSJ、Barron's、MarketWatch、Yahoo Finance、Census、Fed、BEA、EIA、DOE、S&P DJI、Take-Two、FedEx、Cerebras、Sunrun 等来源。",
+      "detail": "本轮切换到 2026-06-24 美股收盘版，主线从前一日的“AI估值/资本开支挤压”演变为“油价与长债回落未能带动科技全面修复，资金转向政策与供给改善受益板块”。",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-06-24T14:46:50Z",
+      "publishedAt": "2026-06-24T20:09:23Z",
       "eventDate": "2026-06-24",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "生成 2026-06-24 中文早盘投资动态简报，重点围绕 AI/芯片波动降温、油价大跌与航空受益、FedEx/Cerebras 财报分化、Alphabet 入道指、Sunrun/Tesla/虚拟电厂主题、美国新屋销售走弱、DOE 核电供应链贷款。",
+      "detail": "上涨侧优先关注 KBH、PHM、DHI、LEN、GLW、TOST、IESC；下跌侧优先关注 CBRS、WDC、CVX、XOM、SNDK、TSLA、VZ。MU 收盘仅小跌，但盘后财报仍是全市场最关键测试。；6/24 盘后 Micron 财报与电话会、6/25 08:30 ET 的 PCE 与 GDP 修正值；若 Micron 指引不及极高预期，则 AI 链可能继续向“盈利兑现/现金流质量”切换。",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-06-24T14:46:50Z",
+      "publishedAt": "2026-06-24T20:09:23Z",
       "eventDate": "2026-06-24",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "生成 2026-06-24 中文早盘投资动态简报，重点围绕 AI/芯片波动降温、油价大跌与航空受益、FedEx/Cerebras 财报分化、Alphabet 入道指、Sunrun/Tesla/虚拟电厂主题、美国新屋销售走弱、DOE 核电供应链贷款。",
+      "detail": "本轮切换到 2026-06-24 美股收盘版，主线从前一日的“AI估值/资本开支挤压”演变为“油价与长债回落未能带动科技全面修复，资金转向政策与供给改善受益板块”。；道指相对强、纳指与半导体继续弱，家居建商/部分工业与指数调整受益股上涨，能源与高估值AI链承压；说明市场正在从单纯风险偏好转向更挑剔的盈利与现金流定价。",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-06-24T14:46:50Z",
+      "publishedAt": "2026-06-24T20:09:23Z",
       "eventDate": "2026-06-24",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "继续观察上述事件是否进一步强化美元、利率与风险偏好方向。",
+      "detail": "道指相对强、纳指与半导体继续弱，家居建商/部分工业与指数调整受益股上涨，能源与高估值AI链承压；说明市场正在从单纯风险偏好转向更挑剔的盈利与现金流定价。；6/24 盘后 Micron 财报与电话会、6/25 08:30 ET 的 PCE 与 GDP 修正值；若 Micron 指引不及极高预期，则 AI 链可能继续向“盈利兑现/现金流质量”切换。",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-06-24T14:46:50Z",
+      "publishedAt": "2026-06-24T20:09:23Z",
       "eventDate": "2026-06-24",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     }
   ]
