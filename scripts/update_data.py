@@ -226,10 +226,11 @@ def stale_existing_point(
     meta = field_meta.get(key) if isinstance(field_meta.get(key), dict) else {}
     as_of = str(meta.get("asOf") or previous_snapshot.get("asOf") or date.today().isoformat())
     previous_source = str(meta.get("source") or source)
+    base_source = previous_source.replace(" (stale fallback)", "")
     return DataPoint(
         value=round_value(value),
         as_of=as_of,
-        source=f"{previous_source} (stale fallback)",
+        source=f"{base_source} (stale fallback)",
         status="estimated",
         note=f"FRED fetch failed; reused previously published value. {error}",
     )
