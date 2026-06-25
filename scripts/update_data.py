@@ -190,7 +190,7 @@ def is_confirmed_market_close(as_of: Any, generated_at: Any) -> bool:
 def fred_series(series_id: str, start_days: int = 150) -> list[tuple[str, float]]:
     start = (date.today() - timedelta(days=start_days)).isoformat()
     url = f"https://fred.stlouisfed.org/graph/fredgraph.csv?id={series_id}&cosd={start}"
-    text = fetch_text(url)
+    text = fetch_text(url, timeout=12, retries=1)
     rows: list[tuple[str, float]] = []
     reader = csv.DictReader(io.StringIO(text))
     for row in reader:
@@ -200,6 +200,39 @@ def fred_series(series_id: str, start_days: int = 150) -> list[tuple[str, float]
     if not rows:
         raise RuntimeError(f"No FRED data for {series_id}")
     return rows
+
+
+def load_existing_snapshot() -> dict[str, Any]:
+    if not OUT_FILE.exists():
+        return {}
+    try:
+        data = json.loads(OUT_FILE.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError):
+        return {}
+    return data if isinstance(data, dict) else {}
+
+
+def stale_existing_point(
+    key: str,
+    previous_snapshot: dict[str, Any],
+    source: str,
+    error: Exception,
+) -> DataPoint:
+    values = previous_snapshot.get("values") or {}
+    field_meta = previous_snapshot.get("fieldMeta") or {}
+    value = parse_float(values.get(key))
+    if value is None:
+        raise RuntimeError(f"No previous value available for {key}") from error
+    meta = field_meta.get(key) if isinstance(field_meta.get(key), dict) else {}
+    as_of = str(meta.get("asOf") or previous_snapshot.get("asOf") or date.today().isoformat())
+    previous_source = str(meta.get("source") or source)
+    return DataPoint(
+        value=round_value(value),
+        as_of=as_of,
+        source=f"{previous_source} (stale fallback)",
+        status="estimated",
+        note=f"FRED fetch failed; reused previously published value. {error}",
+    )
 
 
 def yahoo_series(symbol: str, range_: str = "1y") -> list[tuple[str, float]]:
@@ -595,6 +628,7 @@ def write_history(snapshot: dict[str, Any], spy_close: float) -> dict[str, Any]:
 def build_snapshot() -> tuple[dict[str, Any], float]:
     notes: list[str] = []
     fields: dict[str, DataPoint] = {}
+    previous_snapshot = load_existing_snapshot()
 
     fred_ids = {
         "hyOas": "BAMLH0A0HYM2",
@@ -603,7 +637,13 @@ def build_snapshot() -> tuple[dict[str, Any], float]:
         "realTenY": "DFII10",
         "nfci": "NFCI",
     }
-    fred = {name: fred_series(series_id) for name, series_id in fred_ids.items()}
+    fred: dict[str, list[tuple[str, float]]] = {}
+    fred_errors: dict[str, Exception] = {}
+    for name, series_id in fred_ids.items():
+        try:
+            fred[name] = fred_series(series_id)
+        except RuntimeError as exc:
+            fred_errors[name] = exc
 
     yahoo_symbols = {
         "vix": "^VIX",
@@ -642,42 +682,73 @@ def build_snapshot() -> tuple[dict[str, Any], float]:
     fields["hygRet20d"] = data_point(pct_return(yahoo["hyg"], 20), latest(yahoo["hyg"])[0], "Yahoo Finance HYG")
     fields["jnkRet20d"] = data_point(pct_return(yahoo["jnk"], 20), latest(yahoo["jnk"])[0], "Yahoo Finance JNK")
 
-    hy_date, hy_oas = latest(fred["hyOas"])
-    fields["hyOas"] = data_point(hy_oas, hy_date, "FRED BAMLH0A0HYM2 / ICE BofA")
-    fields["hyOasChange20d"] = data_point(
-        (hy_oas - previous(fred["hyOas"], 20)[1]) * 100,
-        hy_date,
-        "FRED BAMLH0A0HYM2 / ICE BofA",
-    )
+    if "hyOas" in fred:
+        hy_date, hy_oas = latest(fred["hyOas"])
+        fields["hyOas"] = data_point(hy_oas, hy_date, "FRED BAMLH0A0HYM2 / ICE BofA")
+        fields["hyOasChange20d"] = data_point(
+            (hy_oas - previous(fred["hyOas"], 20)[1]) * 100,
+            hy_date,
+            "FRED BAMLH0A0HYM2 / ICE BofA",
+        )
+    else:
+        fields["hyOas"] = stale_existing_point(
+            "hyOas", previous_snapshot, "FRED BAMLH0A0HYM2 / ICE BofA", fred_errors["hyOas"]
+        )
+        fields["hyOasChange20d"] = stale_existing_point(
+            "hyOasChange20d", previous_snapshot, "FRED BAMLH0A0HYM2 / ICE BofA", fred_errors["hyOas"]
+        )
 
-    ig_date, ig_oas = latest(fred["igOas"])
-    fields["igOas"] = data_point(ig_oas, ig_date, "FRED BAMLC0A0CM / ICE BofA")
-    fields["igOasChange20d"] = data_point(
-        (ig_oas - previous(fred["igOas"], 20)[1]) * 100,
-        ig_date,
-        "FRED BAMLC0A0CM / ICE BofA",
-    )
+    if "igOas" in fred:
+        ig_date, ig_oas = latest(fred["igOas"])
+        fields["igOas"] = data_point(ig_oas, ig_date, "FRED BAMLC0A0CM / ICE BofA")
+        fields["igOasChange20d"] = data_point(
+            (ig_oas - previous(fred["igOas"], 20)[1]) * 100,
+            ig_date,
+            "FRED BAMLC0A0CM / ICE BofA",
+        )
+    else:
+        fields["igOas"] = stale_existing_point(
+            "igOas", previous_snapshot, "FRED BAMLC0A0CM / ICE BofA", fred_errors["igOas"]
+        )
+        fields["igOasChange20d"] = stale_existing_point(
+            "igOasChange20d", previous_snapshot, "FRED BAMLC0A0CM / ICE BofA", fred_errors["igOas"]
+        )
 
     fields["dxyChange20d"] = data_point(pct_return(yahoo["dxy"], 20), latest(yahoo["dxy"])[0], "Yahoo Finance DX-Y.NYB")
 
-    ten_y_date, ten_y = latest(fred["tenYYield"])
-    fields["tenYYield"] = data_point(ten_y, ten_y_date, "FRED DGS10")
-    fields["tenYChange20d"] = data_point(
-        (ten_y - previous(fred["tenYYield"], 20)[1]) * 100,
-        ten_y_date,
-        "FRED DGS10",
-    )
+    if "tenYYield" in fred:
+        ten_y_date, ten_y = latest(fred["tenYYield"])
+        fields["tenYYield"] = data_point(ten_y, ten_y_date, "FRED DGS10")
+        fields["tenYChange20d"] = data_point(
+            (ten_y - previous(fred["tenYYield"], 20)[1]) * 100,
+            ten_y_date,
+            "FRED DGS10",
+        )
+    else:
+        fields["tenYYield"] = stale_existing_point("tenYYield", previous_snapshot, "FRED DGS10", fred_errors["tenYYield"])
+        fields["tenYChange20d"] = stale_existing_point(
+            "tenYChange20d", previous_snapshot, "FRED DGS10", fred_errors["tenYYield"]
+        )
 
-    real_date, real_y = latest(fred["realTenY"])
-    fields["realTenY"] = data_point(real_y, real_date, "FRED DFII10")
-    fields["realTenYChange20d"] = data_point(
-        (real_y - previous(fred["realTenY"], 20)[1]) * 100,
-        real_date,
-        "FRED DFII10",
-    )
+    if "realTenY" in fred:
+        real_date, real_y = latest(fred["realTenY"])
+        fields["realTenY"] = data_point(real_y, real_date, "FRED DFII10")
+        fields["realTenYChange20d"] = data_point(
+            (real_y - previous(fred["realTenY"], 20)[1]) * 100,
+            real_date,
+            "FRED DFII10",
+        )
+    else:
+        fields["realTenY"] = stale_existing_point("realTenY", previous_snapshot, "FRED DFII10", fred_errors["realTenY"])
+        fields["realTenYChange20d"] = stale_existing_point(
+            "realTenYChange20d", previous_snapshot, "FRED DFII10", fred_errors["realTenY"]
+        )
 
-    nfci_date, nfci = latest(fred["nfci"])
-    fields["nfci"] = data_point(nfci, nfci_date, "FRED NFCI / Chicago Fed")
+    if "nfci" in fred:
+        nfci_date, nfci = latest(fred["nfci"])
+        fields["nfci"] = data_point(nfci, nfci_date, "FRED NFCI / Chicago Fed")
+    else:
+        fields["nfci"] = stale_existing_point("nfci", previous_snapshot, "FRED NFCI / Chicago Fed", fred_errors["nfci"])
     fields["kreRel20d"] = data_point(
         relative_return(yahoo["kre"], yahoo["spy"], 20),
         latest(yahoo["kre"])[0],
