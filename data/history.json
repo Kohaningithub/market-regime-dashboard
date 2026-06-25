@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-25T18:06:00Z",
+  "generatedAt": "2026-06-25T20:54:27Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
     {
@@ -361,6 +361,24 @@
       "rspSpyRel60d": -2.76,
       "estimatedCount": 9,
       "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-06-25T20:54:27Z",
+      "asOf": "2026-06-25",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 1
+      },
+      "spyClose": 734.3,
+      "spyDrawdown": -3.08,
+      "qqqDrawdown": -3.89,
+      "fearGreed": 25.0,
+      "rspSpyRel60d": -2.97,
+      "estimatedCount": 9,
+      "valuationInScore": false
     }
   ],
   "dailyHistory": [
@@ -419,7 +437,7 @@
       "valuationInScore": false
     },
     {
-      "generatedAt": "2026-06-25T18:06:00Z",
+      "generatedAt": "2026-06-25T20:54:27Z",
       "asOf": "2026-06-25",
       "regime": "normal",
       "regimeTitle": "Normal / Mild Pullback",
@@ -428,11 +446,11 @@
         "credit": 0,
         "sentiment": 1
       },
-      "spyClose": 732.17,
-      "spyDrawdown": -3.36,
-      "qqqDrawdown": -3.99,
-      "fearGreed": 26.0,
-      "rspSpyRel60d": -2.76,
+      "spyClose": 734.3,
+      "spyDrawdown": -3.08,
+      "qqqDrawdown": -3.89,
+      "fearGreed": 25.0,
+      "rspSpyRel60d": -2.97,
       "estimatedCount": 9,
       "valuationInScore": false
     }
@@ -795,6 +813,24 @@
       "qqqDrawdown": -3.99,
       "fearGreed": 26.0,
       "rspSpyRel60d": -2.76,
+      "estimatedCount": 9,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-06-25T20:54:27Z",
+      "asOf": "2026-06-25",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 1
+      },
+      "spyClose": 734.3,
+      "spyDrawdown": -3.08,
+      "qqqDrawdown": -3.89,
+      "fearGreed": 25.0,
+      "rspSpyRel60d": -2.97,
       "estimatedCount": 9,
       "valuationInScore": false
     }
