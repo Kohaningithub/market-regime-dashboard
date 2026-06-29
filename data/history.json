@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-29T18:04:09Z",
+  "generatedAt": "2026-06-29T20:47:01Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
     {
@@ -577,6 +577,24 @@
       "rspSpyRel60d": -2.04,
       "estimatedCount": 0,
       "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-06-29T20:47:01Z",
+      "asOf": "2026-06-29",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 741.0,
+      "spyDrawdown": -2.19,
+      "qqqDrawdown": -2.85,
+      "fearGreed": 27.0,
+      "rspSpyRel60d": -2.03,
+      "estimatedCount": 0,
+      "valuationInScore": false
     }
   ],
   "dailyHistory": [
@@ -671,7 +689,7 @@
       "valuationInScore": false
     },
     {
-      "generatedAt": "2026-06-29T18:04:09Z",
+      "generatedAt": "2026-06-29T20:47:01Z",
       "asOf": "2026-06-29",
       "regime": "normal",
       "regimeTitle": "Normal / Mild Pullback",
@@ -680,11 +698,11 @@
         "credit": 0,
         "sentiment": 2
       },
-      "spyClose": 740.57,
-      "spyDrawdown": -2.25,
-      "qqqDrawdown": -2.99,
+      "spyClose": 741.0,
+      "spyDrawdown": -2.19,
+      "qqqDrawdown": -2.85,
       "fearGreed": 27.0,
-      "rspSpyRel60d": -2.04,
+      "rspSpyRel60d": -2.03,
       "estimatedCount": 0,
       "valuationInScore": false
     }
@@ -1263,6 +1281,24 @@
       "qqqDrawdown": -2.99,
       "fearGreed": 27.0,
       "rspSpyRel60d": -2.04,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-06-29T20:47:01Z",
+      "asOf": "2026-06-29",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 741.0,
+      "spyDrawdown": -2.19,
+      "qqqDrawdown": -2.85,
+      "fearGreed": 27.0,
+      "rspSpyRel60d": -2.03,
       "estimatedCount": 0,
       "valuationInScore": false
     }
