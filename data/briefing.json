@@ -1,60 +1,60 @@
 {
-  "generatedAt": "2026-06-30T13:12:56Z",
+  "generatedAt": "2026-06-30T21:11:00Z",
   "asOf": "2026-06-30",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation"
+    "automation-3"
   ],
-  "summary": "生成 2026-06-30 中文早盘投资动态简报；主线确认转向“地缘风险溢价继续回吐 + 季末/半年末风险偏好修复”，美股期货小幅走强、油价回落、VIX 继续下行，但加密资产与部分高久期板块明显落后。",
+  "summary": "本轮完成 2026-06-30 美股收盘版中文投资简报，主线确认从“地缘缓和带来的 broad risk-on”进一步收敛为“AI/半导体领涨 + 传统电信被 SpaceX/Charter/Comcast 竞争与重组叙事持续压制”。",
   "suppressedCount": 0,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "生成 2026-06-30 中文早盘投资动态简报；主线确认转向“地缘风险溢价继续回吐 + 季末/半年末风险偏好修复”，美股期货小幅走强、油价回落、VIX 继续下行，但加密资产与部分高久期板块明显落后。",
+      "detail": "本轮完成 2026-06-30 美股收盘版中文投资简报，主线确认从“地缘缓和带来的 broad risk-on”进一步收敛为“AI/半导体领涨 + 传统电信被 SpaceX/Charter/Comcast 竞争与重组叙事持续压制”。",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-06-30T12:47:33Z",
+      "publishedAt": "2026-06-30T20:13:23Z",
       "eventDate": "2026-06-30",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "重点交叉核对了 Barron's/MarketWatch 盘前行情、Supreme Court 关于 Fed 独立性的裁决文件、ECB Sintra 论坛日程、Conference Board 消费者信心页面，以及 AeroVironment、Concentrix、Strategy、Blackstone/Digital Realty、JLL、Enphase 等公司原始公告或 IR 页面。；45 Chicago PMI、10:00 Conference Board、ECB 论坛发言与美债拍卖需求。",
+      "detail": "Conference Board 6 月消费者信心小幅回升至 91.2，但 Present Situation 下滑、Expectations 仍低于 80；BLS JOLTS 显示 5 月职位空缺持平于 760 万，说明劳动力市场边际降温但尚未失速。；Nike 6/30 盘后财报与管理层口径、7/2 非农前的利率与信用反应、以及 SpaceX/Charter/Comcast 相关竞争叙事是否继续外溢到有线/卫星/基建链。",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-06-30T12:47:33Z",
+      "publishedAt": "2026-06-30T20:13:23Z",
       "eventDate": "2026-06-30",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "生成 2026-06-30 中文早盘投资动态简报；主线确认转向“地缘风险溢价继续回吐 + 季末/半年末风险偏好修复”，美股期货小幅走强、油价回落、VIX 继续下行，但加密资产与部分高久期板块明显落后。；45 Chicago PMI、10:00 Conference Board、ECB 论坛发言与美债拍卖需求。",
+      "detail": "Conference Board 6 月消费者信心小幅回升至 91.2，但 Present Situation 下滑、Expectations 仍低于 80；BLS JOLTS 显示 5 月职位空缺持平于 760 万，说明劳动力市场边际降温但尚未失速。；按 Yahoo Finance 历史收盘代理，SPY 收 746.20、QQQ 收 736.68，分别较 6/29 收盘约 +0.8%/+1.7%；XLK 明显强于能源与防御类板块，说明资金继续回到长久期成长与 AI 设备链。",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-06-30T12:47:33Z",
+      "publishedAt": "2026-06-30T20:13:23Z",
       "eventDate": "2026-06-30",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "生成 2026-06-30 中文早盘投资动态简报；主线确认转向“地缘风险溢价继续回吐 + 季末/半年末风险偏好修复”，美股期货小幅走强、油价回落、VIX 继续下行，但加密资产与部分高久期板块明显落后。；45 Chicago PMI、10:00 Conference Board、ECB 论坛发言与美债拍卖需求。",
+      "detail": "按 Yahoo Finance 历史收盘代理，SPY 收 746.20、QQQ 收 736.68，分别较 6/29 收盘约 +0.8%/+1.7%；XLK 明显强于能源与防御类板块，说明资金继续回到长久期成长与 AI 设备链。；当日上涨核心个股集中在 AVAV、AMD、AMAT、KLAC、LRCX，主因分别是军工无人机业绩兑现与 AI/半导体设备链在韩国大规模芯片投资计划刺激下继续重估。",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-06-30T12:47:33Z",
+      "publishedAt": "2026-06-30T20:13:23Z",
       "eventDate": "2026-06-30",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     }
   ]
