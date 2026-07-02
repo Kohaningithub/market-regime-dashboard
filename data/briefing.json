@@ -1,60 +1,48 @@
 {
-  "generatedAt": "2026-07-01T22:30:24Z",
-  "asOf": "2026-07-01",
+  "generatedAt": "2026-07-02T13:11:00Z",
+  "asOf": "2026-07-02",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation-3"
+    "automation"
   ],
-  "summary": "本轮完成 2026-07-01 美股收盘版中文投资简报；主线从盘中的“制造业数据偏弱+利率回落托底”收敛为“道指/小盘与防御消费偏强，纳指与高估值AI硬件/算力链承压，市场出现明显风格轮动”。",
+  "summary": "BLS显示6月非农+57k、失业率4.2%；盘前10Y美债收益率先摸4.5%后回落，纳指压力大于道指；油价因美伊谈判进展继续下行；Robinhood全球扩张、比特币反弹继续带动HOOD/MSTR/加密链活跃。",
   "suppressedCount": 0,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "本轮完成 2026-07-01 美股收盘版中文投资简报；主线从盘中的“制造业数据偏弱+利率回落托底”收敛为“道指/小盘与防御消费偏强，纳指与高估值AI硬件/算力链承压，市场出现明显风格轮动”。",
+      "detail": "BLS显示6月非农+57k、失业率4.2%；盘前10Y美债收益率先摸4.5%后回落，纳指压力大于道指；油价因美伊谈判进展继续下行；Robinhood全球扩张、比特币反弹继续带动HOOD/MSTR/加密链活跃。",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-01T20:06:00Z",
-      "eventDate": "2026-07-01",
-      "edition": "收盘版",
-      "sources": []
-    },
-    {
-      "key": "events",
-      "title": "当日重要事件",
-      "detail": "GIS 约 +7.7%（财报好于预期+四年 30 亿美元成本计划）、NKE 约 +3.4%（利润与毛利率改善，坏消息未再恶化）、META 约 +10%（媒体称其推进 AI 云/算力商业化）、AVAV 约 +19%（Q4 业绩与 backlog 强劲）、KR 小幅上涨（宣布收购 Giant Eagle）。",
-      "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "收盘投资简报",
-      "sourceUrl": "",
-      "publishedAt": "2026-07-01T20:06:00Z",
-      "eventDate": "2026-07-01",
-      "edition": "收盘版",
+      "publishedAt": "2026-07-02T12:45:29Z",
+      "eventDate": "2026-07-02",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "本轮完成 2026-07-01 美股收盘版中文投资简报；主线从盘中的“制造业数据偏弱+利率回落托底”收敛为“道指/小盘与防御消费偏强，纳指与高估值AI硬件/算力链承压，市场出现明显风格轮动”。；S&P 500 基本持平、Dow 约 +0.1%、Nasdaq 约 -0.4%；AP 报道 10Y 美债收益率回落至约 4.47%，布油跌至 71.57 美元，黄金反弹至 4082.40 美元/盎司。",
+      "detail": "QQQ弱于SPY，HYG/LQD偏弱显示信用并未明显risk-on；BTC站回约61k而油价回落，说明风险偏好更偏主题与流动性而非全面顺周期。",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-01T20:06:00Z",
-      "eventDate": "2026-07-01",
-      "edition": "收盘版",
+      "publishedAt": "2026-07-02T12:45:29Z",
+      "eventDate": "2026-07-02",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "7/2 非农前后利率与信用利差是否继续缓和；Nike 盘后与次日 sell-side 解读是否继续改善；Getty/Shutterstock、Kroger/Giant Eagle、Alcoa/South32 这类并购/监管事件对跨行业估值框架的外溢。",
+      "detail": "BLS显示6月非农+57k、失业率4.2%；盘前10Y美债收益率先摸4.5%后回落，纳指压力大于道指；油价因美伊谈判进展继续下行；Robinhood全球扩张、比特币反弹继续带动HOOD/MSTR/加密链活跃。",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-01T20:06:00Z",
-      "eventDate": "2026-07-01",
-      "edition": "收盘版",
+      "publishedAt": "2026-07-02T12:45:29Z",
+      "eventDate": "2026-07-02",
+      "edition": "早盘版",
       "sources": []
     }
   ]
