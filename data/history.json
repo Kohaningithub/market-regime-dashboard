@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-02T13:39:54Z",
+  "generatedAt": "2026-07-02T17:28:12Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
     {
@@ -721,6 +721,24 @@
       "rspSpyRel60d": -2.0,
       "estimatedCount": 0,
       "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-02T17:28:12Z",
+      "asOf": "2026-07-02",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 741.4,
+      "spyDrawdown": -2.14,
+      "qqqDrawdown": -4.72,
+      "fearGreed": 31.0,
+      "rspSpyRel60d": -1.69,
+      "estimatedCount": 0,
+      "valuationInScore": false
     }
   ],
   "dailyHistory": [
@@ -865,6 +883,24 @@
       "qqqDrawdown": -2.71,
       "fearGreed": 32.0,
       "rspSpyRel60d": -2.64,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-02T17:28:12Z",
+      "asOf": "2026-07-02",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 741.4,
+      "spyDrawdown": -2.14,
+      "qqqDrawdown": -4.72,
+      "fearGreed": 31.0,
+      "rspSpyRel60d": -1.69,
       "estimatedCount": 0,
       "valuationInScore": false
     }
@@ -1587,6 +1623,24 @@
       "qqqDrawdown": -2.7,
       "fearGreed": 30.0,
       "rspSpyRel60d": -2.0,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-02T17:28:12Z",
+      "asOf": "2026-07-02",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 741.4,
+      "spyDrawdown": -2.14,
+      "qqqDrawdown": -4.72,
+      "fearGreed": 31.0,
+      "rspSpyRel60d": -1.69,
       "estimatedCount": 0,
       "valuationInScore": false
     }

@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-07-02T13:39:54Z",
+  "generatedAt": "2026-07-02T17:28:12Z",
   "asOf": "2026-07-02",
   "mode": "live",
   "values": {
-    "vix": 16.13,
-    "vixChange5d": -2.76,
+    "vix": 16.88,
+    "vixChange5d": -2.01,
     "move": 66.79,
-    "spyDrawdown": -1.16,
-    "qqqDrawdown": -2.7,
-    "rspSpyRel60d": -2.0,
-    "hygRet20d": 0.55,
-    "jnkRet20d": 0.59,
-    "hyOas": 2.75,
-    "hyOasChange20d": 4.0,
+    "spyDrawdown": -2.14,
+    "qqqDrawdown": -4.72,
+    "rspSpyRel60d": -1.69,
+    "hygRet20d": 0.48,
+    "jnkRet20d": 0.49,
+    "hyOas": 2.74,
+    "hyOasChange20d": -1.0,
     "igOas": 0.76,
     "igOasChange20d": 2.0,
-    "dxyChange20d": 1.29,
+    "dxyChange20d": 1.34,
     "tenYYield": 4.44,
     "tenYChange20d": -3.0,
     "realTenY": 2.2,
     "realTenYChange20d": 13.0,
     "nfci": -0.5,
-    "kreRel20d": 14.03,
+    "kreRel20d": 12.72,
     "aaiiBearish": 42.3,
     "putCall": 0.69,
-    "fearGreed": 30.0
+    "fearGreed": 31.0
   },
   "scores": {
     "volatility": 0,
@@ -80,22 +80,22 @@
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-06-30",
+      "asOf": "2026-07-01",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-06-30",
+      "asOf": "2026-07-01",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-06-30",
+      "asOf": "2026-07-01",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-06-30",
+      "asOf": "2026-07-01",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-07-02T13:34:45+00:00",
+      "asOf": "2026-07-02T17:24:35+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
