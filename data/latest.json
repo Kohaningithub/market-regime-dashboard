@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-03T17:14:22Z",
+  "generatedAt": "2026-07-03T20:10:32Z",
   "asOf": "2026-07-03",
   "mode": "live",
   "values": {
@@ -15,7 +15,7 @@
     "hyOasChange20d": 1.0,
     "igOas": 0.75,
     "igOasChange20d": 1.0,
-    "dxyChange20d": 1.45,
+    "dxyChange20d": 1.46,
     "tenYYield": 4.48,
     "tenYChange20d": 2.0,
     "realTenY": 2.25,
