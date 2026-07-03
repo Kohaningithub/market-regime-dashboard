@@ -1,21 +1,21 @@
 {
-  "generatedAt": "2026-07-03T13:44:30Z",
+  "generatedAt": "2026-07-03T17:14:22Z",
   "asOf": "2026-07-03",
   "mode": "live",
   "values": {
-    "vix": 15.94,
-    "vixChange5d": -2.47,
+    "vix": 15.81,
+    "vixChange5d": -2.6,
     "move": 66.79,
     "spyDrawdown": -1.69,
     "qqqDrawdown": -4.39,
     "rspSpyRel60d": -1.56,
     "hygRet20d": 0.5,
     "jnkRet20d": 0.54,
-    "hyOas": 2.74,
-    "hyOasChange20d": -1.0,
-    "igOas": 0.76,
-    "igOasChange20d": 2.0,
-    "dxyChange20d": 1.43,
+    "hyOas": 2.75,
+    "hyOasChange20d": 1.0,
+    "igOas": 0.75,
+    "igOasChange20d": 1.0,
+    "dxyChange20d": 1.45,
     "tenYYield": 4.48,
     "tenYChange20d": 2.0,
     "realTenY": 2.25,
@@ -80,22 +80,22 @@
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-07-01",
+      "asOf": "2026-07-02",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-07-01",
+      "asOf": "2026-07-02",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-07-01",
+      "asOf": "2026-07-02",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-07-01",
+      "asOf": "2026-07-02",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
