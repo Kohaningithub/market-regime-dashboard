@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-03T20:10:32Z",
-  "asOf": "2026-07-03",
+  "generatedAt": "2026-07-04T13:02:18Z",
+  "asOf": "2026-07-04",
   "mode": "live",
   "values": {
-    "vix": 15.81,
-    "vixChange5d": -2.6,
+    "vix": 16.15,
+    "vixChange5d": -2.74,
     "move": 66.79,
     "spyDrawdown": -1.69,
     "qqqDrawdown": -4.39,
@@ -40,12 +40,12 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-07-03",
+      "asOf": "2026-07-02",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-07-03",
+      "asOf": "2026-07-02",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
@@ -140,7 +140,7 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-07-03",
+      "asOf": "2026-07-04",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
