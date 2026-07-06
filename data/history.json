@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-06T18:05:15Z",
+  "generatedAt": "2026-07-06T20:47:26Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
     {
@@ -955,6 +955,24 @@
       "rspSpyRel60d": -2.03,
       "estimatedCount": 0,
       "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-06T20:47:26Z",
+      "asOf": "2026-07-06",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 1
+      },
+      "spyClose": 751.28,
+      "spyDrawdown": -0.84,
+      "qqqDrawdown": -3.02,
+      "fearGreed": 44.0,
+      "rspSpyRel60d": -2.15,
+      "estimatedCount": 0,
+      "valuationInScore": false
     }
   ],
   "dailyHistory": [
@@ -1121,7 +1139,7 @@
       "valuationInScore": false
     },
     {
-      "generatedAt": "2026-07-06T18:05:15Z",
+      "generatedAt": "2026-07-06T20:47:26Z",
       "asOf": "2026-07-06",
       "regime": "normal",
       "regimeTitle": "Normal / Mild Pullback",
@@ -1130,11 +1148,11 @@
         "credit": 0,
         "sentiment": 1
       },
-      "spyClose": 750.68,
-      "spyDrawdown": -0.92,
-      "qqqDrawdown": -3.11,
+      "spyClose": 751.28,
+      "spyDrawdown": -0.84,
+      "qqqDrawdown": -3.02,
       "fearGreed": 44.0,
-      "rspSpyRel60d": -2.03,
+      "rspSpyRel60d": -2.15,
       "estimatedCount": 0,
       "valuationInScore": false
     }
@@ -2091,6 +2109,24 @@
       "qqqDrawdown": -3.11,
       "fearGreed": 44.0,
       "rspSpyRel60d": -2.03,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-06T20:47:26Z",
+      "asOf": "2026-07-06",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 1
+      },
+      "spyClose": 751.28,
+      "spyDrawdown": -0.84,
+      "qqqDrawdown": -3.02,
+      "fearGreed": 44.0,
+      "rspSpyRel60d": -2.15,
       "estimatedCount": 0,
       "valuationInScore": false
     }
