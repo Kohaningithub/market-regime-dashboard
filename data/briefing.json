@@ -1,60 +1,60 @@
 {
-  "generatedAt": "2026-07-08T17:11:18Z",
+  "generatedAt": "2026-07-08T21:11:22Z",
   "asOf": "2026-07-08",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation"
+    "automation-3"
   ],
-  "summary": "Reuters/MarketWatch/AP一致显示美股期货显著走弱、WTI约74.5美元、Brent约78.5美元、VIX升至约18.6；Fed 2:00 p.m. ET公布6月FOMC会议纪要；EIA周度库存将于10:30 a.m. ET发布；Levi Strauss盘后财报、Costco下午公布6月销售。",
-  "suppressedCount": 1,
+  "summary": "本轮完成 2026-07-08 美股收盘版中文投资简报；主线收敛为“早盘伊朗停火破裂与油价飙升引发 broad risk-off，但收盘阶段 AI/芯片与中国 AI 资产反拉，留下 Dow/住房/航空偏弱、Nasdaq 近乎收平的强分化结构”。",
+  "suppressedCount": 0,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "Reuters/MarketWatch/AP一致显示美股期货显著走弱、WTI约74.5美元、Brent约78.5美元、VIX升至约18.6；Fed 2:00 p.m. ET公布6月FOMC会议纪要；EIA周度库存将于10:30 a.m. ET发布；Levi Strauss盘后财报、Costco下午公布6月销售。",
+      "detail": "本轮完成 2026-07-08 美股收盘版中文投资简报；主线收敛为“早盘伊朗停火破裂与油价飙升引发 broad risk-off，但收盘阶段 AI/芯片与中国 AI 资产反拉，留下 Dow/住房/航空偏弱、Nasdaq 近乎收平的强分化结构”。",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-08T12:44:38Z",
+      "publishedAt": "2026-07-08T20:06:03Z",
       "eventDate": "2026-07-08",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "Reuters/MarketWatch/AP一致显示美股期货显著走弱、WTI约74.5美元、Brent约78.5美元、VIX升至约18.6；Fed 2:00 p.m. ET公布6月FOMC会议纪要；EIA周度库存将于10:30 a.m. ET发布；Levi Strauss盘后财报、Costco下午公布6月销售。",
+      "detail": "油价能否守住 75-80 美元区间、住房/航空弱势是否继续扩散到可选消费与工业、以及 7/10 Delta 财报能否验证“高油价只是利润噪音而非需求拐点”。",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-08T12:44:38Z",
+      "publishedAt": "2026-07-08T20:06:03Z",
       "eventDate": "2026-07-08",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "生成7月8日中文早盘投资动态简报，主线切换为“特朗普称美伊停火安排已结束，油价与长端收益率同步上冲，盘前资金从高拥挤半导体/出行链撤向能源、防务与部分中国AI”。；Reuters/MarketWatch/AP一致显示美股期货显著走弱、WTI约74.5美元、Brent约78.5美元、VIX升至约18.6；Fed 2:00 p.m. ET公布6月FOMC会议纪要；EIA周度库存将于10:30 a.m. ET发布；Levi Strauss盘后财报、Costco下午公布6月销售。",
+      "detail": "本轮完成 2026-07-08 美股收盘版中文投资简报；主线收敛为“早盘伊朗停火破裂与油价飙升引发 broad risk-off，但收盘阶段 AI/芯片与中国 AI 资产反拉，留下 Dow/住房/航空偏弱、Nasdaq 近乎收平的强分化结构”。；按 ETF 代理，SPY 约 -0.41%、DIA 约 -1.12%、QQQ 约 +0.08%、XLE 约 +2.31%、XLK 约 +0.46%、HYG/LQD 仅小幅回落，说明油价冲击主要压缩高油耗与利率敏感板块，而非演变成信用踩踏。",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-08T12:44:38Z",
+      "publishedAt": "2026-07-08T20:06:03Z",
       "eventDate": "2026-07-08",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "继续观察上述事件是否进一步强化美元、利率与风险偏好方向。",
+      "detail": "继续观察上述催化是否进一步强化美元、短端利率与风险偏好方向。",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-08T12:44:38Z",
+      "publishedAt": "2026-07-08T20:06:03Z",
       "eventDate": "2026-07-08",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     }
   ]
