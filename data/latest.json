@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-07-08T20:16:25Z",
-  "asOf": "2026-07-08",
+  "generatedAt": "2026-07-09T14:33:21Z",
+  "asOf": "2026-07-09",
   "mode": "live",
   "values": {
-    "vix": 16.78,
-    "vixChange5d": 0.33,
-    "move": 70.25,
-    "spyDrawdown": -1.62,
-    "qqqDrawdown": -4.55,
-    "rspSpyRel60d": -1.5,
-    "hygRet20d": 0.62,
-    "jnkRet20d": 0.66,
+    "vix": 16.95,
+    "vixChange5d": 0.36,
+    "move": 65.4,
+    "spyDrawdown": -1.31,
+    "qqqDrawdown": -3.6,
+    "rspSpyRel60d": -1.24,
+    "hygRet20d": 0.66,
+    "jnkRet20d": 0.67,
     "hyOas": 2.67,
     "hyOasChange20d": -11.0,
     "igOas": 0.76,
     "igOasChange20d": 1.0,
-    "dxyChange20d": 0.92,
-    "tenYYield": 4.48,
-    "tenYChange20d": 1.0,
-    "realTenY": 2.24,
-    "realTenYChange20d": 13.0,
+    "dxyChange20d": 0.98,
+    "tenYYield": 4.55,
+    "tenYChange20d": 0.0,
+    "realTenY": 2.3,
+    "realTenYChange20d": 11.0,
     "nfci": -0.52,
-    "kreRel20d": 3.72,
-    "aaiiBearish": 42.3,
-    "putCall": 0.69,
-    "fearGreed": 42.0
+    "kreRel20d": 3.39,
+    "aaiiBearish": 37.2,
+    "putCall": 0.86,
+    "fearGreed": 46.0
   },
   "scores": {
     "volatility": 0,
@@ -40,42 +40,42 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-02",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
     "spyDrawdown": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Yahoo Finance SPY",
       "status": "ok"
     },
     "qqqDrawdown": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Yahoo Finance QQQ",
       "status": "ok"
     },
     "rspSpyRel60d": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
     },
     "hygRet20d": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Yahoo Finance HYG",
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
@@ -100,27 +100,27 @@
       "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-07-06",
+      "asOf": "2026-07-07",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-07-06",
+      "asOf": "2026-07-07",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-07-06",
+      "asOf": "2026-07-07",
       "source": "FRED DFII10",
       "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-07-06",
+      "asOf": "2026-07-07",
       "source": "FRED DFII10",
       "status": "ok"
     },
@@ -130,23 +130,23 @@
       "status": "ok"
     },
     "kreRel20d": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Yahoo Finance KRE/SPY",
       "status": "ok"
     },
     "aaiiBearish": {
-      "asOf": "2026-07-01",
+      "asOf": "2026-07-08",
       "source": "AAII Sentiment Survey",
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-09",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-07-08T20:01:58+00:00",
+      "asOf": "2026-07-09T14:29:48+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
