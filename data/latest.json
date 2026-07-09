@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-07-09T14:33:21Z",
+  "generatedAt": "2026-07-09T17:48:37Z",
   "asOf": "2026-07-09",
   "mode": "live",
   "values": {
-    "vix": 16.95,
-    "vixChange5d": 0.36,
+    "vix": 16.02,
+    "vixChange5d": -0.57,
     "move": 65.4,
-    "spyDrawdown": -1.31,
-    "qqqDrawdown": -3.6,
-    "rspSpyRel60d": -1.24,
-    "hygRet20d": 0.66,
-    "jnkRet20d": 0.67,
+    "spyDrawdown": -0.76,
+    "qqqDrawdown": -2.84,
+    "rspSpyRel60d": -1.61,
+    "hygRet20d": 0.76,
+    "jnkRet20d": 0.77,
     "hyOas": 2.67,
     "hyOasChange20d": -11.0,
     "igOas": 0.76,
     "igOasChange20d": 1.0,
-    "dxyChange20d": 0.98,
+    "dxyChange20d": 0.96,
     "tenYYield": 4.55,
     "tenYChange20d": 0.0,
     "realTenY": 2.3,
     "realTenYChange20d": 11.0,
     "nfci": -0.52,
-    "kreRel20d": 3.39,
+    "kreRel20d": 3.45,
     "aaiiBearish": 37.2,
     "putCall": 0.86,
-    "fearGreed": 46.0
+    "fearGreed": 47.0
   },
   "scores": {
     "volatility": 0,
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-07-09T14:29:48+00:00",
+      "asOf": "2026-07-09T17:45:27+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
