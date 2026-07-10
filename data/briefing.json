@@ -1,60 +1,60 @@
 {
-  "generatedAt": "2026-07-10T17:11:17Z",
+  "generatedAt": "2026-07-10T21:12:39Z",
   "asOf": "2026-07-10",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation"
+    "automation-3"
   ],
-  "summary": "生成 2026-07-10 早盘投资动态简报，主线聚焦地缘风险缓和带来的油价/长债回落、Circle 获 OCC 批准设立国家信托银行、Delta 财报验证高端出行韧性，以及 SK Hynix 纳斯达克上市对 AI/芯片资金轮动的影响",
-  "suppressedCount": 0,
+  "summary": "本轮完成 2026-07-10 美股收盘版中文投资简报；主线收敛为“市场继续忽略伊朗 headline 噪音，重新奖励 AI 赢家与高确定性基本面，但小盘与医疗并未跟涨，说明风险偏好并不全面”。",
+  "suppressedCount": 1,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "生成 2026-07-10 早盘投资动态简报，主线聚焦地缘风险缓和带来的油价/长债回落、Circle 获 OCC 批准设立国家信托银行、Delta 财报验证高端出行韧性，以及 SK Hynix 纳斯达克上市对 AI/芯片资金轮动的影响",
+      "detail": "本轮完成 2026-07-10 美股收盘版中文投资简报；主线收敛为“市场继续忽略伊朗 headline 噪音，重新奖励 AI 赢家与高确定性基本面，但小盘与医疗并未跟涨，说明风险偏好并不全面”。",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-10T12:44:31Z",
+      "publishedAt": "2026-07-10T20:06:00Z",
       "eventDate": "2026-07-10",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "生成 2026-07-10 早盘投资动态简报，主线聚焦地缘风险缓和带来的油价/长债回落、Circle 获 OCC 批准设立国家信托银行、Delta 财报验证高端出行韧性，以及 SK Hynix 纳斯达克上市对 AI/芯片资金轮动的影响",
+      "detail": "1) Delta 财报 beat 却下跌，表明市场更在意下半年利润弹性而非单季兑现；2) SK hynix 大涨但 Micron/Intel 没同步扩散，说明资金在 AI 硬件内部也在分层，只追最稀缺的 HBM 龙头；3) 标普上涨当天医疗是唯一显著拖累板块，指数强势掩盖了内部广度不足。；7/14 美国 6 月 CPI 与银行财报季首日（JPM/BAC/C/WFC/GS）；若通胀高于预期、而银行口径又偏谨慎，则本周这种“AI+高质量防御”共振可能被打断。",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-10T12:44:31Z",
+      "publishedAt": "2026-07-10T20:06:00Z",
       "eventDate": "2026-07-10",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "生成 2026-07-10 早盘投资动态简报，主线聚焦地缘风险缓和带来的油价/长债回落、Circle 获 OCC 批准设立国家信托银行、Delta 财报验证高端出行韧性，以及 SK Hynix 纳斯达克上市对 AI/芯片资金轮动的影响；短线市场不是全面 risk-on，而是从能源冲击回摆到“利率+AI 结构轮动”",
+      "detail": "本轮完成 2026-07-10 美股收盘版中文投资简报；主线收敛为“市场继续忽略伊朗 headline 噪音，重新奖励 AI 赢家与高确定性基本面，但小盘与医疗并未跟涨，说明风险偏好并不全面”。；AP、MarketWatch 与延迟行情代理显示 S&P 500 约 +0.3%至+0.4%、Dow 约 +0.1%至+0.3%、Nasdaq 约 +0.1%至+0.3%，而 IWM 收跌、10Y Treasury 回到约 4.56%、Brent 约 76 美元，说明指数抬升更依赖大市值 AI 和精选事件股，而非 broad beta 扩张。",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-10T12:44:31Z",
+      "publishedAt": "2026-07-10T20:06:00Z",
       "eventDate": "2026-07-10",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "消费端继续分化，航空/高端需求强于大众快消",
+      "detail": "本轮完成 2026-07-10 美股收盘版中文投资简报；主线收敛为“市场继续忽略伊朗 headline 噪音，重新奖励 AI 赢家与高确定性基本面，但小盘与医疗并未跟涨，说明风险偏好并不全面”。",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-10T12:44:31Z",
+      "publishedAt": "2026-07-10T20:06:00Z",
       "eventDate": "2026-07-10",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     }
   ]
