@@ -1,22 +1,22 @@
 {
-  "generatedAt": "2026-07-13T17:11:23Z",
+  "generatedAt": "2026-07-13T21:11:08Z",
   "asOf": "2026-07-13",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
     "automation-3"
   ],
-  "summary": "中东/霍尔木兹风险推升 Brent 至约 79 美元、10Y Treasury 至约 4.60%，同时 AI/存储链被集中去仓；但 MarketWatch 显示等权 S&P 500 约 +0.5%，说明表面 risk-off 背后存在明显的 cap-weight 与 equal-weight 分化。",
-  "suppressedCount": 0,
+  "summary": "霍尔木兹紧张局势推动油价单日大涨，芯片/AI链因SK海力士外溢与估值去杠杆走弱，Waller偏鹰讲话叠加使“避险”转成“通胀/利率冲击”",
+  "suppressedCount": 1,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "中东/霍尔木兹风险推升 Brent 至约 79 美元、10Y Treasury 至约 4.60%，同时 AI/存储链被集中去仓；但 MarketWatch 显示等权 S&P 500 约 +0.5%，说明表面 risk-off 背后存在明显的 cap-weight 与 equal-weight 分化。",
+      "detail": "霍尔木兹紧张局势推动油价单日大涨，芯片/AI链因SK海力士外溢与估值去杠杆走弱，Waller偏鹰讲话叠加使“避险”转成“通胀/利率冲击”",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
       "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-13T15:44:42Z",
+      "publishedAt": "2026-07-13T20:05:26Z",
       "eventDate": "2026-07-13",
       "edition": "收盘版",
       "sources": []
@@ -24,11 +24,11 @@
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "44 ET，NYSE 常规交易尚未结束，因此输出应明确标注为“收盘前替代版”，避免把盘中数据写成收盘事实。；BLS 确认 6 月 CPI 将于 2026-07-14 08:30 ET 发布；JPMorgan 与 Goldman Sachs 官方 IR 均确认 7/14 早间发布二季报/召开业绩会；TSMC 7/13 官方披露 6 月营收创纪录，但股价未能扭转 AI 板块抛压，是重要反常信号。",
+      "detail": "7月14日08:30 ET BLS CPI、Warsh国会作证、JPM等大行财报",
       "impact": "决定盘中利率预期是否继续强化或修正。",
       "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-13T15:44:42Z",
+      "publishedAt": "2026-07-13T20:05:26Z",
       "eventDate": "2026-07-13",
       "edition": "收盘版",
       "sources": []
@@ -36,11 +36,11 @@
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "中东/霍尔木兹风险推升 Brent 至约 79 美元、10Y Treasury 至约 4.60%，同时 AI/存储链被集中去仓；但 MarketWatch 显示等权 S&P 500 约 +0.5%，说明表面 risk-off 背后存在明显的 cap-weight 与 equal-weight 分化。；最有信息量的弱势链条是 SNDK、MRVL、WDC、INTC、MU 等半导体/存储/设备股；交叉来源显示触发器不是单一业绩雷，而是 SK Hynix 在韩国重挫、市场重估 AI 资本开支回报、以及对未来 memory 供给扩张和中国 CXMT 竞争的担忧。",
+      "detail": "霍尔木兹紧张局势推动油价单日大涨，芯片/AI链因SK海力士外溢与估值去杠杆走弱，Waller偏鹰讲话叠加使“避险”转成“通胀/利率冲击”；周内继续看TSMC业绩与油运/信用市场是否继续恶化",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
       "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-13T15:44:42Z",
+      "publishedAt": "2026-07-13T20:05:26Z",
       "eventDate": "2026-07-13",
       "edition": "收盘版",
       "sources": []
@@ -48,11 +48,11 @@
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "1) 尾盘半导体是否继续放量杀跌还是出现技术性回补；2) 油价上行是否开始拖累航空/可选消费并向信用层扩散；3) 7/14 CPI + 大行财报是否把市场主线从“AI 去拥挤”切到“通胀/金融盈利验证”。",
+      "detail": "周内继续看TSMC业绩与油运/信用市场是否继续恶化",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
       "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-13T15:44:42Z",
+      "publishedAt": "2026-07-13T20:05:26Z",
       "eventDate": "2026-07-13",
       "edition": "收盘版",
       "sources": []
