@@ -1,60 +1,60 @@
 {
-  "generatedAt": "2026-07-13T21:11:08Z",
+  "generatedAt": "2026-07-14T13:11:22Z",
   "asOf": "2026-07-13",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation-3"
+    "automation"
   ],
-  "summary": "霍尔木兹紧张局势推动油价单日大涨，芯片/AI链因SK海力士外溢与估值去杠杆走弱，Waller偏鹰讲话叠加使“避险”转成“通胀/利率冲击”",
-  "suppressedCount": 1,
+  "summary": "生成 2026-07-13 中文投资动态简报早盘版，重点覆盖霍尔木兹冲突升级引发的油价/通胀再定价、AI/半导体拥挤交易回撤、以及 7 月 14 日美国 6 月 CPI + 大型银行财报 + Fed 主席 Kevin Warsh 国会证词这三个统一定价锚；市场当前不是全面避险，而是“能源与通胀风险上修 + AI 高拥挤仓位去杠杆 + 银行/价值轮动预期”并存",
+  "suppressedCount": 0,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "霍尔木兹紧张局势推动油价单日大涨，芯片/AI链因SK海力士外溢与估值去杠杆走弱，Waller偏鹰讲话叠加使“避险”转成“通胀/利率冲击”",
+      "detail": "生成 2026-07-13 中文投资动态简报早盘版，重点覆盖霍尔木兹冲突升级引发的油价/通胀再定价、AI/半导体拥挤交易回撤、以及 7 月 14 日美国 6 月 CPI + 大型银行财报 + Fed 主席 Kevin Warsh 国会证词这三个统一定价锚；市场当前不是全面避险，而是“能源与通胀风险上修 + AI 高拥挤仓位去杠杆 + 银行/价值轮动预期”并存",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-13T20:05:26Z",
+      "publishedAt": "2026-07-14T12:46:08Z",
       "eventDate": "2026-07-13",
-      "edition": "收盘版",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "7月14日08:30 ET BLS CPI、Warsh国会作证、JPM等大行财报",
+      "detail": "生成 2026-07-13 中文投资动态简报早盘版，重点覆盖霍尔木兹冲突升级引发的油价/通胀再定价、AI/半导体拥挤交易回撤、以及 7 月 14 日美国 6 月 CPI + 大型银行财报 + Fed 主席 Kevin Warsh 国会证词这三个统一定价锚；JPM/BAC/C/WFC 财报是否确认投行/交易业务强势并带动风格扩散，",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-13T20:05:26Z",
+      "publishedAt": "2026-07-14T12:46:08Z",
       "eventDate": "2026-07-13",
-      "edition": "收盘版",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "霍尔木兹紧张局势推动油价单日大涨，芯片/AI链因SK海力士外溢与估值去杠杆走弱，Waller偏鹰讲话叠加使“避险”转成“通胀/利率冲击”；周内继续看TSMC业绩与油运/信用市场是否继续恶化",
+      "detail": "生成 2026-07-13 中文投资动态简报早盘版，重点覆盖霍尔木兹冲突升级引发的油价/通胀再定价、AI/半导体拥挤交易回撤、以及 7 月 14 日美国 6 月 CPI + 大型银行财报 + Fed 主席 Kevin Warsh 国会证词这三个统一定价锚；市场当前不是全面避险，而是“能源与通胀风险上修 + AI 高拥挤仓位去杠杆 + 银行/价值轮动预期”并存",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-13T20:05:26Z",
+      "publishedAt": "2026-07-14T12:46:08Z",
       "eventDate": "2026-07-13",
-      "edition": "收盘版",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "周内继续看TSMC业绩与油运/信用市场是否继续恶化",
+      "detail": "优先跟踪",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-13T20:05:26Z",
+      "publishedAt": "2026-07-14T12:46:08Z",
       "eventDate": "2026-07-13",
-      "edition": "收盘版",
+      "edition": "早盘版",
       "sources": []
     }
   ]
