@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T13:15:21Z",
+  "generatedAt": "2026-07-15T17:06:55Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
     {
@@ -1423,6 +1423,24 @@
       "rspSpyRel60d": 0.34,
       "estimatedCount": 0,
       "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-15T17:06:55Z",
+      "asOf": "2026-07-15",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 0
+      },
+      "spyClose": 752.1,
+      "spyDrawdown": -0.73,
+      "qqqDrawdown": -4.24,
+      "fearGreed": 45.0,
+      "rspSpyRel60d": -0.92,
+      "estimatedCount": 0,
+      "valuationInScore": false
     }
   ],
   "dailyHistory": [
@@ -1711,6 +1729,24 @@
       "qqqDrawdown": -3.44,
       "fearGreed": 43.0,
       "rspSpyRel60d": -0.61,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-15T17:06:55Z",
+      "asOf": "2026-07-15",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 0
+      },
+      "spyClose": 752.1,
+      "spyDrawdown": -0.73,
+      "qqqDrawdown": -4.24,
+      "fearGreed": 45.0,
+      "rspSpyRel60d": -0.92,
       "estimatedCount": 0,
       "valuationInScore": false
     }
@@ -3135,6 +3171,24 @@
       "qqqDrawdown": -4.51,
       "fearGreed": 44.0,
       "rspSpyRel60d": 0.34,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-15T17:06:55Z",
+      "asOf": "2026-07-15",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 0
+      },
+      "spyClose": 752.1,
+      "spyDrawdown": -0.73,
+      "qqqDrawdown": -4.24,
+      "fearGreed": 45.0,
+      "rspSpyRel60d": -0.92,
       "estimatedCount": 0,
       "valuationInScore": false
     }
