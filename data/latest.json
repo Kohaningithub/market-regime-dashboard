@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-07-16T13:22:37Z",
+  "generatedAt": "2026-07-16T17:04:48Z",
   "asOf": "2026-07-16",
   "mode": "live",
   "values": {
-    "vix": 16.21,
-    "vixChange5d": 0.37,
+    "vix": 16.32,
+    "vixChange5d": 0.48,
     "move": 69.55,
-    "spyDrawdown": -0.37,
-    "qqqDrawdown": -3.7,
-    "rspSpyRel60d": -1.25,
-    "hygRet20d": 0.17,
-    "jnkRet20d": 0.16,
-    "hyOas": 2.72,
-    "hyOasChange20d": 1.0,
+    "spyDrawdown": -0.67,
+    "qqqDrawdown": -4.98,
+    "rspSpyRel60d": -0.7,
+    "hygRet20d": 0.16,
+    "jnkRet20d": 0.2,
+    "hyOas": 2.71,
+    "hyOasChange20d": 8.0,
     "igOas": 0.79,
-    "igOasChange20d": 4.0,
-    "dxyChange20d": 1.08,
+    "igOasChange20d": 5.0,
+    "dxyChange20d": 1.26,
     "tenYYield": 4.58,
     "tenYChange20d": 10.0,
-    "realTenY": 2.36,
-    "realTenYChange20d": 20.0,
+    "realTenY": 2.33,
+    "realTenYChange20d": 16.0,
     "nfci": -0.54,
-    "kreRel20d": 5.26,
+    "kreRel20d": 7.57,
     "aaiiBearish": 32.9,
     "putCall": 0.69,
-    "fearGreed": 47.0
+    "fearGreed": 46.0
   },
   "scores": {
     "volatility": 0,
@@ -55,47 +55,47 @@
       "status": "ok"
     },
     "spyDrawdown": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Yahoo Finance SPY",
       "status": "ok"
     },
     "qqqDrawdown": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Yahoo Finance QQQ",
       "status": "ok"
     },
     "rspSpyRel60d": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
     },
     "hygRet20d": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Yahoo Finance HYG",
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-07-14",
+      "asOf": "2026-07-15",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-07-14",
+      "asOf": "2026-07-15",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-07-14",
+      "asOf": "2026-07-15",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-07-14",
+      "asOf": "2026-07-15",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
@@ -115,16 +115,14 @@
       "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-07-13",
-      "source": "FRED DFII10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-02-16: HTTP Error 404: Not Found"
+      "asOf": "2026-07-14",
+      "source": "FRED DFII10",
+      "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-07-13",
-      "source": "FRED DFII10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-02-16: HTTP Error 404: Not Found"
+      "asOf": "2026-07-14",
+      "source": "FRED DFII10",
+      "status": "ok"
     },
     "nfci": {
       "asOf": "2026-07-10",
@@ -132,7 +130,7 @@
       "status": "ok"
     },
     "kreRel20d": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Yahoo Finance KRE/SPY",
       "status": "ok"
     },
@@ -148,14 +146,12 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-07-16T13:03:46+00:00",
+      "asOf": "2026-07-16T16:59:20+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
   },
   "notes": [
-    "realTenY: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-02-16: HTTP Error 404: Not Found",
-    "realTenYChange20d: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-02-16: HTTP Error 404: Not Found",
     "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019.",
     "model: Valuation percentile is unavailable from a stable public no-key source and is excluded from live scoring."
   ],
