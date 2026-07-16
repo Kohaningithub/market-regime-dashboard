@@ -1,60 +1,48 @@
 {
-  "generatedAt": "2026-07-16T03:06:45Z",
-  "asOf": "2026-07-15",
+  "generatedAt": "2026-07-16T13:12:42Z",
+  "asOf": "2026-07-16",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation-3"
+    "automation"
   ],
-  "summary": "6月PPI环比-0.3%、同比5.5%，市场将7月FOMC加息概率进一步压低，10Y美债收益率回落至约4.55%",
-  "suppressedCount": 1,
+  "summary": "美国6月零售销售环比+0.2%、周度初请20.8万，宏观硬数据仍稳",
+  "suppressedCount": 0,
   "linkCoverage": 0,
   "items": [
     {
-      "key": "macro",
-      "title": "宏观主线",
-      "detail": "6月PPI环比-0.3%、同比5.5%，市场将7月FOMC加息概率进一步压低，10Y美债收益率回落至约4.55%",
-      "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "收盘投资简报",
-      "sourceUrl": "",
-      "publishedAt": "2026-07-15T20:06:43Z",
-      "eventDate": "2026-07-15",
-      "edition": "收盘版",
-      "sources": []
-    },
-    {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "6月PPI环比-0.3%、同比5.5%，市场将7月FOMC加息概率进一步压低，10Y美债收益率回落至约4.55%；BLK/BNY/CTAS财报验证高质量资产管理与服务类盈利韧性",
+      "detail": "美国6月零售销售环比+0.2%、周度初请20.8万，宏观硬数据仍稳",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-15T20:06:43Z",
-      "eventDate": "2026-07-15",
-      "edition": "收盘版",
+      "publishedAt": "2026-07-16T12:47:20Z",
+      "eventDate": "2026-07-16",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "6月PPI环比-0.3%、同比5.5%，市场将7月FOMC加息概率进一步压低，10Y美债收益率回落至约4.55%；但油价受伊朗/霍尔木兹风险影响盘中一度冲上86美元，导致“通胀降温利多估值”与“能源再通胀风险”并存",
+      "detail": "纳指期货走弱、芯片/存储链继续回撤，市场在交易AI硬件估值与周期顶部风险；中东冲突维持油价高位，BOK加息强化“油价-通胀-利率”链条",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-15T20:06:43Z",
-      "eventDate": "2026-07-15",
-      "edition": "收盘版",
+      "publishedAt": "2026-07-16T12:47:20Z",
+      "eventDate": "2026-07-16",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "金融和资管（BLK、BNY、MS）及并购题材（PYPL）走强，半导体/存储链（MU、SNDK、PHLX SOX）偏弱，显示资金从高拥挤AI硬件转向现金流更明确或事件驱动板块；ELV虽盈利超预期但Medicaid成本与退保压力继续压制估值",
+      "detail": "纳指期货走弱、芯片/存储链继续回撤，市场在交易AI硬件估值与周期顶部风险",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-15T20:06:43Z",
-      "eventDate": "2026-07-15",
-      "edition": "收盘版",
+      "publishedAt": "2026-07-16T12:47:20Z",
+      "eventDate": "2026-07-16",
+      "edition": "早盘版",
       "sources": []
     }
   ]
