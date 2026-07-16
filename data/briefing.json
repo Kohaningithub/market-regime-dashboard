@@ -1,60 +1,60 @@
 {
-  "generatedAt": "2026-07-15T17:11:54Z",
+  "generatedAt": "2026-07-16T03:06:45Z",
   "asOf": "2026-07-15",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation"
+    "automation-3"
   ],
-  "summary": "6月CPI/PPI偏软、油价受美伊冲突与霍尔木兹航运风险支撑、盘前由ASML/银行财报与PayPal并购传闻驱动。",
-  "suppressedCount": 0,
+  "summary": "6月PPI环比-0.3%、同比5.5%，市场将7月FOMC加息概率进一步压低，10Y美债收益率回落至约4.55%",
+  "suppressedCount": 1,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "6月CPI/PPI偏软、油价受美伊冲突与霍尔木兹航运风险支撑、盘前由ASML/银行财报与PayPal并购传闻驱动。",
+      "detail": "6月PPI环比-0.3%、同比5.5%，市场将7月FOMC加息概率进一步压低，10Y美债收益率回落至约4.55%",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-15T12:45:27Z",
+      "publishedAt": "2026-07-15T20:06:43Z",
       "eventDate": "2026-07-15",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "6月CPI/PPI偏软、油价受美伊冲突与霍尔木兹航运风险支撑、盘前由ASML/银行财报与PayPal并购传闻驱动。；Fed主席Kevin Warsh今日10:00 ET参议院证词；ASML上调全年指引；Morgan Stanley/BlackRock/JNJ/Conagra/Pentair/Elevance财报分化；PayPal收购传闻未获公司确认。",
+      "detail": "6月PPI环比-0.3%、同比5.5%，市场将7月FOMC加息概率进一步压低，10Y美债收益率回落至约4.55%；BLK/BNY/CTAS财报验证高质量资产管理与服务类盈利韧性",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-15T12:45:27Z",
+      "publishedAt": "2026-07-15T20:06:43Z",
       "eventDate": "2026-07-15",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "6月CPI/PPI偏软、油价受美伊冲突与霍尔木兹航运风险支撑、盘前由ASML/银行财报与PayPal并购传闻驱动。",
+      "detail": "6月PPI环比-0.3%、同比5.5%，市场将7月FOMC加息概率进一步压低，10Y美债收益率回落至约4.55%；但油价受伊朗/霍尔木兹风险影响盘中一度冲上86美元，导致“通胀降温利多估值”与“能源再通胀风险”并存",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-15T12:45:27Z",
+      "publishedAt": "2026-07-15T20:06:43Z",
       "eventDate": "2026-07-15",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "继续观察上述事件是否进一步强化美元、利率与风险偏好方向。",
+      "detail": "金融和资管（BLK、BNY、MS）及并购题材（PYPL）走强，半导体/存储链（MU、SNDK、PHLX SOX）偏弱，显示资金从高拥挤AI硬件转向现金流更明确或事件驱动板块；ELV虽盈利超预期但Medicaid成本与退保压力继续压制估值",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-15T12:45:27Z",
+      "publishedAt": "2026-07-15T20:06:43Z",
       "eventDate": "2026-07-15",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     }
   ]
