@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-07-15T20:03:00Z",
-  "asOf": "2026-07-15",
+  "generatedAt": "2026-07-16T13:22:37Z",
+  "asOf": "2026-07-16",
   "mode": "live",
   "values": {
-    "vix": 15.74,
-    "vixChange5d": -1.16,
-    "move": 75.03,
-    "spyDrawdown": -0.38,
+    "vix": 16.21,
+    "vixChange5d": 0.37,
+    "move": 69.55,
+    "spyDrawdown": -0.37,
     "qqqDrawdown": -3.7,
-    "rspSpyRel60d": -1.23,
-    "hygRet20d": 0.16,
+    "rspSpyRel60d": -1.25,
+    "hygRet20d": 0.17,
     "jnkRet20d": 0.16,
     "hyOas": 2.72,
     "hyOasChange20d": 1.0,
     "igOas": 0.79,
     "igOasChange20d": 4.0,
-    "dxyChange20d": 0.9,
-    "tenYYield": 4.62,
-    "tenYChange20d": 17.0,
+    "dxyChange20d": 1.08,
+    "tenYYield": 4.58,
+    "tenYChange20d": 10.0,
     "realTenY": 2.36,
     "realTenYChange20d": 20.0,
     "nfci": -0.54,
-    "kreRel20d": 5.3,
-    "aaiiBearish": 37.2,
-    "putCall": 0.62,
-    "fearGreed": 46.0
+    "kreRel20d": 5.26,
+    "aaiiBearish": 32.9,
+    "putCall": 0.69,
+    "fearGreed": 47.0
   },
   "scores": {
     "volatility": 0,
@@ -40,17 +40,17 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-10",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -100,29 +100,31 @@
       "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-07-13",
+      "asOf": "2026-07-14",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-07-13",
+      "asOf": "2026-07-14",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "realTenY": {
       "asOf": "2026-07-13",
-      "source": "FRED DFII10",
-      "status": "ok"
+      "source": "FRED DFII10 (stale fallback)",
+      "status": "estimated",
+      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-02-16: HTTP Error 404: Not Found"
     },
     "realTenYChange20d": {
       "asOf": "2026-07-13",
-      "source": "FRED DFII10",
-      "status": "ok"
+      "source": "FRED DFII10 (stale fallback)",
+      "status": "estimated",
+      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-02-16: HTTP Error 404: Not Found"
     },
     "nfci": {
       "asOf": "2026-07-10",
@@ -135,23 +137,25 @@
       "status": "ok"
     },
     "aaiiBearish": {
-      "asOf": "2026-07-08",
+      "asOf": "2026-07-15",
       "source": "AAII Sentiment Survey",
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-07-15",
+      "asOf": "2026-07-16",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-07-15T19:59:22+00:00",
+      "asOf": "2026-07-16T13:03:46+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
   },
   "notes": [
+    "realTenY: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-02-16: HTTP Error 404: Not Found",
+    "realTenYChange20d: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-02-16: HTTP Error 404: Not Found",
     "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019.",
     "model: Valuation percentile is unavailable from a stable public no-key source and is excluded from live scoring."
   ],
