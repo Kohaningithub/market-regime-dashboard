@@ -1,48 +1,60 @@
 {
-  "generatedAt": "2026-07-16T17:12:47Z",
+  "generatedAt": "2026-07-17T03:09:08Z",
   "asOf": "2026-07-16",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation"
+    "automation-3"
   ],
-  "summary": "美国6月零售销售环比+0.2%、周度初请20.8万，宏观硬数据仍稳",
+  "summary": "今日主线从“宏观数据偏韧性、收益率上行”转向“AI/半导体兑现不及预期导致权重科技拖累指数”",
   "suppressedCount": 0,
   "linkCoverage": 0,
   "items": [
     {
+      "key": "macro",
+      "title": "宏观主线",
+      "detail": "今日主线从“宏观数据偏韧性、收益率上行”转向“AI/半导体兑现不及预期导致权重科技拖累指数”",
+      "impact": "影响利率路径、美元方向和成长资产估值折现。",
+      "sourceName": "收盘投资简报",
+      "sourceUrl": "",
+      "publishedAt": "2026-07-16T20:08:11Z",
+      "eventDate": "2026-07-16",
+      "edition": "收盘版",
+      "sources": []
+    },
+    {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "美国6月零售销售环比+0.2%、周度初请20.8万，宏观硬数据仍稳",
+      "detail": "半导体与光通信链显著承压，医疗与运输受财报支撑走强；宏观上，6月零售销售环比+0.2%、初请失业金人数20.8万、费城联储制造业指数升至41.4，强化“增长未塌+通胀未彻底出清”的利率约束",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-16T12:47:20Z",
+      "publishedAt": "2026-07-16T20:08:11Z",
       "eventDate": "2026-07-16",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "纳指期货走弱、芯片/存储链继续回撤，市场在交易AI硬件估值与周期顶部风险；中东冲突维持油价高位，BOK加息强化“油价-通胀-利率”链条",
+      "detail": "VIX升至16.64，但RSP/非科技板块相对抗跌，说明不是全面risk-off，而是高拥挤AI硬件仓位集中去杠杆；次日重点继续看Netflix/Alcoa盘后结果如何重塑“成长兑现门槛”，以及如果收益率维持高位时，资金是否继续流向医疗、运输、金融等现金流更确定板块",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-16T12:47:20Z",
+      "publishedAt": "2026-07-16T20:08:11Z",
       "eventDate": "2026-07-16",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "纳指期货走弱、芯片/存储链继续回撤，市场在交易AI硬件估值与周期顶部风险",
+      "detail": "次日重点继续看Netflix/Alcoa盘后结果如何重塑“成长兑现门槛”，以及如果收益率维持高位时，资金是否继续流向医疗、运输、金融等现金流更确定板块",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-16T12:47:20Z",
+      "publishedAt": "2026-07-16T20:08:11Z",
       "eventDate": "2026-07-16",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     }
   ]
