@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-18T19:59:15Z",
-  "asOf": "2026-07-18",
+  "generatedAt": "2026-07-19T12:56:42Z",
+  "asOf": "2026-07-19",
   "mode": "live",
   "values": {
     "vix": 18.77,
     "vixChange5d": 3.74,
-    "move": 69.55,
+    "move": 70.88,
     "spyDrawdown": -1.89,
     "qqqDrawdown": -6.71,
     "rspSpyRel60d": -0.09,
@@ -50,7 +50,7 @@
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-07-10",
+      "asOf": "2026-07-17",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -140,7 +140,7 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-07-18",
+      "asOf": "2026-07-19",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
