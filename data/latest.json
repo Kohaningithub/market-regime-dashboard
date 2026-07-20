@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-07-20T17:24:49Z",
+  "generatedAt": "2026-07-20T20:15:52Z",
   "asOf": "2026-07-20",
   "mode": "live",
   "values": {
-    "vix": 18.04,
-    "vixChange5d": 0.88,
+    "vix": 18.42,
+    "vixChange5d": 1.26,
     "move": 70.88,
-    "spyDrawdown": -1.78,
-    "qqqDrawdown": -6.06,
-    "rspSpyRel60d": 0.66,
-    "hygRet20d": 0.09,
-    "jnkRet20d": 0.13,
+    "spyDrawdown": -2.05,
+    "qqqDrawdown": -6.61,
+    "rspSpyRel60d": 0.68,
+    "hygRet20d": 0.05,
+    "jnkRet20d": 0.1,
     "hyOas": 2.73,
     "hyOasChange20d": 7.0,
     "igOas": 0.79,
     "igOasChange20d": 5.0,
-    "dxyChange20d": 0.13,
+    "dxyChange20d": 0.1,
     "tenYYield": 4.57,
     "tenYChange20d": 14.0,
     "realTenY": 2.35,
     "realTenYChange20d": 21.0,
     "nfci": -0.54,
-    "kreRel20d": 6.63,
+    "kreRel20d": 7.1,
     "aaiiBearish": 32.9,
     "putCall": 0.73,
-    "fearGreed": 39.0
+    "fearGreed": 38.0
   },
   "scores": {
     "volatility": 0,
@@ -50,7 +50,7 @@
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-07-17",
+      "asOf": "2026-07-20",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-07-20T17:19:00+00:00",
+      "asOf": "2026-07-20T20:02:20+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
