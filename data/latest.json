@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-07-20T13:49:40Z",
+  "generatedAt": "2026-07-20T17:24:49Z",
   "asOf": "2026-07-20",
   "mode": "live",
   "values": {
-    "vix": 17.74,
-    "vixChange5d": 0.58,
+    "vix": 18.04,
+    "vixChange5d": 0.88,
     "move": 70.88,
-    "spyDrawdown": -1.31,
-    "qqqDrawdown": -5.51,
-    "rspSpyRel60d": 0.39,
-    "hygRet20d": 0.13,
-    "jnkRet20d": 0.21,
-    "hyOas": 2.71,
-    "hyOasChange20d": 5.0,
-    "igOas": 0.78,
-    "igOasChange20d": 4.0,
-    "dxyChange20d": 0.04,
+    "spyDrawdown": -1.78,
+    "qqqDrawdown": -6.06,
+    "rspSpyRel60d": 0.66,
+    "hygRet20d": 0.09,
+    "jnkRet20d": 0.13,
+    "hyOas": 2.73,
+    "hyOasChange20d": 7.0,
+    "igOas": 0.79,
+    "igOasChange20d": 5.0,
+    "dxyChange20d": 0.13,
     "tenYYield": 4.57,
     "tenYChange20d": 14.0,
     "realTenY": 2.35,
     "realTenYChange20d": 21.0,
     "nfci": -0.54,
-    "kreRel20d": 7.07,
+    "kreRel20d": 6.63,
     "aaiiBearish": 32.9,
     "putCall": 0.73,
-    "fearGreed": 38.0
+    "fearGreed": 39.0
   },
   "scores": {
     "volatility": 0,
@@ -80,22 +80,22 @@
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-07-16",
+      "asOf": "2026-07-17",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-07-16",
+      "asOf": "2026-07-17",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-07-16",
+      "asOf": "2026-07-17",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-07-16",
+      "asOf": "2026-07-17",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-07-20T13:45:02+00:00",
+      "asOf": "2026-07-20T17:19:00+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
