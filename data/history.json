@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-21T17:07:14Z",
+  "generatedAt": "2026-07-21T20:14:32Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
     {
@@ -1765,6 +1765,24 @@
       "rspSpyRel60d": -0.34,
       "estimatedCount": 0,
       "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-21T20:14:32Z",
+      "asOf": "2026-07-21",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 0
+      },
+      "spyClose": 748.32,
+      "spyDrawdown": -1.23,
+      "qqqDrawdown": -4.88,
+      "fearGreed": 41.0,
+      "rspSpyRel60d": -0.38,
+      "estimatedCount": 0,
+      "valuationInScore": false
     }
   ],
   "dailyHistory": [
@@ -2129,7 +2147,7 @@
       "valuationInScore": false
     },
     {
-      "generatedAt": "2026-07-21T17:07:14Z",
+      "generatedAt": "2026-07-21T20:14:32Z",
       "asOf": "2026-07-21",
       "regime": "normal",
       "regimeTitle": "Normal / Mild Pullback",
@@ -2138,11 +2156,11 @@
         "credit": 0,
         "sentiment": 0
       },
-      "spyClose": 748.66,
-      "spyDrawdown": -1.18,
-      "qqqDrawdown": -4.77,
+      "spyClose": 748.32,
+      "spyDrawdown": -1.23,
+      "qqqDrawdown": -4.88,
       "fearGreed": 41.0,
-      "rspSpyRel60d": -0.34,
+      "rspSpyRel60d": -0.38,
       "estimatedCount": 0,
       "valuationInScore": false
     }
@@ -3909,6 +3927,24 @@
       "qqqDrawdown": -4.77,
       "fearGreed": 41.0,
       "rspSpyRel60d": -0.34,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-21T20:14:32Z",
+      "asOf": "2026-07-21",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 0
+      },
+      "spyClose": 748.32,
+      "spyDrawdown": -1.23,
+      "qqqDrawdown": -4.88,
+      "fearGreed": 41.0,
+      "rspSpyRel60d": -0.38,
       "estimatedCount": 0,
       "valuationInScore": false
     }
