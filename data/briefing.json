@@ -1,60 +1,60 @@
 {
-  "generatedAt": "2026-07-21T21:10:58Z",
+  "generatedAt": "2026-07-22T13:10:53Z",
   "asOf": "2026-07-22",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation-3"
+    "automation"
   ],
-  "summary": "AP、Barron's、MarketWatch 交叉显示，标普约+0.9%、纳指约+1.3%、道指约+0.7%，但 Barron's 指出仅约245只标普成分股上涨、等权ETF仅约+0.2%，说明收盘更像权重修复而非全面risk-on",
-  "suppressedCount": 0,
+  "summary": "主线为美伊冲突推升油价、10Y美债收益率升至约4.65%、美股期货回落",
+  "suppressedCount": 1,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "AP、Barron's、MarketWatch 交叉显示，标普约+0.9%、纳指约+1.3%、道指约+0.7%，但 Barron's 指出仅约245只标普成分股上涨、等权ETF仅约+0.2%，说明收盘更像权重修复而非全面risk-on",
+      "detail": "主线为美伊冲突推升油价、10Y美债收益率升至约4.65%、美股期货回落",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-21T20:04:57Z",
+      "publishedAt": "2026-07-22T12:49:58Z",
       "eventDate": "2026-07-22",
-      "edition": "收盘版",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "次日重点看 2026-07-22 Alphabet、Tesla、IBM 财报时点是否验证云/AI资本开支与机器人/自动驾驶叙事，并观察油价高位是否开始向更广泛行业利润率传导",
+      "detail": "30 EIA 原油库存、13:00 20年期美债续发、收盘后 Alphabet/Tesla/IBM/TXN 财报，以及油价是否站稳 Brent 94-95 美元区间、信用利差是否继续稳定；2026-07-22 08:49:58 -04:00.",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-21T20:04:57Z",
+      "publishedAt": "2026-07-22T12:49:58Z",
       "eventDate": "2026-07-22",
-      "edition": "收盘版",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "AP、Barron's、MarketWatch 交叉显示，标普约+0.9%、纳指约+1.3%、道指约+0.7%，但 Barron's 指出仅约245只标普成分股上涨、等权ETF仅约+0.2%，说明收盘更像权重修复而非全面risk-on；SOX约+5.4%，科技板块约+2.3%，消费必需品走弱",
+      "detail": "主线为美伊冲突推升油价、10Y美债收益率升至约4.65%、美股期货回落；30 EIA 原油库存、13:00 20年期美债续发、收盘后 Alphabet/Tesla/IBM/TXN 财报，以及油价是否站稳 Brent 94-95 美元区间、信用利差是否继续稳定",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-21T20:04:57Z",
+      "publishedAt": "2026-07-22T12:49:58Z",
       "eventDate": "2026-07-22",
-      "edition": "收盘版",
+      "edition": "早盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "继续观察上述催化是否进一步强化美元、短端利率与风险偏好方向。",
+      "detail": "AI链内部继续分化，SMCI因毛利率与订单预告大涨并带动DELL/HPE，GEV与记忆体/半导体盘前承压；30 EIA 原油库存、13:00 20年期美债续发、收盘后 Alphabet/Tesla/IBM/TXN 财报，以及油价是否站稳 Brent 94-95 美元区间、信用利差是否继续稳定",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "收盘投资简报",
+      "sourceName": "每日投资动态简报 - 早盘推送",
       "sourceUrl": "",
-      "publishedAt": "2026-07-21T20:04:57Z",
+      "publishedAt": "2026-07-22T12:49:58Z",
       "eventDate": "2026-07-22",
-      "edition": "收盘版",
+      "edition": "早盘版",
       "sources": []
     }
   ]
