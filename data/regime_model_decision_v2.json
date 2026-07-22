@@ -1,0 +1,108 @@
+{
+  "generatedAt": "2026-07-22T20:26:13Z",
+  "model": "decision_v2",
+  "method": {
+    "summary": "Separate opportunity and risk scores, then map to ADD / HOLD / SELL actions.",
+    "rationale": [
+      "Historical total stress score explained future volatility better than direction.",
+      "Add signals require fear/drawdown plus non-systemic credit conditions.",
+      "Sell/reduce signals require credit stress and high volatility; overheat alone is treated as a no-chase/rebalance signal, not a sell trigger."
+    ]
+  },
+  "currentDecision": {
+    "opportunityScore": 20.63,
+    "riskScore": 0,
+    "action": "HOLD",
+    "stance": "维持",
+    "reason": "缺少高胜率加仓窗口，也没有足够强的减仓信号。",
+    "components": {
+      "drawdownOpportunity": 4.83,
+      "sentimentOpportunity": 0.0,
+      "volatilityOpportunity": 0.81,
+      "creditStabilityBonus": 15.0,
+      "creditRisk": 0.0,
+      "volatilityRisk": 0.0,
+      "trendRisk": 0.0,
+      "overheatRisk": 0.0,
+      "dataPenalty": 0
+    },
+    "asOf": "2026-07-22",
+    "generatedAt": "2026-07-22T20:25:50Z",
+    "oldScores": {
+      "volatility": 0,
+      "credit": 0,
+      "sentiment": 0
+    },
+    "oldRegime": "normal",
+    "keyInputs": {
+      "vix": 16.91,
+      "spyDrawdown": -1.34,
+      "qqqDrawdown": -5.37,
+      "fearGreed": 43.0,
+      "creditScore": 0,
+      "hyOas": 2.69,
+      "igOas": 0.78,
+      "nfci": -0.55,
+      "dxyChange20d": -0.29,
+      "kreRel20d": 1.47,
+      "spyRealizedVol20dTrailing": 10.6671
+    }
+  },
+  "historicalActionSummary": {
+    "ADD": {
+      "rows": 34,
+      "usableRows": 34,
+      "avgOpportunityScore": 76.72,
+      "avgRiskScore": 38.96,
+      "avgSpyRet20dFwd": 5.2575,
+      "winRate20d": 0.8235,
+      "avgSpyRet60dFwd": 6.5383,
+      "avgRealizedVol20dFwd": 24.8093,
+      "avgMaxDrawdown20dFwd": -2.5877
+    },
+    "ADD_SMALL": {
+      "rows": 84,
+      "usableRows": 84,
+      "avgOpportunityScore": 62.69,
+      "avgRiskScore": 21.47,
+      "avgSpyRet20dFwd": 2.6915,
+      "winRate20d": 0.6429,
+      "avgSpyRet60dFwd": 4.1233,
+      "avgRealizedVol20dFwd": 24.2477,
+      "avgMaxDrawdown20dFwd": -3.587
+    },
+    "HOLD": {
+      "rows": 1119,
+      "usableRows": 1059,
+      "avgOpportunityScore": 28.59,
+      "avgRiskScore": 11.85,
+      "avgSpyRet20dFwd": 0.8181,
+      "winRate20d": 0.6449,
+      "avgSpyRet60dFwd": 3.0871,
+      "avgRealizedVol20dFwd": 14.4994,
+      "avgMaxDrawdown20dFwd": -2.4708
+    },
+    "SELL": {
+      "rows": 17,
+      "usableRows": 17,
+      "avgOpportunityScore": 60.14,
+      "avgRiskScore": 53.97,
+      "avgSpyRet20dFwd": -0.736,
+      "winRate20d": 0.3529,
+      "avgSpyRet60dFwd": -1.6012,
+      "avgRealizedVol20dFwd": 25.7649,
+      "avgMaxDrawdown20dFwd": -5.2127
+    }
+  },
+  "rules": {
+    "ADD": "opportunityScore >= 70, riskScore <= 55, SPY drawdown <= -10%, creditScore <= 2",
+    "ADD_SMALL": "opportunityScore >= 55, riskScore <= 50, SPY drawdown <= -5%, creditScore <= 2",
+    "SELL": "credit stress + high trailing volatility while SPY drawdown is not fully flushed, or stronger credit/vol stress before deep capitulation",
+    "HOLD": "default when neither add nor sell edge is strong enough"
+  },
+  "caveats": [
+    "This is a decision-support model, not a guarantee or personalized investment advice.",
+    "Historical samples for SELL are small, so SELL should be interpreted as reduce risk / hedge / sell a portion, not necessarily liquidate everything.",
+    "Put/Call has current live data but lacks a reliable five-year public history, so it is not a major historical calibration driver."
+  ]
+}

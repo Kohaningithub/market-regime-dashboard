@@ -124,6 +124,12 @@ h2 {
   color: #fff;
 }
 
+.secondary-button.is-active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
 main {
   padding: 24px clamp(18px, 4vw, 56px) 42px;
 }

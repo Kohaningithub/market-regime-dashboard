@@ -7,9 +7,10 @@
 推荐部署方式是 GitHub Pages + GitHub Actions。
 
 - `scripts/update_data.py` 抓取公开数据源并生成 `data/latest.json` 与 `data/history.json`
+- `scripts/backfill_regime_history.py`、`scripts/analyze_regime_history.py`、`scripts/build_decision_model_v2.py` 生成 Quant Analysis 和 Research Method 页面使用的 5 年历史、统计结论和 v2 决策层
 - GitHub Actions 每天美东时间 8:00、12:00、15:00 自动运行
 - `scripts/update_briefing_from_codex.py` 从本地 Codex 投资简报自动化提取主要线索并生成 `data/briefing.json`
-- 前端只读取 `data/latest.json`、`data/history.json` 和 `data/briefing.json`，不在用户打开网页时现场抓取数据
+- 前端只读取已保存的静态 JSON，不在用户打开网页时现场抓取外部数据
 - 浏览器每 2 分钟重新读取一次市场快照，每 5 分钟重新读取一次简报线索
 - 估值分位当前未接入稳定公开免密钥数据源，因此暂不参与自动评分
 
@@ -32,6 +33,44 @@ python -m http.server 4173 --bind 127.0.0.1
 ```
 
 Then open `http://127.0.0.1:4173/`.
+
+## Website Pages
+
+- `index.html`: current market dashboard and model library.
+- `analysis.html`: charts for score buckets, rolling relationships, regime groups, and v2 action replay.
+- `research.html`: standalone research-method tab explaining the methodology, indicator library, scoring rationale, data support, action rules, and limitations.
+
+## Historical Backfill
+
+Run this when you want an analysis-ready five-year history of the model library inputs, scores, regimes, and forward SPY return/volatility targets:
+
+```powershell
+python scripts/backfill_regime_history.py --years 5
+```
+
+For full AAII historical sentiment, install `xlrd` in the Python environment or provide `data/aaii_sentiment.csv` with date and bearish columns. Without that, the script falls back to the recent AAII webpage.
+
+The script writes:
+
+- `data/regime_model_history_5y.csv`: daily model inputs, score components, regime labels, input-coverage flags, and forward SPY return/volatility fields.
+- `data/regime_model_history_5y.json`: the same history as JSON records.
+- `data/regime_model_analysis_summary.json`: correlations and grouped forward-return/volatility summaries.
+
+To refresh the quant-analysis data used by `analysis.html`, run:
+
+```powershell
+python scripts/analyze_regime_history.py
+```
+
+To refresh the calibrated add/hold/reduce decision layer after updating `data/latest.json`, run:
+
+```powershell
+python scripts/build_decision_model_v2.py
+```
+
+That writes `data/regime_model_decision_v2.json` for the current recommendation and `data/regime_model_decision_v2_history.csv` for historical action replay.
+
+Historical source limits are recorded in the summary file. As of 2026, Cboe's public equity put/call ratio archive stops at 2019-10-04, and FRED's ICE BofA OAS series may only return a rolling recent window unless a licensed/third-party history source is supplied.
 
 ## GitHub Actions Schedule
 

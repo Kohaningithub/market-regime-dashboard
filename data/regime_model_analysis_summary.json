@@ -1,0 +1,287 @@
+{
+  "generatedAt": "2026-07-22T20:26:07Z",
+  "startDate": "2021-07-23",
+  "endDate": "2026-07-22",
+  "rows": 1254,
+  "sourceStatus": [
+    {
+      "name": "vix",
+      "status": "ok",
+      "detail": "Yahoo Finance ^VIX: 2020-05-19 to 2026-07-22"
+    },
+    {
+      "name": "move",
+      "status": "ok",
+      "detail": "Yahoo Finance ^MOVE: 2020-05-19 to 2026-07-22"
+    },
+    {
+      "name": "spy",
+      "status": "ok",
+      "detail": "Yahoo Finance SPY: 2020-05-19 to 2026-07-22"
+    },
+    {
+      "name": "qqq",
+      "status": "ok",
+      "detail": "Yahoo Finance QQQ: 2020-05-19 to 2026-07-22"
+    },
+    {
+      "name": "hyg",
+      "status": "ok",
+      "detail": "Yahoo Finance HYG: 2020-05-19 to 2026-07-22"
+    },
+    {
+      "name": "jnk",
+      "status": "ok",
+      "detail": "Yahoo Finance JNK: 2020-05-19 to 2026-07-22"
+    },
+    {
+      "name": "kre",
+      "status": "ok",
+      "detail": "Yahoo Finance KRE: 2020-05-19 to 2026-07-22"
+    },
+    {
+      "name": "rsp",
+      "status": "ok",
+      "detail": "Yahoo Finance RSP: 2020-05-19 to 2026-07-22"
+    },
+    {
+      "name": "dxy",
+      "status": "ok",
+      "detail": "Yahoo Finance DX-Y.NYB: 2020-05-19 to 2026-07-22"
+    },
+    {
+      "name": "hyOas",
+      "status": "ok",
+      "detail": "FRED BAMLH0A0HYM2: 2023-07-24 to 2026-07-21"
+    },
+    {
+      "name": "igOas",
+      "status": "ok",
+      "detail": "FRED BAMLC0A0CM: 2023-07-24 to 2026-07-21"
+    },
+    {
+      "name": "tenYYield",
+      "status": "ok",
+      "detail": "FRED DGS10: 2020-05-19 to 2026-07-21"
+    },
+    {
+      "name": "realTenY",
+      "status": "ok",
+      "detail": "FRED DFII10: 2020-05-19 to 2026-07-21"
+    },
+    {
+      "name": "nfci",
+      "status": "ok",
+      "detail": "FRED NFCI: 2020-05-22 to 2026-07-17"
+    },
+    {
+      "name": "aaiiBearish",
+      "status": "missing",
+      "detail": "Unable to load AAII history. xlrd is not installed; install xlrd or save AAII history as data/aaii_sentiment.csv; Unable to parse recent AAII sentiment table"
+    },
+    {
+      "name": "putCall",
+      "status": "partial",
+      "detail": "Cboe equitypc.csv only covers 2006-11-01 to 2019-10-04"
+    },
+    {
+      "name": "fearGreed",
+      "status": "ok",
+      "detail": "CNN Fear & Greed historical endpoint"
+    }
+  ],
+  "missingShare": {
+    "fearGreed": 0.0,
+    "aaiiBearish": 1.0,
+    "putCall": 1.0,
+    "hyOas": 0.4003,
+    "igOas": 0.4003,
+    "nfci": 0.0
+  },
+  "correlations": {
+    "volatilityScore": {
+      "spyRet5dFwd": 0.1098,
+      "spyRet10dFwd": 0.135,
+      "spyRet20dFwd": 0.1637,
+      "spyRet60dFwd": 0.0872,
+      "spyRealizedVol20dFwd": 0.5196,
+      "spyMaxDrawdown20dFwd": -0.086
+    },
+    "creditScore": {
+      "spyRet5dFwd": 0.0149,
+      "spyRet10dFwd": 0.016,
+      "spyRet20dFwd": 0.0785,
+      "spyRet60dFwd": 0.087,
+      "spyRealizedVol20dFwd": 0.282,
+      "spyMaxDrawdown20dFwd": -0.052
+    },
+    "sentimentScore": {
+      "spyRet5dFwd": 0.0948,
+      "spyRet10dFwd": 0.1376,
+      "spyRet20dFwd": 0.1982,
+      "spyRet60dFwd": 0.185,
+      "spyRealizedVol20dFwd": 0.3719,
+      "spyMaxDrawdown20dFwd": -0.0645
+    },
+    "scoreTotal": {
+      "spyRet5dFwd": 0.097,
+      "spyRet10dFwd": 0.1263,
+      "spyRet20dFwd": 0.1859,
+      "spyRet60dFwd": 0.1449,
+      "spyRealizedVol20dFwd": 0.5061,
+      "spyMaxDrawdown20dFwd": -0.0868
+    }
+  },
+  "byScoreBucket": {
+    "0": {
+      "rows": 515,
+      "rowsWith20dForward": 506,
+      "avgSpyRet20dFwd": 0.4886,
+      "medianSpyRet20dFwd": 1.0069,
+      "winRate20dFwd": 0.6107,
+      "avgSpyRet60dFwd": 2.5518,
+      "avgRealizedVol20dFwd": 12.3762,
+      "avgMaxDrawdown20dFwd": -2.2858
+    },
+    "1-2": {
+      "rows": 435,
+      "rowsWith20dForward": 424,
+      "avgSpyRet20dFwd": 0.7941,
+      "medianSpyRet20dFwd": 1.6625,
+      "winRate20dFwd": 0.6533,
+      "avgSpyRet60dFwd": 2.6506,
+      "avgRealizedVol20dFwd": 15.1114,
+      "avgMaxDrawdown20dFwd": -2.4757
+    },
+    "3-4": {
+      "rows": 160,
+      "rowsWith20dForward": 160,
+      "avgSpyRet20dFwd": 1.7877,
+      "medianSpyRet20dFwd": 2.4267,
+      "winRate20dFwd": 0.6813,
+      "avgSpyRet60dFwd": 4.5879,
+      "avgRealizedVol20dFwd": 20.7249,
+      "avgMaxDrawdown20dFwd": -3.4004
+    },
+    "5+": {
+      "rows": 144,
+      "rowsWith20dForward": 144,
+      "avgSpyRet20dFwd": 3.0111,
+      "medianSpyRet20dFwd": 4.4587,
+      "winRate20dFwd": 0.7083,
+      "avgSpyRet60dFwd": 5.3261,
+      "avgRealizedVol20dFwd": 22.5843,
+      "avgMaxDrawdown20dFwd": -2.8687
+    }
+  },
+  "byRegime": {
+    "defensive": {
+      "rows": 9,
+      "rowsWith20dForward": 9,
+      "avgSpyRet20dFwd": 4.2274,
+      "medianSpyRet20dFwd": 5.9277,
+      "winRate20dFwd": 0.8889,
+      "avgSpyRet60dFwd": 0.784,
+      "avgRealizedVol20dFwd": 23.9128,
+      "avgMaxDrawdown20dFwd": -2.3294
+    },
+    "extreme": {
+      "rows": 10,
+      "rowsWith20dForward": 10,
+      "avgSpyRet20dFwd": 5.4398,
+      "medianSpyRet20dFwd": 7.1533,
+      "winRate20dFwd": 0.8,
+      "avgSpyRet60dFwd": 8.0384,
+      "avgRealizedVol20dFwd": 25.0207,
+      "avgMaxDrawdown20dFwd": -1.9301
+    },
+    "normal": {
+      "rows": 1223,
+      "rowsWith20dForward": 1203,
+      "avgSpyRet20dFwd": 0.9593,
+      "medianSpyRet20dFwd": 1.5584,
+      "winRate20dFwd": 0.6401,
+      "avgSpyRet60dFwd": 3.1136,
+      "avgRealizedVol20dFwd": 15.3261,
+      "avgMaxDrawdown20dFwd": -2.5595
+    },
+    "panic": {
+      "rows": 12,
+      "rowsWith20dForward": 12,
+      "avgSpyRet20dFwd": 4.7513,
+      "medianSpyRet20dFwd": 3.726,
+      "winRate20dFwd": 0.9167,
+      "avgSpyRet60dFwd": 8.5109,
+      "avgRealizedVol20dFwd": 27.9176,
+      "avgMaxDrawdown20dFwd": -3.6792
+    }
+  },
+  "byCreditScore": {
+    "0": {
+      "rows": 984,
+      "rowsWith20dForward": 964,
+      "avgSpyRet20dFwd": 0.853,
+      "medianSpyRet20dFwd": 1.396,
+      "winRate20dFwd": 0.6255,
+      "avgSpyRet60dFwd": 2.734,
+      "avgRealizedVol20dFwd": 14.8678,
+      "avgMaxDrawdown20dFwd": -2.5014
+    },
+    "1": {
+      "rows": 174,
+      "rowsWith20dForward": 174,
+      "avgSpyRet20dFwd": 1.9411,
+      "medianSpyRet20dFwd": 2.4047,
+      "winRate20dFwd": 0.7586,
+      "avgSpyRet60dFwd": 4.651,
+      "avgRealizedVol20dFwd": 15.6725,
+      "avgMaxDrawdown20dFwd": -2.5702
+    },
+    "2": {
+      "rows": 56,
+      "rowsWith20dForward": 56,
+      "avgSpyRet20dFwd": 1.486,
+      "medianSpyRet20dFwd": 2.3545,
+      "winRate20dFwd": 0.6607,
+      "avgSpyRet60dFwd": 6.612,
+      "avgRealizedVol20dFwd": 19.6686,
+      "avgMaxDrawdown20dFwd": -2.8066
+    },
+    "3": {
+      "rows": 22,
+      "rowsWith20dForward": 22,
+      "avgSpyRet20dFwd": -0.1813,
+      "medianSpyRet20dFwd": 0.4504,
+      "winRate20dFwd": 0.5455,
+      "avgSpyRet60dFwd": 2.5124,
+      "avgRealizedVol20dFwd": 26.9024,
+      "avgMaxDrawdown20dFwd": -4.6767
+    },
+    "4": {
+      "rows": 8,
+      "rowsWith20dForward": 8,
+      "avgSpyRet20dFwd": 1.9336,
+      "medianSpyRet20dFwd": 0.1089,
+      "winRate20dFwd": 0.5,
+      "avgSpyRet60dFwd": 2.9944,
+      "avgRealizedVol20dFwd": 28.1281,
+      "avgMaxDrawdown20dFwd": -2.7875
+    },
+    "5": {
+      "rows": 10,
+      "rowsWith20dForward": 10,
+      "avgSpyRet20dFwd": 4.8836,
+      "medianSpyRet20dFwd": 6.3463,
+      "winRate20dFwd": 0.9,
+      "avgSpyRet60dFwd": 3.1404,
+      "avgRealizedVol20dFwd": 25.9816,
+      "avgMaxDrawdown20dFwd": -2.2531
+    }
+  },
+  "notes": [
+    "Scores use the dashboard threshold rules.",
+    "Fear & Greed uses CNN history when available; otherwise a proxy from VIX, SPY drawdown, HYG, RSP/SPY, AAII, and Put/Call.",
+    "Cboe public equity put/call ratio CSV currently stops at 2019-10-04, so the five-year backfill usually has missing Put/Call.",
+    "Forward return and volatility columns are ex-post analysis targets, not inputs to the score."
+  ]
+}

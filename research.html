@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Market Regime Research Method</title>
+    <meta
+      name="description"
+      content="Research method, indicator library, scoring rules, data support, and limitations for the Market Regime Model."
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css?v=20260722-research1" />
+    <link rel="stylesheet" href="research.css?v=20260722-research1" />
+  </head>
+  <body>
+    <header class="topbar research-topbar">
+      <div>
+        <p class="eyebrow">Research Method</p>
+        <h1>Market Regime Model Research</h1>
+        <p class="topbar-copy">
+          独立说明模型研究方法、指标库、数据来源、打分逻辑、为什么拆分机会分和风险分，以及使用时必须保留的限制。
+        </p>
+      </div>
+      <nav class="topbar-actions" aria-label="Research navigation">
+        <a class="secondary-button" href="index.html">Dashboard</a>
+        <a class="secondary-button" href="analysis.html">Quant Analysis</a>
+        <a class="secondary-button is-active" href="research.html" aria-current="page">Research Method</a>
+      </nav>
+    </header>
+
+    <main class="research-page">
+      <section class="research-hero" aria-labelledby="research-current-title">
+        <div class="research-current">
+          <p class="eyebrow">Current Model Readout</p>
+          <h2 id="research-current-title">正在读取当前判断...</h2>
+          <p id="current-reason" class="research-lead">--</p>
+          <div class="research-score-row" aria-label="Current scores">
+            <div>
+              <span>Opportunity Score</span>
+              <strong id="current-opportunity">--</strong>
+            </div>
+            <div>
+              <span>Risk Score</span>
+              <strong id="current-risk">--</strong>
+            </div>
+            <div>
+              <span>Old Stress Score</span>
+              <strong id="current-old-score">--</strong>
+            </div>
+          </div>
+        </div>
+        <div class="research-snapshot">
+          <p class="eyebrow">Data Window</p>
+          <dl id="snapshot-list" class="snapshot-list">
+            <div><dt>样本区间</dt><dd>--</dd></div>
+            <div><dt>交易日样本</dt><dd>--</dd></div>
+            <div><dt>平均输入覆盖率</dt><dd>--</dd></div>
+            <div><dt>数据生成时间</dt><dd>--</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section class="research-panel" aria-labelledby="findings-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Research Conclusion</p>
+            <h2 id="findings-title">研究结果如何改变模型用法</h2>
+          </div>
+        </div>
+        <div id="finding-grid" class="finding-grid"></div>
+      </section>
+
+      <section class="research-panel" aria-labelledby="method-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Method</p>
+            <h2 id="method-title">量化研究方法</h2>
+          </div>
+        </div>
+        <div class="method-steps">
+          <article>
+            <span>1</span>
+            <h3>重建指标库历史</h3>
+            <p>用公开数据源回填每日 VIX、MOVE、SPY/QQQ 回撤、信用利差、DXY、NFCI、情绪和 put/call 等字段。</p>
+          </article>
+          <article>
+            <span>2</span>
+            <h3>定义未来目标变量</h3>
+            <p>对每个交易日计算 SPY 后续 5D、10D、20D、60D 收益、实现波动率和最大回撤。</p>
+          </article>
+          <article>
+            <span>3</span>
+            <h3>验证原始分数</h3>
+            <p>用分数桶事件研究、Spearman 秩相关、bootstrap 置信区间和 252 日滚动相关，检查分数和未来市场状态的关系。</p>
+          </article>
+          <article>
+            <span>4</span>
+            <h3>构建 v2 决策层</h3>
+            <p>把“恐慌带来的反弹机会”和“信用/波动带来的继续下跌风险”拆开，形成 Opportunity Score 与 Risk Score。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="research-panel" aria-labelledby="indicator-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Indicator Library</p>
+            <h2 id="indicator-title">指标库和纳入原因</h2>
+          </div>
+        </div>
+        <div class="research-table-wrap">
+          <table class="research-table">
+            <thead>
+              <tr>
+                <th>模块</th>
+                <th>指标</th>
+                <th>为什么重要</th>
+                <th>模型中的角色</th>
+              </tr>
+            </thead>
+            <tbody id="indicator-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="research-grid">
+        <article class="research-panel" aria-labelledby="old-score-title">
+          <p class="eyebrow">Original Score</p>
+          <h2 id="old-score-title">原始打分系统</h2>
+          <p>
+            原始系统把波动、信用、情绪三类压力加总，适合判断市场是不是进入 panic 或 systemic stress。
+            研究显示它更像“压力温度计”：对未来波动的排序关系强于对未来收益方向的排序关系。
+          </p>
+          <ul class="research-list">
+            <li>Volatility Panic Score：VIX、VIX 5D 变化、MOVE。</li>
+            <li>Credit Stress Score：HYG/JNK、HY/IG OAS、DXY、NFCI、KRE/SPY。</li>
+            <li>Sentiment Fear Score：Fear & Greed、AAII Bearish、Put/Call。</li>
+          </ul>
+        </article>
+
+        <article class="research-panel" aria-labelledby="v2-title">
+          <p class="eyebrow">Decision v2</p>
+          <h2 id="v2-title">更合理的 v2 打分系统</h2>
+          <p>
+            v2 不再直接把高压力等同于卖出。市场高压可能代表短期风险，也可能代表中期反弹窗口；
+            因此模型先分别计算机会分和风险分，再映射到加仓、维持或减仓。
+          </p>
+          <ul class="research-list">
+            <li>Opportunity Score：回撤深度、恐慌情绪、波动释放、信用稳定度。</li>
+            <li>Risk Score：信用恶化、波动失控、趋势破坏、过热追高风险、数据缺口惩罚。</li>
+            <li>最终动作：只有机会足够高且风险可控时才加仓；信用和波动同时恶化时才减仓。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="research-panel" aria-labelledby="evidence-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Data Evidence</p>
+            <h2 id="evidence-title">数据支持和动作回放</h2>
+          </div>
+        </div>
+        <div id="evidence-grid" class="evidence-grid"></div>
+        <div class="research-table-wrap">
+          <table class="research-table">
+            <thead>
+              <tr>
+                <th>动作</th>
+                <th>样本数</th>
+                <th>20D 平均收益</th>
+                <th>20D 胜率</th>
+                <th>60D 平均收益</th>
+                <th>20D 平均最大回撤</th>
+              </tr>
+            </thead>
+            <tbody id="action-table"></tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="research-panel" aria-labelledby="rules-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Action Rules</p>
+            <h2 id="rules-title">如何辅助加仓、维持、减仓判断</h2>
+          </div>
+        </div>
+        <div class="rule-grid">
+          <article>
+            <h3>ADD</h3>
+            <p>机会分高、风险分可控、SPY 已有较深回撤、信用压力不高。历史上这类窗口更像恐慌后的反弹机会。</p>
+          </article>
+          <article>
+            <h3>ADD_SMALL</h3>
+            <p>机会分已经抬升，但回撤或风险条件没有完全满足。更适合小幅分批，而不是一次性重仓。</p>
+          </article>
+          <article>
+            <h3>HOLD</h3>
+            <p>没有足够高胜率的加仓窗口，也没有系统性风险信号。维持纪律性配置、定投和再平衡。</p>
+          </article>
+          <article>
+            <h3>SELL</h3>
+            <p>信用恶化和波动压力同时出现，而市场还没有充分出清。更适合降低追高和杠杆暴露。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="research-panel" aria-labelledby="limits-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Limitations</p>
+            <h2 id="limits-title">限制和使用边界</h2>
+          </div>
+        </div>
+        <ul id="limit-list" class="limit-list"></ul>
+      </section>
+
+      <section class="research-panel research-sources" aria-labelledby="sources-title">
+        <div>
+          <p class="eyebrow">Sources</p>
+          <h2 id="sources-title">公开数据源</h2>
+          <p>
+            Yahoo Finance chart endpoint、FRED、CNN Fear & Greed、AAII Sentiment Survey、Cboe Daily Market Statistics。
+            前端只读取已经保存的静态 JSON，避免用户打开网页时实时请求外部源。
+          </p>
+        </div>
+        <a class="secondary-button" href="reports/market_regime_model_research_report.md">打开完整 Markdown 报告</a>
+      </section>
+    </main>
+
+    <script src="research.js?v=20260722-research1"></script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Market Regime Quant Analysis</title>
+    <meta
+      name="description"
+      content="Quantitative analysis and visualization for the Market Regime Model history."
+    />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css?v=20260722-research1" />
+    <link rel="stylesheet" href="analysis.css?v=20260722-research1" />
+  </head>
+  <body>
+    <header class="topbar analysis-topbar">
+      <div>
+        <p class="eyebrow">Quant Research</p>
+        <h1>Market Regime Quant Analysis</h1>
+        <p class="topbar-copy">用 5 年模型指标库历史，检验打分方式和 SPY 后续收益、波动、回撤之间的关系。</p>
+      </div>
+      <nav class="topbar-actions" aria-label="Analysis navigation">
+        <a class="secondary-button" href="index.html">Dashboard</a>
+        <a class="secondary-button is-active" href="analysis.html" aria-current="page">Quant Analysis</a>
+        <a class="secondary-button" href="research.html">Research Method</a>
+      </nav>
+    </header>
+
+    <main class="analysis-page">
+      <section class="analysis-method" aria-labelledby="method-title">
+        <div>
+          <p class="eyebrow">Selected Method</p>
+          <h2 id="method-title">分数桶事件研究 + Spearman 相关 + 252 日滚动稳定性</h2>
+          <p id="method-copy" class="analysis-copy">--</p>
+        </div>
+        <div class="horizon-control" role="group" aria-label="Forward horizon">
+          <button class="history-range-button is-active" type="button" data-horizon="20">20D</button>
+          <button class="history-range-button" type="button" data-horizon="5">5D</button>
+          <button class="history-range-button" type="button" data-horizon="10">10D</button>
+          <button class="history-range-button" type="button" data-horizon="60">60D</button>
+        </div>
+      </section>
+
+      <section id="analysis-kpis" class="analysis-kpis" aria-label="Key results"></section>
+
+      <section class="analysis-panel decision-panel" aria-labelledby="decision-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Decision v2</p>
+            <h2 id="decision-title">当前动作建议与历史回放</h2>
+          </div>
+          <span id="decision-meta" class="source-meta">--</span>
+        </div>
+        <div id="decision-current" class="decision-current"></div>
+        <div id="decision-chart" class="analysis-chart decision-chart" role="img" aria-label="Decision action historical outcomes"></div>
+      </section>
+
+      <section class="analysis-grid analysis-grid-main">
+        <article class="analysis-panel analysis-panel-wide">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Trend</p>
+              <h2>走势与分数同步观察</h2>
+            </div>
+            <span id="trend-meta" class="source-meta">--</span>
+          </div>
+          <div id="trend-chart" class="analysis-chart analysis-chart-tall" role="img" aria-label="SPY trend and score history"></div>
+        </article>
+
+        <article class="analysis-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Score Buckets</p>
+              <h2>分数越高，后续表现如何</h2>
+            </div>
+          </div>
+          <div id="bucket-chart" class="analysis-chart" role="img" aria-label="Forward return by score bucket"></div>
+        </article>
+      </section>
+
+      <section class="analysis-grid">
+        <article class="analysis-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Regime</p>
+              <h2>状态分组的收益/风险</h2>
+            </div>
+          </div>
+          <div id="regime-chart" class="analysis-chart" role="img" aria-label="Risk and return by market regime"></div>
+        </article>
+
+        <article class="analysis-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Stability</p>
+              <h2>滚动相关是否稳定</h2>
+            </div>
+          </div>
+          <div id="rolling-chart" class="analysis-chart" role="img" aria-label="Rolling rank correlation"></div>
+        </article>
+      </section>
+
+      <section class="analysis-grid">
+        <article class="analysis-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Exact Score</p>
+              <h2>逐分数的 20 日结果</h2>
+            </div>
+          </div>
+          <div id="score-strip-chart" class="analysis-chart" role="img" aria-label="Exact score forward outcomes"></div>
+        </article>
+
+        <article class="analysis-panel">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Modules</p>
+              <h2>模块相关性热图</h2>
+            </div>
+          </div>
+          <div id="module-chart" class="analysis-chart" role="img" aria-label="Score module correlations"></div>
+        </article>
+      </section>
+
+      <section class="notes-section analysis-notes" aria-label="Analysis notes">
+        <div>
+          <p class="eyebrow">Data Caveats</p>
+          <p id="analysis-notes">--</p>
+        </div>
+      </section>
+    </main>
+
+    <script src="analysis.js?v=20260722-research1"></script>
+  </body>
+</html>
