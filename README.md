@@ -8,6 +8,15 @@ Investor-facing U.S. equity allocation tool for deciding whether the current mar
 - `analysis.html`: evidence page showing historical action replay, score buckets, rolling relationships, and regime risk/return.
 - `research.html`: method and limits page explaining indicators, decision rules, data support, and model limitations.
 
+## Score Construction
+
+The final model separates entry opportunity from risk-budget pressure:
+
+- `Opportunity Score = drawdownOpportunity + sentimentOpportunity + volatilityOpportunity + creditStabilityBonus`, capped to 0-100.
+- `Risk Score = creditRisk + volatilityRisk + trendRisk + overheatRisk + dataPenalty`, capped to 0-100.
+
+The full component formulas, caps, and current component contributions are generated into `data/allocation_signal.json` under `method.scoreConstruction` and displayed on `research.html`.
+
 ## Data Update Model
 
 Recommended deployment is GitHub Pages + GitHub Actions.

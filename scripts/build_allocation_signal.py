@@ -249,6 +249,85 @@ def build_current_row(latest: dict[str, Any], trailing_vol: float | None) -> dic
     return row
 
 
+def score_construction() -> dict[str, Any]:
+    return {
+        "scale": "Both scores are on a 0-100 scale after component caps and a final clamp.",
+        "opportunityScore": {
+            "formula": "clamp(drawdownOpportunity + sentimentOpportunity + volatilityOpportunity + creditStabilityBonus, 0, 100)",
+            "components": [
+                {
+                    "key": "drawdownOpportunity",
+                    "label": "Drawdown opportunity",
+                    "cap": 30,
+                    "formula": "min(30, max(0, -SPY drawdown) * 2.2 + max(0, -QQQ drawdown) * 0.35)",
+                    "interpretation": "Bigger equity drawdowns create more potential entry value, with SPY carrying the heavier weight.",
+                },
+                {
+                    "key": "sentimentOpportunity",
+                    "label": "Sentiment opportunity",
+                    "cap": 25,
+                    "formula": "min(25, sentimentPressure * 3 + max(0, 40 - FearGreed) * 0.55 + max(0, AAII bearish - 40) * 0.28 + max(0, PutCall - 0.75) * 12)",
+                    "interpretation": "Fear is treated as contrarian only when combined with price discount and stable credit.",
+                },
+                {
+                    "key": "volatilityOpportunity",
+                    "label": "Volatility opportunity",
+                    "cap": 20,
+                    "formula": "min(20, volatilityPressure * 2.2 + max(0, VIX - 20) * 0.65 + max(0, VIX 5D change) * 0.65 + max(0, MOVE - 120) * 0.15)",
+                    "interpretation": "Moderate volatility release can improve forward return potential, but it is capped so panic alone does not force an add signal.",
+                },
+                {
+                    "key": "creditStabilityBonus",
+                    "label": "Credit stability bonus",
+                    "cap": 15,
+                    "formula": "max(0, 15 - creditPressure * 4 - max(0, HY OAS - 4.5) * 4 - max(0, NFCI) * 7)",
+                    "interpretation": "Adds opportunity only when credit and financial conditions are not showing systemic stress.",
+                },
+            ],
+        },
+        "riskScore": {
+            "formula": "clamp(creditRisk + volatilityRisk + trendRisk + overheatRisk + dataPenalty, 0, 100)",
+            "components": [
+                {
+                    "key": "creditRisk",
+                    "label": "Credit risk",
+                    "cap": 42,
+                    "formula": "min(42, creditPressure * 9 + max(0, HY OAS - 4.5) * 7 + max(0, HY OAS 20D change - 75bp) * 0.08 + max(0, IG OAS - 1.25) * 8 + max(0, IG OAS 20D change - 25bp) * 0.1 + max(0, NFCI) * 12 + max(0, -KRE/SPY 20D relative - 8) * 1.5 + max(0, DXY 20D change - 3) * 5)",
+                    "interpretation": "The largest risk bucket; widening spreads, tighter financial conditions, dollar stress, and weak banks raise reduce-risk pressure.",
+                },
+                {
+                    "key": "volatilityRisk",
+                    "label": "Volatility risk",
+                    "cap": 28,
+                    "formula": "min(28, max(0, SPY trailing 20D realized vol - 14) * 1.1 + volatilityPressure * 2 + max(0, VIX - 25) * 1.2 + max(0, VIX 5D change - 5) * 1.3)",
+                    "interpretation": "Measures whether volatility is high enough to shrink portfolio risk budget.",
+                },
+                {
+                    "key": "trendRisk",
+                    "label": "Trend risk",
+                    "cap": 18,
+                    "formula": "min(18, max(0, -HYG 20D return - 3) * 2 + max(0, -JNK 20D return - 3) * 2 + max(0, -RSP/SPY 60D relative - 5) + max(0, -SPY drawdown - 12) * 0.7)",
+                    "interpretation": "Captures credit ETF weakness, poor market breadth, and severe drawdown deterioration.",
+                },
+                {
+                    "key": "overheatRisk",
+                    "label": "Overheat risk",
+                    "cap": 12,
+                    "formula": "min(12, max(0, FearGreed - 70) * 0.4 + max(0, 16 - VIX) * 0.5 + 4 if SPY drawdown >= -2 and FearGreed >= 70)",
+                    "interpretation": "Flags crowded optimism; by itself this means do not chase, not an automatic sell signal.",
+                },
+                {
+                    "key": "dataPenalty",
+                    "label": "Data penalty",
+                    "cap": 10,
+                    "formula": "max(0, (1 - scoreInputCompleteness) * 10)",
+                    "interpretation": "Adds caution when the input set is incomplete.",
+                },
+            ],
+        },
+    }
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="Build the final allocation signal model.")
     parser.add_argument("--history", type=Path, default=HISTORY_FILE)
@@ -308,6 +387,7 @@ def main() -> int:
                 "Add signals require drawdown, fear, and non-systemic credit conditions.",
                 "Reduce signals require credit stress and high volatility; overheat alone is treated as a no-chase/rebalance signal.",
             ],
+            "scoreConstruction": score_construction(),
         },
         "currentSignal": current_signal,
         "historicalActionSummary": action_summary,

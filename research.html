@@ -9,8 +9,8 @@
       content="Methodology, indicator library, decision rules, evidence, and limits for the final allocation signal."
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="styles.css?v=20260723-final1" />
-    <link rel="stylesheet" href="research.css?v=20260723-final1" />
+    <link rel="stylesheet" href="styles.css?v=20260723-score1" />
+    <link rel="stylesheet" href="research.css?v=20260723-score1" />
   </head>
   <body>
     <header class="topbar research-topbar">
@@ -98,6 +98,49 @@
             <h3>输出仓位动作</h3>
             <p>最终动作只分为加仓、小幅分批加仓、维持、减仓，方便投资者直接进入执行讨论。</p>
           </article>
+        </div>
+      </section>
+
+      <section class="research-panel" aria-labelledby="score-construction-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Score Construction</p>
+            <h2 id="score-construction-title">Opportunity Score 和 Risk Score 怎么算</h2>
+          </div>
+        </div>
+        <p class="score-construction-lead" id="score-construction-scale">
+          两个分数都是 0-100 分，先计算各分项，再按分项上限和总分上限封顶。
+        </p>
+        <div class="score-formula-grid" aria-label="Score formulas">
+          <article>
+            <span>Opportunity Score</span>
+            <strong id="opportunity-formula">--</strong>
+            <p>反映回撤、恐慌和波动是否在信用稳定时形成可加仓窗口。</p>
+          </article>
+          <article>
+            <span>Risk Score</span>
+            <strong id="risk-formula">--</strong>
+            <p>反映信用、流动性、波动和趋势是否需要收缩风险预算。</p>
+          </article>
+        </div>
+        <div class="score-breakdown-block">
+          <h3>当前分项贡献</h3>
+          <div id="score-component-breakdown" class="score-component-grid"></div>
+        </div>
+        <div class="research-table-wrap score-table-wrap">
+          <table class="research-table score-table">
+            <thead>
+              <tr>
+                <th>分数</th>
+                <th>分项</th>
+                <th>上限</th>
+                <th>当前贡献</th>
+                <th>计算方式</th>
+                <th>解释</th>
+              </tr>
+            </thead>
+            <tbody id="score-formula-table"></tbody>
+          </table>
         </div>
       </section>
 
@@ -228,6 +271,6 @@
       </section>
     </main>
 
-    <script src="research.js?v=20260723-final1"></script>
+    <script src="research.js?v=20260723-score1"></script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 const ANALYSIS_ENDPOINT = "data/regime_model_quant_analysis.json";
 const SIGNAL_ENDPOINT = "data/allocation_signal.json";
-const LATEST_ENDPOINT = "data/latest.json";
 
 const actionLabels = {
   ADD: "加仓",
@@ -56,6 +55,12 @@ function $(selector) {
   return document.querySelector(selector);
 }
 
+function dataUrl(endpoint) {
+  const url = new URL(endpoint, window.location.href);
+  url.searchParams.set("t", Date.now());
+  return url.toString();
+}
+
 function fmtNum(value, digits = 2) {
   if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
   return Number(value).toFixed(digits);
@@ -82,6 +87,15 @@ function fmtDateTime(isoText) {
     hour: "2-digit",
     minute: "2-digit",
   });
+}
+
+function escapeHtml(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 }
 
 function pressureScoreText(scores = {}) {
@@ -144,6 +158,65 @@ function renderFindings(analysis, signal) {
           <strong>${card.value}</strong>
           <p>${card.copy}</p>
         </article>
+      `
+    )
+    .join("");
+}
+
+function scoreGroupLabel(groupKey) {
+  return groupKey === "opportunityScore" ? "Opportunity Score" : "Risk Score";
+}
+
+function renderScoreConstruction(signal) {
+  const construction = signal.method?.scoreConstruction;
+  const components = signal.currentSignal?.components || {};
+  if (!construction) {
+    $("#score-construction-scale").textContent = "当前数据文件尚未包含分数公式说明。";
+    $("#score-formula-table").innerHTML = "";
+    $("#score-component-breakdown").innerHTML = "";
+    return;
+  }
+
+  $("#score-construction-scale").textContent =
+    construction.scale || "两个分数都是 0-100 分，先计算各分项，再按上限封顶。";
+  $("#opportunity-formula").textContent = construction.opportunityScore?.formula || "--";
+  $("#risk-formula").textContent = construction.riskScore?.formula || "--";
+
+  const rows = ["opportunityScore", "riskScore"].flatMap((groupKey) => {
+    const group = construction[groupKey] || {};
+    return (group.components || []).map((component) => ({
+      group: scoreGroupLabel(groupKey),
+      ...component,
+      current: components[component.key],
+    }));
+  });
+
+  $("#score-component-breakdown").innerHTML = rows
+    .map((row) => {
+      const current = Number(row.current || 0);
+      const cap = Number(row.cap || 100);
+      return `
+        <article class="score-component-card">
+          <span>${escapeHtml(row.group)}</span>
+          <strong>${fmtNum(current, 2)}</strong>
+          <p>${escapeHtml(row.label)} / cap ${fmtNum(cap, 0)}</p>
+          <meter min="0" max="${cap}" value="${Math.max(0, Math.min(cap, current))}"></meter>
+        </article>
+      `;
+    })
+    .join("");
+
+  $("#score-formula-table").innerHTML = rows
+    .map(
+      (row) => `
+        <tr>
+          <td><strong>${escapeHtml(row.group)}</strong></td>
+          <td>${escapeHtml(row.label)}</td>
+          <td class="numeric">${fmtNum(row.cap, 0)}</td>
+          <td class="numeric">${fmtNum(row.current, 2)}</td>
+          <td>${escapeHtml(row.formula)}</td>
+          <td>${escapeHtml(row.interpretation)}</td>
+        </tr>
       `
     )
     .join("");
@@ -229,18 +302,17 @@ function renderLimits() {
 
 async function init() {
   try {
-    const [analysisResponse, signalResponse, latestResponse] = await Promise.all([
-      fetch(`${ANALYSIS_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
-      fetch(`${SIGNAL_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
-      fetch(`${LATEST_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
+    const [analysisResponse, signalResponse] = await Promise.all([
+      fetch(dataUrl(ANALYSIS_ENDPOINT), { cache: "no-store" }),
+      fetch(dataUrl(SIGNAL_ENDPOINT), { cache: "no-store" }),
     ]);
     if (!analysisResponse.ok) throw new Error(`analysis HTTP ${analysisResponse.status}`);
     if (!signalResponse.ok) throw new Error(`signal HTTP ${signalResponse.status}`);
-    if (!latestResponse.ok) throw new Error(`latest HTTP ${latestResponse.status}`);
-    const [analysis, signal] = await Promise.all([analysisResponse.json(), signalResponse.json(), latestResponse.json()]);
+    const [analysis, signal] = await Promise.all([analysisResponse.json(), signalResponse.json()]);
     renderCurrent(signal);
     renderSnapshot(analysis, signal);
     renderFindings(analysis, signal);
+    renderScoreConstruction(signal);
     renderIndicators();
     renderEvidence(analysis, signal);
     renderActionTable(signal);

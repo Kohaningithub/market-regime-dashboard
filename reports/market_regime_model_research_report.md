@@ -32,6 +32,35 @@
 - 情绪偏热 = 不追高或再平衡，不等同于减仓。
 - 信用压力 + 高波动 + 尚未充分出清 = 减仓。
 
+### 2.1 分数计算方式
+
+两个分数都使用 0-100 区间。每个分项先按公式计算，再按分项上限封顶，最后总分再封顶到 0-100。
+
+**Opportunity Score**
+
+`Opportunity Score = clamp(drawdownOpportunity + sentimentOpportunity + volatilityOpportunity + creditStabilityBonus, 0, 100)`
+
+| 分项 | 上限 | 计算方式 | 含义 |
+|---|---:|---|---|
+| Drawdown opportunity | 30 | `min(30, max(0, -SPY drawdown) * 2.2 + max(0, -QQQ drawdown) * 0.35)` | SPY/QQQ 回撤越深，价格折扣越明显，机会分越高。 |
+| Sentiment opportunity | 25 | `min(25, sentimentPressure * 3 + max(0, 40 - FearGreed) * 0.55 + max(0, AAII bearish - 40) * 0.28 + max(0, PutCall - 0.75) * 12)` | 恐慌情绪在信用稳定时有反向意义。 |
+| Volatility opportunity | 20 | `min(20, volatilityPressure * 2.2 + max(0, VIX - 20) * 0.65 + max(0, VIX 5D change) * 0.65 + max(0, MOVE - 120) * 0.15)` | 温和波动释放可提高机会分，但单靠恐慌不能无限推高加仓信号。 |
+| Credit stability bonus | 15 | `max(0, 15 - creditPressure * 4 - max(0, HY OAS - 4.5) * 4 - max(0, NFCI) * 7)` | 信用和金融条件稳定时才给机会分加分。 |
+
+**Risk Score**
+
+`Risk Score = clamp(creditRisk + volatilityRisk + trendRisk + overheatRisk + dataPenalty, 0, 100)`
+
+| 分项 | 上限 | 计算方式 | 含义 |
+|---|---:|---|---|
+| Credit risk | 42 | `min(42, creditPressure * 9 + max(0, HY OAS - 4.5) * 7 + max(0, HY OAS 20D change - 75bp) * 0.08 + max(0, IG OAS - 1.25) * 8 + max(0, IG OAS 20D change - 25bp) * 0.1 + max(0, NFCI) * 12 + max(0, -KRE/SPY 20D relative - 8) * 1.5 + max(0, DXY 20D change - 3) * 5)` | 最大风险桶，反映信用利差、金融条件、美元压力和银行股相对表现。 |
+| Volatility risk | 28 | `min(28, max(0, SPY trailing 20D realized vol - 14) * 1.1 + volatilityPressure * 2 + max(0, VIX - 25) * 1.2 + max(0, VIX 5D change - 5) * 1.3)` | 衡量波动是否高到需要收缩组合风险预算。 |
+| Trend risk | 18 | `min(18, max(0, -HYG 20D return - 3) * 2 + max(0, -JNK 20D return - 3) * 2 + max(0, -RSP/SPY 60D relative - 5) + max(0, -SPY drawdown - 12) * 0.7)` | 捕捉信用 ETF 下跌、市场宽度恶化和深度回撤。 |
+| Overheat risk | 12 | `min(12, max(0, FearGreed - 70) * 0.4 + max(0, 16 - VIX) * 0.5 + 4 if SPY drawdown >= -2 and FearGreed >= 70)` | 识别拥挤乐观；它主要代表不追高，不单独触发减仓。 |
+| Data penalty | 10 | `max(0, (1 - scoreInputCompleteness) * 10)` | 输入缺失时提高谨慎程度。 |
+
+当前 2026-07-23 的分项贡献为：Drawdown opportunity `7.16`，Sentiment opportunity `3.64`，Volatility opportunity `1.33`，Credit stability bonus `15.00`，合计 Opportunity Score `27.13`；Credit risk、Volatility risk、Trend risk、Overheat risk 和 Data penalty 均为 `0.00`，因此 Risk Score 为 `0.00`。
+
 ## 3. 指标库
 
 | 模块 | 指标 | 角色 |
