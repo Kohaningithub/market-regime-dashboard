@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T13:55:13Z",
+  "generatedAt": "2026-07-23T17:10:33Z",
   "startDate": "2021-07-24",
   "endDate": "2026-07-23",
   "rows": 1254,
@@ -52,12 +52,12 @@
     {
       "name": "hyOas",
       "status": "ok",
-      "detail": "FRED BAMLH0A0HYM2: 2023-07-24 to 2026-07-21"
+      "detail": "FRED BAMLH0A0HYM2: 2023-07-24 to 2026-07-22"
     },
     {
       "name": "igOas",
       "status": "ok",
-      "detail": "FRED BAMLC0A0CM: 2023-07-24 to 2026-07-21"
+      "detail": "FRED BAMLC0A0CM: 2023-07-24 to 2026-07-22"
     },
     {
       "name": "tenYYield",
@@ -76,8 +76,8 @@
     },
     {
       "name": "aaiiBearish",
-      "status": "missing",
-      "detail": "Unable to load AAII history. xlrd is not installed; install xlrd or save AAII history as data/aaii_sentiment.csv; Unable to parse recent AAII sentiment table"
+      "status": "ok",
+      "detail": "AAII official sentiment.xls"
     },
     {
       "name": "putCall",
@@ -92,7 +92,7 @@
   ],
   "missingShare": {
     "fearGreed": 0.0,
-    "aaiiBearish": 1.0,
+    "aaiiBearish": 0.0,
     "putCall": 1.0,
     "hyOas": 0.3995,
     "igOas": 0.3995,
@@ -100,78 +100,78 @@
   },
   "correlations": {
     "volatilityScore": {
-      "spyRet5dFwd": 0.11,
+      "spyRet5dFwd": 0.1101,
       "spyRet10dFwd": 0.1353,
       "spyRet20dFwd": 0.1637,
       "spyRet60dFwd": 0.087,
-      "spyRealizedVol20dFwd": 0.5195,
+      "spyRealizedVol20dFwd": 0.5194,
       "spyMaxDrawdown20dFwd": -0.086
     },
     "creditScore": {
       "spyRet5dFwd": 0.0153,
-      "spyRet10dFwd": 0.0162,
+      "spyRet10dFwd": 0.0163,
       "spyRet20dFwd": 0.0785,
-      "spyRet60dFwd": 0.087,
+      "spyRet60dFwd": 0.0871,
       "spyRealizedVol20dFwd": 0.283,
       "spyMaxDrawdown20dFwd": -0.0526
     },
     "sentimentScore": {
-      "spyRet5dFwd": 0.0953,
-      "spyRet10dFwd": 0.1379,
-      "spyRet20dFwd": 0.1982,
-      "spyRet60dFwd": 0.185,
-      "spyRealizedVol20dFwd": 0.3722,
-      "spyMaxDrawdown20dFwd": -0.0645
+      "spyRet5dFwd": 0.0713,
+      "spyRet10dFwd": 0.0885,
+      "spyRet20dFwd": 0.1785,
+      "spyRet60dFwd": 0.187,
+      "spyRealizedVol20dFwd": 0.5228,
+      "spyMaxDrawdown20dFwd": -0.1379
     },
     "scoreTotal": {
-      "spyRet5dFwd": 0.0974,
-      "spyRet10dFwd": 0.1266,
-      "spyRet20dFwd": 0.1859,
-      "spyRet60dFwd": 0.1448,
-      "spyRealizedVol20dFwd": 0.5065,
-      "spyMaxDrawdown20dFwd": -0.087
+      "spyRet5dFwd": 0.0857,
+      "spyRet10dFwd": 0.1051,
+      "spyRet20dFwd": 0.1797,
+      "spyRet60dFwd": 0.1545,
+      "spyRealizedVol20dFwd": 0.5584,
+      "spyMaxDrawdown20dFwd": -0.1196
     }
   },
   "byScoreBucket": {
     "0": {
-      "rows": 516,
-      "rowsWith20dForward": 506,
-      "avgSpyRet20dFwd": 0.4886,
-      "medianSpyRet20dFwd": 1.0069,
-      "winRate20dFwd": 0.6107,
-      "avgSpyRet60dFwd": 2.5545,
-      "avgRealizedVol20dFwd": 12.3762,
-      "avgMaxDrawdown20dFwd": -2.2858
+      "rows": 430,
+      "rowsWith20dForward": 422,
+      "avgSpyRet20dFwd": 0.3413,
+      "medianSpyRet20dFwd": 0.8421,
+      "winRate20dFwd": 0.5806,
+      "avgSpyRet60dFwd": 2.1989,
+      "avgRealizedVol20dFwd": 12.4913,
+      "avgMaxDrawdown20dFwd": -2.3549
     },
     "1-2": {
-      "rows": 434,
+      "rows": 436,
       "rowsWith20dForward": 424,
-      "avgSpyRet20dFwd": 0.7947,
-      "medianSpyRet20dFwd": 1.6625,
-      "winRate20dFwd": 0.6533,
-      "avgSpyRet60dFwd": 2.6522,
-      "avgRealizedVol20dFwd": 15.1194,
-      "avgMaxDrawdown20dFwd": -2.4758
+      "avgSpyRet20dFwd": 1.0948,
+      "medianSpyRet20dFwd": 1.8879,
+      "winRate20dFwd": 0.7052,
+      "avgSpyRet60dFwd": 3.0882,
+      "avgRealizedVol20dFwd": 13.2303,
+      "avgMaxDrawdown20dFwd": -2.0472
     },
     "3-4": {
-      "rows": 160,
-      "rowsWith20dForward": 160,
-      "avgSpyRet20dFwd": 1.7877,
-      "medianSpyRet20dFwd": 2.4267,
-      "winRate20dFwd": 0.6813,
-      "avgSpyRet60dFwd": 4.5879,
-      "avgRealizedVol20dFwd": 20.7249,
-      "avgMaxDrawdown20dFwd": -3.4004
+      "rows": 170,
+      "rowsWith20dForward": 170,
+      "avgSpyRet20dFwd": 0.8643,
+      "medianSpyRet20dFwd": 1.378,
+      "winRate20dFwd": 0.6294,
+      "avgSpyRet60dFwd": 3.3596,
+      "avgRealizedVol20dFwd": 19.5805,
+      "avgMaxDrawdown20dFwd": -3.42
     },
     "5+": {
-      "rows": 144,
-      "rowsWith20dForward": 144,
-      "avgSpyRet20dFwd": 3.0111,
-      "medianSpyRet20dFwd": 4.4587,
-      "winRate20dFwd": 0.7083,
-      "avgSpyRet60dFwd": 5.3261,
-      "avgRealizedVol20dFwd": 22.5843,
-      "avgMaxDrawdown20dFwd": -2.8687
+      "rows": 218,
+      "rowsWith20dForward": 218,
+      "avgSpyRet20dFwd": 2.5153,
+      "medianSpyRet20dFwd": 4.0387,
+      "winRate20dFwd": 0.6697,
+      "avgSpyRet60dFwd": 5.1112,
+      "avgRealizedVol20dFwd": 23.0819,
+      "avgMaxDrawdown20dFwd": -3.3042
     }
   },
   "byRegime": {
@@ -186,52 +186,52 @@
       "avgMaxDrawdown20dFwd": -2.3294
     },
     "extreme": {
-      "rows": 10,
-      "rowsWith20dForward": 10,
-      "avgSpyRet20dFwd": 5.4398,
-      "medianSpyRet20dFwd": 7.1533,
-      "winRate20dFwd": 0.8,
-      "avgSpyRet60dFwd": 8.0384,
-      "avgRealizedVol20dFwd": 25.0207,
-      "avgMaxDrawdown20dFwd": -1.9301
+      "rows": 28,
+      "rowsWith20dForward": 28,
+      "avgSpyRet20dFwd": 4.656,
+      "medianSpyRet20dFwd": 5.1369,
+      "winRate20dFwd": 0.7857,
+      "avgSpyRet60dFwd": 8.1627,
+      "avgRealizedVol20dFwd": 26.5986,
+      "avgMaxDrawdown20dFwd": -2.7246
     },
     "normal": {
-      "rows": 1223,
-      "rowsWith20dForward": 1203,
-      "avgSpyRet20dFwd": 0.9596,
-      "medianSpyRet20dFwd": 1.5584,
-      "winRate20dFwd": 0.6401,
-      "avgSpyRet60dFwd": 3.1152,
-      "avgRealizedVol20dFwd": 15.3289,
-      "avgMaxDrawdown20dFwd": -2.5595
+      "rows": 1184,
+      "rowsWith20dForward": 1164,
+      "avgSpyRet20dFwd": 0.8617,
+      "medianSpyRet20dFwd": 1.4905,
+      "winRate20dFwd": 0.6375,
+      "avgSpyRet60dFwd": 3.0855,
+      "avgRealizedVol20dFwd": 15.0091,
+      "avgMaxDrawdown20dFwd": -2.5664
     },
     "panic": {
-      "rows": 12,
-      "rowsWith20dForward": 12,
-      "avgSpyRet20dFwd": 4.7513,
-      "medianSpyRet20dFwd": 3.726,
-      "winRate20dFwd": 0.9167,
-      "avgSpyRet60dFwd": 8.5109,
-      "avgRealizedVol20dFwd": 27.9176,
-      "avgMaxDrawdown20dFwd": -3.6792
+      "rows": 33,
+      "rowsWith20dForward": 33,
+      "avgSpyRet20dFwd": 4.0005,
+      "medianSpyRet20dFwd": 5.2523,
+      "winRate20dFwd": 0.7576,
+      "avgSpyRet60dFwd": 3.2881,
+      "avgRealizedVol20dFwd": 24.5733,
+      "avgMaxDrawdown20dFwd": -2.3916
     }
   },
   "byCreditScore": {
     "0": {
       "rows": 985,
       "rowsWith20dForward": 965,
-      "avgSpyRet20dFwd": 0.8532,
-      "medianSpyRet20dFwd": 1.3947,
+      "avgSpyRet20dFwd": 0.8528,
+      "medianSpyRet20dFwd": 1.3946,
       "winRate20dFwd": 0.6259,
-      "avgSpyRet60dFwd": 2.7353,
-      "avgRealizedVol20dFwd": 14.864,
+      "avgSpyRet60dFwd": 2.7349,
+      "avgRealizedVol20dFwd": 14.8644,
       "avgMaxDrawdown20dFwd": -2.4994
     },
     "1": {
       "rows": 173,
       "rowsWith20dForward": 173,
       "avgSpyRet20dFwd": 1.9478,
-      "medianSpyRet20dFwd": 2.4384,
+      "medianSpyRet20dFwd": 2.4383,
       "winRate20dFwd": 0.7572,
       "avgSpyRet60dFwd": 4.6668,
       "avgRealizedVol20dFwd": 15.7181,
@@ -244,7 +244,7 @@
       "medianSpyRet20dFwd": 2.3545,
       "winRate20dFwd": 0.6607,
       "avgSpyRet60dFwd": 6.612,
-      "avgRealizedVol20dFwd": 19.6685,
+      "avgRealizedVol20dFwd": 19.6686,
       "avgMaxDrawdown20dFwd": -2.8066
     },
     "3": {
@@ -254,8 +254,8 @@
       "medianSpyRet20dFwd": 0.4504,
       "winRate20dFwd": 0.5455,
       "avgSpyRet60dFwd": 2.5124,
-      "avgRealizedVol20dFwd": 26.9023,
-      "avgMaxDrawdown20dFwd": -4.6766
+      "avgRealizedVol20dFwd": 26.9024,
+      "avgMaxDrawdown20dFwd": -4.6767
     },
     "4": {
       "rows": 8,
@@ -263,8 +263,8 @@
       "avgSpyRet20dFwd": 1.9336,
       "medianSpyRet20dFwd": 0.1089,
       "winRate20dFwd": 0.5,
-      "avgSpyRet60dFwd": 2.9945,
-      "avgRealizedVol20dFwd": 28.128,
+      "avgSpyRet60dFwd": 2.9944,
+      "avgRealizedVol20dFwd": 28.1281,
       "avgMaxDrawdown20dFwd": -2.7875
     },
     "5": {

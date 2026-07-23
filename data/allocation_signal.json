@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T14:36:25Z",
+  "generatedAt": "2026-07-23T17:10:37Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,7 +86,7 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 27.13,
+    "opportunityScore": 28.39,
     "riskScore": 0,
     "action": "HOLD",
     "stance": "维持",
@@ -97,9 +97,9 @@
       "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。"
     },
     "components": {
-      "drawdownOpportunity": 7.16,
+      "drawdownOpportunity": 7.97,
       "sentimentOpportunity": 3.64,
-      "volatilityOpportunity": 1.33,
+      "volatilityOpportunity": 1.77,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
       "volatilityRisk": 0.0,
@@ -108,7 +108,7 @@
       "dataPenalty": 0
     },
     "asOf": "2026-07-23",
-    "generatedAt": "2026-07-23T13:54:52Z",
+    "generatedAt": "2026-07-23T17:10:25Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
@@ -116,67 +116,67 @@
     },
     "marketState": "normal",
     "keyInputs": {
-      "vix": 18.77,
-      "vixChange5d": 2.04,
+      "vix": 19.46,
+      "vixChange5d": 2.73,
       "move": 70.88,
-      "spyDrawdown": -2.22,
-      "qqqDrawdown": -6.5,
-      "fearGreed": 43.0,
+      "spyDrawdown": -2.5,
+      "qqqDrawdown": -7.06,
+      "fearGreed": 40.0,
       "aaiiBearish": 42.3,
       "putCall": 0.67,
       "creditScore": 0,
-      "hyOas": 2.69,
+      "hyOas": 2.68,
       "igOas": 0.78,
       "nfci": -0.55,
-      "dxyChange20d": -0.21,
-      "kreRel20d": -0.76,
-      "spyRealizedVol20dTrailing": 11.2
+      "dxyChange20d": -0.2,
+      "kreRel20d": 0.0,
+      "spyRealizedVol20dTrailing": 11.5802
     }
   },
   "historicalActionSummary": {
     "ADD": {
-      "rows": 34,
-      "usableRows": 34,
-      "avgOpportunityScore": 76.72,
-      "avgRiskScore": 38.96,
-      "avgSpyRet20dFwd": 5.2574,
-      "winRate20d": 0.8235,
-      "avgSpyRet60dFwd": 6.5383,
-      "avgRealizedVol20dFwd": 24.8093,
-      "avgMaxDrawdown20dFwd": -2.5877
+      "rows": 48,
+      "usableRows": 48,
+      "avgOpportunityScore": 80.08,
+      "avgRiskScore": 36.56,
+      "avgSpyRet20dFwd": 4.5434,
+      "winRate20d": 0.7708,
+      "avgSpyRet60dFwd": 5.4336,
+      "avgRealizedVol20dFwd": 25.4371,
+      "avgMaxDrawdown20dFwd": -2.8694
     },
     "ADD_SMALL": {
-      "rows": 84,
-      "usableRows": 84,
-      "avgOpportunityScore": 62.69,
-      "avgRiskScore": 21.47,
-      "avgSpyRet20dFwd": 2.6915,
-      "winRate20d": 0.6429,
-      "avgSpyRet60dFwd": 4.1233,
-      "avgRealizedVol20dFwd": 24.2477,
-      "avgMaxDrawdown20dFwd": -3.587
+      "rows": 117,
+      "usableRows": 117,
+      "avgOpportunityScore": 63.44,
+      "avgRiskScore": 19.6,
+      "avgSpyRet20dFwd": 1.4893,
+      "winRate20d": 0.547,
+      "avgSpyRet60dFwd": 3.803,
+      "avgRealizedVol20dFwd": 23.8117,
+      "avgMaxDrawdown20dFwd": -3.9825
     },
     "HOLD": {
-      "rows": 1119,
-      "usableRows": 1059,
-      "avgOpportunityScore": 28.59,
-      "avgRiskScore": 11.84,
-      "avgSpyRet20dFwd": 0.822,
-      "winRate20d": 0.6449,
-      "avgSpyRet60dFwd": 3.0889,
-      "avgRealizedVol20dFwd": 14.5019,
-      "avgMaxDrawdown20dFwd": -2.4708
+      "rows": 1074,
+      "usableRows": 1014,
+      "avgOpportunityScore": 28.87,
+      "avgRiskScore": 10.77,
+      "avgSpyRet20dFwd": 0.8617,
+      "winRate20d": 0.6548,
+      "avgSpyRet60dFwd": 3.0757,
+      "avgRealizedVol20dFwd": 14.0893,
+      "avgMaxDrawdown20dFwd": -2.3854
     },
     "REDUCE": {
-      "rows": 17,
-      "usableRows": 17,
-      "avgOpportunityScore": 60.14,
-      "avgRiskScore": 53.97,
-      "avgSpyRet20dFwd": -0.736,
-      "winRate20d": 0.3529,
-      "avgSpyRet60dFwd": -1.6012,
-      "avgRealizedVol20dFwd": 25.7648,
-      "avgMaxDrawdown20dFwd": -5.2126
+      "rows": 15,
+      "usableRows": 15,
+      "avgOpportunityScore": 64.75,
+      "avgRiskScore": 55.82,
+      "avgSpyRet20dFwd": -0.2188,
+      "winRate20d": 0.4,
+      "avgSpyRet60dFwd": -0.8176,
+      "avgRealizedVol20dFwd": 25.4869,
+      "avgMaxDrawdown20dFwd": -4.8017
     }
   },
   "rules": {
