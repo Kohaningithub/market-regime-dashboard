@@ -163,10 +163,6 @@ const historySummary = document.querySelector("#history-summary");
 const historyStats = document.querySelector("#history-stats");
 const historyStrip = document.querySelector("#history-strip");
 const historyRangeButtons = Array.from(document.querySelectorAll(".history-range-button"));
-const briefingMeta = document.querySelector("#briefing-meta");
-const briefingSummary = document.querySelector("#briefing-summary");
-const briefingList = document.querySelector("#briefing-list");
-const briefingFooter = document.querySelector("#briefing-footer");
 const allocationSignalTitle = document.querySelector("#allocation-signal-title");
 const allocationSignalReason = document.querySelector("#allocation-signal-reason");
 const allocationSignalMeta = document.querySelector("#allocation-signal-meta");
@@ -180,11 +176,9 @@ const allocationGuidance = document.querySelector("#allocation-guidance");
 const riskBudgetGuidance = document.querySelector("#risk-budget-guidance");
 const watchGuidance = document.querySelector("#watch-guidance");
 const CLIENT_POLL_MS = 120000;
-const BRIEFING_POLL_MS = 300000;
 const STALE_SNAPSHOT_MINUTES = 1440;
 const STATIC_SNAPSHOT_ENDPOINT = "data/latest.json";
 const HISTORY_ENDPOINT = "data/history.json";
-const BRIEFING_ENDPOINT = "data/briefing.json";
 const ALLOCATION_SIGNAL_ENDPOINT = "data/allocation_signal.json";
 const STATIC_TIMEOUT_MS = 8000;
 const ET_TIMEZONE = "America/New_York";
@@ -507,22 +501,6 @@ function formatEtTime(value) {
   if (Number.isNaN(parsed.getTime())) return value;
   return `${parsed.toLocaleTimeString("en-US", {
     timeZone: ET_TIMEZONE,
-    hour: "numeric",
-    minute: "2-digit"
-  })} ET`;
-}
-
-function formatBriefingSourceTime(value) {
-  if (!value) return "--";
-  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-    return formatLongDate(value);
-  }
-  const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) return value;
-  return `${parsed.toLocaleString("en-US", {
-    timeZone: ET_TIMEZONE,
-    month: "short",
-    day: "numeric",
     hour: "numeric",
     minute: "2-digit"
   })} ET`;
@@ -1114,22 +1092,6 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-function briefingSources(item) {
-  const sources = Array.isArray(item?.sources)
-    ? item.sources.filter((source) => source && (source.url || source.name))
-    : [];
-  if (sources.length) return sources;
-  if (!item || (!item.sourceName && !item.sourceUrl && !item.publishedAt)) return [];
-  return [
-    {
-      name: item.sourceName || "Local brief memory",
-      url: item.sourceUrl || "",
-      publishedAt: item.publishedAt || "",
-      eventDate: item.eventDate || ""
-    }
-  ];
-}
-
 async function fetchStaticJson(endpoint) {
   const separator = endpoint.includes("?") ? "&" : "?";
   const url = `${endpoint}${separator}ts=${Date.now()}`;
@@ -1183,78 +1145,6 @@ async function loadAllocationSignal(options = {}) {
   }
 }
 
-function renderBriefing(briefing) {
-  if (!briefingMeta || !briefingSummary || !briefingList) return;
-  const itemCount = Array.isArray(briefing.items) ? briefing.items.length : 0;
-  const suppressed = Number(briefing.suppressedCount || 0);
-  const coverage = Number(briefing.linkCoverage || 0);
-  briefingMeta.textContent = `更新 ${formatDateTime(briefing.generatedAt)} | ${briefing.source || "每日投资简报"} | ${itemCount} 个上下文卡片 | ${coverage}/${itemCount || 0} 个卡片已附来源链接${suppressed ? ` | ${suppressed} 条缺来源链接的个股线索已隐藏` : ""}`;
-  briefingSummary.textContent = briefing.summary || "今日暂无简报摘要。";
-  if (briefingFooter) {
-    briefingFooter.textContent = `Briefing generated at ${formatEtTime(briefing.generatedAt)}`;
-  }
-  const items = (briefing.items || []).slice(0, 4);
-  if (!items.length) {
-    briefingList.innerHTML = `<article class="briefing-card"><h3>等待更新</h3><p>最新本地简报还没有写入可展示的 source-backed 市场上下文。</p><strong>影响：这里只影响 Market Context，不改变当前模型分数。</strong></article>`;
-    return;
-  }
-
-  briefingList.innerHTML = items
-    .map((item) => {
-      const sources = briefingSources(item);
-      const sourceLinks = sources.length
-        ? sources
-            .map((source) => {
-              const label = `${source.name || "Local brief memory"} - ${formatBriefingSourceTime(source.publishedAt)}`;
-              if (!source.url) {
-                return `<span class="briefing-card-link">${escapeHtml(label)}</span>`;
-              }
-              return `<a class="briefing-card-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`;
-            })
-            .join("")
-        : `<span class="briefing-card-link">Source link unavailable in local memory</span>`;
-      return `
-        <article class="briefing-card">
-          <h3>${escapeHtml(item.title)}</h3>
-          <div class="briefing-card-meta">
-            <span>${escapeHtml(item.edition || "--")}</span>
-            <span>Event date ${escapeHtml(item.eventDate || briefing.asOf || "--")}</span>
-            <span>${escapeHtml(`${sources.length || 1} source${sources.length === 1 ? "" : "s"}`)}</span>
-          </div>
-          <p>${escapeHtml(item.detail)}</p>
-          <strong>Why it matters: ${escapeHtml(item.impact || "观察其对风险偏好、利率和信用的影响。")}</strong>
-          <div class="source-meta briefing-source-list">${sourceLinks}</div>
-        </article>
-      `;
-    })
-    .join("");
-}
-
-function renderBriefingError(error) {
-  if (!briefingMeta || !briefingSummary || !briefingList) return;
-  briefingMeta.textContent = "每日投资简报暂不可用";
-  briefingSummary.textContent = `等待简报发布器写入 data/briefing.json。错误：${error.message}`;
-  if (briefingFooter) {
-    briefingFooter.textContent = "Briefing generated at --";
-  }
-  briefingList.innerHTML = `
-    <article class="briefing-card">
-      <h3>简报数据未就绪</h3>
-      <p>市场状态模型仍会读取最新指标；这里只影响“今日影响线索”模块。</p>
-      <strong>投资含义：先以量化状态和触发信号为准。</strong>
-    </article>
-  `;
-}
-
-async function loadBriefing(options = {}) {
-  try {
-    renderBriefing(await fetchStaticJson(BRIEFING_ENDPOINT));
-  } catch (error) {
-    if (options.silent) return;
-    renderBriefingError(error);
-  }
-}
-
 function applyLiveSnapshot(snapshot) {
   liveSnapshot = snapshot;
   setValues(liveSnapshot.values);
@@ -1296,7 +1186,6 @@ buildForm();
 loadAllocationSignal();
 loadLiveData();
 loadHistory();
-loadBriefing();
 
 setInterval(() => {
   if (activePreset === "live") {
@@ -1305,7 +1194,3 @@ setInterval(() => {
     loadAllocationSignal({ silent: true });
   }
 }, CLIENT_POLL_MS);
-
-setInterval(() => {
-  loadBriefing({ silent: true });
-}, BRIEFING_POLL_MS);

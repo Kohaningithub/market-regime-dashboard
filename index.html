@@ -154,22 +154,6 @@
         </div>
       </section>
 
-      <section class="briefing-section" aria-labelledby="briefing-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Market Context</p>
-            <h2 id="briefing-title">Context Brief</h2>
-          </div>
-          <div id="briefing-meta" class="source-meta">正在读取每日投资简报...</div>
-        </div>
-        <p id="briefing-summary" class="briefing-summary">--</p>
-        <div id="briefing-list" class="briefing-grid"></div>
-        <div class="briefing-footer">
-          <span id="briefing-footer">Briefing generated at --</span>
-          <a href="news.html">查看早盘与收盘完整简报 →</a>
-        </div>
-      </section>
-
       <section class="workspace">
         <aside class="insight-panel" aria-labelledby="insight-title">
           <div class="section-heading">
@@ -201,15 +185,15 @@
         <div>
           <p class="eyebrow">Data Notes</p>
           <p>
-            GitHub Actions 每天美东 8:00、12:00、15:00 抓取市场指标并保存 <code>data/latest.json</code>。
-            同步维护 <code>data/history.json</code> 与 <code>data/allocation_signal.json</code>。
-            每日投资简报发布器会写入 <code>data/briefing.json</code>，网页直接读取最近一次快照。
+            GitHub Actions 在每个美股交易日收盘后抓取市场指标并保存 <code>data/latest.json</code>，
+            同步维护 <code>data/history.json</code>、<code>data/allocation_signal.json</code> 与 Evidence 日度数据。
+            早盘和收盘完整投资简报统一发布到 <a href="news.html">News</a>。
             当前估值分位未接入稳定公开源，因此不参与自动判断。公开无密钥数据存在延迟：FRED 多为 T+1，NFCI 为周频。
           </p>
         </div>
       </section>
     </main>
 
-    <script src="app.js?v=20260723-polish1"></script>
+    <script src="app.js?v=20260723-news2"></script>
   </body>
 </html>

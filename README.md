@@ -28,9 +28,10 @@ Recommended deployment is GitHub Pages + GitHub Actions.
 - `scripts/build_allocation_signal.py` generates `data/allocation_signal.json` and `data/allocation_signal_history.csv`.
 - `scripts/build_daily_evidence.py` generates the daily Evidence dataset at `data/daily_evidence.json`.
 - `scripts/build_news_index.py` indexes complete Markdown briefs from `data/news/` into `data/news_index.json`.
+- `scripts/validate_news_archive.py` blocks publication when a report is incomplete or missing from the index.
 - The frontend reads saved static JSON only; it does not fetch external market sources from the browser.
 
-Market data is collected once per U.S. trading weekday after the cash close. Complete morning and close briefs are written locally by the two Codex brief automations, then the local briefing publisher builds the archive index and pushes both editions.
+Market data is collected once per U.S. trading weekday after the cash close. Complete morning and close briefs are written locally by the two Codex brief automations. Each brief has a later conditional retry, while the News publisher validates and attempts publication twice per edition window. Repeated runs are idempotent when nothing changed.
 
 ## Local Preview
 
@@ -41,6 +42,7 @@ python scripts/analyze_regime_history.py
 python scripts/build_allocation_signal.py
 python scripts/build_daily_evidence.py
 python scripts/build_news_index.py
+python scripts/validate_news_archive.py
 python -m http.server 4173 --bind 127.0.0.1
 ```
 
