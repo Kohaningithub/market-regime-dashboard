@@ -68,6 +68,74 @@
   font-size: 0.78rem;
 }
 
+.daily-evidence-panel {
+  display: grid;
+  gap: 14px;
+}
+
+.daily-evidence-actions {
+  display: grid;
+  justify-items: end;
+  gap: 8px;
+}
+
+.daily-evidence-kpis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.daily-evidence-kpi {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfd;
+  padding: 13px 14px;
+}
+
+.daily-evidence-kpi span,
+.chart-heading span {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 760;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.daily-evidence-kpi strong,
+.chart-heading strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1rem;
+}
+
+.daily-evidence-kpi p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.daily-evidence-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.daily-evidence-grid > article {
+  min-width: 0;
+}
+
+.chart-heading {
+  margin-bottom: 8px;
+}
+
+.daily-evidence-empty {
+  grid-column: 1 / -1;
+  color: var(--muted);
+  padding: 12px 0;
+}
+
 .decision-panel {
   display: grid;
   gap: 14px;
@@ -320,6 +388,8 @@
 
 @media (max-width: 1120px) {
   .analysis-kpis,
+  .daily-evidence-kpis,
+  .daily-evidence-grid,
   .decision-current,
   .analysis-grid,
   .analysis-grid-main {
@@ -337,6 +407,8 @@
 
 @media (max-width: 760px) {
   .analysis-kpis,
+  .daily-evidence-kpis,
+  .daily-evidence-grid,
   .decision-current,
   .analysis-grid,
   .analysis-grid-main {
@@ -352,5 +424,9 @@
   .analysis-chart,
   .analysis-chart-tall {
     min-height: 320px;
+  }
+
+  .daily-evidence-actions {
+    justify-items: start;
   }
 }

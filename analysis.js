@@ -1,10 +1,13 @@
 const ANALYSIS_ENDPOINT = "data/regime_model_quant_analysis.json";
 const SIGNAL_ENDPOINT = "data/allocation_signal.json";
+const DAILY_EVIDENCE_ENDPOINT = "data/daily_evidence.json";
 const HORIZONS = [5, 10, 20, 60];
 
 let analysisPayload = null;
 let signalPayload = null;
+let dailyEvidencePayload = null;
 let activeHorizon = 20;
+let dailyRangeDays = 90;
 let resizeTimer = null;
 
 const containers = {
@@ -21,6 +24,10 @@ const containers = {
   scoreStrip: document.querySelector("#score-strip-chart"),
   module: document.querySelector("#module-chart"),
   notes: document.querySelector("#analysis-notes"),
+  dailyMeta: document.querySelector("#daily-evidence-meta"),
+  dailyKpis: document.querySelector("#daily-evidence-kpis"),
+  dailyMarket: document.querySelector("#daily-market-chart"),
+  dailyRisk: document.querySelector("#daily-risk-chart"),
 };
 
 const cssColor = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -626,6 +633,162 @@ function renderModuleChart() {
   svg.appendChild(note);
 }
 
+function dailyWindow() {
+  const series = Array.isArray(dailyEvidencePayload?.series) ? dailyEvidencePayload.series : [];
+  if (!series.length) return [];
+  const latest = new Date(`${series[series.length - 1].date}T00:00:00Z`).getTime();
+  const cutoff = latest - dailyRangeDays * 86400000;
+  return series.filter((row) => new Date(`${row.date}T00:00:00Z`).getTime() >= cutoff);
+}
+
+function dailyActionLabel(action) {
+  if (action === "ADD") return "加仓";
+  if (action === "ADD_SMALL") return "小幅加仓";
+  if (action === "REDUCE") return "减仓";
+  return "维持";
+}
+
+function renderDailyKpis() {
+  if (!containers.dailyKpis || !dailyEvidencePayload?.latest) return;
+  const latest = dailyEvidencePayload.latest;
+  containers.dailyKpis.innerHTML = `
+    <article class="daily-evidence-kpi">
+      <span>最新交易日</span>
+      <strong>${latest.date || "--"}</strong>
+      <p>SPY ${fmtNum(latest.spyClose, 2)} · 回撤 ${fmtPct(latest.spyDrawdown)}</p>
+    </article>
+    <article class="daily-evidence-kpi">
+      <span>波动状态</span>
+      <strong>VIX ${fmtNum(latest.vix, 1)}</strong>
+      <p>MOVE ${fmtNum(latest.move, 1)} · QQQ 回撤 ${fmtPct(latest.qqqDrawdown)}</p>
+    </article>
+    <article class="daily-evidence-kpi">
+      <span>信用与利率</span>
+      <strong>HY OAS ${fmtNum(latest.hyOas, 2)}</strong>
+      <p>10Y ${fmtPct(latest.tenYYield, 2)} · IG OAS ${fmtNum(latest.igOas, 2)}</p>
+    </article>
+    <article class="daily-evidence-kpi">
+      <span>模型动作</span>
+      <strong>${dailyActionLabel(latest.allocationAction)}</strong>
+      <p>机会 ${fmtNum(latest.opportunityScore, 0)} · 风险 ${fmtNum(latest.riskScore, 0)}</p>
+    </article>
+  `;
+}
+
+function renderDailyLineChart(container, rows, series, options = {}) {
+  if (!container) return;
+  const { svg, width, height } = makeSvg(container, 320);
+  if (rows.length < 2) {
+    const note = svgEl("text", { x: 24, y: 42, class: "chart-label" });
+    note.textContent = "等待至少两个交易日的数据。";
+    svg.appendChild(note);
+    return;
+  }
+
+  const tooltip = makeTooltip(container);
+  const margin = { top: 24, right: 24, bottom: 46, left: 54 };
+  const plotW = width - margin.left - margin.right;
+  const plotH = height - margin.top - margin.bottom;
+  const x = scaleLinear(0, rows.length - 1, margin.left, margin.left + plotW);
+  const values = rows.flatMap((row) => series.map((item) => item.value(row))).filter(Number.isFinite);
+  const [minY, maxY] = options.fixedDomain || extent(values.concat(options.includeZero ? [0] : []), 0.12);
+  const y = scaleLinear(minY, maxY, margin.top + plotH, margin.top);
+  const ticks = options.ticks || [minY, (minY + maxY) / 2, maxY];
+  drawGrid(svg, margin.left, margin.top, plotW, plotH, ticks.map((tick) => Number(tick.toFixed(1))), y);
+  if (minY < 0 && maxY > 0) {
+    svg.appendChild(svgEl("line", { x1: margin.left, x2: margin.left + plotW, y1: y(0), y2: y(0), class: "zero-line" }));
+  }
+
+  series.forEach((item) => {
+    const points = rows
+      .map((row, index) => {
+        const value = item.value(row);
+        return { x: x(index), y: Number.isFinite(value) ? y(value) : Number.NaN, row, index };
+      })
+      .filter((point) => Number.isFinite(point.y));
+    svg.appendChild(svgEl("path", { d: pathFrom(points), class: item.className }));
+  });
+
+  [0, Math.floor((rows.length - 1) / 2), rows.length - 1].forEach((index) => {
+    const label = svgEl("text", { x: x(index), y: margin.top + plotH + 24, class: "chart-label", "text-anchor": "middle" });
+    label.textContent = rows[index].date.slice(5);
+    svg.appendChild(label);
+  });
+
+  rows.forEach((row, index) => {
+    const target = svgEl("rect", {
+      x: x(index) - Math.max(4, plotW / rows.length / 2),
+      y: margin.top,
+      width: Math.max(8, plotW / rows.length),
+      height: plotH,
+      fill: "transparent",
+    });
+    target.addEventListener("mouseenter", (event) => {
+      const details = series
+        .map((item) => `${item.label}: ${item.format ? item.format(item.raw ? item.raw(row) : item.value(row)) : fmtNum(item.value(row), 1)}`)
+        .join("<br>");
+      setTooltip(container, tooltip, `<strong>${row.date}</strong>${details}`, event.offsetX, event.offsetY);
+    });
+    target.addEventListener("mousemove", (event) => {
+      tooltip.style.left = `${Math.min(event.offsetX + 12, container.clientWidth - 180)}px`;
+    });
+    target.addEventListener("mouseleave", () => hideTooltip(tooltip));
+    svg.appendChild(target);
+  });
+
+  const legend = document.createElement("div");
+  legend.className = "chart-legend";
+  legend.innerHTML = series.map((item) => `<span class="${item.legendClass}"><i></i>${item.label}</span>`).join("");
+  container.appendChild(legend);
+}
+
+function renderDailyEvidence() {
+  if (!containers.dailyMeta) return;
+  const rows = dailyWindow();
+  if (!dailyEvidencePayload || !rows.length) {
+    containers.dailyMeta.textContent = "每日数据尚未生成";
+    if (containers.dailyKpis) containers.dailyKpis.innerHTML = `<div class="daily-evidence-empty">等待每日收盘采集写入 data/daily_evidence.json。</div>`;
+    return;
+  }
+
+  const coverage = dailyEvidencePayload.coverage || {};
+  containers.dailyMeta.textContent = `${rows.length} 个交易日 | 全量 ${coverage.start || "--"} - ${coverage.end || "--"}`;
+  renderDailyKpis();
+  renderDailyLineChart(
+    containers.dailyMarket,
+    rows,
+    [
+      { label: "SPY 回撤", value: (row) => row.spyDrawdown, format: (value) => fmtPct(value), className: "chart-spy", legendClass: "legend-blue" },
+      { label: "QQQ 回撤", value: (row) => row.qqqDrawdown, format: (value) => fmtPct(value), className: "chart-vol-line", legendClass: "legend-red" },
+    ],
+    { includeZero: true }
+  );
+  renderDailyLineChart(
+    containers.dailyRisk,
+    rows,
+    [
+      { label: "Fear & Greed", value: (row) => row.fearGreed, className: "chart-spy", legendClass: "legend-blue" },
+      {
+        label: "压力指数",
+        value: (row) => Math.max(0, Math.min(100, Number(row.scoreTotal || 0) * (100 / 24))),
+        raw: (row) => row.scoreTotal,
+        format: (value) => fmtNum(value, 0),
+        className: "chart-vol-line",
+        legendClass: "legend-red",
+      },
+      {
+        label: "宽度指数",
+        value: (row) => Math.max(0, Math.min(100, 50 + Number(row.rspSpyRel60d || 0) * 5)),
+        raw: (row) => row.rspSpyRel60d,
+        format: (value) => `${fmtNum(value, 2)}pp`,
+        className: "chart-return-line",
+        legendClass: "legend-teal",
+      },
+    ],
+    { fixedDomain: [0, 100], ticks: [0, 25, 50, 75, 100] }
+  );
+}
+
 function renderAll() {
   renderKpis();
   renderDecision();
@@ -636,6 +799,7 @@ function renderAll() {
   renderRollingChart();
   renderScoreStripChart();
   renderModuleChart();
+  renderDailyEvidence();
 }
 
 function bindControls() {
@@ -644,6 +808,13 @@ function bindControls() {
       activeHorizon = Number(button.dataset.horizon) || 20;
       document.querySelectorAll("[data-horizon]").forEach((item) => item.classList.toggle("is-active", item === button));
       renderAll();
+    });
+  });
+  document.querySelectorAll("[data-daily-range]").forEach((button) => {
+    button.addEventListener("click", () => {
+      dailyRangeDays = Number(button.dataset.dailyRange) || 90;
+      document.querySelectorAll("[data-daily-range]").forEach((item) => item.classList.toggle("is-active", item === button));
+      renderDailyEvidence();
     });
   });
   window.addEventListener("resize", () => {
@@ -656,14 +827,16 @@ function bindControls() {
 
 async function init() {
   try {
-    const [analysisResponse, signalResponse] = await Promise.all([
+    const [analysisResponse, signalResponse, dailyResponse] = await Promise.all([
       fetch(`${ANALYSIS_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
       fetch(`${SIGNAL_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
+      fetch(`${DAILY_EVIDENCE_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }).catch(() => null),
     ]);
     if (!analysisResponse.ok) throw new Error(`analysis HTTP ${analysisResponse.status}`);
     if (!signalResponse.ok) throw new Error(`signal HTTP ${signalResponse.status}`);
     analysisPayload = await analysisResponse.json();
     signalPayload = await signalResponse.json();
+    dailyEvidencePayload = dailyResponse?.ok ? await dailyResponse.json() : null;
     bindControls();
     renderAll();
   } catch (error) {

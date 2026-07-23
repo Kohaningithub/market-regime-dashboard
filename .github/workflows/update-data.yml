@@ -3,10 +3,9 @@ name: Update market data
 on:
   workflow_dispatch:
   schedule:
-    # GitHub cron uses UTC. During US daylight time, these run at
-    # 8:00, 12:00, and 15:00 America/New_York. GitHub may delay the
-    # actual start time, so the job intentionally does not gate by hour.
-    - cron: "0 12,16,19 * * *"
+    # One post-close collection per U.S. trading weekday.
+    # 22:15 UTC is after the cash close in both EST and EDT.
+    - cron: "15 22 * * 1-5"
 
 permissions:
   contents: write
@@ -32,15 +31,16 @@ jobs:
           python scripts/backfill_regime_history.py --years 5
           python scripts/analyze_regime_history.py
           python scripts/build_allocation_signal.py
+          python scripts/build_daily_evidence.py
 
       - name: Commit updated data
         run: |
-          if git diff --quiet -- data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv; then
+          if git diff --quiet -- data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv data/daily_evidence.json; then
             echo "No market data changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv
+          git add data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv data/daily_evidence.json
           git commit -m "Update market data snapshot"
           git push

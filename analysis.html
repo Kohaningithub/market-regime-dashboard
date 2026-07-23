@@ -9,8 +9,8 @@
       content="Evidence dashboard for the final market allocation signal."
     />
     <link rel="icon" href="data:," />
-    <link rel="stylesheet" href="styles.css?v=20260723-polish1" />
-    <link rel="stylesheet" href="analysis.css?v=20260723-polish1" />
+    <link rel="stylesheet" href="styles.css?v=20260723-news1" />
+    <link rel="stylesheet" href="analysis.css?v=20260723-news1" />
   </head>
   <body>
     <header class="topbar analysis-topbar">
@@ -21,6 +21,7 @@
       </div>
       <nav class="topbar-actions" aria-label="Analysis navigation">
         <a class="secondary-button" href="index.html">Dashboard</a>
+        <a class="secondary-button" href="news.html">News</a>
         <a class="secondary-button is-active" href="analysis.html" aria-current="page">Evidence</a>
         <a class="secondary-button" href="research.html">Method & Limits</a>
       </nav>
@@ -42,6 +43,45 @@
       </section>
 
       <section id="analysis-kpis" class="analysis-kpis" aria-label="Key results"></section>
+
+      <section class="analysis-panel daily-evidence-panel" aria-labelledby="daily-evidence-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Daily Collected Evidence</p>
+            <h2 id="daily-evidence-title">每日市场数据与风险传导</h2>
+          </div>
+          <div class="daily-evidence-actions">
+            <span id="daily-evidence-meta" class="source-meta">正在读取每日数据...</span>
+            <div class="history-range-controls" role="group" aria-label="Daily evidence range">
+              <button class="history-range-button" type="button" data-daily-range="30">1M</button>
+              <button class="history-range-button is-active" type="button" data-daily-range="90">3M</button>
+              <button class="history-range-button" type="button" data-daily-range="180">6M</button>
+              <button class="history-range-button" type="button" data-daily-range="365">1Y</button>
+            </div>
+          </div>
+        </div>
+        <div id="daily-evidence-kpis" class="daily-evidence-kpis"></div>
+        <div class="daily-evidence-grid">
+          <article>
+            <div class="chart-heading">
+              <div>
+                <span>Market Path</span>
+                <strong>SPY / QQQ 距离高点回撤</strong>
+              </div>
+            </div>
+            <div id="daily-market-chart" class="analysis-chart" role="img" aria-label="Daily SPY and QQQ drawdown"></div>
+          </article>
+          <article>
+            <div class="chart-heading">
+              <div>
+                <span>Risk Transmission</span>
+                <strong>情绪、压力与市场宽度</strong>
+              </div>
+            </div>
+            <div id="daily-risk-chart" class="analysis-chart" role="img" aria-label="Daily sentiment pressure and breadth"></div>
+          </article>
+        </div>
+      </section>
 
       <section class="analysis-panel decision-panel" aria-labelledby="decision-title">
         <div class="section-heading">
