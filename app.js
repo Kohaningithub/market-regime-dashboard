@@ -144,211 +144,6 @@ const sourceLinks = {
   }
 };
 
-const presets = {
-  normal: {
-    vix: 21.8,
-    vixChange5d: 3.2,
-    move: 108,
-    spyDrawdown: -5.2,
-    qqqDrawdown: -7.5,
-    rspSpyRel60d: -1.2,
-    fearGreed: 38,
-    aaiiBearish: 41,
-    putCall: 0.78,
-    hygRet20d: -1.1,
-    jnkRet20d: -1.4,
-    hyOas: 3.9,
-    hyOasChange20d: 28,
-    igOas: 1.08,
-    igOasChange20d: 12,
-    dxyChange20d: 1.3,
-    tenYYield: 4.28,
-    tenYChange20d: 18,
-    realTenY: 1.96,
-    realTenYChange20d: 12,
-    nfci: -0.22,
-    kreRel20d: -3.4
-  },
-  panic: {
-    vix: 31,
-    vixChange5d: 8.5,
-    move: 126,
-    spyDrawdown: -11.5,
-    qqqDrawdown: -15.8,
-    rspSpyRel60d: -2.7,
-    fearGreed: 22,
-    aaiiBearish: 52,
-    putCall: 0.93,
-    hygRet20d: -2.7,
-    jnkRet20d: -2.9,
-    hyOas: 4.25,
-    hyOasChange20d: 55,
-    igOas: 1.18,
-    igOasChange20d: 21,
-    dxyChange20d: 2.1,
-    tenYYield: 4.05,
-    tenYChange20d: -22,
-    realTenY: 1.76,
-    realTenYChange20d: -18,
-    nfci: -0.08,
-    kreRel20d: -5.6
-  },
-  extreme: {
-    vix: 42,
-    vixChange5d: 13,
-    move: 151,
-    spyDrawdown: -18,
-    qqqDrawdown: -24,
-    rspSpyRel60d: -3.8,
-    fearGreed: 12,
-    aaiiBearish: 64,
-    putCall: 1.05,
-    hygRet20d: -2.8,
-    jnkRet20d: -3,
-    hyOas: 4.45,
-    hyOasChange20d: 62,
-    igOas: 1.22,
-    igOasChange20d: 24,
-    dxyChange20d: 2.4,
-    tenYYield: 3.72,
-    tenYChange20d: -48,
-    realTenY: 1.42,
-    realTenYChange20d: -34,
-    nfci: -0.02,
-    kreRel20d: -6.3
-  },
-  systemic: {
-    vix: 38,
-    vixChange5d: 11.5,
-    move: 181,
-    spyDrawdown: -16,
-    qqqDrawdown: -21,
-    rspSpyRel60d: -6.8,
-    fearGreed: 16,
-    aaiiBearish: 58,
-    putCall: 0.98,
-    hygRet20d: -6.4,
-    jnkRet20d: -6.9,
-    hyOas: 6.7,
-    hyOasChange20d: 172,
-    igOas: 1.92,
-    igOasChange20d: 78,
-    dxyChange20d: 5.6,
-    tenYYield: 4.62,
-    tenYChange20d: 64,
-    realTenY: 2.26,
-    realTenYChange20d: 47,
-    nfci: 0.58,
-    kreRel20d: -18
-  },
-  overheated: {
-    vix: 13.4,
-    vixChange5d: -1.1,
-    move: 88,
-    spyDrawdown: -0.8,
-    qqqDrawdown: -1.3,
-    rspSpyRel60d: -4.9,
-    fearGreed: 82,
-    aaiiBearish: 24,
-    putCall: 0.5,
-    hygRet20d: 1.3,
-    jnkRet20d: 1.2,
-    hyOas: 3.3,
-    hyOasChange20d: -18,
-    igOas: 0.95,
-    igOasChange20d: -8,
-    dxyChange20d: -0.6,
-    tenYYield: 4.18,
-    tenYChange20d: -5,
-    realTenY: 1.88,
-    realTenYChange20d: -7,
-    nfci: -0.48,
-    kreRel20d: 1.6
-  }
-};
-
-const indicatorRows = [
-  ["VIX", "Yahoo Finance ^VIX / Cboe VIX", "最新收盘或最新可得值", ">20、>25、>35、>45", "波动率指标", "30天隐含波动率，衡量美股期权市场恐慌程度。", "提高 Volatility Panic Score；>35 支持极端恐慌判断。"],
-  ["VIX 5日变化", "Yahoo Finance ^VIX / Cboe VIX", "VIX(t) - VIX(t-5)", ">5点、>10点", "波动率指标", "衡量恐慌升温速度，过滤慢性高波动。", "快速上升会把正常回调推向恐慌回调或极端恐慌。"],
-  ["MOVE Index", "Yahoo Finance ^MOVE / ICE BofA MOVE Index", "最新收盘或最新可得值", ">120、>160、>180", "波动率指标", "美债隐含波动率，衡量利率市场是否失序。", "高值提高 Volatility Score；>160配合信用恶化触发防守模式。"],
-  ["SPY drawdown", "Yahoo Finance SPY", "SPY / 252日高点 - 1", "<-5%、<-10%、<-20%", "股市回撤指标", "衡量美股大盘从近一年高点回撤深度。", "定义回调深度，配合信用压力决定是否可抄底。"],
-  ["QQQ drawdown", "Yahoo Finance QQQ", "QQQ / 252日高点 - 1", "<-8%、<-15%、<-25%", "股市回撤指标", "衡量成长股和科技权重资产的风险偏好。", "QQQ深跌但信用稳定时偏恐慌回调或极端恐慌。"],
-  ["RSP/SPY 60日相对表现", "Yahoo Finance RSP and SPY", "(RSP/SPY)(t) / (RSP/SPY)(t-60) - 1", "<-3%、<-6%", "股市回撤指标", "等权指数相对市值加权指数，衡量上涨集中度。", "走弱时提示广度恶化；高情绪下触发过热风险。"],
-  ["S&P 500估值分位", "暂未接入稳定公开源", "未来可接入 Forward P/E 历史分位或估值综合分位", "当前不参与自动评分", "股市回撤指标", "估值属于慢变量，但当前公开免密钥源稳定性不足。", "自动版暂不使用，避免把占位值伪装成实时测量。"],
-  ["Fear & Greed Index", "CNN Fear & Greed Index；失败时使用proxy", "CNN官方0-100分；proxy由VIX、SPY、Put/Call、HYG、RSP/SPY、AAII合成", "<40、<25、<15；>75提示贪婪", "情绪指标", "综合动量、广度、期权、信用、波动和避险需求。", "低值提高 Sentiment Fear Score；高值触发 Overheated Risk。"],
-  ["AAII Bearish %", "AAII Sentiment Survey", "看跌投资者占比", ">40%、>50%、>60%", "情绪指标", "散户投资者悲观程度，极端高值常具反向含义。", "提高 Sentiment Fear Score，支持恐慌或极端恐慌判断。"],
-  ["Put/Call Ratio", "Cboe Daily Market Statistics", "Put成交量 / Call成交量；有历史源时用10日均值，无历史源时用Cboe当前日值", ">0.75、>0.90；<0.55提示贪婪", "情绪指标", "保护性需求或投机偏好变化。", "高值加恐惧分；低值加过热提示。"],
-  ["HYG 20日回报", "Yahoo Finance HYG", "HYG(t) / HYG(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF价格压力。", "显著下跌提高 Credit Stress Score，防守模式权重上升。"],
-  ["JNK 20日回报", "Yahoo Finance JNK", "JNK(t) / JNK(t-20) - 1", "<-3%、<-5%", "信用市场指标", "高收益债ETF第二确认信号。", "与HYG共振时优先检查系统性风险。"],
-  ["High Yield OAS", "FRED BAMLH0A0HYM2 / ICE BofA", "最新值", ">4.5%、>6%", "信用市场指标", "垃圾债信用利差，衡量违约和流动性补偿。", "高值提高 Credit Stress Score；防守模式权重上升。"],
-  ["HY OAS 20日扩大", "FRED BAMLH0A0HYM2 / ICE BofA", "(HY OAS(t) - HY OAS(t-20)) * 100bp", ">75bp、>150bp", "信用市场指标", "衡量高收益债信用压力恶化速度。", "快速扩大是防守模式核心触发信号。"],
-  ["Investment Grade OAS", "FRED BAMLC0A0CM / ICE BofA", "最新值", ">1.25%、>1.75%", "信用市场指标", "投资级债信用利差，衡量压力是否扩散到优质信用。", "IG也走坏时，防守优先级上升。"],
-  ["IG OAS 20日扩大", "FRED BAMLC0A0CM / ICE BofA", "(IG OAS(t) - IG OAS(t-20)) * 100bp", ">25bp、>60bp", "信用市场指标", "衡量投资级信用压力恶化速度。", "快速扩大说明压力开始扩散，强化防守模式。"],
-  ["DXY 20日变化", "Yahoo Finance DX-Y.NYB", "DXY(t) / DXY(t-20) - 1", ">3%、>5%", "系统性风险指标", "美元快速走强常代表全球美元流动性压力或避险需求。", "配合信用恶化时强化防守模式。"],
-  ["10Y Treasury Yield", "FRED DGS10", "最新值", "水平本身不单独打分", "系统性风险指标", "名义利率水平，用来解释利率冲击或避险买债方向。", "和信用、美元、MOVE组合解释。"],
-  ["10Y Yield 20日变化", "FRED DGS10", "(10Y(t) - 10Y(t-20)) * 100bp", ">50bp；或快速下行且信用利差扩大", "系统性风险指标", "衡量名义利率冲击速度。", "辅助解释成长股压力和系统性风险。"],
-  ["10Y Real Yield", "FRED DFII10", "最新值", "水平本身不单独打分", "系统性风险指标", "实际利率水平，对长久期成长资产影响较大。", "解释QQQ压力，辅助恐慌回调或防守判断。"],
-  ["10Y Real Yield 20日变化", "FRED DFII10", "(10Y Real Yield(t) - 10Y Real Yield(t-20)) * 100bp", ">40bp", "系统性风险指标", "衡量实际利率收紧速度。", "实际利率快速上升时提高成长股压力解释权重。"],
-  ["NFCI", "FRED NFCI / Chicago Fed", "周度金融条件指数", ">0、>0.5；4周明显上升", "系统性风险指标", "正值代表金融条件紧于历史平均。", ">0时提高 Credit Stress Score，防守模式权重上升。"],
-  ["KRE vs SPY 20日相对表现", "Yahoo Finance KRE and SPY", "(KRE/SPY)(t) / (KRE/SPY)(t-20) - 1", "<-8%、<-15%", "系统性风险指标", "区域银行相对大盘表现，监测银行体系压力。", "大幅跑输是 Defensive Mode 重要触发器。"]
-];
-
-const scoreRules = [
-  [
-    "Volatility Panic Score",
-    "VIX >20 +1，>25 再+1，>35 再+1，>45 再+1；VIX 5日变化 >5点 +1，>10点 再+1；MOVE >120 +1，>160 再+1。",
-    "0-2 温和，3-4 恐慌，5+ 极端恐慌。"
-  ],
-  [
-    "Credit Stress Score",
-    "HYG/JNK 20日跌幅 <-3% 各+1，<-5% 各再+1；HY OAS >4.5% +1，>6% 再+1，20日扩大>75bp +1，>150bp 再+1；IG OAS >1.25% +1，>1.75% 再+1，20日扩大>25bp +1，>60bp 再+1；DXY 20日>3% +1，>5% 再+1；NFCI>0 +1，>0.5 再+1；KRE/SPY 20日<-8% +1，<-15% 再+1。",
-    "0-2 稳定，3-5 观察，6+ 系统性风险优先。"
-  ],
-  [
-    "Sentiment Fear Score",
-    "Fear & Greed <40 +1，<25 再+1，<15 再+1；AAII Bearish >40% +1，>50% 再+1，>60% 再+1；Put/Call 当前值或10日均值 >0.75 +1，>0.90 再+1。",
-    "0-2 正常，3-4 恐惧，5+ 极端悲观。"
-  ]
-];
-
-const scenarios = [
-  {
-    title: "正常或温和回调",
-    posture: "维持计划",
-    rule: "Credit Stress Score <= 2，VIX温和升高，指数只是小幅回撤，信用市场稳定。",
-    meaning: "市场更像普通调整，而不是流动性或信用危机。",
-    action: "可以维持正常定投、再平衡和质量资产配置。"
-  },
-  {
-    title: "恐慌回调",
-    posture: "分批加仓",
-    rule: "Credit Stress Score <= 3，同时 Volatility 与 Sentiment 进入恐慌区，SPY/QQQ回撤较深。",
-    meaning: "风险偏好明显转弱，但信用和美元流动性尚未出现失序信号。",
-    action: "适合用预设计划分批加仓，避免一次性打满。"
-  },
-  {
-    title: "极端恐慌",
-    posture: "寻找机会",
-    rule: "Credit Stress Score <= 3，但 VIX、MOVE 或情绪指标极端，指数明显下跌。",
-    meaning: "恐慌程度接近反向机会区，但还没有进入系统性信用压力。",
-    action: "关注抄底窗口，仍然用分层现金和风控执行。"
-  },
-  {
-    title: "系统性风险",
-    posture: "先防守",
-    rule: "Credit Stress Score >= 6，或信用、银行、美元、美债流动性出现多点共振恶化。",
-    meaning: "这类下跌可能不是单纯情绪杀跌，而是融资和流动性压力。",
-    action: "优先降低风险敞口，等待信用压力稳定后再考虑加仓。"
-  },
-  {
-    title: "过热风险",
-    posture: "避免追高",
-    rule: "Fear & Greed > 75，Put/Call < 0.55，且上涨集中度偏高。",
-    meaning: "市场可能已经过度乐观，且上涨主要集中在少数权重资产上。",
-    action: "减少杠杆和追高，考虑再平衡、获利回收和提高安全边际。"
-  }
-];
-
 let activePreset = "live";
 let liveSnapshot = null;
 let latestHistory = null;
@@ -357,8 +152,6 @@ let dashboardState = { mode: "loading", snapshot: null, history: null };
 let historyRangeDays = 90;
 
 const form = document.querySelector("#metric-form");
-const presetButtons = Array.from(document.querySelectorAll(".preset-button"));
-const resetButton = document.querySelector("#reset-button");
 const regimeInternal = document.querySelector("#regime-internal");
 const regimeChange = document.querySelector("#regime-change");
 const liveMeta = document.querySelector("#live-meta");
@@ -374,7 +167,6 @@ const briefingMeta = document.querySelector("#briefing-meta");
 const briefingSummary = document.querySelector("#briefing-summary");
 const briefingList = document.querySelector("#briefing-list");
 const briefingFooter = document.querySelector("#briefing-footer");
-const libraryTabs = Array.from(document.querySelectorAll(".library-tab"));
 const allocationSignalTitle = document.querySelector("#allocation-signal-title");
 const allocationSignalReason = document.querySelector("#allocation-signal-reason");
 const allocationSignalMeta = document.querySelector("#allocation-signal-meta");
@@ -411,6 +203,7 @@ function thresholdScore(value, rules, direction = "above") {
 }
 
 function buildForm() {
+  if (!form) return;
   form.innerHTML = modules
     .map((module) => {
       const fields = module.fields
@@ -426,7 +219,7 @@ function buildForm() {
                     : ""
                 }
               </div>
-              <input id="${field.key}" name="${field.key}" type="number" step="${field.step}" inputmode="decimal" />
+              <input id="${field.key}" name="${field.key}" type="number" step="${field.step}" inputmode="decimal" readonly aria-readonly="true" />
               <small id="${field.key}-meta" class="field-meta"></small>
             </div>
           `;
@@ -444,11 +237,6 @@ function buildForm() {
     })
     .join("");
 
-  form.addEventListener("input", () => {
-    activePreset = "manual";
-    presetButtons.forEach((button) => button.classList.remove("is-active"));
-    updateDashboard({ mode: "manual" });
-  });
 }
 
 function setValues(values) {
@@ -462,7 +250,7 @@ function getValues() {
   const values = {};
   modules.flatMap((module) => module.fields).forEach((field) => {
     const input = document.querySelector(`#${field.key}`);
-    values[field.key] = Number(input.value);
+    values[field.key] = Number(input?.value || 0);
   });
   return values;
 }
@@ -861,7 +649,7 @@ function previousRecentUpdate(snapshot, history) {
 
 function compareWithPrevious(snapshot, history, mode) {
   if (mode !== "live" || !snapshot) {
-    return "Compared with previous update: live comparison is shown in Live Data mode.";
+    return "Compared with previous update: waiting for a saved live snapshot.";
   }
   const previous = previousRecentUpdate(snapshot, history);
   if (!previous) {
@@ -1022,30 +810,20 @@ function renderLiveMeta(context = {}) {
     return;
   }
 
-  if (context.mode === "manual") {
-    liveMeta.textContent = "Manual Override | 你正在手动调整指标，分类会即时重算。";
-    return;
-  }
-
-  if (context.mode === "preset") {
-    liveMeta.textContent = "Scenario Preset | 当前是情景演示数据，不代表实时市场。";
-    return;
-  }
-
   liveMeta.textContent = "Latest Snapshot | 正在读取最近一次市场快照...";
 }
 
 function renderDataQuality(snapshot) {
   if (!dataQuality) return;
   if (!snapshot) {
-    dataQuality.innerHTML = `<div class="data-quality-item">当前为预设或手动模式。</div>`;
+    dataQuality.innerHTML = `<div class="data-quality-item">当前快照暂不可用，等待下一次自动数据更新。</div>`;
     return;
   }
 
   const notes = (snapshot.notes || []).filter((note) => !String(note).startsWith("model:"));
   const ageMinutes = snapshotAgeMinutes(snapshot);
   const freshnessItems = [
-    `<div class="data-quality-item"><strong>Refresh</strong> GitHub Actions 每天美东 8:00、12:00、15:00 生成快照；浏览器每 2 分钟重新读取最近一次文件。</div>`
+    `<div class="data-quality-item"><strong>更新节奏</strong> GitHub Actions 每天美东 8:00、12:00、15:00 生成快照；浏览器会自动读取最新静态文件。</div>`
   ];
   if (ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES) {
     freshnessItems.push(
@@ -1128,17 +906,21 @@ function renderScoreDetails(values, scores) {
 }
 
 function renderInvestmentImplications(regime, scores, values) {
+  const primaryAction = document.querySelector("#primary-action");
+  const allocationCue = document.querySelector("#allocation-cue");
+  const watchCue = document.querySelector("#watch-cue");
+  if (!primaryAction || !allocationCue || !watchCue) return;
   const signal = latestSignal?.currentSignal;
   if (activePreset === "live" && signal) {
-    document.querySelector("#primary-action").textContent = signal.stance || allocationActionLabel(signal.action);
-    document.querySelector("#allocation-cue").textContent = signal.guidance?.allocation || signal.reason;
-    document.querySelector("#watch-cue").textContent = signal.guidance?.watch || "观察信用、波动和回撤是否同步恶化";
+    primaryAction.textContent = signal.stance || allocationActionLabel(signal.action);
+    allocationCue.textContent = signal.guidance?.allocation || signal.reason;
+    watchCue.textContent = signal.guidance?.watch || "观察信用、波动和回撤是否同步恶化";
     return;
   }
   const implications = investmentImplications(regime, scores, values);
-  document.querySelector("#primary-action").textContent = implications.primary;
-  document.querySelector("#allocation-cue").textContent = implications.allocation;
-  document.querySelector("#watch-cue").textContent = implications.watch;
+  primaryAction.textContent = implications.primary;
+  allocationCue.textContent = implications.allocation;
+  watchCue.textContent = implications.watch;
 }
 
 function allocationActionLabel(action) {
@@ -1177,9 +959,12 @@ function renderAllocationSignal(signalPayload) {
   watchGuidance.textContent = signal.guidance?.watch || "--";
 
   if (activePreset === "live") {
-    document.querySelector("#primary-action").textContent = actionText;
-    document.querySelector("#allocation-cue").textContent = signal.guidance?.allocation || signal.reason || "--";
-    document.querySelector("#watch-cue").textContent = signal.guidance?.watch || "--";
+    const primaryAction = document.querySelector("#primary-action");
+    const allocationCue = document.querySelector("#allocation-cue");
+    const watchCue = document.querySelector("#watch-cue");
+    if (primaryAction) primaryAction.textContent = actionText;
+    if (allocationCue) allocationCue.textContent = signal.guidance?.allocation || signal.reason || "--";
+    if (watchCue) watchCue.textContent = signal.guidance?.watch || "--";
   }
 }
 
@@ -1303,44 +1088,6 @@ function drawRiskMap(scores, regime) {
   ctx.lineWidth = 4;
   ctx.strokeStyle = "rgba(255,255,255,0.9)";
   ctx.stroke();
-}
-
-function renderTables() {
-  document.querySelector("#score-rules-body").innerHTML = scoreRules
-    .map(
-      (row) => `
-        <tr>
-          <td><strong>${row[0]}</strong></td>
-          <td>${row[1]}</td>
-          <td>${row[2]}</td>
-        </tr>
-      `
-    )
-    .join("");
-
-  document.querySelector("#scenario-grid").innerHTML = scenarios
-    .map(
-      (scenario) => `
-        <article class="scenario-card">
-          <h3>${scenario.title}</h3>
-          <em>${scenario.posture}</em>
-          <p>${scenario.rule}</p>
-          <p>${scenario.meaning}</p>
-          <strong>${scenario.action}</strong>
-        </article>
-      `
-    )
-    .join("");
-
-  document.querySelector("#indicator-table-body").innerHTML = indicatorRows
-    .map(
-      (row) => `
-        <tr>
-          ${row.map((cell) => `<td>${cell}</td>`).join("")}
-        </tr>
-      `
-    )
-    .join("");
 }
 
 function updateDashboard(context = {}) {
@@ -1513,7 +1260,6 @@ function applyLiveSnapshot(snapshot) {
   setValues(liveSnapshot.values);
   applyFieldMeta(liveSnapshot.fieldMeta);
   activePreset = "live";
-  presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === "live"));
   updateDashboard({ mode: "live", snapshot: liveSnapshot });
 }
 
@@ -1523,36 +1269,18 @@ async function loadLiveData(options = {}) {
     applyLiveSnapshot(await fetchLatestSnapshot());
   } catch (error) {
     if (options.silent) {
-      console.warn("Live data refresh failed", error);
+      console.warn("Market data snapshot failed", error);
       return;
     }
     liveSnapshot = null;
-    activePreset = "normal";
-    presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === "normal"));
-    setValues(presets.normal);
-    updateDashboard({ mode: "preset" });
+    activePreset = "live";
+    renderDataQuality(null);
     if (liveMeta) {
       liveMeta.classList.add("is-error");
-      liveMeta.textContent = `Latest Snapshot 暂不可用，已显示正常回调预设。错误：${error.message}`;
+      liveMeta.textContent = `Latest Snapshot 暂不可用，等待下一次自动快照。错误：${error.message}`;
     }
   }
 }
-
-function selectPreset(name) {
-  activePreset = name;
-  presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === name));
-  if (name === "live") {
-    loadLiveData();
-    loadAllocationSignal();
-    return;
-  }
-  setValues(presets[name]);
-  updateDashboard({ mode: "preset" });
-}
-
-presetButtons.forEach((button) => {
-  button.addEventListener("click", () => selectPreset(button.dataset.preset));
-});
 
 historyRangeButtons.forEach((button) => {
   button.addEventListener("click", () => {
@@ -1564,40 +1292,7 @@ historyRangeButtons.forEach((button) => {
   });
 });
 
-if (resetButton) {
-  resetButton.addEventListener("click", () => {
-    if (activePreset === "live" || activePreset === "manual") {
-      loadLiveData();
-      loadHistory();
-      loadAllocationSignal();
-      loadBriefing();
-      return;
-    }
-    selectPreset(activePreset);
-    loadHistory();
-    loadAllocationSignal();
-    loadBriefing();
-  });
-}
-
-libraryTabs.forEach((button) => {
-  button.addEventListener("click", () => {
-    const target = button.dataset.tab;
-    libraryTabs.forEach((tab) => {
-      const selected = tab.dataset.tab === target;
-      tab.classList.toggle("is-active", selected);
-      tab.setAttribute("aria-selected", String(selected));
-    });
-    document.querySelectorAll(".library-pane").forEach((pane) => {
-      const selected = pane.id === `library-${target}`;
-      pane.classList.toggle("is-active", selected);
-      pane.hidden = !selected;
-    });
-  });
-});
-
 buildForm();
-renderTables();
 loadAllocationSignal();
 loadLiveData();
 loadHistory();

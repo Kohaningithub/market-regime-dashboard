@@ -238,6 +238,7 @@ function renderIndicators() {
 }
 
 function renderEvidence(analysis, signal) {
+  if (!$("#evidence-grid")) return;
   const meta = analysis.meta;
   const headline = analysis.headline;
   const add = signal.historicalActionSummary.ADD;
@@ -278,6 +279,7 @@ function renderEvidence(analysis, signal) {
 }
 
 function renderActionTable(signal) {
+  if (!$("#action-table")) return;
   const order = ["ADD", "ADD_SMALL", "HOLD", "REDUCE"];
   $("#action-table").innerHTML = order
     .map((action) => {

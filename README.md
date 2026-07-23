@@ -4,9 +4,9 @@ Investor-facing U.S. equity allocation tool for deciding whether the current mar
 
 ## Website Pages
 
-- `index.html`: final allocation dashboard with the current ADD / ADD_SMALL / HOLD / REDUCE signal.
+- `index.html`: investor dashboard focused on the current ADD / ADD_SMALL / HOLD / REDUCE signal, score readout, core market state, key drivers, recent history, and read-only input snapshot.
 - `analysis.html`: evidence page showing historical action replay, score buckets, rolling relationships, and regime risk/return.
-- `research.html`: method and limits page explaining indicators, decision rules, data support, and model limitations.
+- `research.html`: method and limits page explaining score construction, indicator rationale, decision rules, sources, and model limitations.
 
 ## Score Construction
 

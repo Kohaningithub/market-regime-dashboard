@@ -8,7 +8,7 @@
       name="description"
       content="Investor-facing allocation signal for judging whether U.S. equities favor adding, holding, or reducing risk."
     />
-    <link rel="stylesheet" href="styles.css?v=20260723-score1" />
+    <link rel="stylesheet" href="styles.css?v=20260723-polish1" />
   </head>
   <body>
     <header class="topbar">
@@ -17,12 +17,11 @@
         <h1>Market Allocation Signal</h1>
         <p class="topbar-copy">判断当前应加仓、维持，还是减仓。</p>
       </div>
-      <div class="topbar-actions" aria-label="Live data controls">
-        <button class="preset-button is-active" data-preset="live" type="button">Live Data</button>
-        <a class="secondary-button" href="analysis.html">Signal Evidence</a>
+      <nav class="topbar-actions" aria-label="Site navigation">
+        <a class="secondary-button is-active" href="index.html" aria-current="page">Dashboard</a>
+        <a class="secondary-button" href="analysis.html">Evidence</a>
         <a class="secondary-button" href="research.html">Method & Limits</a>
-        <button id="reset-button" class="secondary-button" type="button">重新读取快照</button>
-      </div>
+      </nav>
     </header>
 
     <main>
@@ -70,6 +69,24 @@
         </div>
       </section>
 
+      <section class="decision-primer" aria-label="How to read the dashboard">
+        <article>
+          <span>1</span>
+          <strong>先看动作</strong>
+          <p>最终信号只输出加仓、小幅分批加仓、维持或减仓，避免把指标堆成无法执行的结论。</p>
+        </article>
+        <article>
+          <span>2</span>
+          <strong>再看机会/风险</strong>
+          <p>机会分衡量是否值得加仓；风险分衡量是否需要收缩风险预算。两个分数不能混为一个买卖分。</p>
+        </article>
+        <article>
+          <span>3</span>
+          <strong>最后看信用门槛</strong>
+          <p>恐慌只有在信用稳定时才偏加仓；信用和高波动同步恶化时，优先保护组合。</p>
+        </article>
+      </section>
+
       <section class="status-band" aria-labelledby="regime-title">
         <div class="regime-panel">
           <p class="eyebrow">Market State</p>
@@ -79,21 +96,6 @@
           <p id="regime-summary" class="regime-summary"></p>
           <div id="live-meta" class="live-meta">正在读取最近一次市场快照...</div>
 
-          <div class="implication-grid" aria-label="Investment implications">
-            <article class="implication-card">
-              <span>当前动作</span>
-              <strong id="primary-action">--</strong>
-            </article>
-            <article class="implication-card">
-              <span>仓位提示</span>
-              <strong id="allocation-cue">--</strong>
-            </article>
-            <article class="implication-card">
-              <span>优先观察</span>
-              <strong id="watch-cue">--</strong>
-            </article>
-          </div>
-
           <div id="overheated-banner" class="overheated-banner" hidden aria-hidden="true" style="display: none">
             <strong>Overheated Risk</strong>
             <span>市场情绪偏贪婪且上涨集中，避免追高和杠杆。</span>
@@ -101,53 +103,53 @@
         </div>
 
         <div class="score-grid" aria-label="Core stress scores">
-          <details class="score-card" open>
-            <summary>
+          <article class="score-card">
+            <div class="score-card-head">
               <span>Volatility Pressure</span>
               <div class="score-summary-metrics">
                 <strong id="vol-score">Low</strong>
                 <small id="vol-score-range">0 / 8</small>
               </div>
-            </summary>
+            </div>
             <meter id="vol-meter" min="0" max="8" value="0"></meter>
             <p id="vol-label">--</p>
             <div class="score-card-detail">
               <p id="vol-detail"></p>
               <ul id="vol-contributors" class="mini-list"></ul>
             </div>
-          </details>
+          </article>
 
-          <details class="score-card" open>
-            <summary>
+          <article class="score-card">
+            <div class="score-card-head">
               <span>Credit Pressure</span>
               <div class="score-summary-metrics">
                 <strong id="credit-score">Low</strong>
                 <small id="credit-score-range">0 / 18</small>
               </div>
-            </summary>
+            </div>
             <meter id="credit-meter" min="0" max="18" value="0"></meter>
             <p id="credit-label">--</p>
             <div class="score-card-detail">
               <p id="credit-detail"></p>
               <ul id="credit-contributors" class="mini-list"></ul>
             </div>
-          </details>
+          </article>
 
-          <details class="score-card" open>
-            <summary>
+          <article class="score-card">
+            <div class="score-card-head">
               <span>Sentiment Fear</span>
               <div class="score-summary-metrics">
                 <strong id="sentiment-score">Low</strong>
                 <small id="sentiment-score-range">0 / 8</small>
               </div>
-            </summary>
+            </div>
             <meter id="sentiment-meter" min="0" max="8" value="0"></meter>
             <p id="sentiment-label">--</p>
             <div class="score-card-detail">
               <p id="sentiment-detail"></p>
               <ul id="sentiment-contributors" class="mini-list"></ul>
             </div>
-          </details>
+          </article>
         </div>
       </section>
 
@@ -229,8 +231,8 @@
         <div class="input-panel">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Live Inputs</p>
-              <h2>指标输入与来源</h2>
+              <p class="eyebrow">Input Snapshot</p>
+              <h2>关键指标与来源</h2>
             </div>
             <span class="section-note">点击 Source 查看对应数据源</span>
           </div>
@@ -238,64 +240,7 @@
         </div>
       </section>
 
-      <section class="regime-guide" aria-labelledby="regime-guide-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Regime Guide</p>
-            <h2 id="regime-guide-title">五种市场状态和投资含义</h2>
-          </div>
-        </div>
-        <div class="scenario-grid" id="scenario-grid"></div>
-      </section>
-
-      <section class="table-section model-library" aria-labelledby="model-library-title">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Indicator Framework</p>
-            <h2 id="model-library-title">指标框架</h2>
-          </div>
-        </div>
-        <div class="library-tabs" role="tablist" aria-label="Model library tabs">
-          <button class="library-tab is-active" type="button" data-tab="indicators" role="tab" aria-selected="true">指标库</button>
-          <button class="library-tab" type="button" data-tab="scoring" role="tab" aria-selected="false">评分规则</button>
-        </div>
-
-        <div id="library-indicators" class="library-pane is-active" role="tabpanel">
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>指标名称</th>
-                  <th>数据代码或数据源</th>
-                  <th>计算公式</th>
-                  <th>阈值</th>
-                  <th>模块</th>
-                  <th>对应解释</th>
-                  <th>对最终状态的影响</th>
-                </tr>
-              </thead>
-              <tbody id="indicator-table-body"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div id="library-scoring" class="library-pane" role="tabpanel" hidden>
-          <div class="table-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>分数</th>
-                  <th>打分规则</th>
-                  <th>解释</th>
-                </tr>
-              </thead>
-              <tbody id="score-rules-body"></tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      <section class="notes-section" aria-label="Implementation notes">
+      <section class="notes-section" aria-label="Data notes">
         <div>
           <p class="eyebrow">Data Notes</p>
           <p>
@@ -308,6 +253,6 @@
       </section>
     </main>
 
-    <script src="app.js?v=20260618-clarity1"></script>
+    <script src="app.js?v=20260723-polish1"></script>
   </body>
 </html>
