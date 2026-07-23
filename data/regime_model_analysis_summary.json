@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-23T17:10:33Z",
+  "generatedAt": "2026-07-23T23:13:37Z",
   "startDate": "2021-07-24",
   "endDate": "2026-07-23",
   "rows": 1254,
@@ -12,7 +12,7 @@
     {
       "name": "move",
       "status": "ok",
-      "detail": "Yahoo Finance ^MOVE: 2020-05-20 to 2026-07-17"
+      "detail": "Yahoo Finance ^MOVE: 2020-05-20 to 2026-07-23"
     },
     {
       "name": "spy",
@@ -62,12 +62,12 @@
     {
       "name": "tenYYield",
       "status": "ok",
-      "detail": "FRED DGS10: 2020-05-20 to 2026-07-21"
+      "detail": "FRED DGS10: 2020-05-20 to 2026-07-22"
     },
     {
       "name": "realTenY",
       "status": "ok",
-      "detail": "FRED DFII10: 2020-05-20 to 2026-07-21"
+      "detail": "FRED DFII10: 2020-05-20 to 2026-07-22"
     },
     {
       "name": "nfci",
@@ -101,7 +101,7 @@
   "correlations": {
     "volatilityScore": {
       "spyRet5dFwd": 0.1101,
-      "spyRet10dFwd": 0.1353,
+      "spyRet10dFwd": 0.1354,
       "spyRet20dFwd": 0.1637,
       "spyRet60dFwd": 0.087,
       "spyRealizedVol20dFwd": 0.5194,
@@ -139,18 +139,18 @@
       "avgSpyRet20dFwd": 0.3413,
       "medianSpyRet20dFwd": 0.8421,
       "winRate20dFwd": 0.5806,
-      "avgSpyRet60dFwd": 2.1989,
+      "avgSpyRet60dFwd": 2.1987,
       "avgRealizedVol20dFwd": 12.4913,
       "avgMaxDrawdown20dFwd": -2.3549
     },
     "1-2": {
       "rows": 436,
       "rowsWith20dForward": 424,
-      "avgSpyRet20dFwd": 1.0948,
+      "avgSpyRet20dFwd": 1.0947,
       "medianSpyRet20dFwd": 1.8879,
       "winRate20dFwd": 0.7052,
       "avgSpyRet60dFwd": 3.0882,
-      "avgRealizedVol20dFwd": 13.2303,
+      "avgRealizedVol20dFwd": 13.2305,
       "avgMaxDrawdown20dFwd": -2.0472
     },
     "3-4": {
@@ -182,17 +182,17 @@
       "medianSpyRet20dFwd": 5.9277,
       "winRate20dFwd": 0.8889,
       "avgSpyRet60dFwd": 0.784,
-      "avgRealizedVol20dFwd": 23.9128,
+      "avgRealizedVol20dFwd": 23.9127,
       "avgMaxDrawdown20dFwd": -2.3294
     },
     "extreme": {
       "rows": 28,
       "rowsWith20dForward": 28,
       "avgSpyRet20dFwd": 4.656,
-      "medianSpyRet20dFwd": 5.1369,
+      "medianSpyRet20dFwd": 5.137,
       "winRate20dFwd": 0.7857,
       "avgSpyRet60dFwd": 8.1627,
-      "avgRealizedVol20dFwd": 26.5986,
+      "avgRealizedVol20dFwd": 26.5985,
       "avgMaxDrawdown20dFwd": -2.7246
     },
     "normal": {
@@ -202,7 +202,7 @@
       "medianSpyRet20dFwd": 1.4905,
       "winRate20dFwd": 0.6375,
       "avgSpyRet60dFwd": 3.0855,
-      "avgRealizedVol20dFwd": 15.0091,
+      "avgRealizedVol20dFwd": 15.0092,
       "avgMaxDrawdown20dFwd": -2.5664
     },
     "panic": {
@@ -221,10 +221,10 @@
       "rows": 985,
       "rowsWith20dForward": 965,
       "avgSpyRet20dFwd": 0.8528,
-      "medianSpyRet20dFwd": 1.3946,
+      "medianSpyRet20dFwd": 1.3947,
       "winRate20dFwd": 0.6259,
-      "avgSpyRet60dFwd": 2.7349,
-      "avgRealizedVol20dFwd": 14.8644,
+      "avgSpyRet60dFwd": 2.7348,
+      "avgRealizedVol20dFwd": 14.8645,
       "avgMaxDrawdown20dFwd": -2.4994
     },
     "1": {
@@ -244,7 +244,7 @@
       "medianSpyRet20dFwd": 2.3545,
       "winRate20dFwd": 0.6607,
       "avgSpyRet60dFwd": 6.612,
-      "avgRealizedVol20dFwd": 19.6686,
+      "avgRealizedVol20dFwd": 19.6685,
       "avgMaxDrawdown20dFwd": -2.8066
     },
     "3": {
@@ -254,7 +254,7 @@
       "medianSpyRet20dFwd": 0.4504,
       "winRate20dFwd": 0.5455,
       "avgSpyRet60dFwd": 2.5124,
-      "avgRealizedVol20dFwd": 26.9024,
+      "avgRealizedVol20dFwd": 26.9023,
       "avgMaxDrawdown20dFwd": -4.6767
     },
     "4": {
@@ -264,7 +264,7 @@
       "medianSpyRet20dFwd": 0.1089,
       "winRate20dFwd": 0.5,
       "avgSpyRet60dFwd": 2.9944,
-      "avgRealizedVol20dFwd": 28.1281,
+      "avgRealizedVol20dFwd": 28.128,
       "avgMaxDrawdown20dFwd": -2.7875
     },
     "5": {
@@ -274,7 +274,7 @@
       "medianSpyRet20dFwd": 6.3463,
       "winRate20dFwd": 0.9,
       "avgSpyRet60dFwd": 3.1404,
-      "avgRealizedVol20dFwd": 25.9816,
+      "avgRealizedVol20dFwd": 25.9815,
       "avgMaxDrawdown20dFwd": -2.2531
     }
   },
