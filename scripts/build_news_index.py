@@ -11,7 +11,9 @@ from typing import Any
 
 ROOT = Path(__file__).resolve().parents[1]
 NEWS_DIR = ROOT / "data" / "news"
+NEWS_EN_DIR = ROOT / "data" / "news-en"
 OUT_FILE = ROOT / "data" / "news_index.json"
+OUT_EN_FILE = ROOT / "data" / "news_index_en.json"
 FILE_RE = re.compile(r"^(?P<date>\d{4}-\d{2}-\d{2})_(?P<edition>morning|close)\.md$")
 SOURCE_RE = re.compile(r"\[\[SOURCE\|[^|\]]+\|[^|\]]+\|[^|\]]+\|https?://[^\]]+\]\]")
 HEADING_RE = re.compile(r"^#{1,3}\s+(.+)$", re.MULTILINE)
@@ -97,9 +99,9 @@ def build_entry(path: Path) -> dict[str, Any] | None:
     }
 
 
-def build_index() -> dict[str, Any]:
-    NEWS_DIR.mkdir(parents=True, exist_ok=True)
-    entries = [entry for path in NEWS_DIR.glob("*.md") if (entry := build_entry(path))]
+def build_index(news_dir: Path = NEWS_DIR) -> dict[str, Any]:
+    news_dir.mkdir(parents=True, exist_ok=True)
+    entries = [entry for path in news_dir.glob("*.md") if (entry := build_entry(path))]
     entries.sort(key=lambda entry: (entry["date"], entry["edition"] == "close", entry["generatedAt"]), reverse=True)
     dates = sorted({entry["date"] for entry in entries})
     now = datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
@@ -115,18 +117,23 @@ def build_index() -> dict[str, Any]:
     }
 
 
-def main() -> None:
-    payload = build_index()
-    if OUT_FILE.exists():
+def write_index(news_dir: Path, out_file: Path) -> None:
+    payload = build_index(news_dir)
+    if out_file.exists():
         try:
-            current = json.loads(OUT_FILE.read_text(encoding="utf-8"))
+            current = json.loads(out_file.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             current = {}
         if current.get("entries") == payload["entries"] and current.get("coverage") == payload["coverage"]:
-            print(f"Unchanged {OUT_FILE.relative_to(ROOT)} | reports={payload['coverage']['reports']}")
+            print(f"Unchanged {out_file.relative_to(ROOT)} | reports={payload['coverage']['reports']}")
             return
-    OUT_FILE.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    print(f"Wrote {OUT_FILE.relative_to(ROOT)} | reports={payload['coverage']['reports']}")
+    out_file.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print(f"Wrote {out_file.relative_to(ROOT)} | reports={payload['coverage']['reports']}")
+
+
+def main() -> None:
+    write_index(NEWS_DIR, OUT_FILE)
+    write_index(NEWS_EN_DIR, OUT_EN_FILE)
 
 
 if __name__ == "__main__":

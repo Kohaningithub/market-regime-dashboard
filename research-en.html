@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -18,15 +18,15 @@
         <p class="eyebrow">Method & Limits</p>
         <h1>Allocation Signal Method</h1>
         <p class="topbar-copy">
-          说明最终仓位信号如何把市场压力、回撤、情绪、信用和波动转化为加仓、维持或减仓判断。
+          How market pressure, drawdowns, sentiment, credit, and volatility become an ADD, HOLD, or REDUCE decision.
         </p>
       </div>
       <nav class="topbar-actions" aria-label="Research navigation">
-        <a class="secondary-button" href="index.html">首页</a>
-        <a class="secondary-button" href="news.html">新闻</a>
-        <a class="secondary-button" href="analysis.html">证据</a>
-        <a class="secondary-button is-active" href="research.html" aria-current="page">方法与限制</a>
-        <a class="language-button" href="research-en.html" lang="en">EN</a>
+        <a class="secondary-button" href="index-en.html">Dashboard</a>
+        <a class="secondary-button" href="news-en.html">News</a>
+        <a class="secondary-button" href="analysis-en.html">Evidence</a>
+        <a class="secondary-button is-active" href="research-en.html" aria-current="page">Method & Limits</a>
+        <a class="language-button" href="research.html" lang="zh-CN">中文</a>
       </nav>
     </header>
 
@@ -34,7 +34,7 @@
       <section class="research-hero" aria-labelledby="research-current-title">
         <div class="research-current">
           <p class="eyebrow">Current Allocation Signal</p>
-          <h2 id="research-current-title">正在读取当前仓位信号...</h2>
+          <h2 id="research-current-title">Loading current allocation signal...</h2>
           <p id="current-reason" class="research-lead">--</p>
           <div class="research-score-row" aria-label="Current scores">
             <div>
@@ -54,10 +54,10 @@
         <div class="research-snapshot">
           <p class="eyebrow">Data Window</p>
           <dl id="snapshot-list" class="snapshot-list">
-            <div><dt>样本区间</dt><dd>--</dd></div>
-            <div><dt>交易日样本</dt><dd>--</dd></div>
-            <div><dt>平均输入覆盖率</dt><dd>--</dd></div>
-            <div><dt>数据生成时间</dt><dd>--</dd></div>
+            <div><dt>Sample period</dt><dd>--</dd></div>
+            <div><dt>Trading-day observations</dt><dd>--</dd></div>
+            <div><dt>Average input coverage</dt><dd>--</dd></div>
+            <div><dt>Generated at</dt><dd>--</dd></div>
           </dl>
         </div>
       </section>
@@ -66,7 +66,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Investor Takeaway</p>
-            <h2 id="findings-title">这个工具怎样辅助仓位判断</h2>
+            <h2 id="findings-title">How the tool supports allocation decisions</h2>
           </div>
         </div>
         <div id="finding-grid" class="finding-grid"></div>
@@ -76,29 +76,29 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Method</p>
-            <h2 id="method-title">最终信号生成流程</h2>
+            <h2 id="method-title">How the final signal is produced</h2>
           </div>
         </div>
         <div class="method-steps">
           <article>
             <span>1</span>
-            <h3>读取跨市场指标</h3>
-            <p>跟踪权益波动、利率波动、指数回撤、市场情绪、信用利差、美元流动性和金融条件。</p>
+            <h3>Read cross-market indicators</h3>
+            <p>Track equity volatility, rate volatility, index drawdowns, sentiment, credit spreads, dollar liquidity, and financial conditions.</p>
           </article>
           <article>
             <span>2</span>
-            <h3>分离机会与风险</h3>
-            <p>恐慌和回撤可能带来加仓机会；信用和流动性恶化才是真正需要降低风险预算的条件。</p>
+            <h3>Separate opportunity from risk</h3>
+            <p>Fear and drawdowns may create opportunity; deteriorating credit and liquidity determine when the risk budget should contract.</p>
           </article>
           <article>
             <span>3</span>
-            <h3>应用信用和波动门槛</h3>
-            <p>只有机会分足够高且风险分可控时才加仓；只有信用压力与高波动同步出现时才减仓。</p>
+            <h3>Apply credit and volatility gates</h3>
+            <p>Add only when opportunity is high and risk remains controlled; reduce when credit stress and high volatility appear together.</p>
           </article>
           <article>
             <span>4</span>
-            <h3>输出仓位动作</h3>
-            <p>最终动作只分为加仓、小幅分批加仓、维持、减仓，方便投资者直接进入执行讨论。</p>
+            <h3>Output an allocation action</h3>
+            <p>The final action is limited to ADD, ADD SMALL, HOLD, or REDUCE so investors can move directly into an execution discussion.</p>
           </article>
         </div>
       </section>
@@ -107,38 +107,38 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Score Construction</p>
-            <h2 id="score-construction-title">Opportunity Score 和 Risk Score 怎么算</h2>
+            <h2 id="score-construction-title">How Opportunity and Risk scores are calculated</h2>
           </div>
         </div>
         <p class="score-construction-lead" id="score-construction-scale">
-          两个分数都是 0-100 分，先计算各分项，再按分项上限和总分上限封顶。
+          Both scores run from 0 to 100. Components are calculated first, then capped at component and total-score limits.
         </p>
         <div class="score-formula-grid" aria-label="Score formulas">
           <article>
             <span>Opportunity Score</span>
             <strong id="opportunity-formula">--</strong>
-            <p>反映回撤、恐慌和波动是否在信用稳定时形成可加仓窗口。</p>
+            <p>Measures whether drawdowns, fear, and volatility create an add window while credit remains stable.</p>
           </article>
           <article>
             <span>Risk Score</span>
             <strong id="risk-formula">--</strong>
-            <p>反映信用、流动性、波动和趋势是否需要收缩风险预算。</p>
+            <p>Measures whether credit, liquidity, volatility, and trend conditions require a smaller risk budget.</p>
           </article>
         </div>
         <div class="score-breakdown-block">
-          <h3>当前分项贡献</h3>
+          <h3>Current component contributions</h3>
           <div id="score-component-breakdown" class="score-component-grid"></div>
         </div>
         <div class="research-table-wrap score-table-wrap">
           <table class="research-table score-table">
             <thead>
               <tr>
-                <th>分数</th>
-                <th>分项</th>
-                <th>上限</th>
-                <th>当前贡献</th>
-                <th>计算方式</th>
-                <th>解释</th>
+                <th>Score</th>
+                <th>Component</th>
+                <th>Cap</th>
+                <th>Current contribution</th>
+                <th>Formula</th>
+                <th>Interpretation</th>
               </tr>
             </thead>
             <tbody id="score-formula-table"></tbody>
@@ -150,17 +150,17 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Indicator Library</p>
-            <h2 id="indicator-title">指标库和纳入原因</h2>
+            <h2 id="indicator-title">Indicator library and inclusion rationale</h2>
           </div>
         </div>
         <div class="research-table-wrap">
           <table class="research-table">
             <thead>
               <tr>
-                <th>模块</th>
-                <th>指标</th>
-                <th>为什么重要</th>
-                <th>在最终信号中的角色</th>
+                <th>Module</th>
+                <th>Indicators</th>
+                <th>Why it matters</th>
+                <th>Role in the final signal</th>
               </tr>
             </thead>
             <tbody id="indicator-table"></tbody>
@@ -171,29 +171,29 @@
       <section class="research-grid">
         <article class="research-panel">
           <p class="eyebrow">Opportunity Lens</p>
-          <h2>什么时候考虑加仓</h2>
+          <h2>When to consider adding</h2>
           <p>
-            加仓不是因为市场下跌本身，而是因为下跌、恐慌和波动释放已经形成价格折扣，同时信用条件没有系统性恶化。
-            这种环境下，历史数据更支持分批增加风险敞口。
+            A market decline alone is not an add signal. The setup requires a meaningful price discount, fear or volatility washout,
+            and no systemic deterioration in credit. Historical evidence favors adding risk in stages under those conditions.
           </p>
           <ul class="research-list">
-            <li>SPY 或 QQQ 有足够回撤，价格折扣明确。</li>
-            <li>Fear & Greed、AAII 或 Put/Call 显示恐慌升温。</li>
-            <li>HY/IG OAS、NFCI、银行股相对表现没有同步恶化。</li>
+            <li>SPY or QQQ has a meaningful drawdown and clear price discount.</li>
+            <li>Fear & Greed, AAII, or Put/Call indicates rising fear.</li>
+            <li>HY/IG OAS, NFCI, and bank relative performance are not deteriorating together.</li>
           </ul>
         </article>
 
         <article class="research-panel">
           <p class="eyebrow">Risk Lens</p>
-          <h2>什么时候考虑减仓</h2>
+          <h2>When to consider reducing</h2>
           <p>
-            减仓信号不是为了预测顶部，而是为了识别组合风险预算需要收缩的环境。
-            当信用压力、流动性压力和高波动同时出现时，优先降低脆弱仓位。
+            A reduce signal does not attempt to call the market top. It identifies an environment in which the portfolio risk budget should contract.
+            When credit stress, liquidity pressure, and high volatility appear together, reduce vulnerable exposures first.
           </p>
           <ul class="research-list">
-            <li>信用利差扩张，HYG/JNK 下跌，NFCI 或 DXY 显示压力上升。</li>
-            <li>实现波动率和 VIX 同时升高，风险预算被动收缩。</li>
-            <li>市场尚未充分出清时，减仓优先于抄底。</li>
+            <li>Credit spreads widen, HYG/JNK decline, and NFCI or DXY indicates rising pressure.</li>
+            <li>Realized volatility and VIX rise together, forcing a smaller risk budget.</li>
+            <li>When market clearing remains incomplete, reducing takes priority over bottom fishing.</li>
           </ul>
         </article>
       </section>
@@ -202,25 +202,25 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Action Rules</p>
-            <h2 id="rules-title">加仓、维持、减仓的执行框架</h2>
+            <h2 id="rules-title">Execution framework for ADD, HOLD, and REDUCE</h2>
           </div>
         </div>
         <div class="rule-grid">
           <article>
             <h3>ADD</h3>
-            <p>机会分高、风险分可控、SPY 已有深度回撤、信用压力不高。适合按计划分批增加权益风险敞口。</p>
+            <p>High opportunity, controlled risk, a deep SPY drawdown, and limited credit stress support adding equity exposure in planned tranches.</p>
           </article>
           <article>
             <h3>ADD_SMALL</h3>
-            <p>机会信号已经出现，但条件没有完全成熟。适合小幅加快定投或再平衡，不适合一次性重仓。</p>
+            <p>Opportunity is emerging but not fully mature. Modestly accelerate contributions or rebalancing rather than taking a full-size tactical position.</p>
           </article>
           <article>
             <h3>HOLD</h3>
-            <p>没有足够高胜率的加仓窗口，也没有系统性风险信号。维持配置纪律，等待更清晰的边际。</p>
+            <p>There is neither a high-conviction add window nor a systemic risk signal. Maintain allocation discipline and wait for a clearer edge.</p>
           </article>
           <article>
             <h3>REDUCE</h3>
-            <p>信用恶化和高波动同时出现。适合降低一部分风险敞口或对冲，优先处理高 beta、杠杆和流动性弱的仓位。</p>
+            <p>Credit deterioration and high volatility appear together. Reduce or hedge part of the risk budget, starting with high-beta, leveraged, and illiquid positions.</p>
           </article>
         </div>
       </section>
@@ -229,7 +229,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Limitations</p>
-            <h2 id="limits-title">限制和使用边界</h2>
+            <h2 id="limits-title">Limitations and appropriate use</h2>
           </div>
         </div>
         <ul id="limit-list" class="limit-list"></ul>
@@ -238,16 +238,16 @@
       <section class="research-panel research-sources" aria-labelledby="sources-title">
         <div>
           <p class="eyebrow">Sources</p>
-          <h2 id="sources-title">公开数据源</h2>
+          <h2 id="sources-title">Public data sources</h2>
           <p>
             Yahoo Finance chart endpoint、FRED、CNN Fear & Greed、AAII Sentiment Survey、Cboe Daily Market Statistics。
-            前端只读取已保存的静态 JSON，避免用户打开网页时实时请求外部源。
+            The frontend reads saved static JSON only, avoiding live third-party requests when a user opens the site.
           </p>
         </div>
-        <a class="secondary-button" href="reports/market_regime_model_research_report.md">打开完整研究报告</a>
+        <a class="secondary-button" href="reports/market_regime_model_research_report.md">Open the full research report</a>
       </section>
     </main>
 
-    <script src="research.js?v=20260723-polish1"></script>
+    <script src="research-en.js?v=20260723-bilingual1"></script>
   </body>
 </html>

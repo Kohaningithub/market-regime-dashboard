@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -12,19 +12,19 @@
     <link rel="stylesheet" href="styles.css?v=20260723-news1" />
     <link rel="stylesheet" href="news.css?v=20260723-news1" />
   </head>
-  <body data-news-index="data/news_index.json">
+  <body data-news-index="data/news_index_en.json">
     <header class="topbar news-topbar">
       <div>
         <p class="eyebrow">Twice-Daily Intelligence</p>
         <h1>Market News Briefs</h1>
-        <p class="topbar-copy">每天早盘与收盘各一次，完整保留市场主线、个股异动、结构信号、投资线索与原始来源。</p>
+        <p class="topbar-copy">A complete morning and close brief covering market drivers, stock moves, structural signals, investment clues, and original sources.</p>
       </div>
       <nav class="topbar-actions" aria-label="News navigation">
-        <a class="secondary-button" href="index.html">首页</a>
-        <a class="secondary-button is-active" href="news.html" aria-current="page">新闻</a>
-        <a class="secondary-button" href="analysis.html">证据</a>
-        <a class="secondary-button" href="research.html">方法与限制</a>
-        <a class="language-button" href="news-en.html" lang="en">EN</a>
+        <a class="secondary-button" href="index-en.html">Dashboard</a>
+        <a class="secondary-button is-active" href="news-en.html" aria-current="page">News</a>
+        <a class="secondary-button" href="analysis-en.html">Evidence</a>
+        <a class="secondary-button" href="research-en.html">Method & Limits</a>
+        <a class="language-button" href="news.html" lang="zh-CN">中文</a>
       </nav>
     </header>
 
@@ -32,12 +32,12 @@
       <section class="news-status" aria-labelledby="news-status-title">
         <div>
           <p class="eyebrow">Publishing Status</p>
-          <h2 id="news-status-title">两次推送，一处完整归档</h2>
-          <p id="news-status-copy">正在读取新闻归档...</p>
+          <h2 id="news-status-title">Two daily editions, one complete archive</h2>
+          <p id="news-status-copy">Loading the news archive...</p>
         </div>
         <div class="edition-key" aria-label="Edition key">
-          <span><i class="edition-dot morning"></i>早盘 08:40 ET</span>
-          <span><i class="edition-dot close"></i>收盘 16:00 ET</span>
+          <span><i class="edition-dot morning"></i>Morning 08:40 ET</span>
+          <span><i class="edition-dot close"></i>Close 16:00 ET</span>
         </div>
       </section>
 
@@ -46,14 +46,14 @@
           <div class="archive-heading">
             <div>
               <p class="eyebrow">Archive</p>
-              <h2 id="news-archive-title">简报时间线</h2>
+              <h2 id="news-archive-title">Brief timeline</h2>
             </div>
             <label class="edition-filter">
-              <span>版本</span>
+              <span>Edition</span>
               <select id="edition-filter">
-                <option value="all">全部</option>
-                <option value="morning">早盘</option>
-                <option value="close">收盘</option>
+                <option value="all">All</option>
+                <option value="morning">Morning</option>
+                <option value="close">Close</option>
               </select>
             </label>
           </div>
@@ -63,8 +63,8 @@
         <article class="news-reader" aria-live="polite">
           <header id="news-reader-header" class="news-reader-header">
             <p class="eyebrow">Complete Brief</p>
-            <h2>选择一份简报</h2>
-            <p>归档生成后，可在这里阅读完整正文与全部来源。</p>
+            <h2>Select a brief</h2>
+            <p>Read the complete report and every cited source here.</p>
           </header>
           <div id="news-reader-body" class="news-document"></div>
         </article>

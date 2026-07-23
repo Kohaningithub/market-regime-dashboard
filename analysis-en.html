@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -17,14 +17,14 @@
       <div>
         <p class="eyebrow">Signal Evidence</p>
         <h1>Allocation Signal Evidence</h1>
-        <p class="topbar-copy">用 5 年历史检验仓位信号与 SPY 后续收益、波动、回撤之间的关系，帮助判断加仓、维持或减仓。</p>
+        <p class="topbar-copy">Five years of evidence linking allocation signals to subsequent SPY returns, volatility, and drawdowns.</p>
       </div>
       <nav class="topbar-actions" aria-label="Analysis navigation">
-        <a class="secondary-button" href="index.html">首页</a>
-        <a class="secondary-button" href="news.html">新闻</a>
-        <a class="secondary-button is-active" href="analysis.html" aria-current="page">证据</a>
-        <a class="secondary-button" href="research.html">方法与限制</a>
-        <a class="language-button" href="analysis-en.html" lang="en">EN</a>
+        <a class="secondary-button" href="index-en.html">Dashboard</a>
+        <a class="secondary-button" href="news-en.html">News</a>
+        <a class="secondary-button is-active" href="analysis-en.html" aria-current="page">Evidence</a>
+        <a class="secondary-button" href="research-en.html">Method & Limits</a>
+        <a class="language-button" href="analysis.html" lang="zh-CN">中文</a>
       </nav>
     </header>
 
@@ -32,7 +32,7 @@
       <section class="analysis-method" aria-labelledby="method-title">
         <div>
           <p class="eyebrow">Selected Method</p>
-          <h2 id="method-title">分数桶事件研究 + Spearman 相关 + 252 日滚动稳定性</h2>
+          <h2 id="method-title">Score-bucket event study + Spearman correlation + 252-day rolling stability</h2>
           <p id="method-copy" class="analysis-copy">--</p>
         </div>
         <div class="horizon-control" role="group" aria-label="Forward horizon">
@@ -49,10 +49,10 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Daily Collected Evidence</p>
-            <h2 id="daily-evidence-title">每日市场数据与风险传导</h2>
+            <h2 id="daily-evidence-title">Daily market data and risk transmission</h2>
           </div>
           <div class="daily-evidence-actions">
-            <span id="daily-evidence-meta" class="source-meta">正在读取每日数据...</span>
+            <span id="daily-evidence-meta" class="source-meta">Loading daily data...</span>
             <div class="history-range-controls" role="group" aria-label="Daily evidence range">
               <button class="history-range-button" type="button" data-daily-range="30">1M</button>
               <button class="history-range-button is-active" type="button" data-daily-range="90">3M</button>
@@ -67,7 +67,7 @@
             <div class="chart-heading">
               <div>
                 <span>Market Path</span>
-                <strong>SPY / QQQ 距离高点回撤</strong>
+                <strong>SPY / QQQ drawdown from trailing highs</strong>
               </div>
             </div>
             <div id="daily-market-chart" class="analysis-chart" role="img" aria-label="Daily SPY and QQQ drawdown"></div>
@@ -76,7 +76,7 @@
             <div class="chart-heading">
               <div>
                 <span>Risk Transmission</span>
-                <strong>情绪、压力与市场宽度</strong>
+                <strong>Sentiment, pressure, and market breadth</strong>
               </div>
             </div>
             <div id="daily-risk-chart" class="analysis-chart" role="img" aria-label="Daily sentiment pressure and breadth"></div>
@@ -88,7 +88,7 @@
         <div class="section-heading">
           <div>
             <p class="eyebrow">Allocation Signal</p>
-            <h2 id="decision-title">当前仓位信号与历史回放</h2>
+            <h2 id="decision-title">Current allocation signal and historical replay</h2>
           </div>
           <span id="decision-meta" class="source-meta">--</span>
         </div>
@@ -101,7 +101,7 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Trend</p>
-              <h2>走势与分数同步观察</h2>
+              <h2>Market path and score history</h2>
             </div>
             <span id="trend-meta" class="source-meta">--</span>
           </div>
@@ -112,7 +112,7 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Score Buckets</p>
-              <h2>分数越高，后续表现如何</h2>
+              <h2>Forward outcomes by score bucket</h2>
             </div>
           </div>
           <div id="bucket-chart" class="analysis-chart" role="img" aria-label="Forward return by score bucket"></div>
@@ -124,7 +124,7 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Regime</p>
-              <h2>状态分组的收益/风险</h2>
+              <h2>Return and risk by regime</h2>
             </div>
           </div>
           <div id="regime-chart" class="analysis-chart" role="img" aria-label="Risk and return by market regime"></div>
@@ -134,7 +134,7 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Stability</p>
-              <h2>滚动相关是否稳定</h2>
+              <h2>Rolling relationship stability</h2>
             </div>
           </div>
           <div id="rolling-chart" class="analysis-chart" role="img" aria-label="Rolling rank correlation"></div>
@@ -146,7 +146,7 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Exact Score</p>
-              <h2>逐分数的 20 日结果</h2>
+              <h2>Exact-score 20-day outcomes</h2>
             </div>
           </div>
           <div id="score-strip-chart" class="analysis-chart" role="img" aria-label="Exact score forward outcomes"></div>
@@ -156,7 +156,7 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Modules</p>
-              <h2>模块相关性热图</h2>
+              <h2>Module correlation heatmap</h2>
             </div>
           </div>
           <div id="module-chart" class="analysis-chart" role="img" aria-label="Score module correlations"></div>
@@ -171,6 +171,6 @@
       </section>
     </main>
 
-    <script src="analysis.js?v=20260723-polish1"></script>
+    <script src="analysis-en.js?v=20260723-bilingual1"></script>
   </body>
 </html>

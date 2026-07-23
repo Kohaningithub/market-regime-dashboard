@@ -4,10 +4,10 @@ Investor-facing U.S. equity allocation tool for deciding whether the current mar
 
 ## Website Pages
 
-- `index.html`: investor dashboard focused on the current ADD / ADD_SMALL / HOLD / REDUCE signal, score readout, core market state, key drivers, compact market context, and read-only input snapshot.
-- `news.html`: complete twice-daily morning and close news briefs with date/edition archive and source links.
-- `analysis.html`: evidence page showing daily collected market data, historical action replay, score buckets, rolling relationships, and regime risk/return.
-- `research.html`: method and limits page explaining score construction, indicator rationale, decision rules, sources, and model limitations.
+- Chinese: `index.html`, `news.html`, `analysis.html`, and `research.html`.
+- English: `index-en.html`, `news-en.html`, `analysis-en.html`, and `research-en.html`.
+- Both editions share the same market datasets and model calculations. Each page provides a direct language switch.
+- News briefs are generated and archived independently in both languages.
 
 ## Score Construction
 
@@ -27,8 +27,8 @@ Recommended deployment is GitHub Pages + GitHub Actions.
 - `scripts/analyze_regime_history.py` generates `data/regime_model_quant_analysis.json`.
 - `scripts/build_allocation_signal.py` generates `data/allocation_signal.json` and `data/allocation_signal_history.csv`.
 - `scripts/build_daily_evidence.py` generates the daily Evidence dataset at `data/daily_evidence.json`.
-- `scripts/build_news_index.py` indexes complete Markdown briefs from `data/news/` into `data/news_index.json`.
-- `scripts/validate_news_archive.py` blocks publication when a report is incomplete or missing from the index.
+- `scripts/build_news_index.py` indexes Chinese briefs from `data/news/` and English briefs from `data/news-en/`.
+- `scripts/validate_news_archive.py` blocks publication unless both language editions are complete and indexed.
 - The frontend reads saved static JSON only; it does not fetch external market sources from the browser.
 
 Market data is collected once per U.S. trading weekday after the cash close. Complete morning and close briefs are written locally by the two Codex brief automations. Each brief has a later conditional retry, while the News publisher validates and attempts publication twice per edition window. Repeated runs are idempotent when nothing changed.

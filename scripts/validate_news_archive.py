@@ -13,7 +13,9 @@ from zoneinfo import ZoneInfo
 try:
     from .build_news_index import (
         FILE_RE,
+        NEWS_EN_DIR,
         NEWS_DIR,
+        OUT_EN_FILE,
         OUT_FILE,
         SOURCE_RE,
         compact_text,
@@ -22,7 +24,9 @@ try:
 except ImportError:
     from build_news_index import (
         FILE_RE,
+        NEWS_EN_DIR,
         NEWS_DIR,
+        OUT_EN_FILE,
         OUT_FILE,
         SOURCE_RE,
         compact_text,
@@ -43,8 +47,13 @@ def validate_generated_at(value: str) -> bool:
     return True
 
 
-def validate_report(path: Path) -> list[str]:
+def report_language(path: Path) -> str:
+    return "en" if path.parent.name == NEWS_EN_DIR.name else "zh"
+
+
+def validate_report(path: Path, language: str | None = None) -> list[str]:
     errors: list[str] = []
+    language = language or report_language(path)
     match = FILE_RE.match(path.name)
     if not match:
         return [f"{path.name}: filename must be YYYY-MM-DD_morning.md or YYYY-MM-DD_close.md"]
@@ -73,33 +82,36 @@ def validate_report(path: Path) -> list[str]:
         errors.append(f"{path.name}: expected at least 4 machine-readable source blocks, found {source_count}")
     if len(compact_text(body)) < 1000:
         errors.append(f"{path.name}: report is too short to be a complete brief")
-    if "不构成投资建议" not in body:
+    if language == "zh" and "不构成投资建议" not in body:
+        errors.append(f"{path.name}: missing investment-advice disclaimer")
+    if language == "en" and "not investment advice" not in body.lower():
         errors.append(f"{path.name}: missing investment-advice disclaimer")
     return errors
 
 
-def validate_index(report_paths: list[Path]) -> list[str]:
-    if not OUT_FILE.exists():
-        return ["data/news_index.json is missing"]
+def validate_index(report_paths: list[Path], out_file: Path) -> list[str]:
+    relative = out_file.relative_to(out_file.parents[1]).as_posix()
+    if not out_file.exists():
+        return [f"{relative} is missing"]
     try:
-        payload = json.loads(OUT_FILE.read_text(encoding="utf-8"))
+        payload = json.loads(out_file.read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as error:
-        return [f"data/news_index.json is invalid ({error})"]
+        return [f"{relative} is invalid ({error})"]
 
     expected_ids = {path.stem for path in report_paths}
     actual_ids = {entry.get("id") for entry in payload.get("entries", [])}
     if expected_ids == actual_ids:
         return []
     return [
-        "news index mismatch: "
+        f"{out_file.name} mismatch: "
         f"missing={sorted(expected_ids - actual_ids)} extra={sorted(actual_ids - expected_ids)}"
     ]
 
 
-def expected_current_report() -> Path:
+def expected_current_report(news_dir: Path) -> Path:
     now = datetime.now(ET)
     edition = "morning" if now.hour < 14 else "close"
-    return NEWS_DIR / f"{now.date().isoformat()}_{edition}.md"
+    return news_dir / f"{now.date().isoformat()}_{edition}.md"
 
 
 def parse_args() -> argparse.Namespace:
@@ -119,16 +131,24 @@ def main() -> int:
         report_paths = [args.file.resolve()]
         errors = validate_report(report_paths[0])
     else:
-        report_paths = sorted(path for path in NEWS_DIR.glob("*.md") if FILE_RE.match(path.name))
-        errors = [error for path in report_paths for error in validate_report(path)]
-        errors.extend(validate_index(report_paths))
+        report_paths = []
+        errors = []
+        for news_dir, out_file, language in (
+            (NEWS_DIR, OUT_FILE, "zh"),
+            (NEWS_EN_DIR, OUT_EN_FILE, "en"),
+        ):
+            locale_paths = sorted(path for path in news_dir.glob("*.md") if FILE_RE.match(path.name))
+            report_paths.extend(locale_paths)
+            errors.extend(error for path in locale_paths for error in validate_report(path, language))
+            errors.extend(validate_index(locale_paths, out_file))
 
     if args.require_current_window:
-        expected = expected_current_report()
-        if not expected.exists():
-            errors.append(f"required report is missing: {expected.name}")
-        elif expected not in report_paths:
-            errors.extend(validate_report(expected))
+        for news_dir, language in ((NEWS_DIR, "zh"), (NEWS_EN_DIR, "en")):
+            expected = expected_current_report(news_dir)
+            if not expected.exists():
+                errors.append(f"required {language} report is missing: {expected}")
+            elif expected.resolve() not in report_paths:
+                errors.extend(validate_report(expected, language))
 
     if errors:
         print("News archive validation failed:", file=sys.stderr)

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,14 +15,14 @@
       <div>
         <p class="eyebrow">Investor Allocation Tool</p>
         <h1>Market Allocation Signal</h1>
-        <p class="topbar-copy">判断当前应加仓、维持，还是减仓。</p>
+        <p class="topbar-copy">Decide whether the current U.S. equity backdrop supports adding, holding, or reducing risk.</p>
       </div>
       <nav class="topbar-actions" aria-label="Site navigation">
-        <a class="secondary-button is-active" href="index.html" aria-current="page">首页</a>
-        <a class="secondary-button" href="news.html">新闻</a>
-        <a class="secondary-button" href="analysis.html">证据</a>
-        <a class="secondary-button" href="research.html">方法与限制</a>
-        <a class="language-button" href="index-en.html" lang="en">EN</a>
+        <a class="secondary-button is-active" href="index-en.html" aria-current="page">Dashboard</a>
+        <a class="secondary-button" href="news-en.html">News</a>
+        <a class="secondary-button" href="analysis-en.html">Evidence</a>
+        <a class="secondary-button" href="research-en.html">Method & Limits</a>
+        <a class="language-button" href="index.html" lang="zh-CN">中文</a>
       </nav>
     </header>
 
@@ -30,9 +30,9 @@
       <section class="allocation-signal" aria-labelledby="allocation-signal-title">
         <div class="allocation-signal-main">
           <p class="eyebrow">Final Allocation Signal</p>
-          <h2 id="allocation-signal-title">正在读取仓位信号...</h2>
+          <h2 id="allocation-signal-title">Loading allocation signal...</h2>
           <p id="allocation-signal-reason" class="allocation-signal-reason">--</p>
-          <div id="allocation-signal-meta" class="live-meta">正在读取最终信号...</div>
+          <div id="allocation-signal-meta" class="live-meta">Loading final signal...</div>
         </div>
         <div class="allocation-score-grid" aria-label="Allocation signal scores">
           <article>
@@ -52,20 +52,20 @@
           </article>
         </div>
         <p class="score-method-link">
-          分数计算公式和当前分项贡献见
-          <a href="research.html#score-construction-title">Method & Limits</a>。
+          See formulas and current component contributions in
+          <a href="research-en.html#score-construction-title">Method & Limits</a>.
         </p>
         <div class="allocation-guidance-grid" aria-label="Allocation guidance">
           <article>
-            <span>仓位执行</span>
+            <span>Position Action</span>
             <strong id="allocation-guidance">--</strong>
           </article>
           <article>
-            <span>风险预算</span>
+            <span>Risk Budget</span>
             <strong id="risk-budget-guidance">--</strong>
           </article>
           <article>
-            <span>观察重点</span>
+            <span>Watch Next</span>
             <strong id="watch-guidance">--</strong>
           </article>
         </div>
@@ -74,18 +74,18 @@
       <section class="decision-primer" aria-label="How to read the dashboard">
         <article>
           <span>1</span>
-          <strong>先看动作</strong>
-          <p>最终信号只输出加仓、小幅分批加仓、维持或减仓，避免把指标堆成无法执行的结论。</p>
+          <strong>Start with the action</strong>
+          <p>The model reduces the market state to ADD, ADD SMALL, HOLD, or REDUCE so the output remains actionable.</p>
         </article>
         <article>
           <span>2</span>
-          <strong>再看机会/风险</strong>
-          <p>机会分衡量是否值得加仓；风险分衡量是否需要收缩风险预算。两个分数不能混为一个买卖分。</p>
+          <strong>Separate opportunity from risk</strong>
+          <p>Opportunity measures whether weakness is investable; Risk measures whether the portfolio should contract its risk budget.</p>
         </article>
         <article>
           <span>3</span>
-          <strong>最后看信用门槛</strong>
-          <p>恐慌只有在信用稳定时才偏加仓；信用和高波动同步恶化时，优先保护组合。</p>
+          <strong>Apply the credit gate</strong>
+          <p>Fear supports adding only when credit remains stable. Deteriorating credit and volatility put capital protection first.</p>
         </article>
       </section>
 
@@ -96,11 +96,11 @@
           <p id="regime-internal" class="regime-internal">--</p>
           <p id="regime-change" class="regime-change">--</p>
           <p id="regime-summary" class="regime-summary"></p>
-          <div id="live-meta" class="live-meta">正在读取最近一次市场快照...</div>
+          <div id="live-meta" class="live-meta">Loading latest market snapshot...</div>
 
           <div id="overheated-banner" class="overheated-banner" hidden aria-hidden="true" style="display: none">
             <strong>Overheated Risk</strong>
-            <span>市场情绪偏贪婪且上涨集中，避免追高和杠杆。</span>
+            <span>Greedy sentiment and narrow leadership argue against chasing risk or adding leverage.</span>
           </div>
         </div>
 
@@ -160,7 +160,7 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Signal Drivers</p>
-              <h2 id="insight-title">为什么是这个判断</h2>
+              <h2 id="insight-title">Why the model reached this view</h2>
             </div>
           </div>
           <div class="mini-chart" aria-label="Risk map">
@@ -174,9 +174,9 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Input Snapshot</p>
-              <h2>关键指标与来源</h2>
+              <h2>Key indicators and sources</h2>
             </div>
-            <span class="section-note">点击 Source 查看对应数据源</span>
+            <span class="section-note">Use Source to open the underlying dataset</span>
           </div>
           <form id="metric-form" class="metric-form" aria-label="Market indicators"></form>
         </div>
@@ -186,15 +186,14 @@
         <div>
           <p class="eyebrow">Data Notes</p>
           <p>
-            GitHub Actions 在每个美股交易日收盘后抓取市场指标并保存 <code>data/latest.json</code>，
-            同步维护 <code>data/history.json</code>、<code>data/allocation_signal.json</code> 与 Evidence 日度数据。
-            早盘和收盘完整投资简报统一发布到 <a href="news.html">News</a>。
-            当前估值分位未接入稳定公开源，因此不参与自动判断。公开无密钥数据存在延迟：FRED 多为 T+1，NFCI 为周频。
+            GitHub Actions collects market indicators after each U.S. trading-day close and maintains the latest snapshot,
+            allocation signal, history, and daily Evidence dataset. Complete morning and close briefs are published to
+            <a href="news-en.html">News</a>. Public no-key sources can lag: FRED is often T+1 and NFCI is weekly.
           </p>
         </div>
       </section>
     </main>
 
-    <script src="app.js?v=20260723-news2"></script>
+    <script src="app-en.js?v=20260723-bilingual1"></script>
   </body>
 </html>

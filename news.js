@@ -1,4 +1,6 @@
-const NEWS_INDEX_ENDPOINT = "data/news_index.json";
+const IS_EN = document.documentElement.lang.toLowerCase().startsWith("en");
+const NEWS_INDEX_ENDPOINT = document.body.dataset.newsIndex || "data/news_index.json";
+const copy = (zh, en) => (IS_EN ? en : zh);
 
 const archiveList = document.querySelector("#news-archive-list");
 const readerHeader = document.querySelector("#news-reader-header");
@@ -163,14 +165,14 @@ function renderMarkdown(markdown) {
 }
 
 function editionLabel(edition) {
-  return edition === "close" ? "收盘版" : "早盘版";
+  return edition === "close" ? copy("收盘版", "Close") : copy("早盘版", "Morning");
 }
 
 function formatTimestamp(value) {
   if (!value) return "--";
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) return value;
-  return new Intl.DateTimeFormat("zh-CN", {
+  return new Intl.DateTimeFormat(IS_EN ? "en-US" : "zh-CN", {
     timeZone: "America/New_York",
     month: "2-digit",
     day: "2-digit",
@@ -188,7 +190,7 @@ function visibleEntries() {
 function renderArchive() {
   const entries = visibleEntries();
   if (!entries.length) {
-    archiveList.innerHTML = `<div class="news-empty">当前筛选下还没有已发布简报。</div>`;
+    archiveList.innerHTML = `<div class="news-empty">${copy("当前筛选下还没有已发布简报。", "No published briefs match this filter.")}</div>`;
     return;
   }
   archiveList.innerHTML = entries
@@ -200,7 +202,7 @@ function renderArchive() {
             <span>${escapeHtml(entry.date)}</span>
           </span>
           <strong>${escapeHtml(entry.title)}</strong>
-          <p>${escapeHtml(entry.summary || `${entry.wordCount || 0} 字 · ${entry.sourceCount || 0} 个来源`)}</p>
+          <p>${escapeHtml(entry.summary || (IS_EN ? `${entry.wordCount || 0} characters · ${entry.sourceCount || 0} sources` : `${entry.wordCount || 0} 字 · ${entry.sourceCount || 0} 个来源`))}</p>
         </button>
       `
     )
@@ -219,20 +221,20 @@ async function selectEntry(id) {
   readerHeader.innerHTML = `
     <p class="eyebrow">${editionLabel(entry.edition)} · ${escapeHtml(entry.date)}</p>
     <h2>${escapeHtml(entry.title)}</h2>
-    <p>${escapeHtml(entry.summary || "完整市场简报与来源归档。")}</p>
+    <p>${escapeHtml(entry.summary || copy("完整市场简报与来源归档。", "Complete market brief and source archive."))}</p>
     <div class="reader-meta">
-      <span>发布 ${escapeHtml(formatTimestamp(entry.generatedAt))} ET</span>
-      <span>${entry.wordCount || 0} 字</span>
-      <span>${entry.sourceCount || 0} 个来源块</span>
+      <span>${copy("发布", "Published")} ${escapeHtml(formatTimestamp(entry.generatedAt))} ET</span>
+      <span>${entry.wordCount || 0} ${copy("字", "characters")}</span>
+      <span>${entry.sourceCount || 0} ${copy("个来源块", "source blocks")}</span>
     </div>
   `;
-  readerBody.innerHTML = `<div class="news-empty">正在读取完整简报...</div>`;
+  readerBody.innerHTML = `<div class="news-empty">${copy("正在读取完整简报...", "Loading the complete brief...")}</div>`;
   try {
     const response = await fetch(`${entry.path}?t=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     readerBody.innerHTML = renderMarkdown(await response.text());
   } catch (error) {
-    readerBody.innerHTML = `<div class="news-empty">完整简报未加载成功：${escapeHtml(error.message)}</div>`;
+    readerBody.innerHTML = `<div class="news-empty">${copy("完整简报未加载成功：", "The complete brief could not be loaded: ")}${escapeHtml(error.message)}</div>`;
   }
 }
 
@@ -243,13 +245,19 @@ async function init() {
     const payload = await response.json();
     newsIndex = Array.isArray(payload.entries) ? payload.entries : [];
     statusCopy.textContent = newsIndex.length
-      ? `已归档 ${newsIndex.length} 份完整简报，覆盖 ${payload.coverage?.start || "--"} 至 ${payload.coverage?.end || "--"}。`
-      : "页面与发布管道已就绪，等待下一次早盘或收盘简报写入。";
+      ? copy(
+          `已归档 ${newsIndex.length} 份完整简报，覆盖 ${payload.coverage?.start || "--"} 至 ${payload.coverage?.end || "--"}。`,
+          `${newsIndex.length} complete briefs archived, covering ${payload.coverage?.start || "--"} through ${payload.coverage?.end || "--"}.`
+        )
+      : copy(
+          "页面与发布管道已就绪，等待下一次早盘或收盘简报写入。",
+          "The publishing pipeline is ready and waiting for the next morning or close brief."
+        );
     renderArchive();
     if (newsIndex.length) await selectEntry(newsIndex[0].id);
   } catch (error) {
-    statusCopy.textContent = "新闻索引暂未加载成功。";
-    archiveList.innerHTML = `<div class="news-empty">等待发布器生成 data/news_index.json：${escapeHtml(error.message)}</div>`;
+    statusCopy.textContent = copy("新闻索引暂未加载成功。", "The news index is temporarily unavailable.");
+    archiveList.innerHTML = `<div class="news-empty">${copy("等待发布器生成新闻索引：", "Waiting for the publisher to generate the news index: ")}${escapeHtml(error.message)}</div>`;
   }
 }
 
