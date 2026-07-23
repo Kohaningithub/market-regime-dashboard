@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-07-23T13:26:39Z",
+  "generatedAt": "2026-07-23T13:55:13Z",
   "startDate": "2021-07-24",
   "endDate": "2026-07-23",
-  "rows": 1253,
+  "rows": 1254,
   "sourceStatus": [
     {
       "name": "vix",
@@ -17,32 +17,32 @@
     {
       "name": "spy",
       "status": "ok",
-      "detail": "Yahoo Finance SPY: 2020-05-20 to 2026-07-22"
+      "detail": "Yahoo Finance SPY: 2020-05-20 to 2026-07-23"
     },
     {
       "name": "qqq",
       "status": "ok",
-      "detail": "Yahoo Finance QQQ: 2020-05-20 to 2026-07-22"
+      "detail": "Yahoo Finance QQQ: 2020-05-20 to 2026-07-23"
     },
     {
       "name": "hyg",
       "status": "ok",
-      "detail": "Yahoo Finance HYG: 2020-05-20 to 2026-07-22"
+      "detail": "Yahoo Finance HYG: 2020-05-20 to 2026-07-23"
     },
     {
       "name": "jnk",
       "status": "ok",
-      "detail": "Yahoo Finance JNK: 2020-05-20 to 2026-07-22"
+      "detail": "Yahoo Finance JNK: 2020-05-20 to 2026-07-23"
     },
     {
       "name": "kre",
       "status": "ok",
-      "detail": "Yahoo Finance KRE: 2020-05-20 to 2026-07-22"
+      "detail": "Yahoo Finance KRE: 2020-05-20 to 2026-07-23"
     },
     {
       "name": "rsp",
       "status": "ok",
-      "detail": "Yahoo Finance RSP: 2020-05-20 to 2026-07-22"
+      "detail": "Yahoo Finance RSP: 2020-05-20 to 2026-07-23"
     },
     {
       "name": "dxy",
@@ -76,8 +76,8 @@
     },
     {
       "name": "aaiiBearish",
-      "status": "ok",
-      "detail": "AAII official sentiment.xls"
+      "status": "missing",
+      "detail": "Unable to load AAII history. xlrd is not installed; install xlrd or save AAII history as data/aaii_sentiment.csv; Unable to parse recent AAII sentiment table"
     },
     {
       "name": "putCall",
@@ -92,86 +92,86 @@
   ],
   "missingShare": {
     "fearGreed": 0.0,
-    "aaiiBearish": 0.0,
+    "aaiiBearish": 1.0,
     "putCall": 1.0,
-    "hyOas": 0.3998,
-    "igOas": 0.3998,
+    "hyOas": 0.3995,
+    "igOas": 0.3995,
     "nfci": 0.0
   },
   "correlations": {
     "volatilityScore": {
-      "spyRet5dFwd": 0.1097,
-      "spyRet10dFwd": 0.135,
+      "spyRet5dFwd": 0.11,
+      "spyRet10dFwd": 0.1353,
       "spyRet20dFwd": 0.1637,
-      "spyRet60dFwd": 0.0871,
-      "spyRealizedVol20dFwd": 0.5193,
-      "spyMaxDrawdown20dFwd": -0.0857
+      "spyRet60dFwd": 0.087,
+      "spyRealizedVol20dFwd": 0.5195,
+      "spyMaxDrawdown20dFwd": -0.086
     },
     "creditScore": {
-      "spyRet5dFwd": 0.015,
-      "spyRet10dFwd": 0.016,
+      "spyRet5dFwd": 0.0153,
+      "spyRet10dFwd": 0.0162,
       "spyRet20dFwd": 0.0785,
-      "spyRet60dFwd": 0.0871,
-      "spyRealizedVol20dFwd": 0.2829,
-      "spyMaxDrawdown20dFwd": -0.0524
+      "spyRet60dFwd": 0.087,
+      "spyRealizedVol20dFwd": 0.283,
+      "spyMaxDrawdown20dFwd": -0.0526
     },
     "sentimentScore": {
-      "spyRet5dFwd": 0.0708,
-      "spyRet10dFwd": 0.0881,
-      "spyRet20dFwd": 0.1785,
-      "spyRet60dFwd": 0.1871,
-      "spyRealizedVol20dFwd": 0.5228,
-      "spyMaxDrawdown20dFwd": -0.1379
+      "spyRet5dFwd": 0.0953,
+      "spyRet10dFwd": 0.1379,
+      "spyRet20dFwd": 0.1982,
+      "spyRet60dFwd": 0.185,
+      "spyRealizedVol20dFwd": 0.3722,
+      "spyMaxDrawdown20dFwd": -0.0645
     },
     "scoreTotal": {
-      "spyRet5dFwd": 0.0852,
-      "spyRet10dFwd": 0.1047,
-      "spyRet20dFwd": 0.1797,
-      "spyRet60dFwd": 0.1545,
-      "spyRealizedVol20dFwd": 0.5583,
-      "spyMaxDrawdown20dFwd": -0.1194
+      "spyRet5dFwd": 0.0974,
+      "spyRet10dFwd": 0.1266,
+      "spyRet20dFwd": 0.1859,
+      "spyRet60dFwd": 0.1448,
+      "spyRealizedVol20dFwd": 0.5065,
+      "spyMaxDrawdown20dFwd": -0.087
     }
   },
   "byScoreBucket": {
     "0": {
-      "rows": 430,
-      "rowsWith20dForward": 422,
-      "avgSpyRet20dFwd": 0.3413,
-      "medianSpyRet20dFwd": 0.8421,
-      "winRate20dFwd": 0.5806,
-      "avgSpyRet60dFwd": 2.1956,
-      "avgRealizedVol20dFwd": 12.4913,
-      "avgMaxDrawdown20dFwd": -2.3549
+      "rows": 516,
+      "rowsWith20dForward": 506,
+      "avgSpyRet20dFwd": 0.4886,
+      "medianSpyRet20dFwd": 1.0069,
+      "winRate20dFwd": 0.6107,
+      "avgSpyRet60dFwd": 2.5545,
+      "avgRealizedVol20dFwd": 12.3762,
+      "avgMaxDrawdown20dFwd": -2.2858
     },
     "1-2": {
-      "rows": 435,
-      "rowsWith20dForward": 423,
-      "avgSpyRet20dFwd": 1.0957,
-      "medianSpyRet20dFwd": 1.8889,
-      "winRate20dFwd": 0.7045,
-      "avgSpyRet60dFwd": 3.0882,
-      "avgRealizedVol20dFwd": 13.2343,
-      "avgMaxDrawdown20dFwd": -2.0507
+      "rows": 434,
+      "rowsWith20dForward": 424,
+      "avgSpyRet20dFwd": 0.7947,
+      "medianSpyRet20dFwd": 1.6625,
+      "winRate20dFwd": 0.6533,
+      "avgSpyRet60dFwd": 2.6522,
+      "avgRealizedVol20dFwd": 15.1194,
+      "avgMaxDrawdown20dFwd": -2.4758
     },
     "3-4": {
-      "rows": 170,
-      "rowsWith20dForward": 170,
-      "avgSpyRet20dFwd": 0.8643,
-      "medianSpyRet20dFwd": 1.378,
-      "winRate20dFwd": 0.6294,
-      "avgSpyRet60dFwd": 3.3596,
-      "avgRealizedVol20dFwd": 19.5805,
-      "avgMaxDrawdown20dFwd": -3.42
+      "rows": 160,
+      "rowsWith20dForward": 160,
+      "avgSpyRet20dFwd": 1.7877,
+      "medianSpyRet20dFwd": 2.4267,
+      "winRate20dFwd": 0.6813,
+      "avgSpyRet60dFwd": 4.5879,
+      "avgRealizedVol20dFwd": 20.7249,
+      "avgMaxDrawdown20dFwd": -3.4004
     },
     "5+": {
-      "rows": 218,
-      "rowsWith20dForward": 218,
-      "avgSpyRet20dFwd": 2.5153,
-      "medianSpyRet20dFwd": 4.0387,
-      "winRate20dFwd": 0.6697,
-      "avgSpyRet60dFwd": 5.1112,
-      "avgRealizedVol20dFwd": 23.0819,
-      "avgMaxDrawdown20dFwd": -3.3042
+      "rows": 144,
+      "rowsWith20dForward": 144,
+      "avgSpyRet20dFwd": 3.0111,
+      "medianSpyRet20dFwd": 4.4587,
+      "winRate20dFwd": 0.7083,
+      "avgSpyRet60dFwd": 5.3261,
+      "avgRealizedVol20dFwd": 22.5843,
+      "avgMaxDrawdown20dFwd": -2.8687
     }
   },
   "byRegime": {
@@ -186,46 +186,46 @@
       "avgMaxDrawdown20dFwd": -2.3294
     },
     "extreme": {
-      "rows": 28,
-      "rowsWith20dForward": 28,
-      "avgSpyRet20dFwd": 4.656,
-      "medianSpyRet20dFwd": 5.137,
-      "winRate20dFwd": 0.7857,
-      "avgSpyRet60dFwd": 8.1627,
-      "avgRealizedVol20dFwd": 26.5985,
-      "avgMaxDrawdown20dFwd": -2.7246
+      "rows": 10,
+      "rowsWith20dForward": 10,
+      "avgSpyRet20dFwd": 5.4398,
+      "medianSpyRet20dFwd": 7.1533,
+      "winRate20dFwd": 0.8,
+      "avgSpyRet60dFwd": 8.0384,
+      "avgRealizedVol20dFwd": 25.0207,
+      "avgMaxDrawdown20dFwd": -1.9301
     },
     "normal": {
-      "rows": 1183,
-      "rowsWith20dForward": 1163,
-      "avgSpyRet20dFwd": 0.8618,
-      "medianSpyRet20dFwd": 1.4929,
-      "winRate20dFwd": 0.6371,
-      "avgSpyRet60dFwd": 3.0851,
-      "avgRealizedVol20dFwd": 15.0121,
-      "avgMaxDrawdown20dFwd": -2.5681
+      "rows": 1223,
+      "rowsWith20dForward": 1203,
+      "avgSpyRet20dFwd": 0.9596,
+      "medianSpyRet20dFwd": 1.5584,
+      "winRate20dFwd": 0.6401,
+      "avgSpyRet60dFwd": 3.1152,
+      "avgRealizedVol20dFwd": 15.3289,
+      "avgMaxDrawdown20dFwd": -2.5595
     },
     "panic": {
-      "rows": 33,
-      "rowsWith20dForward": 33,
-      "avgSpyRet20dFwd": 4.0005,
-      "medianSpyRet20dFwd": 5.2523,
-      "winRate20dFwd": 0.7576,
-      "avgSpyRet60dFwd": 3.2881,
-      "avgRealizedVol20dFwd": 24.5733,
-      "avgMaxDrawdown20dFwd": -2.3916
+      "rows": 12,
+      "rowsWith20dForward": 12,
+      "avgSpyRet20dFwd": 4.7513,
+      "medianSpyRet20dFwd": 3.726,
+      "winRate20dFwd": 0.9167,
+      "avgSpyRet60dFwd": 8.5109,
+      "avgRealizedVol20dFwd": 27.9176,
+      "avgMaxDrawdown20dFwd": -3.6792
     }
   },
   "byCreditScore": {
     "0": {
-      "rows": 984,
-      "rowsWith20dForward": 964,
-      "avgSpyRet20dFwd": 0.853,
-      "medianSpyRet20dFwd": 1.396,
-      "winRate20dFwd": 0.6255,
-      "avgSpyRet60dFwd": 2.734,
-      "avgRealizedVol20dFwd": 14.8678,
-      "avgMaxDrawdown20dFwd": -2.5014
+      "rows": 985,
+      "rowsWith20dForward": 965,
+      "avgSpyRet20dFwd": 0.8532,
+      "medianSpyRet20dFwd": 1.3947,
+      "winRate20dFwd": 0.6259,
+      "avgSpyRet60dFwd": 2.7353,
+      "avgRealizedVol20dFwd": 14.864,
+      "avgMaxDrawdown20dFwd": -2.4994
     },
     "1": {
       "rows": 173,
@@ -244,14 +244,14 @@
       "medianSpyRet20dFwd": 2.3545,
       "winRate20dFwd": 0.6607,
       "avgSpyRet60dFwd": 6.612,
-      "avgRealizedVol20dFwd": 19.6686,
+      "avgRealizedVol20dFwd": 19.6685,
       "avgMaxDrawdown20dFwd": -2.8066
     },
     "3": {
       "rows": 22,
       "rowsWith20dForward": 22,
       "avgSpyRet20dFwd": -0.1813,
-      "medianSpyRet20dFwd": 0.4503,
+      "medianSpyRet20dFwd": 0.4504,
       "winRate20dFwd": 0.5455,
       "avgSpyRet60dFwd": 2.5124,
       "avgRealizedVol20dFwd": 26.9023,
@@ -263,7 +263,7 @@
       "avgSpyRet20dFwd": 1.9336,
       "medianSpyRet20dFwd": 0.1089,
       "winRate20dFwd": 0.5,
-      "avgSpyRet60dFwd": 2.9944,
+      "avgSpyRet60dFwd": 2.9945,
       "avgRealizedVol20dFwd": 28.128,
       "avgMaxDrawdown20dFwd": -2.7875
     },
@@ -273,7 +273,7 @@
       "avgSpyRet20dFwd": 4.8836,
       "medianSpyRet20dFwd": 6.3463,
       "winRate20dFwd": 0.9,
-      "avgSpyRet60dFwd": 3.1405,
+      "avgSpyRet60dFwd": 3.1404,
       "avgRealizedVol20dFwd": 25.9816,
       "avgMaxDrawdown20dFwd": -2.2531
     }

@@ -88,6 +88,7 @@ h1 {
   margin: 8px 0 0;
   color: var(--muted);
   font-size: 0.94rem;
+  overflow-wrap: anywhere;
 }
 
 h2 {
@@ -134,9 +135,90 @@ main {
   padding: 24px clamp(18px, 4vw, 56px) 42px;
 }
 
+.allocation-signal {
+  display: grid;
+  grid-template-columns: minmax(280px, 1fr) minmax(360px, 0.9fr);
+  gap: 14px;
+  margin-bottom: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  padding: 22px;
+}
+
+.allocation-signal-main h2 {
+  margin-bottom: 10px;
+  font-size: clamp(2rem, 4vw, 3.35rem);
+  line-height: 1.04;
+}
+
+.allocation-signal-reason {
+  max-width: 860px;
+  color: var(--muted);
+}
+
+.allocation-score-grid,
+.allocation-guidance-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.allocation-score-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column: 1 / -1;
+}
+
+.allocation-guidance-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-column: 1 / -1;
+}
+
+.allocation-score-grid article,
+.allocation-guidance-grid article {
+  min-height: 106px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfd;
+  padding: 13px;
+}
+
+.allocation-score-grid span,
+.allocation-guidance-grid span {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 760;
+}
+
+.allocation-score-grid strong {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 1.65rem;
+  line-height: 1.1;
+}
+
+.allocation-guidance-grid strong {
+  display: block;
+  color: #26323b;
+  font-size: 0.92rem;
+  line-height: 1.38;
+}
+
+.allocation-score-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.allocation-score-grid meter {
+  width: 100%;
+}
+
 .status-band {
   display: grid;
-  grid-template-columns: minmax(280px, 1.05fr) minmax(360px, 1.25fr);
+  grid-template-columns: minmax(280px, 1.05fr) minmax(0, 1.25fr);
   gap: 18px;
   align-items: stretch;
 }
@@ -187,10 +269,8 @@ main {
 }
 
 .live-meta {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  align-items: center;
+  display: inline-block;
+  max-width: 100%;
   margin-bottom: 16px;
   border: 1px solid var(--line);
   border-radius: 7px;
@@ -198,6 +278,7 @@ main {
   color: #3a4b56;
   padding: 8px 10px;
   font-size: 0.86rem;
+  overflow-wrap: anywhere;
 }
 
 .live-meta.is-stale {
@@ -263,6 +344,7 @@ main {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
+  min-width: 0;
 }
 
 .score-card {
@@ -272,13 +354,16 @@ main {
   box-shadow: var(--shadow);
   padding: 18px;
   min-height: 172px;
+  min-width: 0;
+  overflow: hidden;
 }
 
 .score-card summary {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   min-height: 58px;
   list-style: none;
 }
@@ -318,14 +403,16 @@ main {
 
 .score-card-head strong,
 .score-card summary strong {
-  font-size: 2.45rem;
+  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
   line-height: 1;
+  overflow-wrap: anywhere;
 }
 
 .score-summary-metrics {
   display: grid;
   justify-items: end;
   gap: 4px;
+  min-width: 0;
 }
 
 .score-summary-metrics small {
@@ -335,6 +422,7 @@ main {
 }
 
 .score-card summary span {
+  flex: 1 1 86px;
   color: var(--muted);
   font-size: 0.88rem;
   font-weight: 720;
@@ -956,6 +1044,7 @@ tr:last-child td {
 
 @media (max-width: 1120px) {
   .topbar,
+  .allocation-signal,
   .status-band,
   .workspace,
   .notes-section {
@@ -999,6 +1088,8 @@ tr:last-child td {
   }
 
   .score-grid,
+  .allocation-score-grid,
+  .allocation-guidance-grid,
   .input-grid,
   .recent-updates,
   .briefing-grid,

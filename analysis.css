@@ -118,7 +118,7 @@
   border-left: 4px solid var(--blue);
 }
 
-.decision-action-sell {
+.decision-action-reduce {
   border-left: 4px solid var(--red);
 }
 

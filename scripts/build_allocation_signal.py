@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a calibrated decision layer for add/hold/reduce actions."""
+"""Build the final allocation signal for add/hold/reduce decisions."""
 
 from __future__ import annotations
 
@@ -17,8 +17,8 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 HISTORY_FILE = ROOT / "data" / "regime_model_history_5y.csv"
 LATEST_FILE = ROOT / "data" / "latest.json"
-OUT_JSON = ROOT / "data" / "regime_model_decision_v2.json"
-OUT_CSV = ROOT / "data" / "regime_model_decision_v2_history.csv"
+OUT_JSON = ROOT / "data" / "allocation_signal.json"
+OUT_CSV = ROOT / "data" / "allocation_signal_history.csv"
 
 
 def nz(mapping: dict[str, Any] | pd.Series, key: str, default: float = 0) -> float:
@@ -40,7 +40,33 @@ def clamp(value: float, low: float = 0, high: float = 100) -> float:
     return max(low, min(high, value))
 
 
-def calculate_decision_scores(row: dict[str, Any] | pd.Series) -> dict[str, Any]:
+def guidance_for_action(action: str) -> dict[str, str]:
+    guidance = {
+        "ADD": {
+            "allocation": "可按计划增加权益风险敞口，但仍应分批执行。",
+            "riskBudget": "接受未来 20-60 个交易日波动仍偏高，预先设置单次和总加仓上限。",
+            "watch": "确认信用利差、NFCI、银行股相对表现没有同步恶化。",
+        },
+        "ADD_SMALL": {
+            "allocation": "可小幅加快定投或再平衡，不宜一次性重仓。",
+            "riskBudget": "保留后续更深回撤时继续加仓的空间。",
+            "watch": "若信用压力上升或波动扩散，应暂停加仓。",
+        },
+        "REDUCE": {
+            "allocation": "降低一部分权益风险敞口，优先处理高 beta、杠杆或流动性较弱的仓位。",
+            "riskBudget": "把目标从进攻转为保护组合回撤，必要时用对冲替代直接减持。",
+            "watch": "等待信用、流动性和波动压力缓和后再恢复风险预算。",
+        },
+        "HOLD": {
+            "allocation": "维持现有配置、定投和再平衡纪律。",
+            "riskBudget": "没有足够强的加仓边际，也没有系统性减仓信号。",
+            "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。",
+        },
+    }
+    return guidance.get(action, guidance["HOLD"])
+
+
+def calculate_allocation_signal(row: dict[str, Any] | pd.Series) -> dict[str, Any]:
     volatility_score = nz(row, "volatilityScore", nz(row, "volatility"))
     credit_score = nz(row, "creditScore", nz(row, "credit"))
     sentiment_score = nz(row, "sentimentScore", nz(row, "sentiment"))
@@ -133,8 +159,8 @@ def calculate_decision_scores(row: dict[str, Any] | pd.Series) -> dict[str, Any]
         and spy_drawdown >= -15
         and risk_score >= 45
     ):
-        action = "SELL"
-        stance = "减仓/卖出一部分"
+        action = "REDUCE"
+        stance = "减仓"
         reason = "信用压力与高波动同步出现，且市场尚未充分出清，历史上后续 20-60 日风险收益较差。"
     elif opportunity_score >= 70 and risk_score <= 55 and spy_drawdown <= -10 and credit_score <= 2:
         action = "ADD"
@@ -147,18 +173,19 @@ def calculate_decision_scores(row: dict[str, Any] | pd.Series) -> dict[str, Any]
     elif overheat_risk >= 8 and opportunity_score < 35:
         action = "HOLD"
         stance = "维持/再平衡，不追高"
-        reason = "过热本身不是有效卖出信号，但不适合主动追涨。"
+        reason = "过热本身不是有效减仓信号，但不适合主动追涨。"
     else:
         action = "HOLD"
         stance = "维持"
         reason = "缺少高胜率加仓窗口，也没有足够强的减仓信号。"
 
-    return {
+    result = {
         "opportunityScore": round(opportunity_score, 2),
         "riskScore": round(risk_score, 2),
         "action": action,
         "stance": stance,
         "reason": reason,
+        "guidance": guidance_for_action(action),
         "components": {
             "drawdownOpportunity": round(drawdown_component, 2),
             "sentimentOpportunity": round(sentiment_component, 2),
@@ -171,15 +198,16 @@ def calculate_decision_scores(row: dict[str, Any] | pd.Series) -> dict[str, Any]
             "dataPenalty": round(data_penalty, 2),
         },
     }
+    return result
 
 
-def add_decision_history(frame: pd.DataFrame) -> pd.DataFrame:
-    decisions = frame.apply(calculate_decision_scores, axis=1, result_type="expand")
+def add_signal_history(frame: pd.DataFrame) -> pd.DataFrame:
+    decisions = frame.apply(calculate_allocation_signal, axis=1, result_type="expand")
     out = frame.copy()
-    out["opportunityScoreV2"] = decisions["opportunityScore"]
-    out["riskScoreV2"] = decisions["riskScore"]
-    out["actionV2"] = decisions["action"]
-    out["stanceV2"] = decisions["stance"]
+    out["opportunityScore"] = decisions["opportunityScore"]
+    out["riskScore"] = decisions["riskScore"]
+    out["allocationAction"] = decisions["action"]
+    out["allocationStance"] = decisions["stance"]
     return out
 
 
@@ -190,8 +218,8 @@ def summarize_action(group: pd.DataFrame) -> dict[str, Any]:
     return {
         "rows": int(len(group)),
         "usableRows": int(len(usable)),
-        "avgOpportunityScore": round(float(group["opportunityScoreV2"].mean()), 2),
-        "avgRiskScore": round(float(group["riskScoreV2"].mean()), 2),
+        "avgOpportunityScore": round(float(group["opportunityScore"].mean()), 2),
+        "avgRiskScore": round(float(group["riskScore"].mean()), 2),
         "avgSpyRet20dFwd": round(float(usable["spyRet20dFwd"].mean()), 4),
         "winRate20d": round(float((usable["spyRet20dFwd"] > 0).mean()), 4),
         "avgSpyRet60dFwd": round(float(usable["spyRet60dFwd"].mean()), 4),
@@ -222,7 +250,7 @@ def build_current_row(latest: dict[str, Any], trailing_vol: float | None) -> dic
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Build calibrated decision model v2.")
+    parser = argparse.ArgumentParser(description="Build the final allocation signal model.")
     parser.add_argument("--history", type=Path, default=HISTORY_FILE)
     parser.add_argument("--latest", type=Path, default=LATEST_FILE)
     parser.add_argument("--output", type=Path, default=OUT_JSON)
@@ -233,28 +261,32 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     history = pd.read_csv(args.history)
-    decision_history = add_decision_history(history)
-    decision_history.to_csv(args.history_output, index=False)
+    signal_history = add_signal_history(history)
+    signal_history.to_csv(args.history_output, index=False)
 
     action_summary = {
         action: summarize_action(group)
-        for action, group in decision_history.groupby("actionV2")
+        for action, group in signal_history.groupby("allocationAction")
     }
 
     latest = json.loads(args.latest.read_text(encoding="utf-8"))
     current_row = build_current_row(latest, current_trailing_vol(history))
-    current_decision = calculate_decision_scores(current_row)
-    current_decision.update(
+    current_signal = calculate_allocation_signal(current_row)
+    current_signal.update(
         {
             "asOf": latest.get("asOf"),
             "generatedAt": latest.get("generatedAt"),
-            "oldScores": latest.get("scores"),
-            "oldRegime": latest.get("regime", {}).get("key"),
+            "pressureScores": latest.get("scores"),
+            "marketState": latest.get("regime", {}).get("key"),
             "keyInputs": {
                 "vix": current_row.get("vix"),
+                "vixChange5d": current_row.get("vixChange5d"),
+                "move": current_row.get("move"),
                 "spyDrawdown": current_row.get("spyDrawdown"),
                 "qqqDrawdown": current_row.get("qqqDrawdown"),
                 "fearGreed": current_row.get("fearGreed"),
+                "aaiiBearish": current_row.get("aaiiBearish"),
+                "putCall": current_row.get("putCall"),
                 "creditScore": current_row.get("creditScore"),
                 "hyOas": current_row.get("hyOas"),
                 "igOas": current_row.get("igOas"),
@@ -268,33 +300,33 @@ def main() -> int:
 
     payload = {
         "generatedAt": datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
-        "model": "decision_v2",
+        "model": "allocation_signal",
         "method": {
-            "summary": "Separate opportunity and risk scores, then map to ADD / HOLD / SELL actions.",
+            "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
             "rationale": [
-                "Historical total stress score explained future volatility better than direction.",
-                "Add signals require fear/drawdown plus non-systemic credit conditions.",
-                "Sell/reduce signals require credit stress and high volatility; overheat alone is treated as a no-chase/rebalance signal, not a sell trigger.",
+                "Stress indicators are useful, but they explain forward volatility more strongly than forward direction.",
+                "Add signals require drawdown, fear, and non-systemic credit conditions.",
+                "Reduce signals require credit stress and high volatility; overheat alone is treated as a no-chase/rebalance signal.",
             ],
         },
-        "currentDecision": current_decision,
+        "currentSignal": current_signal,
         "historicalActionSummary": action_summary,
         "rules": {
             "ADD": "opportunityScore >= 70, riskScore <= 55, SPY drawdown <= -10%, creditScore <= 2",
             "ADD_SMALL": "opportunityScore >= 55, riskScore <= 50, SPY drawdown <= -5%, creditScore <= 2",
-            "SELL": "credit stress + high trailing volatility while SPY drawdown is not fully flushed, or stronger credit/vol stress before deep capitulation",
-            "HOLD": "default when neither add nor sell edge is strong enough",
+            "REDUCE": "credit stress + high trailing volatility while SPY drawdown is not fully flushed, or stronger credit/vol stress before deep capitulation",
+            "HOLD": "default when neither add nor reduce edge is strong enough",
         },
         "caveats": [
             "This is a decision-support model, not a guarantee or personalized investment advice.",
-            "Historical samples for SELL are small, so SELL should be interpreted as reduce risk / hedge / sell a portion, not necessarily liquidate everything.",
+            "Historical samples for REDUCE are small, so REDUCE should be interpreted as reduce risk / hedge / sell a portion, not necessarily liquidate everything.",
             "Put/Call has current live data but lacks a reliable five-year public history, so it is not a major historical calibration driver.",
         ],
     }
     args.output.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(
         f"Wrote {args.output.relative_to(ROOT)} and {args.history_output.relative_to(ROOT)} | "
-        f"current_action={current_decision['action']}"
+        f"current_action={current_signal['action']}"
     )
     return 0
 

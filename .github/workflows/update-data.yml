@@ -31,16 +31,16 @@ jobs:
           python scripts/update_data.py
           python scripts/backfill_regime_history.py --years 5
           python scripts/analyze_regime_history.py
-          python scripts/build_decision_model_v2.py
+          python scripts/build_allocation_signal.py
 
       - name: Commit updated data
         run: |
-          if git diff --quiet -- data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/regime_model_decision_v2.json data/regime_model_decision_v2_history.csv; then
+          if git diff --quiet -- data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv; then
             echo "No market data changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/regime_model_decision_v2.json data/regime_model_decision_v2_history.csv
+          git add data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv
           git commit -m "Update market data snapshot"
           git push

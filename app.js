@@ -352,6 +352,7 @@ const scenarios = [
 let activePreset = "live";
 let liveSnapshot = null;
 let latestHistory = null;
+let latestSignal = null;
 let dashboardState = { mode: "loading", snapshot: null, history: null };
 let historyRangeDays = 90;
 
@@ -374,12 +375,25 @@ const briefingSummary = document.querySelector("#briefing-summary");
 const briefingList = document.querySelector("#briefing-list");
 const briefingFooter = document.querySelector("#briefing-footer");
 const libraryTabs = Array.from(document.querySelectorAll(".library-tab"));
+const allocationSignalTitle = document.querySelector("#allocation-signal-title");
+const allocationSignalReason = document.querySelector("#allocation-signal-reason");
+const allocationSignalMeta = document.querySelector("#allocation-signal-meta");
+const allocationOpportunity = document.querySelector("#allocation-opportunity");
+const allocationRisk = document.querySelector("#allocation-risk");
+const allocationPressure = document.querySelector("#allocation-pressure");
+const allocationPressureNote = document.querySelector("#allocation-pressure-note");
+const allocationOpportunityMeter = document.querySelector("#allocation-opportunity-meter");
+const allocationRiskMeter = document.querySelector("#allocation-risk-meter");
+const allocationGuidance = document.querySelector("#allocation-guidance");
+const riskBudgetGuidance = document.querySelector("#risk-budget-guidance");
+const watchGuidance = document.querySelector("#watch-guidance");
 const CLIENT_POLL_MS = 120000;
 const BRIEFING_POLL_MS = 300000;
 const STALE_SNAPSHOT_MINUTES = 1440;
 const STATIC_SNAPSHOT_ENDPOINT = "data/latest.json";
 const HISTORY_ENDPOINT = "data/history.json";
 const BRIEFING_ENDPOINT = "data/briefing.json";
+const ALLOCATION_SIGNAL_ENDPOINT = "data/allocation_signal.json";
 const STATIC_TIMEOUT_MS = 8000;
 const ET_TIMEZONE = "America/New_York";
 const SCORE_MAX = {
@@ -916,7 +930,7 @@ function renderRecentUpdates(history) {
         <article class="recent-update-card${index === windowed.length - 1 ? " is-current" : ""}">
           <div class="recent-update-meta">${escapeHtml(formatEtTime(entry.generatedAt))} · ${escapeHtml(entry.regimeTitle || entry.regime || "--")}</div>
           <strong>${escapeHtml(scoreLabel)}</strong>
-          <p>SPY drawdown ${typeof entry.spyDrawdown === "number" ? entry.spyDrawdown.toFixed(1) : "--"}% · Fear & Greed ${typeof entry.fearGreed === "number" ? entry.fearGreed.toFixed(0) : "--"} · Raw ${entry.scores?.volatility ?? "--"}/${entry.scores?.credit ?? "--"}/${entry.scores?.sentiment ?? "--"}</p>
+          <p>SPY drawdown ${typeof entry.spyDrawdown === "number" ? entry.spyDrawdown.toFixed(1) : "--"}% · Fear & Greed ${typeof entry.fearGreed === "number" ? entry.fearGreed.toFixed(0) : "--"} · Pressure ${entry.scores?.volatility ?? "--"}/${entry.scores?.credit ?? "--"}/${entry.scores?.sentiment ?? "--"}</p>
         </article>
       `;
     })
@@ -977,7 +991,7 @@ function renderHistory(history) {
     .map((entry, index) => {
       const scoreTotal = (entry.scores?.volatility || 0) + (entry.scores?.credit || 0) + (entry.scores?.sentiment || 0);
       const height = Math.max(18, Math.min(74, 18 + Math.abs(entry.spyDrawdown || 0) * 3 + scoreTotal * 2));
-      const title = `${entry.asOf || "--"} | ${entry.regimeTitle || entry.regime} | SPY ${typeof entry.spyClose === "number" ? entry.spyClose.toFixed(2) : "--"} | Drawdown ${typeof entry.spyDrawdown === "number" ? entry.spyDrawdown.toFixed(1) : "--"}% | Raw ${entry.scores?.volatility ?? "--"}/${entry.scores?.credit ?? "--"}/${entry.scores?.sentiment ?? "--"}`;
+      const title = `${entry.asOf || "--"} | ${entry.regimeTitle || entry.regime} | SPY ${typeof entry.spyClose === "number" ? entry.spyClose.toFixed(2) : "--"} | Drawdown ${typeof entry.spyDrawdown === "number" ? entry.spyDrawdown.toFixed(1) : "--"}% | Pressure ${entry.scores?.volatility ?? "--"}/${entry.scores?.credit ?? "--"}/${entry.scores?.sentiment ?? "--"}`;
       return `<div class="history-bar regime-${entry.regime}${index === windowed.length - 1 ? " is-current" : ""}" style="height:${height}px" title="${escapeHtml(title)}"></div>`;
     })
     .join("");
@@ -1108,16 +1122,72 @@ function renderScoreDetails(values, scores) {
   document.querySelector("#sentiment-detail").textContent =
     "综合衡量投资者风险偏好、看跌比例和期权保护需求。情绪恐惧在信用稳定时可作为反向参考；若与信用压力同步恶化，则应降低风险预算。";
 
-  renderList("vol-contributors", contributors.vol, `未触发主要波动率压力阈值，Volatility Pressure raw score = ${scores.volatility}。`);
-  renderList("credit-contributors", contributors.credit, `信用压力阈值基本未触发，Credit Pressure raw score = ${scores.credit}。`);
-  renderList("sentiment-contributors", contributors.sentiment, `情绪压力阈值触发有限，Sentiment Fear raw score = ${scores.sentiment}。`);
+  renderList("vol-contributors", contributors.vol, `未触发主要波动率压力阈值，Volatility Pressure score = ${scores.volatility}。`);
+  renderList("credit-contributors", contributors.credit, `信用压力阈值基本未触发，Credit Pressure score = ${scores.credit}。`);
+  renderList("sentiment-contributors", contributors.sentiment, `情绪压力阈值触发有限，Sentiment Fear score = ${scores.sentiment}。`);
 }
 
 function renderInvestmentImplications(regime, scores, values) {
+  const signal = latestSignal?.currentSignal;
+  if (activePreset === "live" && signal) {
+    document.querySelector("#primary-action").textContent = signal.stance || allocationActionLabel(signal.action);
+    document.querySelector("#allocation-cue").textContent = signal.guidance?.allocation || signal.reason;
+    document.querySelector("#watch-cue").textContent = signal.guidance?.watch || "观察信用、波动和回撤是否同步恶化";
+    return;
+  }
   const implications = investmentImplications(regime, scores, values);
   document.querySelector("#primary-action").textContent = implications.primary;
   document.querySelector("#allocation-cue").textContent = implications.allocation;
   document.querySelector("#watch-cue").textContent = implications.watch;
+}
+
+function allocationActionLabel(action) {
+  if (action === "ADD") return "加仓";
+  if (action === "ADD_SMALL") return "小幅分批加仓";
+  if (action === "REDUCE") return "减仓";
+  return "维持";
+}
+
+function pressureCompositeText(scores = {}) {
+  const volatility = Number(scores.volatility || 0);
+  const credit = Number(scores.credit || 0);
+  const sentiment = Number(scores.sentiment || 0);
+  return `${volatility + credit + sentiment} (${volatility}/${credit}/${sentiment})`;
+}
+
+function renderAllocationSignal(signalPayload) {
+  latestSignal = signalPayload;
+  const signal = signalPayload?.currentSignal;
+  if (!signal || !allocationSignalTitle) return;
+
+  const actionText = signal.stance || allocationActionLabel(signal.action);
+  allocationSignalTitle.textContent = actionText;
+  allocationSignalReason.textContent = signal.reason || "当前没有可显示的信号解释。";
+  allocationSignalMeta.textContent = `Signal | ${signal.asOf || "--"} | ${formatDateTime(signalPayload.generatedAt || signal.generatedAt)}`;
+
+  allocationOpportunity.textContent = Number(signal.opportunityScore || 0).toFixed(1);
+  allocationRisk.textContent = Number(signal.riskScore || 0).toFixed(1);
+  allocationPressure.textContent = pressureCompositeText(signal.pressureScores);
+  allocationPressureNote.textContent = "括号内依次为波动 / 信用 / 情绪压力";
+  allocationOpportunityMeter.value = Number(signal.opportunityScore || 0);
+  allocationRiskMeter.value = Number(signal.riskScore || 0);
+
+  allocationGuidance.textContent = signal.guidance?.allocation || "--";
+  riskBudgetGuidance.textContent = signal.guidance?.riskBudget || "--";
+  watchGuidance.textContent = signal.guidance?.watch || "--";
+
+  if (activePreset === "live") {
+    document.querySelector("#primary-action").textContent = actionText;
+    document.querySelector("#allocation-cue").textContent = signal.guidance?.allocation || signal.reason || "--";
+    document.querySelector("#watch-cue").textContent = signal.guidance?.watch || "--";
+  }
+}
+
+function renderAllocationSignalError(error) {
+  if (!allocationSignalTitle) return;
+  allocationSignalTitle.textContent = "仓位信号暂不可用";
+  allocationSignalReason.textContent = `等待 data/allocation_signal.json。错误：${error.message}`;
+  allocationSignalMeta.textContent = "Allocation Signal | 数据未加载成功";
 }
 
 function renderStatus(values, scores, regime, context = {}) {
@@ -1140,9 +1210,9 @@ function renderStatus(values, scores, regime, context = {}) {
   document.querySelector("#vol-score").textContent = pressureLevel("vol", scores.volatility);
   document.querySelector("#credit-score").textContent = pressureLevel("credit", scores.credit);
   document.querySelector("#sentiment-score").textContent = pressureLevel("sentiment", scores.sentiment);
-  document.querySelector("#vol-score-range").textContent = `${scores.volatility} / ${SCORE_MAX.volatility} raw`;
-  document.querySelector("#credit-score-range").textContent = `${scores.credit} / ${SCORE_MAX.credit} raw`;
-  document.querySelector("#sentiment-score-range").textContent = `${scores.sentiment} / ${SCORE_MAX.sentiment} raw`;
+  document.querySelector("#vol-score-range").textContent = `${scores.volatility} / ${SCORE_MAX.volatility}`;
+  document.querySelector("#credit-score-range").textContent = `${scores.credit} / ${SCORE_MAX.credit}`;
+  document.querySelector("#sentiment-score-range").textContent = `${scores.sentiment} / ${SCORE_MAX.sentiment}`;
 
   document.querySelector("#vol-meter").value = scores.volatility;
   document.querySelector("#credit-meter").value = scores.credit;
@@ -1351,12 +1421,27 @@ async function loadHistory(options = {}) {
   }
 }
 
+async function loadAllocationSignal(options = {}) {
+  if (!options.silent && allocationSignalMeta) {
+    allocationSignalMeta.textContent = "Allocation Signal | 正在读取最终信号...";
+  }
+  try {
+    renderAllocationSignal(await fetchStaticJson(ALLOCATION_SIGNAL_ENDPOINT));
+  } catch (error) {
+    if (options.silent) {
+      console.warn("Allocation signal refresh failed", error);
+      return;
+    }
+    renderAllocationSignalError(error);
+  }
+}
+
 function renderBriefing(briefing) {
   if (!briefingMeta || !briefingSummary || !briefingList) return;
   const itemCount = Array.isArray(briefing.items) ? briefing.items.length : 0;
   const suppressed = Number(briefing.suppressedCount || 0);
   const coverage = Number(briefing.linkCoverage || 0);
-  briefingMeta.textContent = `更新 ${formatDateTime(briefing.generatedAt)} | ${briefing.source || "每日投资简报"} | ${itemCount} 个上下文卡片 | ${coverage}/${itemCount || 0} 个卡片已附原始链接${suppressed ? ` | ${suppressed} 条缺原始链接的个股线索已隐藏` : ""}`;
+  briefingMeta.textContent = `更新 ${formatDateTime(briefing.generatedAt)} | ${briefing.source || "每日投资简报"} | ${itemCount} 个上下文卡片 | ${coverage}/${itemCount || 0} 个卡片已附来源链接${suppressed ? ` | ${suppressed} 条缺来源链接的个股线索已隐藏` : ""}`;
   briefingSummary.textContent = briefing.summary || "今日暂无简报摘要。";
   if (briefingFooter) {
     briefingFooter.textContent = `Briefing generated at ${formatEtTime(briefing.generatedAt)}`;
@@ -1380,7 +1465,7 @@ function renderBriefing(briefing) {
               return `<a class="briefing-card-link" href="${escapeHtml(source.url)}" target="_blank" rel="noopener">${escapeHtml(label)}</a>`;
             })
             .join("")
-        : `<span class="briefing-card-link">Original link unavailable in local memory</span>`;
+        : `<span class="briefing-card-link">Source link unavailable in local memory</span>`;
       return `
         <article class="briefing-card">
           <h3>${escapeHtml(item.title)}</h3>
@@ -1458,6 +1543,7 @@ function selectPreset(name) {
   presetButtons.forEach((button) => button.classList.toggle("is-active", button.dataset.preset === name));
   if (name === "live") {
     loadLiveData();
+    loadAllocationSignal();
     return;
   }
   setValues(presets[name]);
@@ -1483,11 +1569,13 @@ if (resetButton) {
     if (activePreset === "live" || activePreset === "manual") {
       loadLiveData();
       loadHistory();
+      loadAllocationSignal();
       loadBriefing();
       return;
     }
     selectPreset(activePreset);
     loadHistory();
+    loadAllocationSignal();
     loadBriefing();
   });
 }
@@ -1510,6 +1598,7 @@ libraryTabs.forEach((button) => {
 
 buildForm();
 renderTables();
+loadAllocationSignal();
 loadLiveData();
 loadHistory();
 loadBriefing();
@@ -1518,6 +1607,7 @@ setInterval(() => {
   if (activePreset === "live") {
     loadLiveData({ silent: true });
     loadHistory({ silent: true });
+    loadAllocationSignal({ silent: true });
   }
 }, CLIENT_POLL_MS);
 

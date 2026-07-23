@@ -1,54 +1,55 @@
 const ANALYSIS_ENDPOINT = "data/regime_model_quant_analysis.json";
-const DECISION_ENDPOINT = "data/regime_model_decision_v2.json";
+const SIGNAL_ENDPOINT = "data/allocation_signal.json";
 const LATEST_ENDPOINT = "data/latest.json";
 
 const actionLabels = {
   ADD: "加仓",
   ADD_SMALL: "小幅分批加仓",
   HOLD: "维持",
-  SELL: "减仓/卖出一部分",
+  REDUCE: "减仓",
 };
 
 const indicatorRows = [
   {
     module: "波动",
-    indicators: "VIX、VIX 5D 变化、MOVE",
-    reason: "衡量权益和利率市场的避险需求。波动快速上行通常代表仓位去杠杆和风险预算收缩。",
-    role: "原始压力分；v2 同时进入机会分和风险分。",
+    indicators: "VIX、VIX 5D 变化、MOVE、SPY 20D realized vol",
+    reason: "衡量权益和利率市场的避险需求。波动快速上行通常代表去杠杆和风险预算收缩。",
+    role: "判断风险是否扩散，也判断恐慌是否已经形成可分批加仓的价格折扣。",
   },
   {
     module: "回撤和趋势",
-    indicators: "SPY/QQQ drawdown、RSP/SPY、SPY 20D trailing vol",
-    reason: "识别价格是否已经充分调整，以及上涨是否过度集中在少数权重股。",
-    role: "v2 机会分的核心输入，也用于趋势风险识别。",
+    indicators: "SPY/QQQ drawdown、RSP/SPY",
+    reason: "识别价格是否已经充分调整，以及上涨或下跌是否过度集中在少数权重股。",
+    role: "回撤主要提高机会分；趋势破坏和市场宽度恶化会提高风险分。",
   },
   {
     module: "情绪",
     indicators: "CNN Fear & Greed、AAII Bearish、Put/Call",
-    reason: "恐慌情绪在中期经常对应反向机会，但单独使用会过早或过晚。",
-    role: "原始情绪分；v2 中提高 opportunity，但不自动触发买入。",
+    reason: "恐慌情绪在中期常有反向意义，但单独使用容易过早或过晚。",
+    role: "在信用稳定时提高加仓机会；在信用恶化时只作为风险环境的补充证据。",
   },
   {
     module: "信用和流动性",
     indicators: "HYG/JNK、HY OAS、IG OAS、DXY、NFCI、KRE/SPY",
     reason: "信用压力扩散通常比单纯股市波动更接近系统性风险。",
-    role: "v2 risk gate。信用不稳时，高恐慌分不直接转为加仓。",
+    role: "最重要的风险门槛。信用不稳时，恐慌不能直接转化为加仓。",
   },
   {
     module: "利率环境",
     indicators: "10Y、real 10Y、MOVE",
-    reason: "利率和实际利率影响估值折现、久期资产和信用压力的传导。",
-    role: "辅助解释宏观背景；当前不作为单独动作触发器。",
+    reason: "利率和实际利率影响估值折现、久期资产和信用压力传导。",
+    role: "作为宏观背景和波动解释变量，不作为单独动作触发器。",
   },
 ];
 
 const limits = [
-  "样本只有 5 年，包含 2022 加息熊市和若干快速反弹窗口，但不覆盖完整长期周期。",
-  "Cboe 公开 equity put/call 历史在当前抓取方式下无法覆盖完整 5 年，因此历史缺失率需要单独披露。",
+  "样本覆盖约 5 年，包含加息周期、熊市、银行压力和若干反弹窗口，但仍不能代表所有长期市场环境。",
+  "20D/60D 前瞻收益窗口彼此重叠，因此统计结果是经验倾向，不是严格独立样本显著性检验。",
+  "减仓信号样本较少，应理解为降低风险预算、减持一部分或对冲，不是机械清仓。",
+  "Cboe 公开 equity put/call 历史在当前抓取方式下无法覆盖完整 5 年，历史分析需披露该缺口。",
   "FRED 信用利差和 NFCI 存在 T+1 或周频特征，不能当作盘中实时风险开关。",
-  "模型用 SPY 作为市场代理，不等同于具体组合、行业、久期、现金流和税务约束。",
-  "打分规则是决策辅助，不是自动交易系统；需要结合估值、盈利、政策事件和组合风险预算。",
-  "v2 规则来自历史回放和经济含义校准，仍可能过拟合；未来应加入 out-of-sample 和 walk-forward 验证。",
+  "模型以 SPY 作为市场代理，不等同于具体组合、行业、久期、现金流和税务约束。",
+  "仓位信号是决策辅助，不是个性化投资建议；执行前仍需结合组合目标、估值、盈利和风险承受能力。",
 ];
 
 function $(selector) {
@@ -83,56 +84,56 @@ function fmtDateTime(isoText) {
   });
 }
 
-function oldScoreText(scores = {}) {
+function pressureScoreText(scores = {}) {
   const total = (scores.volatility || 0) + (scores.credit || 0) + (scores.sentiment || 0);
   return `${total} (${scores.volatility || 0}/${scores.credit || 0}/${scores.sentiment || 0})`;
 }
 
-function renderCurrent(decision, latest) {
-  const current = decision.currentDecision;
+function renderCurrent(signal) {
+  const current = signal.currentSignal;
   $("#research-current-title").textContent = `${current.stance || actionLabels[current.action] || current.action} | ${current.asOf}`;
   $("#current-reason").textContent = current.reason || "当前没有可显示的模型解释。";
   $("#current-opportunity").textContent = fmtNum(current.opportunityScore, 1);
   $("#current-risk").textContent = fmtNum(current.riskScore, 1);
-  $("#current-old-score").textContent = oldScoreText(latest.scores);
+  $("#current-pressure").textContent = pressureScoreText(current.pressureScores);
 }
 
-function renderSnapshot(analysis, decision) {
+function renderSnapshot(analysis, signal) {
   const meta = analysis.meta;
   $("#snapshot-list").innerHTML = `
     <div><dt>样本区间</dt><dd>${meta.startDate} - ${meta.endDate}</dd></div>
     <div><dt>交易日样本</dt><dd>${meta.rows}</dd></div>
     <div><dt>平均输入覆盖率</dt><dd>${fmtRate(meta.avgCompleteness)}</dd></div>
-    <div><dt>数据生成时间</dt><dd>${fmtDateTime(decision.generatedAt)}</dd></div>
+    <div><dt>数据生成时间</dt><dd>${fmtDateTime(signal.generatedAt)}</dd></div>
   `;
 }
 
-function renderFindings(analysis, decision) {
+function renderFindings(analysis, signal) {
   const headline = analysis.headline;
-  const current = decision.currentDecision;
+  const current = signal.currentSignal;
   const cards = [
     {
-      label: "分数更擅长解释什么",
+      label: "当前仓位信号",
+      value: current.stance || actionLabels[current.action],
+      copy: `机会分 ${fmtNum(current.opportunityScore, 1)}，风险分 ${fmtNum(current.riskScore, 1)}。`,
+    },
+    {
+      label: "信号最擅长识别",
       value: fmtNum(headline.scoreTotalVol20Spearman, 2),
-      copy: `Score 与未来 20D 波动的 Spearman 相关；未来 20D 收益相关只有 ${fmtNum(
+      copy: `压力分与未来 20D 波动的 Spearman 相关；未来 20D 收益相关为 ${fmtNum(
         headline.scoreTotalReturn20Spearman,
         2
       )}。`,
     },
     {
-      label: "高压力后的平均反弹",
+      label: "高压力后的反弹倾向",
       value: fmtPct(headline.highScoreAvgReturn20),
-      copy: `Score 5+ 后续 20D 胜率 ${fmtRate(headline.highScoreWinRate20)}，但伴随更高实现波动。`,
+      copy: `高压力组后续 20D 胜率 ${fmtRate(headline.highScoreWinRate20)}，但波动也更高。`,
     },
     {
-      label: "当前 v2 动作",
-      value: current.stance || actionLabels[current.action],
-      copy: `机会分 ${fmtNum(current.opportunityScore, 1)}，风险分 ${fmtNum(current.riskScore, 1)}。`,
-    },
-    {
-      label: "核心方法变化",
-      value: "拆分机会/风险",
-      copy: "高压力不直接等于卖出；信用稳定时可能是加仓窗口，信用恶化时才优先防守。",
+      label: "最终使用原则",
+      value: "先看信用门槛",
+      copy: "恐慌和回撤只有在信用稳定时才支持加仓；信用恶化时优先降低风险预算。",
     },
   ];
   $("#finding-grid").innerHTML = cards
@@ -163,26 +164,26 @@ function renderIndicators() {
     .join("");
 }
 
-function renderEvidence(analysis, decision) {
+function renderEvidence(analysis, signal) {
   const meta = analysis.meta;
   const headline = analysis.headline;
-  const add = decision.historicalActionSummary.ADD;
-  const sell = decision.historicalActionSummary.SELL;
+  const add = signal.historicalActionSummary.ADD;
+  const reduce = signal.historicalActionSummary.REDUCE;
   const cards = [
     {
-      label: "ADD 历史回放",
+      label: "加仓历史回放",
       value: fmtPct(add.avgSpyRet20dFwd),
       copy: `${add.usableRows} 个可用样本，20D 胜率 ${fmtRate(add.winRate20d)}。`,
     },
     {
-      label: "SELL 历史回放",
-      value: fmtPct(sell.avgSpyRet20dFwd),
-      copy: `${sell.usableRows} 个可用样本，样本少，更多用于风险警报而非收益预测。`,
+      label: "减仓历史回放",
+      value: fmtPct(reduce.avgSpyRet20dFwd),
+      copy: `${reduce.usableRows} 个可用样本，样本少，更适合作为风险预算警报。`,
     },
     {
-      label: "高分 vs 低分",
+      label: "高压力 vs 低压力",
       value: `${fmtPct(headline.highScoreAvgReturn20)} / ${fmtPct(headline.lowScoreAvgReturn20)}`,
-      copy: "20D 平均收益，高分组更高，但也更波动。",
+      copy: "20D 平均收益。高压力组更高，但对应更高实现波动。",
     },
     {
       label: "数据缺口",
@@ -203,11 +204,11 @@ function renderEvidence(analysis, decision) {
     .join("");
 }
 
-function renderActionTable(decision) {
-  const order = ["ADD", "ADD_SMALL", "HOLD", "SELL"];
+function renderActionTable(signal) {
+  const order = ["ADD", "ADD_SMALL", "HOLD", "REDUCE"];
   $("#action-table").innerHTML = order
     .map((action) => {
-      const row = decision.historicalActionSummary[action];
+      const row = signal.historicalActionSummary[action];
       return `
         <tr>
           <td><strong>${actionLabels[action]}</strong><small>${action}</small></td>
@@ -228,31 +229,27 @@ function renderLimits() {
 
 async function init() {
   try {
-    const [analysisResponse, decisionResponse, latestResponse] = await Promise.all([
+    const [analysisResponse, signalResponse, latestResponse] = await Promise.all([
       fetch(`${ANALYSIS_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
-      fetch(`${DECISION_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
+      fetch(`${SIGNAL_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
       fetch(`${LATEST_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
     ]);
     if (!analysisResponse.ok) throw new Error(`analysis HTTP ${analysisResponse.status}`);
-    if (!decisionResponse.ok) throw new Error(`decision HTTP ${decisionResponse.status}`);
+    if (!signalResponse.ok) throw new Error(`signal HTTP ${signalResponse.status}`);
     if (!latestResponse.ok) throw new Error(`latest HTTP ${latestResponse.status}`);
-    const [analysis, decision, latest] = await Promise.all([
-      analysisResponse.json(),
-      decisionResponse.json(),
-      latestResponse.json(),
-    ]);
-    renderCurrent(decision, latest);
-    renderSnapshot(analysis, decision);
-    renderFindings(analysis, decision);
+    const [analysis, signal] = await Promise.all([analysisResponse.json(), signalResponse.json(), latestResponse.json()]);
+    renderCurrent(signal);
+    renderSnapshot(analysis, signal);
+    renderFindings(analysis, signal);
     renderIndicators();
-    renderEvidence(analysis, decision);
-    renderActionTable(decision);
+    renderEvidence(analysis, signal);
+    renderActionTable(signal);
     renderLimits();
   } catch (error) {
     $(".research-page").innerHTML = `
       <section class="research-panel">
         <p class="eyebrow">Load Error</p>
-        <h2>研究数据未加载成功</h2>
+        <h2>信号数据未加载成功</h2>
         <p>${error.message}</p>
       </section>
     `;

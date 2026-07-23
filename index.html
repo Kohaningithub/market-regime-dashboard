@@ -3,32 +3,72 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Market Investment Readout</title>
+    <title>Market Allocation Signal</title>
     <meta
       name="description"
-      content="A client-facing market regime readout for judging whether U.S. equities favor investing, rebalancing, adding risk, or defensive positioning."
+      content="Investor-facing allocation signal for judging whether U.S. equities favor adding, holding, or reducing risk."
     />
-    <link rel="stylesheet" href="styles.css?v=20260722-research1" />
+    <link rel="stylesheet" href="styles.css?v=20260723-final1" />
   </head>
   <body>
     <header class="topbar">
       <div>
-        <p class="eyebrow">Client Market Readout</p>
-        <h1>Market Investment Readout</h1>
-        <p class="topbar-copy">用波动率、回撤、情绪、信用和系统性风险指标判断当前更适合定投、分批加仓、等待抄底，还是先防守。</p>
+        <p class="eyebrow">Investor Allocation Tool</p>
+        <h1>Market Allocation Signal</h1>
+        <p class="topbar-copy">判断当前应加仓、维持，还是减仓。</p>
       </div>
       <div class="topbar-actions" aria-label="Live data controls">
         <button class="preset-button is-active" data-preset="live" type="button">Live Data</button>
-        <a class="secondary-button" href="analysis.html">Quant Analysis</a>
-        <a class="secondary-button" href="research.html">Research Method</a>
+        <a class="secondary-button" href="analysis.html">Signal Evidence</a>
+        <a class="secondary-button" href="research.html">Method & Limits</a>
         <button id="reset-button" class="secondary-button" type="button">重新读取快照</button>
       </div>
     </header>
 
     <main>
+      <section class="allocation-signal" aria-labelledby="allocation-signal-title">
+        <div class="allocation-signal-main">
+          <p class="eyebrow">Final Allocation Signal</p>
+          <h2 id="allocation-signal-title">正在读取仓位信号...</h2>
+          <p id="allocation-signal-reason" class="allocation-signal-reason">--</p>
+          <div id="allocation-signal-meta" class="live-meta">正在读取最终信号...</div>
+        </div>
+        <div class="allocation-score-grid" aria-label="Allocation signal scores">
+          <article>
+            <span>Opportunity Score</span>
+            <strong id="allocation-opportunity">--</strong>
+            <meter id="allocation-opportunity-meter" min="0" max="100" value="0"></meter>
+          </article>
+          <article>
+            <span>Risk Score</span>
+            <strong id="allocation-risk">--</strong>
+            <meter id="allocation-risk-meter" min="0" max="100" value="0"></meter>
+          </article>
+          <article>
+            <span>Pressure Composite</span>
+            <strong id="allocation-pressure">--</strong>
+            <p id="allocation-pressure-note">--</p>
+          </article>
+        </div>
+        <div class="allocation-guidance-grid" aria-label="Allocation guidance">
+          <article>
+            <span>仓位执行</span>
+            <strong id="allocation-guidance">--</strong>
+          </article>
+          <article>
+            <span>风险预算</span>
+            <strong id="risk-budget-guidance">--</strong>
+          </article>
+          <article>
+            <span>观察重点</span>
+            <strong id="watch-guidance">--</strong>
+          </article>
+        </div>
+      </section>
+
       <section class="status-band" aria-labelledby="regime-title">
         <div class="regime-panel">
-          <p class="eyebrow">Current Regime</p>
+          <p class="eyebrow">Market State</p>
           <h2 id="regime-title">--</h2>
           <p id="regime-internal" class="regime-internal">--</p>
           <p id="regime-change" class="regime-change">--</p>
@@ -62,7 +102,7 @@
               <span>Volatility Pressure</span>
               <div class="score-summary-metrics">
                 <strong id="vol-score">Low</strong>
-                <small id="vol-score-range">0 / 8 raw</small>
+                <small id="vol-score-range">0 / 8</small>
               </div>
             </summary>
             <meter id="vol-meter" min="0" max="8" value="0"></meter>
@@ -78,7 +118,7 @@
               <span>Credit Pressure</span>
               <div class="score-summary-metrics">
                 <strong id="credit-score">Low</strong>
-                <small id="credit-score-range">0 / 18 raw</small>
+                <small id="credit-score-range">0 / 18</small>
               </div>
             </summary>
             <meter id="credit-meter" min="0" max="18" value="0"></meter>
@@ -94,7 +134,7 @@
               <span>Sentiment Fear</span>
               <div class="score-summary-metrics">
                 <strong id="sentiment-score">Low</strong>
-                <small id="sentiment-score-range">0 / 8 raw</small>
+                <small id="sentiment-score-range">0 / 8</small>
               </div>
             </summary>
             <meter id="sentiment-meter" min="0" max="8" value="0"></meter>
@@ -171,7 +211,7 @@
         <aside class="insight-panel" aria-labelledby="insight-title">
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Decision Trail</p>
+              <p class="eyebrow">Signal Drivers</p>
               <h2 id="insight-title">为什么是这个判断</h2>
             </div>
           </div>
@@ -207,8 +247,8 @@
       <section class="table-section model-library" aria-labelledby="model-library-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">Model Library</p>
-            <h2 id="model-library-title">模型解释</h2>
+            <p class="eyebrow">Indicator Framework</p>
+            <h2 id="model-library-title">指标框架</h2>
           </div>
         </div>
         <div class="library-tabs" role="tablist" aria-label="Model library tabs">
@@ -256,7 +296,7 @@
           <p class="eyebrow">Data Notes</p>
           <p>
             GitHub Actions 每天美东 8:00、12:00、15:00 抓取市场指标并保存 <code>data/latest.json</code>。
-            同步维护 <code>data/history.json</code> 作为状态历史序列。
+            同步维护 <code>data/history.json</code> 与 <code>data/allocation_signal.json</code>。
             每日投资简报发布器会写入 <code>data/briefing.json</code>，网页直接读取最近一次快照。
             当前估值分位未接入稳定公开源，因此不参与自动判断。公开无密钥数据存在延迟：FRED 多为 T+1，NFCI 为周频。
           </p>

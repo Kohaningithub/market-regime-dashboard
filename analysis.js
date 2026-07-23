@@ -1,9 +1,9 @@
 const ANALYSIS_ENDPOINT = "data/regime_model_quant_analysis.json";
-const DECISION_ENDPOINT = "data/regime_model_decision_v2.json";
+const SIGNAL_ENDPOINT = "data/allocation_signal.json";
 const HORIZONS = [5, 10, 20, 60];
 
 let analysisPayload = null;
-let decisionPayload = null;
+let signalPayload = null;
 let activeHorizon = 20;
 let resizeTimer = null;
 
@@ -178,15 +178,15 @@ function renderKpis() {
 function actionText(action) {
   if (action === "ADD") return "加仓";
   if (action === "ADD_SMALL") return "小幅分批加仓";
-  if (action === "SELL") return "减仓/卖出一部分";
+  if (action === "REDUCE") return "减仓";
   return "维持";
 }
 
 function renderDecision() {
-  if (!decisionPayload) return;
-  const current = decisionPayload.currentDecision;
-  const actionClass = current.action === "SELL" ? "sell" : current.action === "ADD" || current.action === "ADD_SMALL" ? "add" : "hold";
-  containers.decisionMeta.textContent = `${current.asOf || "--"} | old regime ${current.oldRegime || "--"}`;
+  if (!signalPayload) return;
+  const current = signalPayload.currentSignal;
+  const actionClass = current.action === "REDUCE" ? "reduce" : current.action === "ADD" || current.action === "ADD_SMALL" ? "add" : "hold";
+  containers.decisionMeta.textContent = `${current.asOf || "--"} | market state ${current.marketState || "--"}`;
   containers.decisionCurrent.innerHTML = `
     <article class="decision-card decision-card-main decision-action-${actionClass}">
       <span>当前动作</span>
@@ -215,8 +215,8 @@ function renderDecision() {
 function renderDecisionChart() {
   const container = containers.decisionChart;
   const { svg, width, height } = makeSvg(container, 300);
-  const summary = decisionPayload.historicalActionSummary;
-  const order = ["ADD", "ADD_SMALL", "HOLD", "SELL"].filter((action) => summary[action]);
+  const summary = signalPayload.historicalActionSummary;
+  const order = ["ADD", "ADD_SMALL", "HOLD", "REDUCE"].filter((action) => summary[action]);
   const rows = order.map((action) => ({ action, label: actionText(action), ...summary[action] }));
   const margin = { top: 24, right: 50, bottom: 58, left: 52 };
   const plotW = width - margin.left - margin.right;
@@ -656,14 +656,14 @@ function bindControls() {
 
 async function init() {
   try {
-    const [analysisResponse, decisionResponse] = await Promise.all([
+    const [analysisResponse, signalResponse] = await Promise.all([
       fetch(`${ANALYSIS_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
-      fetch(`${DECISION_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
+      fetch(`${SIGNAL_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
     ]);
     if (!analysisResponse.ok) throw new Error(`analysis HTTP ${analysisResponse.status}`);
-    if (!decisionResponse.ok) throw new Error(`decision HTTP ${decisionResponse.status}`);
+    if (!signalResponse.ok) throw new Error(`signal HTTP ${signalResponse.status}`);
     analysisPayload = await analysisResponse.json();
-    decisionPayload = await decisionResponse.json();
+    signalPayload = await signalResponse.json();
     bindControls();
     renderAll();
   } catch (error) {
