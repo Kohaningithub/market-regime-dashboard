@@ -1,60 +1,60 @@
 {
-  "generatedAt": "2026-07-22T17:11:51Z",
+  "generatedAt": "2026-07-22T23:27:25Z",
   "asOf": "2026-07-22",
   "source": "Codex 每日投资简报",
   "sourceAutomationIds": [
-    "automation"
+    "automation-3"
   ],
-  "summary": "主线为美伊冲突推升油价、10Y美债收益率升至约4.65%、美股期货回落",
-  "suppressedCount": 1,
+  "summary": "主线确定为“油价/长端利率上行压制科技久期资产，但并未演化成全面信用风险卸载”",
+  "suppressedCount": 0,
   "linkCoverage": 0,
   "items": [
     {
       "key": "macro",
       "title": "宏观主线",
-      "detail": "主线为美伊冲突推升油价、10Y美债收益率升至约4.65%、美股期货回落",
+      "detail": "主线确定为“油价/长端利率上行压制科技久期资产，但并未演化成全面信用风险卸载”",
       "impact": "影响利率路径、美元方向和成长资产估值折现。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-22T12:49:58Z",
+      "publishedAt": "2026-07-22T20:06:31Z",
       "eventDate": "2026-07-22",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "events",
       "title": "当日重要事件",
-      "detail": "30 EIA 原油库存、13:00 20年期美债续发、收盘后 Alphabet/Tesla/IBM/TXN 财报，以及油价是否站稳 Brent 94-95 美元区间、信用利差是否继续稳定；2026-07-22 08:49:58 -04:00.",
+      "detail": "完成 2026-07-22 收盘版简报研究",
       "impact": "决定盘中利率预期是否继续强化或修正。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-22T12:49:58Z",
+      "publishedAt": "2026-07-22T20:06:31Z",
       "eventDate": "2026-07-22",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "impact",
       "title": "行业或资产影响",
-      "detail": "主线为美伊冲突推升油价、10Y美债收益率升至约4.65%、美股期货回落；30 EIA 原油库存、13:00 20年期美债续发、收盘后 Alphabet/Tesla/IBM/TXN 财报，以及油价是否站稳 Brent 94-95 美元区间、信用利差是否继续稳定",
+      "detail": "结构信号上，XLU/XLE/GLD 上行，QQQ/XLK/RSP/HYG/TLT 变动有限，说明更像风格再定价而非系统性踩踏",
       "impact": "帮助判断风险偏好变化首先传导到哪些板块或资产。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-22T12:49:58Z",
+      "publishedAt": "2026-07-22T20:06:31Z",
       "eventDate": "2026-07-22",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     },
     {
       "key": "watch",
       "title": "后续观察点",
-      "detail": "AI链内部继续分化，SMCI因毛利率与订单预告大涨并带动DELL/HPE，GEV与记忆体/半导体盘前承压；30 EIA 原油库存、13:00 20年期美债续发、收盘后 Alphabet/Tesla/IBM/TXN 财报，以及油价是否站稳 Brent 94-95 美元区间、信用利差是否继续稳定",
+      "detail": "继续观察上述事件是否进一步强化美元、利率与风险偏好方向。",
       "impact": "用于跟踪当前叙事是否扩散到更广泛的市场结构。",
-      "sourceName": "每日投资动态简报 - 早盘推送",
+      "sourceName": "收盘投资简报",
       "sourceUrl": "",
-      "publishedAt": "2026-07-22T12:49:58Z",
+      "publishedAt": "2026-07-22T20:06:31Z",
       "eventDate": "2026-07-22",
-      "edition": "早盘版",
+      "edition": "收盘版",
       "sources": []
     }
   ]
