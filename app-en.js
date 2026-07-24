@@ -1,6 +1,10 @@
 const SNAPSHOT_ENDPOINT = "data/latest.json";
 const SIGNAL_ENDPOINT = "data/allocation_signal.json";
+const QUANT_ANALYSIS_ENDPOINT = "data/regime_model_quant_analysis.json";
 const ET_TIMEZONE = "America/New_York";
+
+let latestSignal = null;
+let latestQuantAnalysis = null;
 
 const metricGroups = [
   {
@@ -138,6 +142,112 @@ function pressureLabel(value, max) {
   return "Low";
 }
 
+function pressureTotal(scores = {}) {
+  return Number(scores.volatility || 0) + Number(scores.credit || 0) + Number(scores.sentiment || 0);
+}
+
+function scoreBucketKey(score) {
+  if (score <= 0) return "0";
+  if (score <= 2) return "1-2";
+  if (score <= 4) return "3-4";
+  return "5+";
+}
+
+function signedPct(value, digits = 1) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  const number = Number(value);
+  return `${number > 0 ? "+" : ""}${number.toFixed(digits)}%`;
+}
+
+function ratePct(value, digits = 0) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  return `${(Number(value) * 100).toFixed(digits)}%`;
+}
+
+function plainPct(value, digits = 1) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  return `${Number(value).toFixed(digits)}%`;
+}
+
+function bucketTone(bucket) {
+  if (bucket === "0") return "quiet";
+  if (bucket === "1-2") return "mild pressure";
+  if (bucket === "3-4") return "rising pressure";
+  return "high pressure / panic";
+}
+
+function renderHistoricalScoreContext() {
+  const current = latestSignal?.currentSignal;
+  const pressureNode = $("#current-raw-pressure");
+  if (!current || !pressureNode) return;
+
+  const pressure = current.pressureScores || {};
+  const total = pressureTotal(pressure);
+  const bucket = scoreBucketKey(total);
+  const exact = latestQuantAnalysis?.exactScoreRows?.find((row) => Number(row.score) === total);
+  const bucketStats = latestQuantAnalysis?.bucketAnalysis?.[bucket];
+  const horizon20 = bucketStats?.horizons?.["20"];
+  const horizon60 = bucketStats?.horizons?.["60"];
+
+  pressureNode.textContent = String(total);
+  $("#current-score-breakdown").textContent = `Volatility ${pressure.volatility || 0} / Credit ${pressure.credit || 0} / Sentiment ${pressure.sentiment || 0}`;
+  $("#current-raw-bucket").textContent = `${bucket} bucket · ${bucketTone(bucket)}`;
+  $("#current-score-exact").textContent = exact
+    ? `Same exact-score sample: ${exact.rows} days; 20D average ${signedPct(exact.avgReturn20)}, win rate ${ratePct(exact.winRate20)}.`
+    : "Exact-score sample is thin; use the neighboring bucket as the primary read-through.";
+
+  const meta = latestQuantAnalysis?.meta || {};
+  $("#score-context-meta").textContent = latestQuantAnalysis
+    ? `${meta.startDate || "--"} - ${meta.endDate || "--"} | ${meta.rows || "--"} trading days | 20D/60D forward study`
+    : "Loading five-year research results...";
+
+  $("#score-context-readthrough").textContent = horizon20
+    ? `The current raw pressure score is ${total}, which falls in the ${bucket} (${bucketTone(bucket)}) bucket. Over the last five years, similar readings were followed by an average 20-trading-day SPY return of ${signedPct(horizon20.avgReturn)} with a ${ratePct(horizon20.winRate)} win rate; the average 60-trading-day return was ${signedPct(horizon60?.avgReturn)}. This is context, not the final trade rule; the final action still comes from Opportunity, Risk, and the credit gate.`
+    : "Historical bucket data is still loading; only the latest score is available for now.";
+
+  $("#historical-outcome-grid").innerHTML = horizon20
+    ? `
+      <article>
+        <span>Bucket 20D Avg Return</span>
+        <strong>${signedPct(horizon20.avgReturn)}</strong>
+        <p>Median ${signedPct(horizon20.medianReturn)}</p>
+      </article>
+      <article>
+        <span>Bucket 20D Win Rate</span>
+        <strong>${ratePct(horizon20.winRate)}</strong>
+        <p>Usable sample ${horizon20.usableRows || horizon20.rows || "--"} days</p>
+      </article>
+      <article>
+        <span>Bucket 60D Avg Return</span>
+        <strong>${signedPct(horizon60?.avgReturn)}</strong>
+        <p>Win rate ${ratePct(horizon60?.winRate)}</p>
+      </article>
+      <article>
+        <span>Forward Risk Profile</span>
+        <strong>${signedPct(horizon20.avgMaxDrawdown)}</strong>
+        <p>20D avg max drawdown, vol ${plainPct(horizon20.avgRealizedVol)}</p>
+      </article>
+    `
+    : `<article><span>Historical Context</span><strong>--</strong><p>Waiting for research data.</p></article>`;
+
+  $("#score-bucket-compare").innerHTML = ["0", "1-2", "3-4", "5+"]
+    .map((key) => {
+      const item = latestQuantAnalysis?.bucketAnalysis?.[key];
+      const outcome = item?.horizons?.["20"];
+      const barWidth = outcome ? Math.max(8, Math.min(100, Math.abs(outcome.avgReturn) * 22)) : 0;
+      return `
+        <div class="bucket-row${key === bucket ? " is-current" : ""}">
+          <div class="bucket-label">${key}</div>
+          <div class="bucket-bar-track" aria-hidden="true"><span class="bucket-bar-fill" style="width:${barWidth}%"></span></div>
+          <span>20D ${signedPct(outcome?.avgReturn)}</span>
+          <span>Win ${ratePct(outcome?.winRate)}</span>
+          <span>Sample ${outcome?.usableRows || item?.rows || "--"}</span>
+        </div>
+      `;
+    })
+    .join("");
+}
+
 function triggerRows(values) {
   const rows = [];
   const add = (severity, text) => rows.push({ severity, text });
@@ -156,6 +266,7 @@ function triggerRows(values) {
 }
 
 function renderSignal(signal) {
+  latestSignal = signal;
   const current = signal.currentSignal;
   const copy = actionCopy(current.action);
   $("#allocation-signal-title").textContent = copy.title;
@@ -166,8 +277,8 @@ function renderSignal(signal) {
   $("#allocation-opportunity-meter").value = current.opportunityScore || 0;
   $("#allocation-risk-meter").value = current.riskScore || 0;
   const pressure = current.pressureScores || {};
-  $("#allocation-pressure").textContent = `${pressure.volatility || 0}/${pressure.credit || 0}/${pressure.sentiment || 0}`;
-  $("#allocation-pressure-note").textContent = "Volatility / credit / sentiment pressure";
+  $("#allocation-pressure").textContent = `${pressureTotal(pressure)} (${pressure.volatility || 0}/${pressure.credit || 0}/${pressure.sentiment || 0})`;
+  $("#allocation-pressure-note").textContent = "Raw score: volatility / credit / sentiment";
   $("#allocation-guidance").textContent = copy.allocation;
   $("#risk-budget-guidance").textContent = copy.risk;
   $("#watch-guidance").textContent = copy.watch;
@@ -178,6 +289,7 @@ function renderSignal(signal) {
   renderPressureCard("vol", pressure.volatility || 0, 8, "Equity and rates volatility pressure.");
   renderPressureCard("credit", pressure.credit || 0, 18, "Credit, liquidity, dollar, and banking pressure.");
   renderPressureCard("sentiment", pressure.sentiment || 0, 8, "Fear, bearishness, and option-protection demand.");
+  renderHistoricalScoreContext();
 }
 
 function renderPressureCard(prefix, value, max, detail) {
@@ -277,8 +389,19 @@ async function loadJson(endpoint) {
 
 async function init() {
   try {
-    const [snapshot, signal] = await Promise.all([loadJson(SNAPSHOT_ENDPOINT), loadJson(SIGNAL_ENDPOINT)]);
+    const [snapshot, signal, analysis] = await Promise.all([
+      loadJson(SNAPSHOT_ENDPOINT),
+      loadJson(SIGNAL_ENDPOINT),
+      loadJson(QUANT_ANALYSIS_ENDPOINT).catch((error) => ({ error })),
+    ]);
     renderSignal(signal);
+    if (analysis.error) {
+      $("#score-context-meta").textContent = "Historical research unavailable";
+      $("#score-context-readthrough").textContent = analysis.error.message;
+    } else {
+      latestQuantAnalysis = analysis;
+      renderHistoricalScoreContext();
+    }
     renderSnapshot(snapshot);
   } catch (error) {
     $("#allocation-signal-title").textContent = "Signal unavailable";

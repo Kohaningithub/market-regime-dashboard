@@ -148,6 +148,7 @@ let activePreset = "live";
 let liveSnapshot = null;
 let latestHistory = null;
 let latestSignal = null;
+let latestQuantAnalysis = null;
 let dashboardState = { mode: "loading", snapshot: null, history: null };
 let historyRangeDays = 90;
 
@@ -175,11 +176,20 @@ const allocationRiskMeter = document.querySelector("#allocation-risk-meter");
 const allocationGuidance = document.querySelector("#allocation-guidance");
 const riskBudgetGuidance = document.querySelector("#risk-budget-guidance");
 const watchGuidance = document.querySelector("#watch-guidance");
+const scoreContextMeta = document.querySelector("#score-context-meta");
+const currentRawPressure = document.querySelector("#current-raw-pressure");
+const currentRawBucket = document.querySelector("#current-raw-bucket");
+const currentScoreBreakdown = document.querySelector("#current-score-breakdown");
+const currentScoreExact = document.querySelector("#current-score-exact");
+const scoreContextReadthrough = document.querySelector("#score-context-readthrough");
+const historicalOutcomeGrid = document.querySelector("#historical-outcome-grid");
+const scoreBucketCompare = document.querySelector("#score-bucket-compare");
 const CLIENT_POLL_MS = 120000;
 const STALE_SNAPSHOT_MINUTES = 1440;
 const STATIC_SNAPSHOT_ENDPOINT = "data/latest.json";
 const HISTORY_ENDPOINT = "data/history.json";
 const ALLOCATION_SIGNAL_ENDPOINT = "data/allocation_signal.json";
+const QUANT_ANALYSIS_ENDPOINT = "data/regime_model_quant_analysis.json";
 const STATIC_TIMEOUT_MS = 8000;
 const ET_TIMEZONE = "America/New_York";
 const SCORE_MAX = {
@@ -915,6 +925,120 @@ function pressureCompositeText(scores = {}) {
   return `${volatility + credit + sentiment} (${volatility}/${credit}/${sentiment})`;
 }
 
+function pressureTotal(scores = {}) {
+  return Number(scores.volatility || 0) + Number(scores.credit || 0) + Number(scores.sentiment || 0);
+}
+
+function scoreBucketKey(score) {
+  if (score <= 0) return "0";
+  if (score <= 2) return "1-2";
+  if (score <= 4) return "3-4";
+  return "5+";
+}
+
+function signedPct(value, digits = 1) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  const number = Number(value);
+  return `${number > 0 ? "+" : ""}${number.toFixed(digits)}%`;
+}
+
+function ratePct(value, digits = 0) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  return `${(Number(value) * 100).toFixed(digits)}%`;
+}
+
+function plainPct(value, digits = 1) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  return `${Number(value).toFixed(digits)}%`;
+}
+
+function bucketTone(bucket) {
+  if (bucket === "0") return "安静区间";
+  if (bucket === "1-2") return "温和压力";
+  if (bucket === "3-4") return "压力升温";
+  return "高压力/恐慌";
+}
+
+function scoreContextCopy(score, bucket, horizon20, horizon60) {
+  if (!horizon20) return "历史样本仍在读取中，当前只显示最新分数。";
+  return `当前原始压力分为 ${score}，落在 ${bucket}（${bucketTone(bucket)}）分数桶。过去 5 年同类样本之后 20 个交易日 SPY 平均回报为 ${signedPct(horizon20.avgReturn)}，胜率 ${ratePct(horizon20.winRate)}；60 个交易日平均回报为 ${signedPct(horizon60?.avgReturn)}。这说明当前压力更适合用于情景判断，最终动作仍以 Opportunity/Risk 和信用门槛为准。`;
+}
+
+function renderHistoricalScoreContext() {
+  if (!currentRawPressure || !latestSignal?.currentSignal) return;
+  const signal = latestSignal.currentSignal;
+  const pressure = signal.pressureScores || {};
+  const total = pressureTotal(pressure);
+  const bucket = scoreBucketKey(total);
+  const exact = latestQuantAnalysis?.exactScoreRows?.find((row) => Number(row.score) === total);
+  const bucketStats = latestQuantAnalysis?.bucketAnalysis?.[bucket];
+  const horizon20 = bucketStats?.horizons?.["20"];
+  const horizon60 = bucketStats?.horizons?.["60"];
+
+  currentRawPressure.textContent = String(total);
+  currentScoreBreakdown.textContent = `波动 ${pressure.volatility || 0} / 信用 ${pressure.credit || 0} / 情绪 ${pressure.sentiment || 0}`;
+  currentRawBucket.textContent = `${bucket} 分数桶 · ${bucketTone(bucket)}`;
+  currentScoreExact.textContent = exact
+    ? `同一精确分数样本 ${exact.rows} 天：20D 平均 ${signedPct(exact.avgReturn20)}，胜率 ${ratePct(exact.winRate20)}。`
+    : "精确同分数样本不足，优先参考相邻分数桶。";
+
+  if (scoreContextMeta) {
+    const meta = latestQuantAnalysis?.meta || {};
+    scoreContextMeta.textContent = latestQuantAnalysis
+      ? `${meta.startDate || "--"} - ${meta.endDate || "--"} | ${meta.rows || "--"} 个交易日 | 20D/60D forward study`
+      : "正在读取 5 年历史研究结果...";
+  }
+
+  if (scoreContextReadthrough) {
+    scoreContextReadthrough.textContent = scoreContextCopy(total, bucket, horizon20, horizon60);
+  }
+
+  if (historicalOutcomeGrid) {
+    historicalOutcomeGrid.innerHTML = horizon20
+      ? `
+        <article>
+          <span>同桶 20D 平均回报</span>
+          <strong>${signedPct(horizon20.avgReturn)}</strong>
+          <p>中位数 ${signedPct(horizon20.medianReturn)}</p>
+        </article>
+        <article>
+          <span>同桶 20D 胜率</span>
+          <strong>${ratePct(horizon20.winRate)}</strong>
+          <p>可用样本 ${horizon20.usableRows || horizon20.rows || "--"} 天</p>
+        </article>
+        <article>
+          <span>同桶 60D 平均回报</span>
+          <strong>${signedPct(horizon60?.avgReturn)}</strong>
+          <p>胜率 ${ratePct(horizon60?.winRate)}</p>
+        </article>
+        <article>
+          <span>后续风险画像</span>
+          <strong>${signedPct(horizon20.avgMaxDrawdown)}</strong>
+          <p>20D 平均最大回撤，波动 ${plainPct(horizon20.avgRealizedVol)}</p>
+        </article>
+      `
+      : `<article><span>历史对照</span><strong>--</strong><p>等待研究数据加载。</p></article>`;
+  }
+
+  if (scoreBucketCompare) {
+    const rows = ["0", "1-2", "3-4", "5+"].map((key) => {
+      const item = latestQuantAnalysis?.bucketAnalysis?.[key];
+      const outcome = item?.horizons?.["20"];
+      const barWidth = outcome ? Math.max(8, Math.min(100, Math.abs(outcome.avgReturn) * 22)) : 0;
+      return `
+        <div class="bucket-row${key === bucket ? " is-current" : ""}">
+          <div class="bucket-label">${key}</div>
+          <div class="bucket-bar-track" aria-hidden="true"><span class="bucket-bar-fill" style="width:${barWidth}%"></span></div>
+          <span>20D ${signedPct(outcome?.avgReturn)}</span>
+          <span>胜率 ${ratePct(outcome?.winRate)}</span>
+          <span>样本 ${outcome?.usableRows || item?.rows || "--"}</span>
+        </div>
+      `;
+    });
+    scoreBucketCompare.innerHTML = rows.join("");
+  }
+}
+
 function renderAllocationSignal(signalPayload) {
   latestSignal = signalPayload;
   const signal = signalPayload?.currentSignal;
@@ -928,13 +1052,14 @@ function renderAllocationSignal(signalPayload) {
   allocationOpportunity.textContent = Number(signal.opportunityScore || 0).toFixed(1);
   allocationRisk.textContent = Number(signal.riskScore || 0).toFixed(1);
   allocationPressure.textContent = pressureCompositeText(signal.pressureScores);
-  allocationPressureNote.textContent = "括号内依次为波动 / 信用 / 情绪压力";
+  allocationPressureNote.textContent = "原始压力分；括号内为波动 / 信用 / 情绪";
   allocationOpportunityMeter.value = Number(signal.opportunityScore || 0);
   allocationRiskMeter.value = Number(signal.riskScore || 0);
 
   allocationGuidance.textContent = signal.guidance?.allocation || "--";
   riskBudgetGuidance.textContent = signal.guidance?.riskBudget || "--";
   watchGuidance.textContent = signal.guidance?.watch || "--";
+  renderHistoricalScoreContext();
 
   if (activePreset === "live") {
     const primaryAction = document.querySelector("#primary-action");
@@ -1145,6 +1270,22 @@ async function loadAllocationSignal(options = {}) {
   }
 }
 
+async function loadQuantAnalysis(options = {}) {
+  try {
+    latestQuantAnalysis = await fetchStaticJson(QUANT_ANALYSIS_ENDPOINT);
+    renderHistoricalScoreContext();
+  } catch (error) {
+    if (options.silent) {
+      console.warn("Quant analysis refresh failed", error);
+      return;
+    }
+    if (scoreContextMeta) scoreContextMeta.textContent = "历史研究结果暂不可用";
+    if (scoreContextReadthrough) {
+      scoreContextReadthrough.textContent = `等待 data/regime_model_quant_analysis.json。错误：${error.message}`;
+    }
+  }
+}
+
 function applyLiveSnapshot(snapshot) {
   liveSnapshot = snapshot;
   setValues(liveSnapshot.values);
@@ -1184,6 +1325,7 @@ historyRangeButtons.forEach((button) => {
 
 buildForm();
 loadAllocationSignal();
+loadQuantAnalysis();
 loadLiveData();
 loadHistory();
 
@@ -1192,5 +1334,6 @@ setInterval(() => {
     loadLiveData({ silent: true });
     loadHistory({ silent: true });
     loadAllocationSignal({ silent: true });
+    loadQuantAnalysis({ silent: true });
   }
 }, CLIENT_POLL_MS);

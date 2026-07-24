@@ -246,6 +246,10 @@ main {
   font-size: 0.78rem;
 }
 
+.score-card-caption {
+  margin-top: 6px;
+}
+
 .score-method-link {
   grid-column: 1 / -1;
   margin: 0;
@@ -265,6 +269,166 @@ main {
 
 .allocation-score-grid meter {
   width: 100%;
+}
+
+.score-context-panel {
+  margin-bottom: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  padding: clamp(16px, 2.4vw, 22px);
+}
+
+.score-context-heading {
+  align-items: start;
+  margin-bottom: 14px;
+}
+
+.score-context-copy {
+  max-width: 900px;
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.score-context-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.34fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+.current-pressure-card,
+.historical-outcome-grid article,
+.bucket-row {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfcfd;
+}
+
+.current-pressure-card {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  padding: 16px;
+}
+
+.current-pressure-card span,
+.historical-outcome-grid span,
+.bucket-row span {
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 760;
+}
+
+.current-pressure-card strong {
+  display: block;
+  font-size: clamp(2.3rem, 4vw, 4.1rem);
+  line-height: 0.95;
+}
+
+.current-pressure-card p,
+.score-context-readthrough,
+.score-context-note {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.current-pressure-card p,
+.score-context-note {
+  margin: 0;
+}
+
+.score-bucket-pill {
+  justify-self: start;
+  border: 1px solid rgba(29, 124, 117, 0.28);
+  border-radius: 999px;
+  background: rgba(29, 124, 117, 0.08);
+  color: var(--teal);
+  padding: 6px 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.score-context-main {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.score-context-readthrough {
+  border-left: 4px solid var(--teal);
+  background: #f6fbfa;
+  padding: 11px 13px;
+  color: #30404a;
+}
+
+.historical-outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.historical-outcome-grid article {
+  min-height: 96px;
+  padding: 12px;
+}
+
+.historical-outcome-grid strong {
+  display: block;
+  margin: 6px 0 4px;
+  font-size: 1.2rem;
+  line-height: 1.1;
+}
+
+.historical-outcome-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.76rem;
+}
+
+.score-bucket-compare {
+  display: grid;
+  gap: 8px;
+}
+
+.bucket-row {
+  display: grid;
+  grid-template-columns: 70px minmax(120px, 1fr) repeat(3, minmax(84px, 0.32fr));
+  gap: 10px;
+  align-items: center;
+  padding: 9px 10px;
+}
+
+.bucket-row.is-current {
+  border-color: rgba(29, 124, 117, 0.45);
+  background: #f2faf8;
+  box-shadow: inset 0 0 0 1px rgba(29, 124, 117, 0.18);
+}
+
+.bucket-label {
+  color: var(--ink);
+  font-weight: 800;
+}
+
+.bucket-bar-track {
+  height: 10px;
+  border-radius: 999px;
+  background: #e7edf0;
+  overflow: hidden;
+}
+
+.bucket-bar-fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--teal), var(--blue));
+}
+
+.bucket-row strong {
+  font-size: 0.9rem;
+  line-height: 1.2;
 }
 
 .decision-primer {
@@ -1131,6 +1295,7 @@ tr:last-child td {
 @media (max-width: 1120px) {
   .topbar,
   .allocation-signal,
+  .score-context-layout,
   .status-band,
   .workspace,
   .notes-section {
@@ -1160,8 +1325,13 @@ tr:last-child td {
 
   .recent-updates,
   .briefing-grid,
+  .historical-outcome-grid,
   .decision-primer {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bucket-row {
+    grid-template-columns: 58px minmax(120px, 1fr) repeat(3, minmax(72px, 0.32fr));
   }
 }
 
@@ -1177,6 +1347,8 @@ tr:last-child td {
   .score-grid,
   .allocation-score-grid,
   .allocation-guidance-grid,
+  .score-context-layout,
+  .historical-outcome-grid,
   .decision-primer,
   .input-grid,
   .recent-updates,
@@ -1210,5 +1382,14 @@ tr:last-child td {
 
   .decision-primer p {
     grid-column: 1 / -1;
+  }
+
+  .bucket-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .bucket-bar-track {
+    width: 100%;
   }
 }

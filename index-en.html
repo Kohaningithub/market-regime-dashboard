@@ -8,7 +8,8 @@
       name="description"
       content="Investor-facing allocation signal for judging whether U.S. equities favor adding, holding, or reducing risk."
     />
-    <link rel="stylesheet" href="styles.css?v=20260723-news1" />
+    <link rel="icon" href="data:," />
+    <link rel="stylesheet" href="styles.css?v=20260724-scorecontext1" />
   </head>
   <body>
     <header class="topbar">
@@ -39,14 +40,16 @@
             <span>Opportunity Score</span>
             <strong id="allocation-opportunity">--</strong>
             <meter id="allocation-opportunity-meter" min="0" max="100" value="0"></meter>
+            <p class="score-card-caption">0-100 add-window strength</p>
           </article>
           <article>
             <span>Risk Score</span>
             <strong id="allocation-risk">--</strong>
             <meter id="allocation-risk-meter" min="0" max="100" value="0"></meter>
+            <p class="score-card-caption">0-100 reduce-risk pressure</p>
           </article>
           <article>
-            <span>Pressure Composite</span>
+            <span>Raw Market Pressure</span>
             <strong id="allocation-pressure">--</strong>
             <p id="allocation-pressure-note">--</p>
           </article>
@@ -68,6 +71,35 @@
             <span>Watch Next</span>
             <strong id="watch-guidance">--</strong>
           </article>
+        </div>
+      </section>
+
+      <section class="score-context-panel" aria-labelledby="score-context-title">
+        <div class="section-heading score-context-heading">
+          <div>
+            <p class="eyebrow">Historical Read-Through</p>
+            <h2 id="score-context-title">What Similar Scores Did Historically</h2>
+            <p class="score-context-copy">
+              Raw Market Pressure is the research score for linking stress to forward market paths; Opportunity and Risk are the final allocation decision scores.
+            </p>
+          </div>
+          <span id="score-context-meta" class="source-meta">Loading five-year research results...</span>
+        </div>
+
+        <div class="score-context-layout">
+          <article class="current-pressure-card">
+            <span>Current Raw Market Pressure</span>
+            <strong id="current-raw-pressure">--</strong>
+            <p id="current-score-breakdown">--</p>
+            <div id="current-raw-bucket" class="score-bucket-pill">--</div>
+            <p id="current-score-exact" class="score-context-note">--</p>
+          </article>
+
+          <div class="score-context-main">
+            <div id="score-context-readthrough" class="score-context-readthrough">--</div>
+            <div id="historical-outcome-grid" class="historical-outcome-grid"></div>
+            <div id="score-bucket-compare" class="score-bucket-compare"></div>
+          </div>
         </div>
       </section>
 
@@ -194,6 +226,6 @@
       </section>
     </main>
 
-    <script src="app-en.js?v=20260724-schedule1"></script>
+    <script src="app-en.js?v=20260724-scorecontext1"></script>
   </body>
 </html>
