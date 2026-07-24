@@ -1,10 +1,22 @@
 {
-  "generatedAt": "2026-07-23T19:05:54Z",
-  "entries": [],
+  "generatedAt": "2026-07-24T13:21:49Z",
+  "entries": [
+    {
+      "id": "2026-07-23_close",
+      "date": "2026-07-23",
+      "edition": "close",
+      "title": "2026-07-23 收盘投资动态简报",
+      "summary": "油价冲上100美元与AI资本开支忧虑共振，纳指领跌且盘后关注转向Intel",
+      "generatedAt": "2026-07-23T16:04:54-04:00",
+      "path": "data/news/2026-07-23_close.md",
+      "wordCount": 4118,
+      "sourceCount": 70
+    }
+  ],
   "coverage": {
-    "start": null,
-    "end": null,
-    "dates": 0,
-    "reports": 0
+    "start": "2026-07-23",
+    "end": "2026-07-23",
+    "dates": 1,
+    "reports": 1
   }
 }

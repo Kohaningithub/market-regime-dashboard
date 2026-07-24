@@ -1,10 +1,22 @@
 {
-  "generatedAt": "2026-07-23T19:57:54Z",
-  "entries": [],
+  "generatedAt": "2026-07-24T13:21:49Z",
+  "entries": [
+    {
+      "id": "2026-07-23_close",
+      "date": "2026-07-23",
+      "edition": "close",
+      "title": "2026-07-23 Closing Investment Brief",
+      "summary": "Oil above $100 and AI capex anxiety drove a Nasdaq-led selloff, with after-hours focus shifting to Intel",
+      "generatedAt": "2026-07-23T16:04:54-04:00",
+      "path": "data/news-en/2026-07-23_close.md",
+      "wordCount": 9836,
+      "sourceCount": 70
+    }
+  ],
   "coverage": {
-    "start": null,
-    "end": null,
-    "dates": 0,
-    "reports": 0
+    "start": "2026-07-23",
+    "end": "2026-07-23",
+    "dates": 1,
+    "reports": 1
   }
 }
