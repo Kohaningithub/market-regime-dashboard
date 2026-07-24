@@ -3,8 +3,9 @@ name: Update market data
 on:
   workflow_dispatch:
   schedule:
-    # One post-close collection per U.S. trading weekday.
-    # 22:15 UTC is after the cash close in both EST and EDT.
+    # Two U.S. trading weekday collections:
+    # 13:15 UTC is the U.S. morning run; 22:15 UTC is after the cash close.
+    - cron: "15 13 * * 1-5"
     - cron: "15 22 * * 1-5"
 
 permissions:

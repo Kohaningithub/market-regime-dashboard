@@ -801,7 +801,7 @@ function renderDataQuality(snapshot) {
   const notes = (snapshot.notes || []).filter((note) => !String(note).startsWith("model:"));
   const ageMinutes = snapshotAgeMinutes(snapshot);
   const freshnessItems = [
-    `<div class="data-quality-item"><strong>更新节奏</strong> GitHub Actions 每天美东 8:00、12:00、15:00 生成快照；浏览器会自动读取最新静态文件。</div>`
+    `<div class="data-quality-item"><strong>更新节奏</strong> GitHub Actions 在每个美股交易日早盘和收盘后各生成一次快照；浏览器会自动读取最新静态文件。</div>`
   ];
   if (ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES) {
     freshnessItems.push(

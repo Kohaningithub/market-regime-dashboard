@@ -31,7 +31,7 @@ Recommended deployment is GitHub Pages + GitHub Actions.
 - `scripts/validate_news_archive.py` blocks publication unless both language editions are complete and indexed.
 - The frontend reads saved static JSON only; it does not fetch external market sources from the browser.
 
-Market data is collected once per U.S. trading weekday after the cash close. Complete morning and close briefs are written locally by the two Codex brief automations. Each brief has a later conditional retry, while the News publisher validates and attempts publication twice per edition window. Repeated runs are idempotent when nothing changed.
+Market data is collected twice per U.S. trading weekday: once during the U.S. morning session and once after the cash close. Complete morning and close briefs are written locally by the two Codex brief automations, and the News publisher indexes and publishes once after each edition. Repeated runs are idempotent when nothing changed.
 
 ## Local Preview
 

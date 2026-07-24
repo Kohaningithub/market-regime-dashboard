@@ -196,7 +196,7 @@ function renderSnapshot(snapshot) {
     .map((row) => `<li class="${row.severity}">${escapeHtml(row.text)}</li>`)
     .join("");
   $("#data-quality").innerHTML = `
-    <div class="data-quality-item"><strong>Update cadence</strong> One post-close collection per U.S. trading weekday.</div>
+    <div class="data-quality-item"><strong>Update cadence</strong> One U.S. morning snapshot and one post-close snapshot per U.S. trading weekday.</div>
     <div class="data-quality-item"><strong>Coverage</strong> ${Object.keys(values).length} market inputs in the latest static snapshot.</div>
   `;
   renderMetrics(values, snapshot.fieldMeta || {});
