@@ -187,10 +187,22 @@ function visibleEntries() {
   return newsIndex.filter((entry) => filter === "all" || entry.edition === filter);
 }
 
+function activeEditionName() {
+  if (editionFilter.value === "morning") return copy("早盘", "morning");
+  if (editionFilter.value === "close") return copy("收盘", "close");
+  return copy("全部", "all");
+}
+
 function renderArchive() {
   const entries = visibleEntries();
   if (!entries.length) {
-    archiveList.innerHTML = `<div class="news-empty">${copy("当前筛选下还没有已发布简报。", "No published briefs match this filter.")}</div>`;
+    const fallback = newsIndex.length
+      ? copy(
+          `当前没有${activeEditionName()}简报；已归档 ${newsIndex.length} 份，可切换到“全部”查看。`,
+          `No ${activeEditionName()} briefs are published yet; ${newsIndex.length} archived brief${newsIndex.length === 1 ? "" : "s"} are available under All.`
+        )
+      : copy("还没有已发布简报。", "No published briefs are available yet.");
+    archiveList.innerHTML = `<div class="news-empty">${fallback}</div>`;
     return;
   }
   archiveList.innerHTML = entries
@@ -244,6 +256,7 @@ async function init() {
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const payload = await response.json();
     newsIndex = Array.isArray(payload.entries) ? payload.entries : [];
+    editionFilter.value = "all";
     statusCopy.textContent = newsIndex.length
       ? copy(
           `已归档 ${newsIndex.length} 份完整简报，覆盖 ${payload.coverage?.start || "--"} 至 ${payload.coverage?.end || "--"}。`,
@@ -266,6 +279,14 @@ editionFilter.addEventListener("change", () => {
   const entries = visibleEntries();
   if (entries.length && !entries.some((entry) => entry.id === selectedId)) {
     selectEntry(entries[0].id);
+  } else if (!entries.length) {
+    selectedId = null;
+    readerHeader.innerHTML = `
+      <p class="eyebrow">${copy("暂无该版本", "No matching edition")}</p>
+      <h2>${copy("这个筛选下还没有简报", "No briefs for this filter")}</h2>
+      <p>${copy("切换到“全部”可以查看已经归档的其他版本。", "Switch to All to read the currently archived editions.")}</p>
+    `;
+    readerBody.innerHTML = "";
   }
 });
 
