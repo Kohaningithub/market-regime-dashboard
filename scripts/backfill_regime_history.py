@@ -19,6 +19,7 @@ import tempfile
 import time
 from dataclasses import dataclass
 from datetime import UTC, date, datetime, timedelta
+from http.client import RemoteDisconnected
 from pathlib import Path
 from typing import Any
 from urllib.error import HTTPError, URLError
@@ -99,7 +100,7 @@ class SourceStatus:
 def fetch_bytes(
     url: str,
     timeout: int = 35,
-    retries: int = 2,
+    retries: int = 4,
     headers: dict[str, str] | None = None,
 ) -> bytes:
     request_headers = {"User-Agent": USER_AGENT, "Accept": "*/*"}
@@ -111,10 +112,10 @@ def fetch_bytes(
             request = Request(url, headers=request_headers)
             with urlopen(request, timeout=timeout) as response:
                 return response.read()
-        except (HTTPError, URLError, TimeoutError) as exc:
+        except (HTTPError, URLError, TimeoutError, RemoteDisconnected, ConnectionError) as exc:
             last_error = exc
             if attempt < retries:
-                time.sleep(1.2 * (attempt + 1))
+                time.sleep(1.8 * (attempt + 1))
     raise RuntimeError(f"Fetch failed for {url}: {last_error}")
 
 

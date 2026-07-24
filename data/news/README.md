@@ -16,3 +16,4 @@ generatedAt: 2026-07-23T08:46:00-04:00
 ```
 
 Run `python scripts/build_news_index.py` after adding or replacing a report.
+GitHub Actions also rebuilds `data/news_index.json` and `data/news_index_en.json` when archived report files change.

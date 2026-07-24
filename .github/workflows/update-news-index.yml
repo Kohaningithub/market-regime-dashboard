@@ -1,0 +1,44 @@
+name: Update news archive index
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - "data/news/*.md"
+      - "data/news/**/*.md"
+      - "data/news-en/*.md"
+      - "data/news-en/**/*.md"
+      - "scripts/build_news_index.py"
+      - "scripts/validate_news_archive.py"
+
+permissions:
+  contents: write
+
+jobs:
+  update-news-index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild archive index
+        run: |
+          python scripts/build_news_index.py
+          python scripts/validate_news_archive.py
+
+      - name: Commit updated index
+        run: |
+          if git diff --quiet -- data/news_index.json data/news_index_en.json; then
+            echo "No news index changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/news_index.json data/news_index_en.json
+          git commit -m "Update news archive index"
+          git push

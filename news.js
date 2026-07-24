@@ -7,9 +7,16 @@ const readerHeader = document.querySelector("#news-reader-header");
 const readerBody = document.querySelector("#news-reader-body");
 const statusCopy = document.querySelector("#news-status-copy");
 const editionFilter = document.querySelector("#edition-filter");
+const calendarGrid = document.querySelector("#news-calendar-grid");
+const calendarMonthLabel = document.querySelector("#calendar-month");
+const calendarPrev = document.querySelector("#calendar-prev");
+const calendarNext = document.querySelector("#calendar-next");
+const calendarClear = document.querySelector("#calendar-clear");
 
 let newsIndex = [];
 let selectedId = null;
+let selectedDate = null;
+let calendarMonth = null;
 
 function escapeHtml(value) {
   return String(value ?? "")
@@ -182,9 +189,62 @@ function formatTimestamp(value) {
   }).format(parsed);
 }
 
+function parseDateKey(value) {
+  const [year, month, day] = String(value || "")
+    .split("-")
+    .map((part) => Number.parseInt(part, 10));
+  if (!year || !month || !day) return null;
+  return new Date(Date.UTC(year, month - 1, day));
+}
+
+function dateKeyFromUtc(date) {
+  return date.toISOString().slice(0, 10);
+}
+
+function monthStartFor(value) {
+  const parsed = parseDateKey(value);
+  if (!parsed) return null;
+  return new Date(Date.UTC(parsed.getUTCFullYear(), parsed.getUTCMonth(), 1));
+}
+
+function addMonths(date, count) {
+  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + count, 1));
+}
+
+function sameMonth(left, right) {
+  return (
+    left &&
+    right &&
+    left.getUTCFullYear() === right.getUTCFullYear() &&
+    left.getUTCMonth() === right.getUTCMonth()
+  );
+}
+
+function formatMonth(date) {
+  if (!date) return "--";
+  return new Intl.DateTimeFormat(IS_EN ? "en-US" : "zh-CN", {
+    timeZone: "UTC",
+    year: "numeric",
+    month: "long",
+  }).format(date);
+}
+
+function entriesByDate() {
+  return newsIndex.reduce((groups, entry) => {
+    if (!entry.date) return groups;
+    if (!groups.has(entry.date)) groups.set(entry.date, []);
+    groups.get(entry.date).push(entry);
+    return groups;
+  }, new Map());
+}
+
 function visibleEntries() {
   const filter = editionFilter.value;
-  return newsIndex.filter((entry) => filter === "all" || entry.edition === filter);
+  return newsIndex.filter((entry) => {
+    const editionMatch = filter === "all" || entry.edition === filter;
+    const dateMatch = !selectedDate || entry.date === selectedDate;
+    return editionMatch && dateMatch;
+  });
 }
 
 function activeEditionName() {
@@ -193,19 +253,99 @@ function activeEditionName() {
   return copy("全部", "all");
 }
 
+function activeDateName() {
+  return selectedDate ? selectedDate : copy("全部日期", "all dates");
+}
+
+function renderCalendar() {
+  if (!calendarGrid || !calendarMonthLabel) return;
+  if (!newsIndex.length) {
+    calendarMonthLabel.textContent = "--";
+    calendarGrid.innerHTML = `<div class="calendar-empty">${copy("暂无归档日期", "No archived dates")}</div>`;
+    return;
+  }
+
+  const grouped = entriesByDate();
+  if (!calendarMonth) {
+    calendarMonth = monthStartFor(newsIndex[0]?.date) || new Date();
+  }
+
+  calendarMonthLabel.textContent = formatMonth(calendarMonth);
+  const year = calendarMonth.getUTCFullYear();
+  const month = calendarMonth.getUTCMonth();
+  const firstDay = new Date(Date.UTC(year, month, 1)).getUTCDay();
+  const daysInMonth = new Date(Date.UTC(year, month + 1, 0)).getUTCDate();
+  const cells = [];
+
+  for (let index = 0; index < firstDay; index += 1) {
+    cells.push(`<span class="calendar-cell is-empty"></span>`);
+  }
+
+  for (let day = 1; day <= daysInMonth; day += 1) {
+    const date = new Date(Date.UTC(year, month, day));
+    const key = dateKeyFromUtc(date);
+    const entries = grouped.get(key) || [];
+    const editions = new Set(entries.map((entry) => entry.edition));
+    const dots = ["morning", "close"]
+      .filter((edition) => editions.has(edition))
+      .map((edition) => `<i class="edition-dot ${edition}"></i>`)
+      .join("");
+    const hasEntries = entries.length > 0;
+    cells.push(`
+      <button
+        class="calendar-cell${hasEntries ? " has-entries" : ""}${key === selectedDate ? " is-selected" : ""}"
+        type="button"
+        data-date="${key}"
+        ${hasEntries ? "" : "disabled"}
+        aria-label="${escapeHtml(`${key} ${entries.length ? `${entries.length} ${copy("份简报", "briefs")}` : copy("暂无简报", "no briefs")}`)}"
+      >
+        <span class="day-number">${day}</span>
+        <span class="day-dots">${dots}</span>
+      </button>
+    `);
+  }
+
+  calendarGrid.innerHTML = cells.join("");
+  calendarGrid.querySelectorAll("[data-date]:not(:disabled)").forEach((button) => {
+    button.addEventListener("click", () => selectDate(button.dataset.date));
+  });
+}
+
+async function selectDate(date) {
+  selectedDate = date;
+  const nextMonth = monthStartFor(date);
+  if (nextMonth && !sameMonth(calendarMonth, nextMonth)) calendarMonth = nextMonth;
+  editionFilter.value = "all";
+  renderCalendar();
+  renderArchive();
+  const entries = visibleEntries();
+  if (entries.length) await selectEntry(entries[0].id);
+}
+
+async function clearDateFilter() {
+  selectedDate = null;
+  renderCalendar();
+  renderArchive();
+  const entries = visibleEntries();
+  if (entries.length) await selectEntry(entries[0].id);
+}
+
 function renderArchive() {
   const entries = visibleEntries();
   if (!entries.length) {
     const fallback = newsIndex.length
       ? copy(
-          `当前没有${activeEditionName()}简报；已归档 ${newsIndex.length} 份，可切换到“全部”查看。`,
-          `No ${activeEditionName()} briefs are published yet; ${newsIndex.length} archived brief${newsIndex.length === 1 ? "" : "s"} are available under All.`
+          `${activeDateName()} 没有${activeEditionName()}简报；可切换日期或版本查看其他归档。`,
+          `No ${activeEditionName()} briefs for ${activeDateName()}; switch date or edition to read another archive.`
         )
       : copy("还没有已发布简报。", "No published briefs are available yet.");
     archiveList.innerHTML = `<div class="news-empty">${fallback}</div>`;
     return;
   }
-  archiveList.innerHTML = entries
+  const scope = selectedDate
+    ? copy(`${selectedDate} 的已归档推送`, `Archived pushes for ${selectedDate}`)
+    : copy("全部已归档推送", "All archived pushes");
+  archiveList.innerHTML = `<div class="archive-scope">${scope}</div>` + entries
     .map(
       (entry) => `
         <button class="archive-item${entry.id === selectedId ? " is-active" : ""}" type="button" data-news-id="${escapeHtml(entry.id)}">
@@ -257,6 +397,8 @@ async function init() {
     const payload = await response.json();
     newsIndex = Array.isArray(payload.entries) ? payload.entries : [];
     editionFilter.value = "all";
+    selectedDate = newsIndex[0]?.date || null;
+    calendarMonth = monthStartFor(selectedDate) || null;
     statusCopy.textContent = newsIndex.length
       ? copy(
           `已归档 ${newsIndex.length} 份完整简报，覆盖 ${payload.coverage?.start || "--"} 至 ${payload.coverage?.end || "--"}。`,
@@ -266,6 +408,7 @@ async function init() {
           "页面与发布管道已就绪，等待下一次早盘或收盘简报写入。",
           "The publishing pipeline is ready and waiting for the next morning or close brief."
         );
+    renderCalendar();
     renderArchive();
     if (newsIndex.length) await selectEntry(newsIndex[0].id);
   } catch (error) {
@@ -288,6 +431,22 @@ editionFilter.addEventListener("change", () => {
     `;
     readerBody.innerHTML = "";
   }
+});
+
+calendarPrev?.addEventListener("click", () => {
+  if (!calendarMonth) return;
+  calendarMonth = addMonths(calendarMonth, -1);
+  renderCalendar();
+});
+
+calendarNext?.addEventListener("click", () => {
+  if (!calendarMonth) return;
+  calendarMonth = addMonths(calendarMonth, 1);
+  renderCalendar();
+});
+
+calendarClear?.addEventListener("click", () => {
+  clearDateFilter();
 });
 
 init();

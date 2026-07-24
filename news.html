@@ -10,7 +10,7 @@
     />
     <link rel="icon" href="data:," />
     <link rel="stylesheet" href="styles.css?v=20260723-news1" />
-    <link rel="stylesheet" href="news.css?v=20260723-news1" />
+    <link rel="stylesheet" href="news.css?v=20260724-calendar1" />
   </head>
   <body data-news-index="data/news_index.json">
     <header class="topbar news-topbar">
@@ -57,6 +57,22 @@
               </select>
             </label>
           </div>
+          <div class="news-calendar" aria-labelledby="news-calendar-title">
+            <div class="calendar-bar">
+              <button id="calendar-prev" class="calendar-nav" type="button" aria-label="上一个月">&lt;</button>
+              <div>
+                <p class="eyebrow">Calendar</p>
+                <h3 id="news-calendar-title">按日期查看</h3>
+                <p id="calendar-month" class="calendar-month">--</p>
+              </div>
+              <button id="calendar-next" class="calendar-nav" type="button" aria-label="下一个月">&gt;</button>
+            </div>
+            <div class="calendar-weekdays" aria-hidden="true">
+              <span>日</span><span>一</span><span>二</span><span>三</span><span>四</span><span>五</span><span>六</span>
+            </div>
+            <div id="news-calendar-grid" class="calendar-grid"></div>
+            <button id="calendar-clear" class="calendar-clear" type="button">显示全部日期</button>
+          </div>
           <div id="news-archive-list" class="news-archive-list"></div>
         </aside>
 
@@ -71,6 +87,6 @@
       </section>
     </main>
 
-    <script src="news.js?v=20260724-newsfix1"></script>
+    <script src="news.js?v=20260724-calendar1"></script>
   </body>
 </html>
