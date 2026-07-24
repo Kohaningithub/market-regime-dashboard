@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-24T13:21:49Z",
+  "generatedAt": "2026-07-24T14:20:56Z",
   "entries": [
+    {
+      "id": "2026-07-24_morning",
+      "date": "2026-07-24",
+      "edition": "morning",
+      "title": "2026-07-24 早盘投资动态简报",
+      "summary": "油价回落带来短线修复，但高利率和 AI 资本开支回报仍压制风险偏好；个股分化集中在 Intel、Verizon、American Express 与 Charter。",
+      "generatedAt": "2026-07-24T10:20:00-04:00",
+      "path": "data/news/2026-07-24_morning.md",
+      "wordCount": 3864,
+      "sourceCount": 28
+    },
     {
       "id": "2026-07-23_close",
       "date": "2026-07-23",
@@ -15,8 +26,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-23",
-    "dates": 1,
-    "reports": 1
+    "end": "2026-07-24",
+    "dates": 2,
+    "reports": 2
   }
 }
