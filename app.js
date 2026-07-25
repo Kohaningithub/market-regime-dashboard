@@ -961,7 +961,7 @@ function bucketTone(bucket) {
 
 function scoreContextCopy(score, bucket, horizon20, horizon60) {
   if (!horizon20) return "历史样本仍在读取中，当前只显示最新分数。";
-  return `当前原始压力分为 ${score}，落在 ${bucket}（${bucketTone(bucket)}）分数桶。过去 5 年同类样本之后 20 个交易日 SPY 平均回报为 ${signedPct(horizon20.avgReturn)}，胜率 ${ratePct(horizon20.winRate)}；60 个交易日平均回报为 ${signedPct(horizon60?.avgReturn)}。这说明当前压力更适合用于情景判断，最终动作仍以 Opportunity/Risk 和信用门槛为准。`;
+  return `当前原始压力分为 ${score}，落在 ${bucket}（${bucketTone(bucket)}）分数桶。过去 5 年同类样本之后 20 个交易日 SPY 平均回报为 ${signedPct(horizon20.avgReturn)}，SPY 20D 正收益率 ${ratePct(horizon20.winRate)}；60 个交易日平均回报为 ${signedPct(horizon60?.avgReturn)}。这说明当前压力更适合用于情景判断，最终动作仍以 Opportunity/Risk 和信用门槛为准。`;
 }
 
 function renderHistoricalScoreContext() {
@@ -979,7 +979,7 @@ function renderHistoricalScoreContext() {
   currentScoreBreakdown.textContent = `波动 ${pressure.volatility || 0} / 信用 ${pressure.credit || 0} / 情绪 ${pressure.sentiment || 0}`;
   currentRawBucket.textContent = `${bucket} 分数桶 · ${bucketTone(bucket)}`;
   currentScoreExact.textContent = exact
-    ? `同一精确分数样本 ${exact.rows} 天：20D 平均 ${signedPct(exact.avgReturn20)}，胜率 ${ratePct(exact.winRate20)}。`
+    ? `同一精确分数样本 ${exact.rows} 天：20D 平均 ${signedPct(exact.avgReturn20)}，SPY 20D 正收益率 ${ratePct(exact.winRate20)}。`
     : "精确同分数样本不足，优先参考相邻分数桶。";
 
   if (scoreContextMeta) {
@@ -1002,14 +1002,14 @@ function renderHistoricalScoreContext() {
           <p>中位数 ${signedPct(horizon20.medianReturn)}</p>
         </article>
         <article>
-          <span>同桶 20D 胜率</span>
+          <span>同桶 SPY 20D 正收益率</span>
           <strong>${ratePct(horizon20.winRate)}</strong>
           <p>可用样本 ${horizon20.usableRows || horizon20.rows || "--"} 天</p>
         </article>
         <article>
           <span>同桶 60D 平均回报</span>
           <strong>${signedPct(horizon60?.avgReturn)}</strong>
-          <p>胜率 ${ratePct(horizon60?.winRate)}</p>
+          <p>SPY 60D 正收益率 ${ratePct(horizon60?.winRate)}</p>
         </article>
         <article>
           <span>后续风险画像</span>
@@ -1030,7 +1030,7 @@ function renderHistoricalScoreContext() {
           <div class="bucket-label">${key}</div>
           <div class="bucket-bar-track" aria-hidden="true"><span class="bucket-bar-fill" style="width:${barWidth}%"></span></div>
           <span>20D ${signedPct(outcome?.avgReturn)}</span>
-          <span>胜率 ${ratePct(outcome?.winRate)}</span>
+          <span>SPY正收益 ${ratePct(outcome?.winRate)}</span>
           <span>样本 ${outcome?.usableRows || item?.rows || "--"}</span>
         </div>
       `;

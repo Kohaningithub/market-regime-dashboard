@@ -162,12 +162,12 @@ function renderKpis() {
     <article class="analysis-kpi">
       <span>${activeHorizon}D 高分组平均收益</span>
       <strong>${fmtPct(highReturn)}</strong>
-      <p>Score 5+ 样本，胜率 ${fmtPct((highWinRate ?? 0) * 100, 0)}</p>
+      <p>Score 5+ 样本，SPY 20D 正收益率 ${fmtPct((highWinRate ?? 0) * 100, 0)}</p>
     </article>
     <article class="analysis-kpi">
       <span>${activeHorizon}D 低分组平均收益</span>
       <strong>${fmtPct(lowReturn)}</strong>
-      <p>Score 0-2 样本，胜率 ${fmtPct((lowWinRate ?? 0) * 100, 0)}</p>
+      <p>Score 0-2 样本，SPY 20D 正收益率 ${fmtPct((lowWinRate ?? 0) * 100, 0)}</p>
     </article>
     <article class="analysis-kpi">
       <span>Score 与 20D 波动相关</span>

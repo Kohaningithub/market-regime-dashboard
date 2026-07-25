@@ -162,12 +162,12 @@ function renderKpis() {
     <article class="analysis-kpi">
       <span>${activeHorizon}D high-score average return</span>
       <strong>${fmtPct(highReturn)}</strong>
-      <p>Score 5+ sample · win rate ${fmtPct((highWinRate ?? 0) * 100, 0)}</p>
+      <p>Score 5+ sample · SPY positive 20D rate ${fmtPct((highWinRate ?? 0) * 100, 0)}</p>
     </article>
     <article class="analysis-kpi">
       <span>${activeHorizon}D low-score average return</span>
       <strong>${fmtPct(lowReturn)}</strong>
-      <p>Score 0-2 sample · win rate ${fmtPct((lowWinRate ?? 0) * 100, 0)}</p>
+      <p>Score 0-2 sample · SPY positive 20D rate ${fmtPct((lowWinRate ?? 0) * 100, 0)}</p>
     </article>
     <article class="analysis-kpi">
       <span>Score correlation with 20D volatility</span>

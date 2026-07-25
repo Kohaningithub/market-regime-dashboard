@@ -193,7 +193,7 @@ function renderHistoricalScoreContext() {
   $("#current-score-breakdown").textContent = `Volatility ${pressure.volatility || 0} / Credit ${pressure.credit || 0} / Sentiment ${pressure.sentiment || 0}`;
   $("#current-raw-bucket").textContent = `${bucket} bucket · ${bucketTone(bucket)}`;
   $("#current-score-exact").textContent = exact
-    ? `Same exact-score sample: ${exact.rows} days; 20D average ${signedPct(exact.avgReturn20)}, win rate ${ratePct(exact.winRate20)}.`
+    ? `Same exact-score sample: ${exact.rows} days; 20D average ${signedPct(exact.avgReturn20)}, SPY positive 20D rate ${ratePct(exact.winRate20)}.`
     : "Exact-score sample is thin; use the neighboring bucket as the primary read-through.";
 
   const meta = latestQuantAnalysis?.meta || {};
@@ -202,7 +202,7 @@ function renderHistoricalScoreContext() {
     : "Loading five-year research results...";
 
   $("#score-context-readthrough").textContent = horizon20
-    ? `The current raw pressure score is ${total}, which falls in the ${bucket} (${bucketTone(bucket)}) bucket. Over the last five years, similar readings were followed by an average 20-trading-day SPY return of ${signedPct(horizon20.avgReturn)} with a ${ratePct(horizon20.winRate)} win rate; the average 60-trading-day return was ${signedPct(horizon60?.avgReturn)}. This is context, not the final trade rule; the final action still comes from Opportunity, Risk, and the credit gate.`
+    ? `The current raw pressure score is ${total}, which falls in the ${bucket} (${bucketTone(bucket)}) bucket. Over the last five years, similar readings were followed by an average 20-trading-day SPY return of ${signedPct(horizon20.avgReturn)} with a ${ratePct(horizon20.winRate)} SPY positive 20D rate; the average 60-trading-day return was ${signedPct(horizon60?.avgReturn)}. This is context, not the final trade rule; the final action still comes from Opportunity, Risk, and the credit gate.`
     : "Historical bucket data is still loading; only the latest score is available for now.";
 
   $("#historical-outcome-grid").innerHTML = horizon20
@@ -213,14 +213,14 @@ function renderHistoricalScoreContext() {
         <p>Median ${signedPct(horizon20.medianReturn)}</p>
       </article>
       <article>
-        <span>Bucket 20D Win Rate</span>
+        <span>Bucket SPY Positive 20D Rate</span>
         <strong>${ratePct(horizon20.winRate)}</strong>
         <p>Usable sample ${horizon20.usableRows || horizon20.rows || "--"} days</p>
       </article>
       <article>
         <span>Bucket 60D Avg Return</span>
         <strong>${signedPct(horizon60?.avgReturn)}</strong>
-        <p>Win rate ${ratePct(horizon60?.winRate)}</p>
+        <p>SPY positive 60D rate ${ratePct(horizon60?.winRate)}</p>
       </article>
       <article>
         <span>Forward Risk Profile</span>
@@ -240,7 +240,7 @@ function renderHistoricalScoreContext() {
           <div class="bucket-label">${key}</div>
           <div class="bucket-bar-track" aria-hidden="true"><span class="bucket-bar-fill" style="width:${barWidth}%"></span></div>
           <span>20D ${signedPct(outcome?.avgReturn)}</span>
-          <span>Win ${ratePct(outcome?.winRate)}</span>
+          <span>SPY positive ${ratePct(outcome?.winRate)}</span>
           <span>Sample ${outcome?.usableRows || item?.rows || "--"}</span>
         </div>
       `;
