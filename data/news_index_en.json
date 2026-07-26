@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-24T14:20:56Z",
+  "generatedAt": "2026-07-26T23:02:28Z",
   "entries": [
+    {
+      "id": "2026-07-26_morning",
+      "date": "2026-07-26",
+      "edition": "morning",
+      "title": "2026-07-26 Morning Market Brief",
+      "summary": "There is no regular U.S. equity premarket on Sunday, so the setup is a weekend handoff: oil and rates remain the key macro pressure points, while the Fed, GDP/PCE/ECI and mega-cap earnings define the week ahead.",
+      "generatedAt": "2026-07-26T09:15:00-04:00",
+      "path": "data/news-en/2026-07-26_morning.md",
+      "wordCount": 17206,
+      "sourceCount": 87
+    },
     {
       "id": "2026-07-24_morning",
       "date": "2026-07-24",
@@ -26,8 +37,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-24",
-    "dates": 2,
-    "reports": 2
+    "end": "2026-07-26",
+    "dates": 3,
+    "reports": 3
   }
 }

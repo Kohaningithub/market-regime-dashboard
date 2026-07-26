@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-24T14:20:56Z",
+  "generatedAt": "2026-07-26T23:02:27Z",
   "entries": [
+    {
+      "id": "2026-07-26_morning",
+      "date": "2026-07-26",
+      "edition": "morning",
+      "title": "2026-07-26 早盘投资动态简报",
+      "summary": "周日无美股常规盘前，当前主线是油价冲击后是否继续缓和、FOMC与GDP/PCE/ECI连环验证，以及Mega-cap财报是否重新定义AI与利率交易。",
+      "generatedAt": "2026-07-26T09:15:00-04:00",
+      "path": "data/news/2026-07-26_morning.md",
+      "wordCount": 6654,
+      "sourceCount": 87
+    },
     {
       "id": "2026-07-24_morning",
       "date": "2026-07-24",
@@ -26,8 +37,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-24",
-    "dates": 2,
-    "reports": 2
+    "end": "2026-07-26",
+    "dates": 3,
+    "reports": 3
   }
 }
