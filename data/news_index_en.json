@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-07-26T23:02:28Z",
+  "generatedAt": "2026-07-27T15:01:39Z",
   "entries": [
+    {
+      "id": "2026-07-27_close",
+      "date": "2026-07-27",
+      "edition": "close",
+      "title": "2026-07-27 Closing Investment Brief (Based on the latest completed session, 2026-07-24)",
+      "summary": "Intel's post-earnings strength and a pullback in oil stabilized the Dow and S&P 500, but the Nasdaq stayed under pressure from AI capex skepticism ahead of the Fed and mega-cap earnings",
+      "generatedAt": "2026-07-27T08:23:42-04:00",
+      "path": "data/news-en/2026-07-27_close.md",
+      "wordCount": 12691,
+      "sourceCount": 77
+    },
+    {
+      "id": "2026-07-27_morning",
+      "date": "2026-07-27",
+      "edition": "morning",
+      "title": "2026-07-27 Morning Market Brief",
+      "summary": "Monday's premarket is being driven by easing Iran-related risk, sharply lower oil, softer Treasury yields, a modestly constructive durable-goods report, and a high-stakes week of FOMC and mega-cap AI earnings.",
+      "generatedAt": "2026-07-27T08:42:53-04:00",
+      "path": "data/news-en/2026-07-27_morning.md",
+      "wordCount": 19375,
+      "sourceCount": 75
+    },
     {
       "id": "2026-07-26_morning",
       "date": "2026-07-26",
@@ -37,8 +59,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-26",
-    "dates": 3,
-    "reports": 3
+    "end": "2026-07-27",
+    "dates": 4,
+    "reports": 5
   }
 }
