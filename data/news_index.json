@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-28T13:48:21Z",
+  "generatedAt": "2026-07-28T21:24:21Z",
   "entries": [
+    {
+      "id": "2026-07-28_close",
+      "date": "2026-07-28",
+      "edition": "close",
+      "title": "收盘投资动态简报｜2026-07-28",
+      "summary": "道指领涨、标普微升而纳指回落；AI芯片去拥挤与油价回落推动明显风格轮动。",
+      "generatedAt": "2026-07-28T16:35:00-04:00",
+      "path": "data/news/2026-07-28_close.md",
+      "wordCount": 2018,
+      "sourceCount": 18
+    },
     {
       "id": "2026-07-28_morning",
       "date": "2026-07-28",
@@ -72,6 +83,6 @@
     "start": "2026-07-23",
     "end": "2026-07-28",
     "dates": 5,
-    "reports": 6
+    "reports": 7
   }
 }
