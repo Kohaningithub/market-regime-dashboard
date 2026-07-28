@@ -14,6 +14,7 @@ import math
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import UTC, date, datetime, time as dt_time, timedelta
 from pathlib import Path
@@ -21,6 +22,7 @@ from typing import Any
 from urllib.error import HTTPError, URLError
 from urllib.parse import quote
 from urllib.request import Request, urlopen
+from zoneinfo import ZoneInfo
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -39,7 +41,7 @@ REGIME_TITLES = {
     "extreme": "Extreme Panic",
     "defensive": "Systemic Stress",
 }
-US_EASTERN = datetime.now().astimezone().tzinfo or UTC
+US_EASTERN = ZoneInfo("America/New_York")
 MARKET_CLOSE_BUFFER_ET = dt_time(16, 15)
 
 
@@ -52,7 +54,7 @@ class DataPoint:
     note: str | None = None
 
 
-def fetch_text(url: str, timeout: int = 35, retries: int = 3, headers: dict[str, str] | None = None) -> str:
+def fetch_text(url: str, timeout: int = 12, retries: int = 1, headers: dict[str, str] | None = None) -> str:
     last_error: Exception | None = None
     request_headers = {"User-Agent": USER_AGENT, "Accept": "*/*"}
     if headers:
@@ -640,11 +642,6 @@ def build_snapshot() -> tuple[dict[str, Any], float]:
     }
     fred: dict[str, list[tuple[str, float]]] = {}
     fred_errors: dict[str, Exception] = {}
-    for name, series_id in fred_ids.items():
-        try:
-            fred[name] = fred_series(series_id)
-        except RuntimeError as exc:
-            fred_errors[name] = exc
 
     yahoo_symbols = {
         "vix": "^VIX",
@@ -657,7 +654,53 @@ def build_snapshot() -> tuple[dict[str, Any], float]:
         "dxy": "DX-Y.NYB",
         "move": "^MOVE",
     }
-    yahoo = {name: yahoo_series(symbol) for name, symbol in yahoo_symbols.items()}
+    yahoo: dict[str, list[tuple[str, float]]] = {}
+    yahoo_errors: dict[str, Exception] = {}
+    sentiment: dict[str, DataPoint] = {}
+    sentiment_errors: dict[str, Exception] = {}
+
+    with ThreadPoolExecutor(max_workers=16, thread_name_prefix="market-source") as executor:
+        futures = {
+            executor.submit(fred_series, series_id): ("fred", name)
+            for name, series_id in fred_ids.items()
+        }
+        futures.update(
+            {
+                executor.submit(yahoo_series, symbol): ("yahoo", name)
+                for name, symbol in yahoo_symbols.items()
+            }
+        )
+        futures.update(
+            {
+                executor.submit(fetch_aaii_bearish): ("sentiment", "aaiiBearish"),
+                executor.submit(fetch_put_call_ratio): ("sentiment", "putCall"),
+                executor.submit(fetch_cnn_fear_greed): ("sentiment", "fearGreed"),
+            }
+        )
+
+        for future in as_completed(futures):
+            source_type, name = futures[future]
+            try:
+                result = future.result()
+            except Exception as exc:
+                if source_type == "fred":
+                    fred_errors[name] = exc
+                elif source_type == "yahoo":
+                    yahoo_errors[name] = exc
+                else:
+                    sentiment_errors[name] = exc
+                continue
+
+            if source_type == "fred":
+                fred[name] = result
+            elif source_type == "yahoo":
+                yahoo[name] = result
+            else:
+                sentiment[name] = result
+
+    if yahoo_errors:
+        details = "; ".join(f"{name}: {error}" for name, error in sorted(yahoo_errors.items()))
+        raise RuntimeError(f"Required Yahoo market data failed: {details}")
 
     vix_date, vix_value = latest(yahoo["vix"])
     fields["vix"] = data_point(vix_value, vix_date, "Yahoo Finance ^VIX / Cboe VIX")
@@ -756,9 +799,10 @@ def build_snapshot() -> tuple[dict[str, Any], float]:
         "Yahoo Finance KRE/SPY",
     )
 
-    try:
-        fields["aaiiBearish"] = fetch_aaii_bearish()
-    except RuntimeError as exc:
+    if "aaiiBearish" in sentiment:
+        fields["aaiiBearish"] = sentiment["aaiiBearish"]
+    else:
+        exc = sentiment_errors["aaiiBearish"]
         fields["aaiiBearish"] = DataPoint(
             40,
             date.today().isoformat(),
@@ -767,9 +811,10 @@ def build_snapshot() -> tuple[dict[str, Any], float]:
             str(exc),
         )
 
-    try:
-        fields["putCall"] = fetch_put_call_ratio()
-    except RuntimeError as exc:
+    if "putCall" in sentiment:
+        fields["putCall"] = sentiment["putCall"]
+    else:
+        exc = sentiment_errors["putCall"]
         fields["putCall"] = DataPoint(
             0.75,
             date.today().isoformat(),
@@ -779,9 +824,10 @@ def build_snapshot() -> tuple[dict[str, Any], float]:
         )
 
     values = {key: point.value for key, point in fields.items()}
-    try:
-        fields["fearGreed"] = fetch_cnn_fear_greed()
-    except RuntimeError as exc:
+    if "fearGreed" in sentiment:
+        fields["fearGreed"] = sentiment["fearGreed"]
+    else:
+        exc = sentiment_errors["fearGreed"]
         proxy = fear_greed_proxy(values, values["aaiiBearish"], values["putCall"])
         proxy.note = f"{proxy.note} CNN fetch failed: {exc}"
         fields["fearGreed"] = proxy
@@ -807,7 +853,9 @@ def build_snapshot() -> tuple[dict[str, Any], float]:
         for key, point in fields.items()
     }
 
-    latest_as_of = max(point.as_of[:10] for point in fields.values())
+    # The headline dashboard date represents the U.S. equity session, not the
+    # newest timestamp from a sentiment or weekly macro source.
+    latest_as_of = spy_date
     generated_at = datetime.now(UTC).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
     return {

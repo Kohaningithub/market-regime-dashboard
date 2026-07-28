@@ -31,19 +31,26 @@ Recommended deployment is GitHub Pages + GitHub Actions.
 - `scripts/validate_news_archive.py` blocks publication unless both language editions are complete and indexed.
 - The frontend reads saved static JSON only; it does not fetch external market sources from the browser.
 
-Market data is collected twice per U.S. trading weekday: once during the U.S. morning session and once after the cash close. Complete morning and close briefs are written locally by the two Codex brief automations, and the News publisher indexes and publishes once after each edition. Repeated runs are idempotent when nothing changed.
+Market data is collected during the U.S. morning session and after the cash close. Each window has staggered retry schedules because GitHub scheduled jobs can be delayed; a freshness guard skips redundant retries after the first successful refresh. The current snapshot is rebuilt on every required run, while the expensive five-year calibration is refreshed weekly or on demand. Complete morning and close briefs are written locally by the two Codex brief automations, and the News publisher retries after each edition so a slower report generation cannot miss the publication window.
 
 ## Local Preview
 
 ```powershell
 python scripts/update_data.py
-python scripts/backfill_regime_history.py --years 5
-python scripts/analyze_regime_history.py
 python scripts/build_allocation_signal.py
 python scripts/build_daily_evidence.py
 python scripts/build_news_index.py
 python scripts/validate_news_archive.py
 python -m http.server 4173 --bind 127.0.0.1
+```
+
+The weekly calibration additionally runs:
+
+```powershell
+python scripts/backfill_regime_history.py --years 5
+python scripts/analyze_regime_history.py
+python scripts/build_allocation_signal.py
+python scripts/build_daily_evidence.py
 ```
 
 Then open `http://127.0.0.1:4173/`.
