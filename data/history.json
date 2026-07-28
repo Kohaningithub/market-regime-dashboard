@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-28T14:36:14Z",
+  "generatedAt": "2026-07-28T22:36:25Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
     {
@@ -1999,6 +1999,24 @@
       "rspSpyRel60d": 4.24,
       "estimatedCount": 0,
       "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-28T22:36:25Z",
+      "asOf": "2026-07-28",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 740.86,
+      "spyDrawdown": -2.21,
+      "qqqDrawdown": -9.37,
+      "fearGreed": 38.0,
+      "rspSpyRel60d": 3.93,
+      "estimatedCount": 0,
+      "valuationInScore": false
     }
   ],
   "dailyHistory": [
@@ -2305,6 +2323,24 @@
       "qqqDrawdown": -8.48,
       "fearGreed": 40.0,
       "rspSpyRel60d": 3.51,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-28T22:36:25Z",
+      "asOf": "2026-07-28",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 740.86,
+      "spyDrawdown": -2.21,
+      "qqqDrawdown": -9.37,
+      "fearGreed": 38.0,
+      "rspSpyRel60d": 3.93,
       "estimatedCount": 0,
       "valuationInScore": false
     }
@@ -4305,6 +4341,24 @@
       "qqqDrawdown": -9.91,
       "fearGreed": 37.0,
       "rspSpyRel60d": 4.24,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-07-28T22:36:25Z",
+      "asOf": "2026-07-28",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 740.86,
+      "spyDrawdown": -2.21,
+      "qqqDrawdown": -9.37,
+      "fearGreed": 38.0,
+      "rspSpyRel60d": 3.93,
       "estimatedCount": 0,
       "valuationInScore": false
     }
