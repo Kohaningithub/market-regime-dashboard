@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-27T15:01:38Z",
+  "generatedAt": "2026-07-28T13:48:21Z",
   "entries": [
+    {
+      "id": "2026-07-28_morning",
+      "date": "2026-07-28",
+      "edition": "morning",
+      "title": "2026-07-28 早盘投资动态简报",
+      "summary": "今晨主线是芯片与AI链条因亚洲杀跌继续承压、油价和长端收益率回落支撑道指与防御消费、以及Fed会议与密集财报把市场拉进高波动验证窗口。",
+      "generatedAt": "2026-07-28T09:38:49-04:00",
+      "path": "data/news/2026-07-28_morning.md",
+      "wordCount": 7066,
+      "sourceCount": 86
+    },
     {
       "id": "2026-07-27_close",
       "date": "2026-07-27",
@@ -59,8 +70,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-27",
-    "dates": 4,
-    "reports": 5
+    "end": "2026-07-28",
+    "dates": 5,
+    "reports": 6
   }
 }
