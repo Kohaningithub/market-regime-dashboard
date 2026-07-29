@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-28T21:24:21Z",
+  "generatedAt": "2026-07-29T13:24:33Z",
   "entries": [
+    {
+      "id": "2026-07-29_morning",
+      "date": "2026-07-29",
+      "edition": "morning",
+      "title": "2026-07-29 早盘投资动态简报",
+      "summary": "油价因中东局势反弹、美国股指期货分化；FOMC 决议和微软/Meta 财报使今天成为宏观、能源与AI估值同时定价的一天。",
+      "generatedAt": "2026-07-29T08:45:28-04:00",
+      "path": "data/news/2026-07-29_morning.md",
+      "wordCount": 3079,
+      "sourceCount": 34
+    },
     {
       "id": "2026-07-28_close",
       "date": "2026-07-28",
@@ -81,8 +92,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-28",
-    "dates": 5,
-    "reports": 7
+    "end": "2026-07-29",
+    "dates": 6,
+    "reports": 8
   }
 }
