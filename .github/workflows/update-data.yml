@@ -11,9 +11,16 @@ on:
   schedule:
     # Redundant off-peak attempts make GitHub schedule delays harmless.
     # The guard exits quickly after the first successful morning/close refresh.
+    # Cover 09:37 ET in both daylight-saving and standard time.  The guard
+    # keeps the extra attempts cheap after the first successful refresh.
+    - cron: "37 13 * * 1-5"
+    - cron: "7 14 * * 1-5"
     - cron: "37 14 * * 1-5"
     - cron: "7 15 * * 1-5"
     - cron: "37 15 * * 1-5"
+    # Cover 16:37 ET in both daylight-saving and standard time as well.
+    - cron: "37 20 * * 1-5"
+    - cron: "7 21 * * 1-5"
     - cron: "37 21 * * 1-5"
     - cron: "7 22 * * 1-5"
     - cron: "37 22 * * 1-5"
