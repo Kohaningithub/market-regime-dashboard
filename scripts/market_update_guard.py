@@ -13,8 +13,8 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_LATEST = ROOT / "data" / "latest.json"
 ET = ZoneInfo("America/New_York")
 WINDOW_STARTS = {
-    "morning": time(9, 5),
-    "close": time(16, 35),
+    "morning": time(9, 40),
+    "close": time(16, 40),
 }
 
 
