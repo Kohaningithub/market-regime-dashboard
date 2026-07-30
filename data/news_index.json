@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-29T13:24:33Z",
+  "generatedAt": "2026-07-30T02:57:12Z",
   "entries": [
+    {
+      "id": "2026-07-29_close",
+      "date": "2026-07-29",
+      "edition": "close",
+      "title": "美股收盘投资动态简报｜2026-07-29",
+      "summary": "联储按兵不动但油价重升、AI估值再定价；SPY收跌1.50%、QQQ收跌2.01%。",
+      "generatedAt": "2026-07-29T16:25:16-04:00",
+      "path": "data/news/2026-07-29_close.md",
+      "wordCount": 2840,
+      "sourceCount": 25
+    },
     {
       "id": "2026-07-29_morning",
       "date": "2026-07-29",
@@ -94,6 +105,6 @@
     "start": "2026-07-23",
     "end": "2026-07-29",
     "dates": 6,
-    "reports": 8
+    "reports": 9
   }
 }
