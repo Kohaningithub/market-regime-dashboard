@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_LATEST = ROOT / "data" / "latest.json"
 ET = ZoneInfo("America/New_York")
 WINDOW_STARTS = {
-    "morning": time(9, 35),
+    "morning": time(9, 5),
     "close": time(16, 35),
 }
 
@@ -48,7 +48,10 @@ def classify_schedule(schedule: str) -> str:
     fields = schedule.split()
     if len(fields) != 5:
         raise ValueError(f"Unsupported cron schedule: {schedule}")
-    hour = int(fields[1])
+    # GitHub cron allows lists and ranges (for example, "13-15"). Every
+    # current range belongs to one logical window, so its first hour is enough
+    # to classify the retry.
+    hour = int(fields[1].split(",", 1)[0].split("-", 1)[0])
     weekday = fields[4]
     if weekday == "0":
         return "history"
@@ -74,7 +77,9 @@ def main() -> int:
     now = parse_timestamp(args.now) if args.now else datetime.now(ET)
     window = classify_schedule(args.schedule)
     refresh_history = window == "history" or args.force_history
-    should_run = window in {"manual", "history"} or not is_window_fresh(args.latest, window, now)
+    now_et = now.astimezone(ET)
+    within_window = window not in WINDOW_STARTS or now_et.time().replace(tzinfo=None) >= WINDOW_STARTS[window]
+    should_run = window in {"manual", "history"} or (within_window and not is_window_fresh(args.latest, window, now))
 
     decision = {
         "window": window,
