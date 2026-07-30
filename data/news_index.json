@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-30T02:57:12Z",
+  "generatedAt": "2026-07-30T13:24:41Z",
   "entries": [
+    {
+      "id": "2026-07-30_morning",
+      "date": "2026-07-30",
+      "edition": "morning",
+      "title": "2026-07-30 早盘投资动态简报",
+      "summary": "微软云业务强劲带动科技期货反弹，Meta 的高成本与低自由现金流形成反例；Fed 的三票加息异议及 8:30 ET GDP/PCE 发布使利率、AI 资本开支和能源风险同步定价。",
+      "generatedAt": "2026-07-30T08:45:32-04:00",
+      "path": "data/news/2026-07-30_morning.md",
+      "wordCount": 2511,
+      "sourceCount": 35
+    },
     {
       "id": "2026-07-29_close",
       "date": "2026-07-29",
@@ -103,8 +114,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-29",
-    "dates": 6,
-    "reports": 9
+    "end": "2026-07-30",
+    "dates": 7,
+    "reports": 10
   }
 }

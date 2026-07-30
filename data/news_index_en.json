@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-30T02:57:12Z",
+  "generatedAt": "2026-07-30T13:24:42Z",
   "entries": [
+    {
+      "id": "2026-07-30_morning",
+      "date": "2026-07-30",
+      "edition": "morning",
+      "title": "Morning Investment Brief — July 30, 2026",
+      "summary": "Microsoft’s cloud delivery is lifting technology futures while Meta’s cost and free-cash-flow pressure provides the counterexample; three Fed hike dissents and the 08:30 ET GDP/PCE releases put rates, AI capex and energy risk into one session.",
+      "generatedAt": "2026-07-30T08:45:32-04:00",
+      "path": "data/news-en/2026-07-30_morning.md",
+      "wordCount": 6492,
+      "sourceCount": 35
+    },
     {
       "id": "2026-07-29_close",
       "date": "2026-07-29",
@@ -103,8 +114,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-29",
-    "dates": 6,
-    "reports": 9
+    "end": "2026-07-30",
+    "dates": 7,
+    "reports": 10
   }
 }
