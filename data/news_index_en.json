@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-31T13:24:00Z",
+  "generatedAt": "2026-07-31T21:24:32Z",
   "entries": [
+    {
+      "id": "2026-07-31_close",
+      "date": "2026-07-31",
+      "edition": "close",
+      "title": "U.S. Market Close Investment Brief | 2026-07-31",
+      "summary": "Stocks finished July higher on Amazon's earnings signal, while Apple's outlook, higher oil and rising long yields kept risk appetite selective.",
+      "generatedAt": "2026-07-31T16:31:00-04:00",
+      "path": "data/news-en/2026-07-31_close.md",
+      "wordCount": 6827,
+      "sourceCount": 19
+    },
     {
       "id": "2026-07-31_morning",
       "date": "2026-07-31",
@@ -138,6 +149,6 @@
     "start": "2026-07-23",
     "end": "2026-07-31",
     "dates": 8,
-    "reports": 12
+    "reports": 13
   }
 }

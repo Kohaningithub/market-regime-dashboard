@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-31T13:24:00Z",
+  "generatedAt": "2026-07-31T21:24:32Z",
   "entries": [
+    {
+      "id": "2026-07-31_close",
+      "date": "2026-07-31",
+      "edition": "close",
+      "title": "美股收盘投资动态简报｜2026-07-31",
+      "summary": "7月最后一个交易日，美股在Amazon业绩带动下收高，但Apple指引、油价与长端利率令风险偏好保持选择性。",
+      "generatedAt": "2026-07-31T16:31:00-04:00",
+      "path": "data/news/2026-07-31_close.md",
+      "wordCount": 2682,
+      "sourceCount": 19
+    },
     {
       "id": "2026-07-31_morning",
       "date": "2026-07-31",
@@ -138,6 +149,6 @@
     "start": "2026-07-23",
     "end": "2026-07-31",
     "dates": 8,
-    "reports": 12
+    "reports": 13
   }
 }
