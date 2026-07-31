@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-31T03:05:47Z",
+  "generatedAt": "2026-07-31T13:24:00Z",
   "entries": [
+    {
+      "id": "2026-07-31_morning",
+      "date": "2026-07-31",
+      "edition": "morning",
+      "title": "2026-07-31 早盘投资动态简报",
+      "summary": "隔夜焦点从“AI是否投入”转为“投入能否转成云增长与现金流”：亚马逊AWS加速并上调资本开支、苹果收入超预期；今日08:30 ET就业成本指数是Fed鹰派分歧后的首个工资压力检验。",
+      "generatedAt": "2026-07-31T07:45:00-04:00",
+      "path": "data/news/2026-07-31_morning.md",
+      "wordCount": 2626,
+      "sourceCount": 34
+    },
     {
       "id": "2026-07-30_close",
       "date": "2026-07-30",
@@ -125,8 +136,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-30",
-    "dates": 7,
-    "reports": 11
+    "end": "2026-07-31",
+    "dates": 8,
+    "reports": 12
   }
 }

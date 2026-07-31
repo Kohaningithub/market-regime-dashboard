@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-31T03:05:48Z",
+  "generatedAt": "2026-07-31T13:24:00Z",
   "entries": [
+    {
+      "id": "2026-07-31_morning",
+      "date": "2026-07-31",
+      "edition": "morning",
+      "title": "Morning Investment Brief — July 31, 2026",
+      "summary": "The overnight question has shifted from AI spending to monetisation: Amazon reported faster AWS growth and higher capex, while Apple beat on revenue; today’s 08:30 ET ECI is the first wage-cost test after the Fed’s hawkish split.",
+      "generatedAt": "2026-07-31T07:45:00-04:00",
+      "path": "data/news-en/2026-07-31_morning.md",
+      "wordCount": 6790,
+      "sourceCount": 34
+    },
     {
       "id": "2026-07-30_close",
       "date": "2026-07-30",
@@ -125,8 +136,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-30",
-    "dates": 7,
-    "reports": 11
+    "end": "2026-07-31",
+    "dates": 8,
+    "reports": 12
   }
 }
