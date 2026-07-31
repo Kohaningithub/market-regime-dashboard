@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-30T13:24:41Z",
+  "generatedAt": "2026-07-31T03:05:47Z",
   "entries": [
+    {
+      "id": "2026-07-30_close",
+      "date": "2026-07-30",
+      "edition": "close",
+      "title": "美股收盘投资动态简报｜2026-07-30",
+      "summary": "微软业绩验证部分 AI 变现，带动标普约升1.8%、纳指约升2.9%；Meta 加码资本开支及通胀约束仍是估值分歧。",
+      "generatedAt": "2026-07-30T16:28:00-04:00",
+      "path": "data/news/2026-07-30_close.md",
+      "wordCount": 2891,
+      "sourceCount": 21
+    },
     {
       "id": "2026-07-30_morning",
       "date": "2026-07-30",
@@ -116,6 +127,6 @@
     "start": "2026-07-23",
     "end": "2026-07-30",
     "dates": 7,
-    "reports": 10
+    "reports": 11
   }
 }

@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-30T13:24:42Z",
+  "generatedAt": "2026-07-31T03:05:48Z",
   "entries": [
+    {
+      "id": "2026-07-30_close",
+      "date": "2026-07-30",
+      "edition": "close",
+      "title": "U.S. Market Close Investment Brief | 2026-07-30",
+      "summary": "Microsoft validated part of the AI-profit story, lifting the S&P 500 about 1.8% and Nasdaq about 2.9%; Meta capex and inflation remain the valuation fault lines.",
+      "generatedAt": "2026-07-30T16:28:00-04:00",
+      "path": "data/news-en/2026-07-30_close.md",
+      "wordCount": 7021,
+      "sourceCount": 21
+    },
     {
       "id": "2026-07-30_morning",
       "date": "2026-07-30",
@@ -116,6 +127,6 @@
     "start": "2026-07-23",
     "end": "2026-07-30",
     "dates": 7,
-    "reports": 10
+    "reports": 11
   }
 }
