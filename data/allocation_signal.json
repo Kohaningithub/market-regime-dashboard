@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-31T21:43:40Z",
+  "generatedAt": "2026-08-02T11:34:18Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -108,7 +108,7 @@
       "dataPenalty": 0
     },
     "asOf": "2026-07-31",
-    "generatedAt": "2026-07-31T21:43:40Z",
+    "generatedAt": "2026-08-02T11:34:03Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
@@ -118,19 +118,19 @@
     "keyInputs": {
       "vix": 15.99,
       "vixChange5d": -2.59,
-      "move": 83.02,
+      "move": 70.88,
       "spyDrawdown": -1.4,
       "qqqDrawdown": -7.69,
       "fearGreed": 42.0,
       "aaiiBearish": 42.1,
-      "putCall": 0.61,
+      "putCall": 0.63,
       "creditScore": 0,
       "hyOas": 2.84,
       "igOas": 0.8,
       "nfci": -0.55,
       "dxyChange20d": -1.05,
       "kreRel20d": 1.08,
-      "spyRealizedVol20dTrailing": 11.3154
+      "spyRealizedVol20dTrailing": 12.6927
     }
   },
   "historicalActionSummary": {
@@ -153,29 +153,29 @@
       "avgSpyRet20dFwd": 1.4893,
       "winRate20d": 0.547,
       "avgSpyRet60dFwd": 3.803,
-      "avgRealizedVol20dFwd": 23.8117,
+      "avgRealizedVol20dFwd": 23.8116,
       "avgMaxDrawdown20dFwd": -3.9825
     },
     "HOLD": {
       "rows": 1074,
       "usableRows": 1014,
-      "avgOpportunityScore": 28.89,
+      "avgOpportunityScore": 28.9,
       "avgRiskScore": 10.76,
-      "avgSpyRet20dFwd": 0.8697,
+      "avgSpyRet20dFwd": 0.8804,
       "winRate20d": 0.6548,
-      "avgSpyRet60dFwd": 3.0779,
-      "avgRealizedVol20dFwd": 14.093,
-      "avgMaxDrawdown20dFwd": -2.3834
+      "avgSpyRet60dFwd": 3.0743,
+      "avgRealizedVol20dFwd": 14.0983,
+      "avgMaxDrawdown20dFwd": -2.3812
     },
     "REDUCE": {
       "rows": 15,
       "usableRows": 15,
       "avgOpportunityScore": 64.75,
-      "avgRiskScore": 55.83,
+      "avgRiskScore": 55.82,
       "avgSpyRet20dFwd": -0.2188,
       "winRate20d": 0.4,
       "avgSpyRet60dFwd": -0.8176,
-      "avgRealizedVol20dFwd": 25.4869,
+      "avgRealizedVol20dFwd": 25.487,
       "avgMaxDrawdown20dFwd": -4.8017
     }
   },

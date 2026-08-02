@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-31T21:43:40Z",
+  "generatedAt": "2026-08-02T11:34:03Z",
   "asOf": "2026-07-31",
   "mode": "live",
   "values": {
     "vix": 15.99,
     "vixChange5d": -2.59,
-    "move": 83.02,
+    "move": 70.88,
     "spyDrawdown": -1.4,
     "qqqDrawdown": -7.69,
     "rspSpyRel60d": 2.63,
@@ -23,7 +23,7 @@
     "nfci": -0.55,
     "kreRel20d": 1.08,
     "aaiiBearish": 42.1,
-    "putCall": 0.61,
+    "putCall": 0.63,
     "fearGreed": 42.0
   },
   "scores": {
@@ -50,7 +50,7 @@
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-07-31",
+      "asOf": "2026-07-17",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -140,13 +140,13 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-07-31",
+      "asOf": "2026-08-02",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-07-31T21:26:27+00:00",
+      "asOf": "2026-07-31T23:59:52+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
