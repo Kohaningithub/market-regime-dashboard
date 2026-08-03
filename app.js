@@ -466,6 +466,14 @@ function snapshotAgeMinutes(snapshot) {
   return Math.max(0, Math.round((Date.now() - parsed.getTime()) / 60000));
 }
 
+function isUsMarketWeekend(now = new Date()) {
+  const weekday = new Intl.DateTimeFormat("en-US", {
+    timeZone: "America/New_York",
+    weekday: "short"
+  }).format(now);
+  return weekday === "Sat" || weekday === "Sun";
+}
+
 function formatAge(minutes) {
   if (minutes === null) return "--";
   if (minutes < 1) return "刚刚";
@@ -792,9 +800,11 @@ function renderLiveMeta(context = {}) {
   if (context.mode === "live" && context.snapshot) {
     const estimatedCount = Object.values(context.snapshot.fieldMeta || {}).filter((item) => item.status !== "ok").length;
     const ageMinutes = snapshotAgeMinutes(context.snapshot);
-    const isStale = ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES;
+    const isStale = ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES && !isUsMarketWeekend();
     liveMeta.classList.toggle("is-stale", isStale);
-    liveMeta.textContent = `Latest Snapshot | 生成 ${formatDateTime(context.snapshot.generatedAt)} | 距今 ${formatAge(ageMinutes)} | 数据日期 ${context.snapshot.asOf} | 估算项 ${estimatedCount}${isStale ? " | Stale: 等待下一次 GitHub 抓取" : ""}`;
+    const marketSession = isUsMarketWeekend() ? "最近交易日" : "市场数据日期";
+    const weekendNote = isUsMarketWeekend() ? " | 周末休市，下一交易日自动更新" : "";
+    liveMeta.textContent = `Latest Snapshot | 生成 ${formatDateTime(context.snapshot.generatedAt)} | 距今 ${formatAge(ageMinutes)} | ${marketSession} ${context.snapshot.asOf} | 估算项 ${estimatedCount}${weekendNote}${isStale ? " | Stale: 等待下一次 GitHub 抓取" : ""}`;
     return;
   }
 
@@ -813,7 +823,7 @@ function renderDataQuality(snapshot) {
   const freshnessItems = [
     `<div class="data-quality-item"><strong>更新节奏</strong> GitHub Actions 在每个美股交易日早盘和收盘后各生成一次快照；浏览器会自动读取最新静态文件。</div>`
   ];
-  if (ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES) {
+  if (ageMinutes !== null && ageMinutes > STALE_SNAPSHOT_MINUTES && !isUsMarketWeekend()) {
     freshnessItems.push(
       `<div class="data-quality-item warning"><strong>Stale</strong> 当前快照距今 ${formatAge(ageMinutes)}，GitHub 定时抓取可能失败或数据源延迟。</div>`
     );

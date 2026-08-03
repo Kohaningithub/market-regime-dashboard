@@ -303,7 +303,11 @@ function renderPressureCard(prefix, value, max, detail) {
 
 function renderSnapshot(snapshot) {
   const values = snapshot.values || {};
-  $("#live-meta").textContent = `Latest snapshot | generated ${formatEt(snapshot.generatedAt)} ET | data date ${snapshot.asOf}`;
+  const weekday = new Intl.DateTimeFormat("en-US", { timeZone: "America/New_York", weekday: "short" }).format();
+  const isWeekend = weekday === "Sat" || weekday === "Sun";
+  const dataLabel = isWeekend ? "last market session" : "market data date";
+  const weekendNote = isWeekend ? " | U.S. markets are closed for the weekend; the next trading-day update is automatic" : "";
+  $("#live-meta").textContent = `Latest snapshot | generated ${formatEt(snapshot.generatedAt)} ET | ${dataLabel} ${snapshot.asOf}${weekendNote}`;
   $("#trigger-list").innerHTML = triggerRows(values)
     .map((row) => `<li class="${row.severity}">${escapeHtml(row.text)}</li>`)
     .join("");
