@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-31T21:24:32Z",
+  "generatedAt": "2026-08-03T17:33:25Z",
   "entries": [
+    {
+      "id": "2026-08-03_morning",
+      "date": "2026-08-03",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 3, 2026",
+      "summary": "A pause in new U.S. strikes on Iran has pushed oil and long yields lower, lifting risk assets; semiconductor shares remain split on the durability of AI returns. This week's ISM, JOLTS, jobs and productivity releases test whether growth, inflation and valuation can improve together.",
+      "generatedAt": "2026-08-03T10:20:00-04:00",
+      "path": "data/news-en/2026-08-03_morning.md",
+      "wordCount": 6348,
+      "sourceCount": 29
+    },
     {
       "id": "2026-07-31_close",
       "date": "2026-07-31",
@@ -147,8 +158,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-31",
-    "dates": 8,
-    "reports": 13
+    "end": "2026-08-03",
+    "dates": 9,
+    "reports": 14
   }
 }

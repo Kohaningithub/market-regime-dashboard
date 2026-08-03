@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-07-31T21:24:32Z",
+  "generatedAt": "2026-08-03T17:33:25Z",
   "entries": [
+    {
+      "id": "2026-08-03_morning",
+      "date": "2026-08-03",
+      "edition": "morning",
+      "title": "2026-08-03 早盘投资动态简报",
+      "summary": "伊朗局势暂缓令原油和长端利率回落，风险资产反弹；但芯片股继续因 AI 投资回报不确定性而分化。本周的 ISM、JOLTS、就业与生产率数据将检验增长、通胀和估值能否同步改善。",
+      "generatedAt": "2026-08-03T10:20:00-04:00",
+      "path": "data/news/2026-08-03_morning.md",
+      "wordCount": 2665,
+      "sourceCount": 29
+    },
     {
       "id": "2026-07-31_close",
       "date": "2026-07-31",
@@ -147,8 +158,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-07-31",
-    "dates": 8,
-    "reports": 13
+    "end": "2026-08-03",
+    "dates": 9,
+    "reports": 14
   }
 }
