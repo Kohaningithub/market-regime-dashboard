@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-03T17:33:25Z",
+  "generatedAt": "2026-08-03T21:25:09Z",
   "entries": [
+    {
+      "id": "2026-08-03_close",
+      "date": "2026-08-03",
+      "edition": "close",
+      "title": "Closing Investment Brief — August 3, 2026",
+      "summary": "U.S. equities finished sharply higher as oil and Treasury yields fell on Iran de-escalation hopes. The close confirmed broad risk appetite, but the underlying message was selective: fuel-cost beneficiaries and aerospace rallied while AI hardware remained volatile.",
+      "generatedAt": "2026-08-03T16:25:00-04:00",
+      "path": "data/news-en/2026-08-03_close.md",
+      "wordCount": 6223,
+      "sourceCount": 30
+    },
     {
       "id": "2026-08-03_morning",
       "date": "2026-08-03",
@@ -160,6 +171,6 @@
     "start": "2026-07-23",
     "end": "2026-08-03",
     "dates": 9,
-    "reports": 14
+    "reports": 15
   }
 }
