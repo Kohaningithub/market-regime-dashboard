@@ -114,8 +114,12 @@ function renderCurrent(signal) {
 
 function renderSnapshot(analysis, signal) {
   const meta = analysis.meta;
+  const currentAsOf = signal.currentSignal?.asOf;
+  const pendingCloseNote = currentAsOf && meta.endDate && currentAsOf > meta.endDate
+    ? `；${currentAsOf} 盘中数据将在收盘后纳入`
+    : "";
   $("#snapshot-list").innerHTML = `
-    <div><dt>样本区间</dt><dd>${meta.startDate} - ${meta.endDate}</dd></div>
+    <div><dt>样本区间（已确认收盘）</dt><dd>${meta.startDate} - ${meta.endDate}${pendingCloseNote}</dd></div>
     <div><dt>交易日样本</dt><dd>${meta.rows}</dd></div>
     <div><dt>平均输入覆盖率</dt><dd>${fmtRate(meta.avgCompleteness)}</dd></div>
     <div><dt>数据生成时间</dt><dd>${fmtDateTime(signal.generatedAt)}</dd></div>

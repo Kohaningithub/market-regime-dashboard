@@ -174,8 +174,12 @@ function renderCurrent(signal) {
 
 function renderSnapshot(analysis, signal) {
   const meta = analysis.meta;
+  const currentAsOf = signal.currentSignal?.asOf;
+  const pendingCloseNote = currentAsOf && meta.endDate && currentAsOf > meta.endDate
+    ? `; ${currentAsOf} intraday data will be included after the market close`
+    : "";
   $("#snapshot-list").innerHTML = `
-    <div><dt>Sample period</dt><dd>${meta.startDate} - ${meta.endDate}</dd></div>
+    <div><dt>Sample period (confirmed closes)</dt><dd>${meta.startDate} - ${meta.endDate}${pendingCloseNote}</dd></div>
     <div><dt>Trading-day observations</dt><dd>${meta.rows}</dd></div>
     <div><dt>Average input coverage</dt><dd>${fmtRate(meta.avgCompleteness)}</dd></div>
     <div><dt>Data generated</dt><dd>${fmtDateTime(signal.generatedAt)}</dd></div>
