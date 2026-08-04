@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-04T13:24:54Z",
+  "generatedAt": "2026-08-04T21:24:52Z",
   "entries": [
+    {
+      "id": "2026-08-04_close",
+      "date": "2026-08-04",
+      "edition": "close",
+      "title": "Closing Investment Brief — August 4, 2026",
+      "summary": "U.S. equities closed at records as strong earnings, lower oil and lower long yields widened an early earnings-led rally. The key read-through is a simultaneous repricing of AI demand, industrial order strength and a smaller near-term inflation premium—not a clean all-clear on valuation or geopolitics.",
+      "generatedAt": "2026-08-04T16:29:00-04:00",
+      "path": "data/news-en/2026-08-04_close.md",
+      "wordCount": 7067,
+      "sourceCount": 26
+    },
     {
       "id": "2026-08-04_morning",
       "date": "2026-08-04",
@@ -182,6 +193,6 @@
     "start": "2026-07-23",
     "end": "2026-08-04",
     "dates": 10,
-    "reports": 16
+    "reports": 17
   }
 }
