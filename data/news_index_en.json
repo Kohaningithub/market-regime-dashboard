@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-03T21:25:09Z",
+  "generatedAt": "2026-08-04T13:24:54Z",
   "entries": [
+    {
+      "id": "2026-08-04_morning",
+      "date": "2026-08-04",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 4, 2026",
+      "summary": "Monday's oil-led relief rally left the S&P 500 within 0.1% of its record. Before the open, modestly positive futures, Caterpillar's scheduled results and 10:00 ET JOLTS shift attention from Iran headlines to earnings and labor-market evidence.",
+      "generatedAt": "2026-08-04T08:44:00-04:00",
+      "path": "data/news-en/2026-08-04_morning.md",
+      "wordCount": 7084,
+      "sourceCount": 32
+    },
     {
       "id": "2026-08-03_close",
       "date": "2026-08-03",
@@ -169,8 +180,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-03",
-    "dates": 9,
-    "reports": 15
+    "end": "2026-08-04",
+    "dates": 10,
+    "reports": 16
   }
 }

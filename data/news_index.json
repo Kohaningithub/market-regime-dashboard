@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-03T21:25:08Z",
+  "generatedAt": "2026-08-04T13:24:54Z",
   "entries": [
+    {
+      "id": "2026-08-04_morning",
+      "date": "2026-08-04",
+      "edition": "morning",
+      "title": "2026-08-04 早盘投资动态简报",
+      "summary": "周一油价回落推动的反弹令标普500距离纪录仅0.1%。今日盘前期指小幅走高，卡特彼勒业绩与10:00 ET的JOLTS将把焦点从伊朗局势重新拉回盈利和劳动力证据。",
+      "generatedAt": "2026-08-04T08:44:00-04:00",
+      "path": "data/news/2026-08-04_morning.md",
+      "wordCount": 2505,
+      "sourceCount": 32
+    },
     {
       "id": "2026-08-03_close",
       "date": "2026-08-03",
@@ -169,8 +180,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-03",
-    "dates": 9,
-    "reports": 15
+    "end": "2026-08-04",
+    "dates": 10,
+    "reports": 16
   }
 }
