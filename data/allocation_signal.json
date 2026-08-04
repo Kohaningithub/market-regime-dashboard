@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-03T21:46:14Z",
+  "generatedAt": "2026-08-04T16:00:05Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,8 +86,8 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 20.71,
-    "riskScore": 0.07,
+    "opportunityScore": 19.84,
+    "riskScore": 0,
     "action": "HOLD",
     "stance": "维持",
     "reason": "缺少高胜率加仓窗口，也没有足够强的减仓信号。",
@@ -97,18 +97,18 @@
       "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。"
     },
     "components": {
-      "drawdownOpportunity": 2.12,
+      "drawdownOpportunity": 1.25,
       "sentimentOpportunity": 3.59,
       "volatilityOpportunity": 0.0,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
       "volatilityRisk": 0.0,
       "trendRisk": 0.0,
-      "overheatRisk": 0.07,
+      "overheatRisk": 0.0,
       "dataPenalty": 0
     },
-    "asOf": "2026-08-03",
-    "generatedAt": "2026-08-03T21:46:13Z",
+    "asOf": "2026-08-04",
+    "generatedAt": "2026-08-04T16:00:04Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
@@ -116,20 +116,20 @@
     },
     "marketState": "normal",
     "keyInputs": {
-      "vix": 15.86,
-      "vixChange5d": -2.81,
-      "move": 80.48,
+      "vix": 16.16,
+      "vixChange5d": -2.05,
+      "move": 70.88,
       "spyDrawdown": 0.0,
-      "qqqDrawdown": -6.07,
-      "fearGreed": 46.0,
+      "qqqDrawdown": -3.57,
+      "fearGreed": 58.0,
       "aaiiBearish": 42.1,
-      "putCall": 0.63,
+      "putCall": 0.55,
       "creditScore": 0,
-      "hyOas": 2.84,
-      "igOas": 0.8,
+      "hyOas": 2.85,
+      "igOas": 0.79,
       "nfci": -0.55,
-      "dxyChange20d": -0.88,
-      "kreRel20d": 1.13,
+      "dxyChange20d": -1.22,
+      "kreRel20d": 0.99,
       "spyRealizedVol20dTrailing": 12.6927
     }
   },
