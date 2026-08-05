@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-05T20:15:28Z",
+  "generatedAt": "2026-08-05T20:43:45Z",
   "startDate": "2021-08-06",
   "endDate": "2026-08-05",
   "rows": 1254,
@@ -62,12 +62,12 @@
     {
       "name": "tenYYield",
       "status": "ok",
-      "detail": "FRED DGS10: 2020-06-02 to 2026-08-03"
+      "detail": "FRED DGS10: 2020-06-02 to 2026-08-04"
     },
     {
       "name": "realTenY",
       "status": "ok",
-      "detail": "FRED DFII10: 2020-06-02 to 2026-08-03"
+      "detail": "FRED DFII10: 2020-06-02 to 2026-08-04"
     },
     {
       "name": "nfci",
@@ -128,7 +128,7 @@
       "spyRet10dFwd": 0.1064,
       "spyRet20dFwd": 0.1811,
       "spyRet60dFwd": 0.154,
-      "spyRealizedVol20dFwd": 0.5582,
+      "spyRealizedVol20dFwd": 0.5581,
       "spyMaxDrawdown20dFwd": -0.1182
     }
   },
@@ -192,7 +192,7 @@
       "medianSpyRet20dFwd": 5.137,
       "winRate20dFwd": 0.7857,
       "avgSpyRet60dFwd": 8.1627,
-      "avgRealizedVol20dFwd": 26.5986,
+      "avgRealizedVol20dFwd": 26.5985,
       "avgMaxDrawdown20dFwd": -2.7246
     },
     "normal": {
@@ -209,10 +209,10 @@
       "rows": 33,
       "rowsWith20dForward": 33,
       "avgSpyRet20dFwd": 4.0005,
-      "medianSpyRet20dFwd": 5.2524,
+      "medianSpyRet20dFwd": 5.2523,
       "winRate20dFwd": 0.7576,
       "avgSpyRet60dFwd": 3.2881,
-      "avgRealizedVol20dFwd": 24.5734,
+      "avgRealizedVol20dFwd": 24.5733,
       "avgMaxDrawdown20dFwd": -2.3916
     }
   },
@@ -224,7 +224,7 @@
       "medianSpyRet20dFwd": 1.2889,
       "winRate20dFwd": 0.6232,
       "avgSpyRet60dFwd": 2.7348,
-      "avgRealizedVol20dFwd": 14.8958,
+      "avgRealizedVol20dFwd": 14.8959,
       "avgMaxDrawdown20dFwd": -2.5089
     },
     "1": {
@@ -255,7 +255,7 @@
       "winRate20dFwd": 0.5455,
       "avgSpyRet60dFwd": 2.5124,
       "avgRealizedVol20dFwd": 26.9024,
-      "avgMaxDrawdown20dFwd": -4.6766
+      "avgMaxDrawdown20dFwd": -4.6767
     },
     "4": {
       "rows": 8,
@@ -273,7 +273,7 @@
       "avgSpyRet20dFwd": 4.8836,
       "medianSpyRet20dFwd": 6.3463,
       "winRate20dFwd": 0.9,
-      "avgSpyRet60dFwd": 3.1404,
+      "avgSpyRet60dFwd": 3.1405,
       "avgRealizedVol20dFwd": 25.9816,
       "avgMaxDrawdown20dFwd": -2.2531
     }
