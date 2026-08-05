@@ -375,8 +375,8 @@ function renderLimits() {
 async function init() {
   try {
     const [analysisResponse, signalResponse] = await Promise.all([
-      fetch(dataUrl(ANALYSIS_ENDPOINT), { cache: "no-store" }),
-      fetch(dataUrl(SIGNAL_ENDPOINT), { cache: "no-store" }),
+      dashboardDataFetch(ANALYSIS_ENDPOINT),
+      dashboardDataFetch(SIGNAL_ENDPOINT),
     ]);
     if (!analysisResponse.ok) throw new Error(`analysis HTTP ${analysisResponse.status}`);
     if (!signalResponse.ok) throw new Error(`signal HTTP ${signalResponse.status}`);

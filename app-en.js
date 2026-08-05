@@ -386,7 +386,7 @@ function drawRiskMap(scores) {
 }
 
 async function loadJson(endpoint) {
-  const response = await fetch(`${endpoint}?t=${Date.now()}`, { cache: "no-store" });
+  const response = await dashboardDataFetch(endpoint);
   if (!response.ok) throw new Error(`${endpoint} HTTP ${response.status}`);
   return response.json();
 }

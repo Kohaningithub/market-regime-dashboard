@@ -37,16 +37,17 @@ jobs:
         run: |
           python scripts/build_news_index.py
           python scripts/validate_news_archive.py
+          python scripts/build_data_manifest.py
 
       - name: Commit updated index
         run: |
-          if git diff --quiet -- data/news_index.json data/news_index_en.json; then
+          if git diff --quiet -- data/news_index.json data/news_index_en.json data/asset_manifest.json; then
             echo "No news index changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/news_index.json data/news_index_en.json
+          git add data/news_index.json data/news_index_en.json data/asset_manifest.json
           git commit -m "Update news archive index"
           for attempt in 1 2 3; do
             git fetch origin main

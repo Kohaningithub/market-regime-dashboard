@@ -1,0 +1,42 @@
+name: Monitor dashboard freshness
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "5 11 * * 1-5"
+      timezone: "America/New_York"
+    - cron: "5 18 * * 1-5"
+      timezone: "America/New_York"
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  recover-late-refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check the expected market window
+        id: freshness
+        shell: bash
+        run: |
+          if [[ "${{ github.event.schedule }}" == "5 18 * * 1-5" ]]; then
+            echo "refresh_history=true" >> "$GITHUB_OUTPUT"
+            python scripts/market_update_guard.py --schedule "40 20 * * 1-5" --github-output "$GITHUB_OUTPUT"
+          else
+            echo "refresh_history=false" >> "$GITHUB_OUTPUT"
+            python scripts/market_update_guard.py --schedule "40 13 * * 1-5" --github-output "$GITHUB_OUTPUT"
+          fi
+
+      - name: Dispatch one recovery refresh
+        if: steps.freshness.outputs.should_run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run update-data.yml --ref main -f refresh_history=${{ steps.freshness.outputs.refresh_history }}

@@ -828,9 +828,9 @@ function bindControls() {
 async function init() {
   try {
     const [analysisResponse, signalResponse, dailyResponse] = await Promise.all([
-      fetch(`${ANALYSIS_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
-      fetch(`${SIGNAL_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }),
-      fetch(`${DAILY_EVIDENCE_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" }).catch(() => null),
+      dashboardDataFetch(ANALYSIS_ENDPOINT),
+      dashboardDataFetch(SIGNAL_ENDPOINT),
+      dashboardDataFetch(DAILY_EVIDENCE_ENDPOINT).catch(() => null),
     ]);
     if (!analysisResponse.ok) throw new Error(`analysis HTTP ${analysisResponse.status}`);
     if (!signalResponse.ok) throw new Error(`signal HTTP ${signalResponse.status}`);

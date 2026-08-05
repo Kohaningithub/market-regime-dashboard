@@ -82,21 +82,29 @@ jobs:
       - name: Refresh five-year calibration
         if: steps.decision.outputs.should_run == 'true' && steps.decision.outputs.refresh_history == 'true'
         run: |
-          python scripts/backfill_regime_history.py --years 5
+          if [[ "${{ steps.decision.outputs.full_history }}" == "true" ]]; then
+            python scripts/backfill_regime_history.py --years 5
+          else
+            python scripts/backfill_regime_history.py --years 5 --incremental
+          fi
           python scripts/analyze_regime_history.py
           python scripts/build_allocation_signal.py
           python scripts/build_daily_evidence.py
 
+      - name: Build data asset manifest
+        if: steps.decision.outputs.should_run == 'true'
+        run: python scripts/build_data_manifest.py
+
       - name: Commit updated data
         if: steps.decision.outputs.should_run == 'true'
         run: |
-          if git diff --quiet -- data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv data/daily_evidence.json; then
+          if git diff --quiet -- data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv data/daily_evidence.json data/asset_manifest.json; then
             echo "No market data changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv data/daily_evidence.json
+          git add data/latest.json data/history.json data/regime_model_history_5y.csv data/regime_model_history_5y.json data/regime_model_analysis_summary.json data/regime_model_quant_analysis.json data/allocation_signal.json data/allocation_signal_history.csv data/daily_evidence.json data/asset_manifest.json
           git commit -m "Update market data snapshot"
           for attempt in 1 2 3; do
             git fetch origin main

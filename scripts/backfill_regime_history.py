@@ -17,6 +17,7 @@ import re
 import sys
 import tempfile
 import time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
 from datetime import UTC, date, datetime, timedelta
 from http.client import RemoteDisconnected
@@ -443,8 +444,12 @@ def fetch_cnn_fear_greed(start: date, statuses: list[SourceStatus]) -> pd.Series
 
 def build_frame(start: date, end: date, fetch_start: date, statuses: list[SourceStatus]) -> pd.DataFrame:
     yahoo: dict[str, pd.Series] = {}
+    with ThreadPoolExecutor(max_workers=5) as executor:
+        futures = {executor.submit(yahoo_series, symbol, fetch_start, end): (name, symbol) for name, symbol in YAHOO_SYMBOLS.items()}
+        for future in as_completed(futures):
+            name, symbol = futures[future]
+            yahoo[name] = future.result()
     for name, symbol in YAHOO_SYMBOLS.items():
-        yahoo[name] = yahoo_series(symbol, fetch_start, end)
         statuses.append(
             SourceStatus(name, "ok", f"Yahoo Finance {symbol}: {yahoo[name].index.min().date()} to {yahoo[name].index.max().date()}")
         )
@@ -459,9 +464,20 @@ def build_frame(start: date, end: date, fetch_start: date, statuses: list[Source
         )
 
     fred: dict[str, pd.Series] = {}
+    with ThreadPoolExecutor(max_workers=len(FRED_IDS)) as executor:
+        futures = {executor.submit(fred_series, series_id, fetch_start, end): (name, series_id) for name, series_id in FRED_IDS.items()}
+        results = {}
+        for future in as_completed(futures):
+            name, series_id = futures[future]
+            try:
+                results[name] = future.result()
+            except RuntimeError as exc:
+                results[name] = exc
     for name, series_id in FRED_IDS.items():
         try:
-            fred[name] = fred_series(series_id, fetch_start, end)
+            if isinstance(results[name], Exception):
+                raise results[name]
+            fred[name] = results[name]
             statuses.append(
                 SourceStatus(name, "ok", f"FRED {series_id}: {fred[name].index.min().date()} to {fred[name].index.max().date()}")
             )
@@ -764,6 +780,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--csv", type=Path, default=OUT_CSV, help="Output CSV path.")
     parser.add_argument("--json", type=Path, default=OUT_JSON, help="Output JSON path.")
     parser.add_argument("--summary", type=Path, default=OUT_SUMMARY, help="Output summary JSON path.")
+    parser.add_argument("--incremental", action="store_true", help="Append only dates newer than the existing history.")
     return parser.parse_args()
 
 
@@ -771,6 +788,15 @@ def main() -> int:
     args = parse_args()
     end = datetime.strptime(args.end_date, "%Y-%m-%d").date()
     start = end - timedelta(days=365 * args.years)
+    existing = None
+    if args.incremental and args.csv.exists():
+        existing = pd.read_csv(args.csv, parse_dates=["date"]).set_index("date").sort_index()
+        existing.index = pd.to_datetime(existing.index).normalize()
+        last_date = existing.index.max().date()
+        if last_date >= end:
+            print(f"Incremental history already current through {last_date}")
+            return 0
+        start = last_date
     fetch_start = start - timedelta(days=430)
     statuses: list[SourceStatus] = []
 
@@ -779,6 +805,10 @@ def main() -> int:
     frame = apply_scores(frame)
     frame = add_forward_market_stats(frame)
     frame = round_numeric(frame)
+    if existing is not None:
+        existing = existing.loc[existing.index < frame.index.min()]
+        frame = pd.concat([existing, frame]).sort_index()
+        start = frame.index.min().date()
 
     args.csv.parent.mkdir(parents=True, exist_ok=True)
     frame.to_csv(args.csv, index_label="date")

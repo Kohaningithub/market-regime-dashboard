@@ -382,7 +382,7 @@ async function selectEntry(id) {
   `;
   readerBody.innerHTML = `<div class="news-empty">${copy("正在读取完整简报...", "Loading the complete brief...")}</div>`;
   try {
-    const response = await fetch(`${entry.path}?t=${Date.now()}`, { cache: "no-store" });
+    const response = await fetch(entry.path, { cache: "default" });
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     readerBody.innerHTML = renderMarkdown(await response.text());
   } catch (error) {
@@ -392,7 +392,7 @@ async function selectEntry(id) {
 
 async function init() {
   try {
-    const response = await fetch(`${NEWS_INDEX_ENDPOINT}?t=${Date.now()}`, { cache: "no-store" });
+    const response = await dashboardDataFetch(NEWS_INDEX_ENDPOINT);
     if (!response.ok) throw new Error(`HTTP ${response.status}`);
     const payload = await response.json();
     newsIndex = Array.isArray(payload.entries) ? payload.entries : [];

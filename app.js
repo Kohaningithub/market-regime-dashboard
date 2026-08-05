@@ -1228,12 +1228,10 @@ function escapeHtml(value) {
 }
 
 async function fetchStaticJson(endpoint) {
-  const separator = endpoint.includes("?") ? "&" : "?";
-  const url = `${endpoint}${separator}ts=${Date.now()}`;
   const controller = new AbortController();
   const timeout = window.setTimeout(() => controller.abort(), STATIC_TIMEOUT_MS);
   try {
-    const response = await fetch(url, { cache: "no-store", signal: controller.signal });
+    const response = await dashboardDataFetch(endpoint, { signal: controller.signal });
     if (!response.ok) throw new Error(`${endpoint} HTTP ${response.status}`);
     const snapshot = await response.json();
     snapshot.clientSource = endpoint;
