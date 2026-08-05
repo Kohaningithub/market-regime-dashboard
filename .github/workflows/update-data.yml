@@ -80,7 +80,7 @@ jobs:
           python scripts/build_daily_evidence.py
 
       - name: Refresh five-year calibration
-        if: steps.decision.outputs.refresh_history == 'true'
+        if: steps.decision.outputs.should_run == 'true' && steps.decision.outputs.refresh_history == 'true'
         run: |
           python scripts/backfill_regime_history.py --years 5
           python scripts/analyze_regime_history.py

@@ -76,7 +76,9 @@ def main() -> int:
     args = parse_args()
     now = parse_timestamp(args.now) if args.now else datetime.now(ET)
     window = classify_schedule(args.schedule)
-    refresh_history = window == "history" or args.force_history
+    # All analysis visualizations consume the five-year history, so refresh it
+    # after each confirmed close instead of leaving charts stale until Sunday.
+    refresh_history = window in {"close", "history"} or args.force_history
     now_et = now.astimezone(ET)
     within_window = window not in WINDOW_STARTS or now_et.time().replace(tzinfo=None) >= WINDOW_STARTS[window]
     should_run = window in {"manual", "history"} or (within_window and not is_window_fresh(args.latest, window, now))
