@@ -576,6 +576,8 @@ def load_history() -> dict[str, Any]:
 
 def build_history_entry(snapshot: dict[str, Any], spy_close: float) -> dict[str, Any]:
     estimated_count = sum(1 for meta in snapshot.get("fieldMeta", {}).values() if meta.get("status") != "ok")
+    values = snapshot.get("values") or {}
+    total_fields = len(snapshot.get("fieldMeta", {}))
     return {
         "generatedAt": snapshot["generatedAt"],
         "asOf": snapshot["asOf"],
@@ -587,6 +589,13 @@ def build_history_entry(snapshot: dict[str, Any], spy_close: float) -> dict[str,
         "qqqDrawdown": snapshot["values"]["qqqDrawdown"],
         "fearGreed": snapshot["values"]["fearGreed"],
         "rspSpyRel60d": snapshot["values"]["rspSpyRel60d"],
+        "vix": values.get("vix"),
+        "move": values.get("move"),
+        "hyOas": values.get("hyOas"),
+        "igOas": values.get("igOas"),
+        "tenYYield": values.get("tenYYield"),
+        "realTenY": values.get("realTenY"),
+        "scoreInputCompleteness": round((total_fields - estimated_count) / total_fields, 4) if total_fields else None,
         "estimatedCount": estimated_count,
         "valuationInScore": bool(snapshot.get("modelMeta", {}).get("valuationInScore")),
     }

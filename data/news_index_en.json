@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-04T21:24:52Z",
+  "generatedAt": "2026-08-05T19:49:25Z",
   "entries": [
+    {
+      "id": "2026-08-05_morning",
+      "date": "2026-08-05",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 5, 2026",
+      "summary": "Record-setting U.S. equities enter Wednesday with earnings-led AI enthusiasm, but AMD's post-results decline, today's services/labor releases and Treasury's refunding announcement make breadth, rates and financing conditions the real tests.",
+      "generatedAt": "2026-08-05T07:45:00-04:00",
+      "path": "data/news-en/2026-08-05_morning.md",
+      "wordCount": 8908,
+      "sourceCount": 29
+    },
     {
       "id": "2026-08-04_close",
       "date": "2026-08-04",
@@ -191,8 +202,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-04",
-    "dates": 10,
-    "reports": 17
+    "end": "2026-08-05",
+    "dates": 11,
+    "reports": 18
   }
 }

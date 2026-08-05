@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-04T21:24:51Z",
+  "generatedAt": "2026-08-05T19:49:24Z",
   "entries": [
+    {
+      "id": "2026-08-05_morning",
+      "date": "2026-08-05",
+      "edition": "morning",
+      "title": "2026-08-05 早盘投资动态简报",
+      "summary": "美股在8月4日以业绩推动的纪录收盘进入周三；Palantir大涨而AMD业绩后走弱，叠加服务业/就业数据与财政部再融资公告，市场需检验上涨广度、利率与融资条件。",
+      "generatedAt": "2026-08-05T07:45:00-04:00",
+      "path": "data/news/2026-08-05_morning.md",
+      "wordCount": 2860,
+      "sourceCount": 29
+    },
     {
       "id": "2026-08-04_close",
       "date": "2026-08-04",
@@ -191,8 +202,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-04",
-    "dates": 10,
-    "reports": 17
+    "end": "2026-08-05",
+    "dates": 11,
+    "reports": 18
   }
 }
