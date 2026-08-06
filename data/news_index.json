@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-08-05T19:49:24Z",
+  "generatedAt": "2026-08-06T14:25:36Z",
   "entries": [
+    {
+      "id": "2026-08-06_morning",
+      "date": "2026-08-06",
+      "edition": "morning",
+      "title": "2026-08-06 早盘投资动态简报",
+      "summary": "早盘核心是生产率/单位劳动力成本、8月5日国债再融资细节与财报分化。无法可靠核实的盘前报价、ETF流、期权和信用数据均明确标为 unavailable。",
+      "generatedAt": "2026-08-06T07:45:00-04:00",
+      "path": "data/news/2026-08-06_morning.md",
+      "wordCount": 2782,
+      "sourceCount": 23
+    },
+    {
+      "id": "2026-08-05_close",
+      "date": "2026-08-05",
+      "edition": "close",
+      "title": "收盘投资动态简报 — 2026年8月5日",
+      "summary": "美股在纪录高位附近分化收盘：道指走高，标普小幅回落，纳指受SpaceX、AMD及AI资本开支重估拖累。油价和长债收益率温和回落，降低了宏观压力，但并未消除估值与地缘风险。",
+      "generatedAt": "2026-08-05T16:25:00-04:00",
+      "path": "data/news/2026-08-05_close.md",
+      "wordCount": 2524,
+      "sourceCount": 25
+    },
     {
       "id": "2026-08-05_morning",
       "date": "2026-08-05",
@@ -202,8 +224,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-05",
-    "dates": 11,
-    "reports": 18
+    "end": "2026-08-06",
+    "dates": 12,
+    "reports": 20
   }
 }

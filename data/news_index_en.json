@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-08-05T19:49:25Z",
+  "generatedAt": "2026-08-06T14:25:36Z",
   "entries": [
+    {
+      "id": "2026-08-06_morning",
+      "date": "2026-08-06",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 6, 2026",
+      "summary": "The early-August setup is a three-way test: post-earnings dispersion, Treasury financing after the August 5 refunding, and the 08:30 ET productivity release. Verified real-time futures, ETF flows and credit/option positioning are unavailable.",
+      "generatedAt": "2026-08-06T07:45:00-04:00",
+      "path": "data/news-en/2026-08-06_morning.md",
+      "wordCount": 8520,
+      "sourceCount": 23
+    },
+    {
+      "id": "2026-08-05_close",
+      "date": "2026-08-05",
+      "edition": "close",
+      "title": "Close Investment Brief — August 5, 2026",
+      "summary": "U.S. equities finished unevenly near records: the Dow gained while the S&P 500 and Nasdaq eased as investors differentiated between AI demand beneficiaries and heavy AI spenders. Lower oil and slightly lower long yields helped, but did not erase valuation and geopolitical risks.",
+      "generatedAt": "2026-08-05T16:25:00-04:00",
+      "path": "data/news-en/2026-08-05_close.md",
+      "wordCount": 6461,
+      "sourceCount": 25
+    },
     {
       "id": "2026-08-05_morning",
       "date": "2026-08-05",
@@ -202,8 +224,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-05",
-    "dates": 11,
-    "reports": 18
+    "end": "2026-08-06",
+    "dates": 12,
+    "reports": 20
   }
 }
