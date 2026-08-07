@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-08-06T14:25:31Z",
+  "generatedAt": "2026-08-07T00:57:57Z",
   "asOf": "2026-08-06",
   "mode": "live",
   "values": {
-    "vix": 15.56,
-    "vixChange5d": -1.53,
-    "move": 70.88,
-    "spyDrawdown": -0.01,
-    "qqqDrawdown": -3.66,
+    "vix": 15.15,
+    "vixChange5d": -1.94,
+    "move": 76.12,
+    "spyDrawdown": -0.36,
+    "qqqDrawdown": -4.12,
     "rspSpyRel60d": 3.21,
-    "hygRet20d": 0.16,
-    "jnkRet20d": 0.22,
-    "hyOas": 2.73,
-    "hyOasChange20d": 6.0,
+    "hygRet20d": 0.12,
+    "jnkRet20d": 0.15,
+    "hyOas": 2.75,
+    "hyOasChange20d": 5.0,
     "igOas": 0.78,
     "igOasChange20d": 2.0,
-    "dxyChange20d": -1.1,
-    "tenYYield": 4.7,
-    "tenYChange20d": 22.0,
-    "realTenY": 2.43,
-    "realTenYChange20d": 19.0,
+    "dxyChange20d": -0.96,
+    "tenYYield": 4.63,
+    "tenYChange20d": 7.0,
+    "realTenY": 2.41,
+    "realTenYChange20d": 10.0,
     "nfci": -0.53,
-    "kreRel20d": 1.29,
-    "aaiiBearish": 40,
+    "kreRel20d": 0.22,
+    "aaiiBearish": 38.0,
     "putCall": 0.6,
-    "fearGreed": 62.0
+    "fearGreed": 60.0
   },
   "scores": {
     "volatility": 0,
@@ -50,7 +50,7 @@
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-07-17",
+      "asOf": "2026-08-06",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -80,63 +80,54 @@
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-08-04",
-      "source": "FRED BAMLH0A0HYM2 / ICE BofA (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2026-03-09: The read operation timed out"
+      "asOf": "2026-08-05",
+      "source": "FRED BAMLH0A0HYM2 / ICE BofA",
+      "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-08-04",
-      "source": "FRED BAMLH0A0HYM2 / ICE BofA (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2026-03-09: The read operation timed out"
+      "asOf": "2026-08-05",
+      "source": "FRED BAMLH0A0HYM2 / ICE BofA",
+      "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-08-04",
-      "source": "FRED BAMLC0A0CM / ICE BofA (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLC0A0CM&cosd=2026-03-09: The read operation timed out"
+      "asOf": "2026-08-05",
+      "source": "FRED BAMLC0A0CM / ICE BofA",
+      "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-08-04",
-      "source": "FRED BAMLC0A0CM / ICE BofA (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLC0A0CM&cosd=2026-03-09: The read operation timed out"
+      "asOf": "2026-08-05",
+      "source": "FRED BAMLC0A0CM / ICE BofA",
+      "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-08-06",
+      "asOf": "2026-08-07",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-08-03",
-      "source": "FRED DGS10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-03-09: The read operation timed out"
+      "asOf": "2026-08-05",
+      "source": "FRED DGS10",
+      "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-08-03",
-      "source": "FRED DGS10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-03-09: The read operation timed out"
+      "asOf": "2026-08-05",
+      "source": "FRED DGS10",
+      "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-08-03",
-      "source": "FRED DFII10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-03-09: The read operation timed out"
+      "asOf": "2026-08-05",
+      "source": "FRED DFII10",
+      "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-08-03",
-      "source": "FRED DFII10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-03-09: The read operation timed out"
+      "asOf": "2026-08-05",
+      "source": "FRED DFII10",
+      "status": "ok"
     },
     "nfci": {
       "asOf": "2026-07-31",
-      "source": "FRED NFCI / Chicago Fed (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI&cosd=2026-03-09: The read operation timed out"
+      "source": "FRED NFCI / Chicago Fed",
+      "status": "ok"
     },
     "kreRel20d": {
       "asOf": "2026-08-06",
@@ -144,34 +135,23 @@
       "status": "ok"
     },
     "aaiiBearish": {
-      "asOf": "2026-08-06",
-      "source": "Fallback neutral AAII value",
-      "status": "estimated",
-      "note": "Fetch failed for https://www.aaii.com/sentimentsurvey/sent_results: The read operation timed out"
+      "asOf": "2026-08-05",
+      "source": "AAII Sentiment Survey",
+      "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-08-06",
+      "asOf": "2026-08-07",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-08-06T14:14:21+00:00",
+      "asOf": "2026-08-06T23:59:45+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
   },
   "notes": [
-    "hyOas: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2026-03-09: The read operation timed out",
-    "hyOasChange20d: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLH0A0HYM2&cosd=2026-03-09: The read operation timed out",
-    "igOas: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLC0A0CM&cosd=2026-03-09: The read operation timed out",
-    "igOasChange20d: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=BAMLC0A0CM&cosd=2026-03-09: The read operation timed out",
-    "tenYYield: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-03-09: The read operation timed out",
-    "tenYChange20d: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS10&cosd=2026-03-09: The read operation timed out",
-    "realTenY: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-03-09: The read operation timed out",
-    "realTenYChange20d: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=DFII10&cosd=2026-03-09: The read operation timed out",
-    "nfci: FRED fetch failed; reused previously published value. Fetch failed for https://fred.stlouisfed.org/graph/fredgraph.csv?id=NFCI&cosd=2026-03-09: The read operation timed out",
-    "aaiiBearish: Fetch failed for https://www.aaii.com/sentimentsurvey/sent_results: The read operation timed out",
     "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019.",
     "model: Valuation percentile is unavailable from a stable public no-key source and is excluded from live scoring."
   ],
