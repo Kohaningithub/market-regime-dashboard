@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-06T14:25:36Z",
+  "generatedAt": "2026-08-07T13:22:42Z",
   "entries": [
+    {
+      "id": "2026-08-07_morning",
+      "date": "2026-08-07",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 7, 2026",
+      "summary": "The July Employment Situation at 08:30 ET is the immediate macro risk event after Thursday’s oil-led rise in yields and modest equity pullback. This brief separates verified August 6 closes from unavailable live premarket data.",
+      "generatedAt": "2026-08-07T07:45:00-04:00",
+      "path": "data/news-en/2026-08-07_morning.md",
+      "wordCount": 6749,
+      "sourceCount": 24
+    },
     {
       "id": "2026-08-06_morning",
       "date": "2026-08-06",
@@ -224,8 +235,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-06",
-    "dates": 12,
-    "reports": 20
+    "end": "2026-08-07",
+    "dates": 13,
+    "reports": 21
   }
 }

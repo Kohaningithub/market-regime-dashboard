@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-06T14:25:36Z",
+  "generatedAt": "2026-08-07T13:22:41Z",
   "entries": [
+    {
+      "id": "2026-08-07_morning",
+      "date": "2026-08-07",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月7日",
+      "summary": "08:30 ET公布的7月就业报告是最直接的宏观风险事件。8月6日油价和美债收益率上行、股市小幅回落；本简报严格区分上一交易日收盘事实与无法核实的实时盘前数据。",
+      "generatedAt": "2026-08-07T07:45:00-04:00",
+      "path": "data/news/2026-08-07_morning.md",
+      "wordCount": 2219,
+      "sourceCount": 24
+    },
     {
       "id": "2026-08-06_morning",
       "date": "2026-08-06",
@@ -224,8 +235,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-06",
-    "dates": 12,
-    "reports": 20
+    "end": "2026-08-07",
+    "dates": 13,
+    "reports": 21
   }
 }
