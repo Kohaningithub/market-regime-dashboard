@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-08-07T00:58:01Z",
+  "generatedAt": "2026-08-07T21:20:29Z",
   "method": {
     "selected": "Score-bucket event study with bootstrap confidence bands, Spearman rank correlation, and 252-trading-day rolling stability checks",
     "reason": "The regime model is ordinal and threshold-based; this keeps the analysis interpretable and avoids overfitting a small, overlapping forward-return sample.",
     "primaryTarget": "SPY forward return, realized volatility, and max drawdown over 5/10/20/60 trading days"
   },
   "meta": {
-    "rows": 1255,
+    "rows": 1256,
     "startDate": "2021-08-06",
-    "endDate": "2026-08-06",
+    "endDate": "2026-08-07",
     "latestScore": 0,
     "latestRegime": "normal",
     "latestCompleteness": 0.9333,
-    "avgCompleteness": 0.8245,
+    "avgCompleteness": 0.8246,
     "putCallMissingShare": 1.0,
-    "oasMissingShare": 0.4
+    "oasMissingShare": 0.3997
   },
   "headline": {
     "scoreTotalReturn20Spearman": 0.1753,
@@ -27,12 +27,12 @@
   },
   "bucketAnalysis": {
     "0": {
-      "rows": 431,
+      "rows": 432,
       "avgScore": 0.0,
-      "avgCompleteness": 0.8575,
+      "avgCompleteness": 0.8577,
       "horizons": {
         "5": {
-          "rows": 431,
+          "rows": 432,
           "usableRows": 430,
           "avgReturn": 0.0047,
           "medianReturn": 0.1781,
@@ -45,7 +45,7 @@
           "tailDrawdownP10": -5.6412
         },
         "10": {
-          "rows": 431,
+          "rows": 432,
           "usableRows": 430,
           "avgReturn": 0.1276,
           "medianReturn": 0.4643,
@@ -58,7 +58,7 @@
           "tailDrawdownP10": -5.6412
         },
         "20": {
-          "rows": 431,
+          "rows": 432,
           "usableRows": 422,
           "avgReturn": 0.3413,
           "medianReturn": 0.8421,
@@ -71,7 +71,7 @@
           "tailDrawdownP10": -5.6412
         },
         "60": {
-          "rows": 431,
+          "rows": 432,
           "usableRows": 416,
           "avgReturn": 2.2328,
           "medianReturn": 3.3538,
@@ -266,12 +266,12 @@
   "regimeAnalysis": {
     "normal": {
       "label": "Normal",
-      "rows": 1185,
-      "avgScore": 1.7831,
-      "avgCompleteness": 0.8314,
+      "rows": 1186,
+      "avgScore": 1.7816,
+      "avgCompleteness": 0.8315,
       "horizons": {
         "5": {
-          "rows": 1185,
+          "rows": 1186,
           "usableRows": 1179,
           "avgReturn": 0.2317,
           "medianReturn": 0.3851,
@@ -284,7 +284,7 @@
           "tailDrawdownP10": -7.1514
         },
         "10": {
-          "rows": 1185,
+          "rows": 1186,
           "usableRows": 1174,
           "avgReturn": 0.4562,
           "medianReturn": 0.7164,
@@ -297,7 +297,7 @@
           "tailDrawdownP10": -7.1514
         },
         "20": {
-          "rows": 1185,
+          "rows": 1186,
           "usableRows": 1164,
           "avgReturn": 0.8495,
           "medianReturn": 1.452,
@@ -310,7 +310,7 @@
           "tailDrawdownP10": -7.1514
         },
         "60": {
-          "rows": 1185,
+          "rows": 1186,
           "usableRows": 1124,
           "avgReturn": 3.0857,
           "medianReturn": 4.0253,
@@ -508,7 +508,7 @@
   "exactScoreRows": [
     {
       "score": 0,
-      "rows": 431,
+      "rows": 432,
       "avgReturn20": 0.3413,
       "medianReturn20": 0.8421,
       "winRate20": 0.5806,
@@ -6766,6 +6766,12 @@
       "date": "2026-08-06",
       "return20": 0.2452,
       "vol20": 0.1917,
+      "completeness": 0.9333
+    },
+    {
+      "date": "2026-08-07",
+      "return20": 0.25,
+      "vol20": 0.188,
       "completeness": 0.9333
     }
   ],
@@ -23075,6 +23081,19 @@
     {
       "date": "2026-08-06",
       "spyClose": 768.56,
+      "scoreTotal": 0,
+      "volatilityScore": 0,
+      "creditScore": 0,
+      "sentimentScore": 0,
+      "regime": "normal",
+      "scoreInputCompleteness": 0.9333,
+      "spyRet20dFwd": null,
+      "spyRealizedVol20dFwd": null,
+      "spyMaxDrawdown20dFwd": null
+    },
+    {
+      "date": "2026-08-07",
+      "spyClose": 773.26,
       "scoreTotal": 0,
       "volatilityScore": 0,
       "creditScore": 0,
