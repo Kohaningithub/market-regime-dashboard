@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-08-07T13:22:42Z",
+  "generatedAt": "2026-08-10T21:23:58Z",
   "entries": [
+    {
+      "id": "2026-08-10_close",
+      "date": "2026-08-10",
+      "edition": "close",
+      "title": "Close Investment Brief — August 10, 2026",
+      "summary": "U.S. equities slipped modestly below records as oil jumped on Hormuz uncertainty, long Treasury yields rose, and technology weighed; Berkshire’s profit beat offered a contrasting quality-and-capital-allocation signal.",
+      "generatedAt": "2026-08-10T16:24:00-04:00",
+      "path": "data/news-en/2026-08-10_close.md",
+      "wordCount": 7046,
+      "sourceCount": 26
+    },
+    {
+      "id": "2026-08-10_morning",
+      "date": "2026-08-10",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 10, 2026",
+      "summary": "After July payrolls unexpectedly fell by 23,000, equities reached new highs and Treasury yields declined on August 7. This week’s CPI, PPI and AI-infrastructure earnings test that rates-and-earnings narrative.",
+      "generatedAt": "2026-08-10T07:30:00-04:00",
+      "path": "data/news-en/2026-08-10_morning.md",
+      "wordCount": 5500,
+      "sourceCount": 28
+    },
     {
       "id": "2026-08-07_morning",
       "date": "2026-08-07",
@@ -235,8 +257,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-07",
-    "dates": 13,
-    "reports": 21
+    "end": "2026-08-10",
+    "dates": 14,
+    "reports": 23
   }
 }

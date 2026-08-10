@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-08-07T13:22:41Z",
+  "generatedAt": "2026-08-10T21:23:58Z",
   "entries": [
+    {
+      "id": "2026-08-10_close",
+      "date": "2026-08-10",
+      "edition": "close",
+      "title": "收盘投资动态简报 — 2026年8月10日",
+      "summary": "美股在纪录高位下方小幅回落：油价因霍尔木兹海峡重开不确定性跳升，科技股拖累指数；伯克希尔业绩提供了盈利韧性的反向样本。",
+      "generatedAt": "2026-08-10T16:24:00-04:00",
+      "path": "data/news/2026-08-10_close.md",
+      "wordCount": 2447,
+      "sourceCount": 26
+    },
+    {
+      "id": "2026-08-10_morning",
+      "date": "2026-08-10",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月10日",
+      "summary": "7月非农意外减少2.3万人后，8月7日美股创高、国债收益率下行；本周CPI、PPI与AI基础设施业绩将检验“利率延后上调”与盈利预期。",
+      "generatedAt": "2026-08-10T07:30:00-04:00",
+      "path": "data/news/2026-08-10_morning.md",
+      "wordCount": 2224,
+      "sourceCount": 28
+    },
     {
       "id": "2026-08-07_morning",
       "date": "2026-08-07",
@@ -235,8 +257,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-07",
-    "dates": 13,
-    "reports": 21
+    "end": "2026-08-10",
+    "dates": 14,
+    "reports": 23
   }
 }
