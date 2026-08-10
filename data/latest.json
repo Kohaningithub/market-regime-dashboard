@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-08-09T10:52:07Z",
-  "asOf": "2026-08-07",
+  "generatedAt": "2026-08-10T14:41:39Z",
+  "asOf": "2026-08-10",
   "mode": "live",
   "values": {
-    "vix": 14.9,
-    "vixChange5d": -1.09,
+    "vix": 15.24,
+    "vixChange5d": -0.62,
     "move": 70.88,
     "spyDrawdown": 0.0,
-    "qqqDrawdown": -2.99,
-    "rspSpyRel60d": 3.22,
-    "hygRet20d": 0.36,
-    "jnkRet20d": 0.43,
+    "qqqDrawdown": -2.88,
+    "rspSpyRel60d": 4.02,
+    "hygRet20d": 0.5,
+    "jnkRet20d": 0.52,
     "hyOas": 2.71,
     "hyOasChange20d": 1.0,
     "igOas": 0.78,
     "igOasChange20d": 2.0,
-    "dxyChange20d": -1.36,
+    "dxyChange20d": -1.55,
     "tenYYield": 4.69,
     "tenYChange20d": 15.0,
     "realTenY": 2.43,
     "realTenYChange20d": 12.0,
     "nfci": -0.53,
-    "kreRel20d": -0.82,
+    "kreRel20d": -2.17,
     "aaiiBearish": 38.0,
     "putCall": 0.54,
-    "fearGreed": 64.0
+    "fearGreed": 66.0
   },
   "scores": {
     "volatility": 0,
@@ -40,12 +40,12 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-08-07",
+      "asOf": "2026-08-10",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-08-07",
+      "asOf": "2026-08-10",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
@@ -55,27 +55,27 @@
       "status": "ok"
     },
     "spyDrawdown": {
-      "asOf": "2026-08-07",
+      "asOf": "2026-08-10",
       "source": "Yahoo Finance SPY",
       "status": "ok"
     },
     "qqqDrawdown": {
-      "asOf": "2026-08-07",
+      "asOf": "2026-08-10",
       "source": "Yahoo Finance QQQ",
       "status": "ok"
     },
     "rspSpyRel60d": {
-      "asOf": "2026-08-07",
+      "asOf": "2026-08-10",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
     },
     "hygRet20d": {
-      "asOf": "2026-08-07",
+      "asOf": "2026-08-10",
       "source": "Yahoo Finance HYG",
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-08-07",
+      "asOf": "2026-08-10",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
@@ -100,7 +100,7 @@
       "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-08-07",
+      "asOf": "2026-08-10",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
@@ -130,7 +130,7 @@
       "status": "ok"
     },
     "kreRel20d": {
-      "asOf": "2026-08-07",
+      "asOf": "2026-08-10",
       "source": "Yahoo Finance KRE/SPY",
       "status": "ok"
     },
@@ -140,13 +140,13 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-08-09",
+      "asOf": "2026-08-10",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-08-07T23:59:47+00:00",
+      "asOf": "2026-08-10T14:38:36+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
