@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-11T13:22:49Z",
+  "generatedAt": "2026-08-11T21:22:22Z",
   "entries": [
+    {
+      "id": "2026-08-11_close",
+      "date": "2026-08-11",
+      "edition": "close",
+      "title": "收盘投资动态简报 — 2026年8月11日",
+      "summary": "美股在纪录高位后连续第二日小幅回落；油价大幅波动、通胀与CPI前的等待压过局部财报利好，市场对前瞻指引的定价明显分化。",
+      "generatedAt": "2026-08-11T16:28:00-04:00",
+      "path": "data/news/2026-08-11_close.md",
+      "wordCount": 2212,
+      "sourceCount": 28
+    },
     {
       "id": "2026-08-11_morning",
       "date": "2026-08-11",
@@ -270,6 +281,6 @@
     "start": "2026-07-23",
     "end": "2026-08-11",
     "dates": 15,
-    "reports": 24
+    "reports": 25
   }
 }
