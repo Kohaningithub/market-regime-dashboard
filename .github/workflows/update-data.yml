@@ -35,6 +35,7 @@ on:
     - cron: "17 10 * * 0"
 
 permissions:
+  actions: write
   contents: write
 
 concurrency:
@@ -116,3 +117,11 @@ jobs:
           done
           echo "Push failed after 3 attempts." >&2
           exit 1
+
+      # Commits made with GITHUB_TOKEN do not trigger the push-based Pages
+      # workflow. Request a deployment explicitly after a successful refresh.
+      - name: Deploy refreshed dashboard
+        if: steps.decision.outputs.should_run == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy-pages.yml --ref main
