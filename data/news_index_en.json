@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-11T21:22:22Z",
+  "generatedAt": "2026-08-12T13:23:38Z",
   "entries": [
+    {
+      "id": "2026-08-12_morning",
+      "date": "2026-08-12",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 12, 2026",
+      "summary": "Ahead of CPI, U.S. futures were modestly higher after Tuesday's broad-index pullback and an $88.91 Brent close. CoreWeave and Super Micro's earnings-driven premarket gains put AI infrastructure delivery and capital intensity alongside inflation at the center of the session.",
+      "generatedAt": "2026-08-12T08:15:00-04:00",
+      "path": "data/news-en/2026-08-12_morning.md",
+      "wordCount": 6526,
+      "sourceCount": 27
+    },
     {
       "id": "2026-08-11_close",
       "date": "2026-08-11",
@@ -279,8 +290,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-11",
-    "dates": 15,
-    "reports": 25
+    "end": "2026-08-12",
+    "dates": 16,
+    "reports": 26
   }
 }

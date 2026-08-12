@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-11T21:22:22Z",
+  "generatedAt": "2026-08-12T13:23:38Z",
   "entries": [
+    {
+      "id": "2026-08-12_morning",
+      "date": "2026-08-12",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月12日",
+      "summary": "CPI公布前，美股期货小幅走高；8月11日科技股和大盘回落、布伦特收于88.91美元。CoreWeave和Super Micro业绩后的盘前上涨，使AI基础设施的收入兑现与资本强度成为与通胀同等重要的验证点。",
+      "generatedAt": "2026-08-12T08:15:00-04:00",
+      "path": "data/news/2026-08-12_morning.md",
+      "wordCount": 2526,
+      "sourceCount": 27
+    },
     {
       "id": "2026-08-11_close",
       "date": "2026-08-11",
@@ -279,8 +290,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-11",
-    "dates": 15,
-    "reports": 25
+    "end": "2026-08-12",
+    "dates": 16,
+    "reports": 26
   }
 }
