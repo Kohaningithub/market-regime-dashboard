@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-12T13:23:38Z",
+  "generatedAt": "2026-08-12T21:23:15Z",
   "entries": [
+    {
+      "id": "2026-08-12_close",
+      "date": "2026-08-12",
+      "edition": "close",
+      "title": "Close Investment Brief — August 12, 2026",
+      "summary": "A modest July inflation deceleration and AI-infrastructure earnings delivery lifted U.S. equities; the S&P 500 and Nasdaq neared records while the Dow slipped, leaving rates, oil, and housing as important counter-signals.",
+      "generatedAt": "2026-08-12T16:22:43-04:00",
+      "path": "data/news-en/2026-08-12_close.md",
+      "wordCount": 7564,
+      "sourceCount": 35
+    },
     {
       "id": "2026-08-12_morning",
       "date": "2026-08-12",
@@ -292,6 +303,6 @@
     "start": "2026-07-23",
     "end": "2026-08-12",
     "dates": 16,
-    "reports": 26
+    "reports": 27
   }
 }
