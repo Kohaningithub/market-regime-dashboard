@@ -272,8 +272,11 @@ function renderSignal(signal) {
   $("#allocation-signal-title").textContent = copy.title;
   $("#allocation-signal-reason").textContent = copy.reason;
   $("#allocation-signal-meta").textContent = `As of ${current.asOf} | ${current.marketState || "normal"} market state | generated ${formatEt(signal.generatedAt)} ET`;
-  $("#allocation-opportunity").textContent = formatNumber(current.opportunityScore, 0);
-  $("#allocation-risk").textContent = formatNumber(current.riskScore, 0);
+  // Keep the displayed precision aligned with the Chinese dashboard.  These
+  // scores are fractional model outputs, so integer rounding can look like a
+  // disagreement between language versions.
+  $("#allocation-opportunity").textContent = formatNumber(current.opportunityScore, 1);
+  $("#allocation-risk").textContent = formatNumber(current.riskScore, 1);
   $("#allocation-opportunity-meter").value = current.opportunityScore || 0;
   $("#allocation-risk-meter").value = current.riskScore || 0;
   const pressure = current.pressureScores || {};
@@ -283,7 +286,7 @@ function renderSignal(signal) {
   $("#risk-budget-guidance").textContent = copy.risk;
   $("#watch-guidance").textContent = copy.watch;
   $("#regime-title").textContent = current.marketState === "normal" ? "Normal / Mild Pullback" : current.marketState;
-  $("#regime-internal").textContent = `Opportunity ${formatNumber(current.opportunityScore, 0)} · Risk ${formatNumber(current.riskScore, 0)}`;
+  $("#regime-internal").textContent = `Opportunity ${formatNumber(current.opportunityScore, 1)} · Risk ${formatNumber(current.riskScore, 1)}`;
   $("#regime-change").textContent = `Current action: ${copy.title}`;
   $("#regime-summary").textContent = copy.reason;
   renderPressureCard("vol", pressure.volatility || 0, 8, "Equity and rates volatility pressure.");
