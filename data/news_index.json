@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-12T21:23:15Z",
+  "generatedAt": "2026-08-13T13:22:05Z",
   "entries": [
+    {
+      "id": "2026-08-13_morning",
+      "date": "2026-08-13",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月13日",
+      "summary": "7月PPI环比持平、同比4.7%，但剔除食品、能源和贸易服务的指标环比升0.4%。温和的总PPI与仍偏强的核心生产端成本、以及AI业绩驱动的个股分化，共同构成开盘前的主要定价变量。",
+      "generatedAt": "2026-08-13T09:13:00-04:00",
+      "path": "data/news/2026-08-13_morning.md",
+      "wordCount": 2685,
+      "sourceCount": 30
+    },
     {
       "id": "2026-08-12_close",
       "date": "2026-08-12",
@@ -301,8 +312,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-12",
-    "dates": 16,
-    "reports": 27
+    "end": "2026-08-13",
+    "dates": 17,
+    "reports": 28
   }
 }

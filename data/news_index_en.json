@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-12T21:23:15Z",
+  "generatedAt": "2026-08-13T13:22:05Z",
   "entries": [
+    {
+      "id": "2026-08-13_morning",
+      "date": "2026-08-13",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 13, 2026",
+      "summary": "July final-demand PPI was unchanged month over month and up 4.7% year over year, while the less-food, energy and trade-services measure rose 0.4%. A softer headline, sticky core production costs, and AI earnings dispersion set the morning’s risk frame.",
+      "generatedAt": "2026-08-13T09:13:00-04:00",
+      "path": "data/news-en/2026-08-13_morning.md",
+      "wordCount": 6822,
+      "sourceCount": 30
+    },
     {
       "id": "2026-08-12_close",
       "date": "2026-08-12",
@@ -301,8 +312,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-12",
-    "dates": 16,
-    "reports": 27
+    "end": "2026-08-13",
+    "dates": 17,
+    "reports": 28
   }
 }
