@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-13T13:22:05Z",
+  "generatedAt": "2026-08-14T15:23:03Z",
   "entries": [
+    {
+      "id": "2026-08-14_morning",
+      "date": "2026-08-14",
+      "edition": "morning",
+      "title": "Investment Morning Brief — August 14, 2026",
+      "summary": "July retail and food-services sales fell 0.6% m/m, while July headline PPI was flat but core producer costs rose 0.4%. Slower demand momentum and persistent underlying inflation are the morning’s central tension.",
+      "generatedAt": "2026-08-14T10:39:00-04:00",
+      "path": "data/news-en/2026-08-14_morning.md",
+      "wordCount": 4771,
+      "sourceCount": 24
+    },
     {
       "id": "2026-08-13_morning",
       "date": "2026-08-13",
@@ -312,8 +323,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-13",
-    "dates": 17,
-    "reports": 28
+    "end": "2026-08-14",
+    "dates": 18,
+    "reports": 29
   }
 }

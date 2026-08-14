@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-13T13:22:05Z",
+  "generatedAt": "2026-08-14T15:23:02Z",
   "entries": [
+    {
+      "id": "2026-08-14_morning",
+      "date": "2026-08-14",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月14日",
+      "summary": "7月零售和餐饮销售环比下降0.6%，而7月PPI总项持平、核心生产端成本仍升0.4%。增长动能放缓与通胀黏性并存，是今日早盘的核心定价矛盾。",
+      "generatedAt": "2026-08-14T10:39:00-04:00",
+      "path": "data/news/2026-08-14_morning.md",
+      "wordCount": 1845,
+      "sourceCount": 24
+    },
     {
       "id": "2026-08-13_morning",
       "date": "2026-08-13",
@@ -312,8 +323,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-13",
-    "dates": 17,
-    "reports": 28
+    "end": "2026-08-14",
+    "dates": 18,
+    "reports": 29
   }
 }
