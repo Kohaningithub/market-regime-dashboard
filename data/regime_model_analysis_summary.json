@@ -1,78 +1,78 @@
 {
-  "generatedAt": "2026-08-14T21:00:32Z",
-  "startDate": "2021-08-10",
-  "endDate": "2026-08-14",
-  "rows": 1259,
+  "generatedAt": "2026-08-16T10:39:02Z",
+  "startDate": "2021-08-17",
+  "endDate": "2026-08-16",
+  "rows": 1254,
   "sourceStatus": [
     {
       "name": "vix",
       "status": "ok",
-      "detail": "Yahoo Finance ^VIX: 2025-06-09 to 2026-08-14"
+      "detail": "Yahoo Finance ^VIX: 2020-06-15 to 2026-08-14"
     },
     {
       "name": "move",
       "status": "ok",
-      "detail": "Yahoo Finance ^MOVE: 2025-06-09 to 2026-08-14"
+      "detail": "Yahoo Finance ^MOVE: 2020-06-15 to 2026-07-17"
     },
     {
       "name": "spy",
       "status": "ok",
-      "detail": "Yahoo Finance SPY: 2025-06-09 to 2026-08-14"
+      "detail": "Yahoo Finance SPY: 2020-06-15 to 2026-08-14"
     },
     {
       "name": "qqq",
       "status": "ok",
-      "detail": "Yahoo Finance QQQ: 2025-06-09 to 2026-08-14"
+      "detail": "Yahoo Finance QQQ: 2020-06-15 to 2026-08-14"
     },
     {
       "name": "hyg",
       "status": "ok",
-      "detail": "Yahoo Finance HYG: 2025-06-09 to 2026-08-14"
+      "detail": "Yahoo Finance HYG: 2020-06-15 to 2026-08-14"
     },
     {
       "name": "jnk",
       "status": "ok",
-      "detail": "Yahoo Finance JNK: 2025-06-09 to 2026-08-14"
+      "detail": "Yahoo Finance JNK: 2020-06-15 to 2026-08-14"
     },
     {
       "name": "kre",
       "status": "ok",
-      "detail": "Yahoo Finance KRE: 2025-06-09 to 2026-08-14"
+      "detail": "Yahoo Finance KRE: 2020-06-15 to 2026-08-14"
     },
     {
       "name": "rsp",
       "status": "ok",
-      "detail": "Yahoo Finance RSP: 2025-06-09 to 2026-08-14"
+      "detail": "Yahoo Finance RSP: 2020-06-15 to 2026-08-14"
     },
     {
       "name": "dxy",
       "status": "ok",
-      "detail": "Yahoo Finance DX-Y.NYB: 2025-06-09 to 2026-08-14"
+      "detail": "Yahoo Finance DX-Y.NYB: 2020-06-15 to 2026-08-14"
     },
     {
       "name": "hyOas",
       "status": "ok",
-      "detail": "FRED BAMLH0A0HYM2: 2025-06-09 to 2026-08-13"
+      "detail": "FRED BAMLH0A0HYM2: 2023-08-15 to 2026-08-13"
     },
     {
       "name": "igOas",
       "status": "ok",
-      "detail": "FRED BAMLC0A0CM: 2025-06-09 to 2026-08-13"
+      "detail": "FRED BAMLC0A0CM: 2023-08-15 to 2026-08-13"
     },
     {
       "name": "tenYYield",
       "status": "ok",
-      "detail": "FRED DGS10: 2025-06-09 to 2026-08-13"
+      "detail": "FRED DGS10: 2020-06-15 to 2026-08-13"
     },
     {
       "name": "realTenY",
       "status": "ok",
-      "detail": "FRED DFII10: 2025-06-09 to 2026-08-13"
+      "detail": "FRED DFII10: 2020-06-15 to 2026-08-13"
     },
     {
       "name": "nfci",
       "status": "ok",
-      "detail": "FRED NFCI: 2025-06-13 to 2026-08-07"
+      "detail": "FRED NFCI: 2020-06-19 to 2026-08-07"
     },
     {
       "name": "aaiiBearish",
@@ -94,64 +94,64 @@
     "fearGreed": 0.0,
     "aaiiBearish": 0.0,
     "putCall": 1.0,
-    "hyOas": 0.3979,
-    "igOas": 0.3979,
+    "hyOas": 0.3995,
+    "igOas": 0.3995,
     "nfci": 0.0
   },
   "correlations": {
     "volatilityScore": {
-      "spyRet5dFwd": 0.1085,
-      "spyRet10dFwd": 0.1351,
-      "spyRet20dFwd": 0.1655,
-      "spyRet60dFwd": 0.087,
-      "spyRealizedVol20dFwd": 0.5175,
-      "spyMaxDrawdown20dFwd": -0.0832
+      "spyRet5dFwd": 0.107,
+      "spyRet10dFwd": 0.1325,
+      "spyRet20dFwd": 0.1637,
+      "spyRet60dFwd": 0.0872,
+      "spyRealizedVol20dFwd": 0.5164,
+      "spyMaxDrawdown20dFwd": -0.0819
     },
     "creditScore": {
-      "spyRet5dFwd": 0.0141,
-      "spyRet10dFwd": 0.0164,
-      "spyRet20dFwd": 0.0796,
-      "spyRet60dFwd": 0.0873,
-      "spyRealizedVol20dFwd": 0.2827,
-      "spyMaxDrawdown20dFwd": -0.0515
+      "spyRet5dFwd": 0.0132,
+      "spyRet10dFwd": 0.0143,
+      "spyRet20dFwd": 0.0785,
+      "spyRet60dFwd": 0.0878,
+      "spyRealizedVol20dFwd": 0.2819,
+      "spyMaxDrawdown20dFwd": -0.0507
     },
     "sentimentScore": {
-      "spyRet5dFwd": 0.0746,
-      "spyRet10dFwd": 0.0901,
-      "spyRet20dFwd": 0.1786,
-      "spyRet60dFwd": 0.1858,
-      "spyRealizedVol20dFwd": 0.5232,
-      "spyMaxDrawdown20dFwd": -0.1366
+      "spyRet5dFwd": 0.0736,
+      "spyRet10dFwd": 0.0921,
+      "spyRet20dFwd": 0.1769,
+      "spyRet60dFwd": 0.1856,
+      "spyRealizedVol20dFwd": 0.5228,
+      "spyMaxDrawdown20dFwd": -0.1356
     },
     "scoreTotal": {
-      "spyRet5dFwd": 0.0864,
-      "spyRet10dFwd": 0.1057,
-      "spyRet20dFwd": 0.1809,
-      "spyRet60dFwd": 0.1539,
-      "spyRealizedVol20dFwd": 0.5579,
-      "spyMaxDrawdown20dFwd": -0.1175
+      "spyRet5dFwd": 0.085,
+      "spyRet10dFwd": 0.1051,
+      "spyRet20dFwd": 0.1789,
+      "spyRet60dFwd": 0.1541,
+      "spyRealizedVol20dFwd": 0.557,
+      "spyMaxDrawdown20dFwd": -0.1163
     }
   },
   "byScoreBucket": {
     "0": {
-      "rows": 437,
-      "rowsWith20dForward": 424,
-      "avgSpyRet20dFwd": 0.3507,
-      "medianSpyRet20dFwd": 0.8783,
-      "winRate20dFwd": 0.5825,
-      "avgSpyRet60dFwd": 2.2395,
-      "avgRealizedVol20dFwd": 12.4999,
-      "avgMaxDrawdown20dFwd": -2.3588
+      "rows": 434,
+      "rowsWith20dForward": 425,
+      "avgSpyRet20dFwd": 0.3782,
+      "medianSpyRet20dFwd": 0.9577,
+      "winRate20dFwd": 0.5859,
+      "avgSpyRet60dFwd": 2.2369,
+      "avgRealizedVol20dFwd": 12.5407,
+      "avgMaxDrawdown20dFwd": -2.3702
     },
     "1-2": {
-      "rows": 433,
-      "rowsWith20dForward": 422,
-      "avgSpyRet20dFwd": 1.0555,
-      "medianSpyRet20dFwd": 1.8438,
-      "winRate20dFwd": 0.6967,
-      "avgSpyRet60dFwd": 3.0684,
-      "avgRealizedVol20dFwd": 13.3433,
-      "avgMaxDrawdown20dFwd": -2.0793
+      "rows": 431,
+      "rowsWith20dForward": 421,
+      "avgSpyRet20dFwd": 1.0614,
+      "medianSpyRet20dFwd": 1.8622,
+      "winRate20dFwd": 0.696,
+      "avgSpyRet60dFwd": 3.0641,
+      "avgRealizedVol20dFwd": 13.3683,
+      "avgMaxDrawdown20dFwd": -2.0844
     },
     "3-4": {
       "rows": 171,
@@ -182,7 +182,7 @@
       "medianSpyRet20dFwd": 5.9277,
       "winRate20dFwd": 0.8889,
       "avgSpyRet60dFwd": 0.784,
-      "avgRealizedVol20dFwd": 23.9128,
+      "avgRealizedVol20dFwd": 23.9127,
       "avgMaxDrawdown20dFwd": -2.3294
     },
     "extreme": {
@@ -192,24 +192,24 @@
       "medianSpyRet20dFwd": 5.137,
       "winRate20dFwd": 0.7857,
       "avgSpyRet60dFwd": 8.1627,
-      "avgRealizedVol20dFwd": 26.5986,
+      "avgRealizedVol20dFwd": 26.5985,
       "avgMaxDrawdown20dFwd": -2.7246
     },
     "normal": {
-      "rows": 1189,
+      "rows": 1184,
       "rowsWith20dForward": 1164,
-      "avgSpyRet20dFwd": 0.8496,
-      "medianSpyRet20dFwd": 1.452,
-      "winRate20dFwd": 0.6349,
-      "avgSpyRet60dFwd": 3.0858,
-      "avgRealizedVol20dFwd": 15.0519,
-      "avgMaxDrawdown20dFwd": -2.58
+      "avgSpyRet20dFwd": 0.8612,
+      "medianSpyRet20dFwd": 1.4848,
+      "winRate20dFwd": 0.6357,
+      "avgSpyRet60dFwd": 3.0833,
+      "avgRealizedVol20dFwd": 15.0752,
+      "avgMaxDrawdown20dFwd": -2.5862
     },
     "panic": {
       "rows": 33,
       "rowsWith20dForward": 33,
       "avgSpyRet20dFwd": 4.0005,
-      "medianSpyRet20dFwd": 5.2523,
+      "medianSpyRet20dFwd": 5.2524,
       "winRate20dFwd": 0.7576,
       "avgSpyRet60dFwd": 3.2881,
       "avgRealizedVol20dFwd": 24.5733,
@@ -218,14 +218,14 @@
   },
   "byCreditScore": {
     "0": {
-      "rows": 991,
+      "rows": 986,
       "rowsWith20dForward": 966,
-      "avgSpyRet20dFwd": 0.8388,
-      "medianSpyRet20dFwd": 1.2889,
-      "winRate20dFwd": 0.6232,
-      "avgSpyRet60dFwd": 2.7334,
-      "avgRealizedVol20dFwd": 14.9092,
-      "avgMaxDrawdown20dFwd": -2.514
+      "avgSpyRet20dFwd": 0.8528,
+      "medianSpyRet20dFwd": 1.3726,
+      "winRate20dFwd": 0.6242,
+      "avgSpyRet60dFwd": 2.7264,
+      "avgRealizedVol20dFwd": 14.9372,
+      "avgMaxDrawdown20dFwd": -2.5215
     },
     "1": {
       "rows": 172,
@@ -233,7 +233,7 @@
       "avgSpyRet20dFwd": 1.9509,
       "medianSpyRet20dFwd": 2.4573,
       "winRate20dFwd": 0.7558,
-      "avgSpyRet60dFwd": 4.6769,
+      "avgSpyRet60dFwd": 4.6759,
       "avgRealizedVol20dFwd": 15.7611,
       "avgMaxDrawdown20dFwd": -2.5924
     },
@@ -254,8 +254,8 @@
       "medianSpyRet20dFwd": 0.4504,
       "winRate20dFwd": 0.5455,
       "avgSpyRet60dFwd": 2.5124,
-      "avgRealizedVol20dFwd": 26.9024,
-      "avgMaxDrawdown20dFwd": -4.6767
+      "avgRealizedVol20dFwd": 26.9023,
+      "avgMaxDrawdown20dFwd": -4.6766
     },
     "4": {
       "rows": 8,
@@ -264,7 +264,7 @@
       "medianSpyRet20dFwd": 0.1089,
       "winRate20dFwd": 0.5,
       "avgSpyRet60dFwd": 2.9944,
-      "avgRealizedVol20dFwd": 28.1281,
+      "avgRealizedVol20dFwd": 28.128,
       "avgMaxDrawdown20dFwd": -2.7875
     },
     "5": {
@@ -273,7 +273,7 @@
       "avgSpyRet20dFwd": 4.8836,
       "medianSpyRet20dFwd": 6.3463,
       "winRate20dFwd": 0.9,
-      "avgSpyRet60dFwd": 3.1404,
+      "avgSpyRet60dFwd": 3.1405,
       "avgRealizedVol20dFwd": 25.9816,
       "avgMaxDrawdown20dFwd": -2.2531
     }
