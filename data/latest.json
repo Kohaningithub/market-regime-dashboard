@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-08-18T14:16:05Z",
+  "generatedAt": "2026-08-18T20:56:29Z",
   "asOf": "2026-08-18",
   "mode": "live",
   "values": {
-    "vix": 15.8,
-    "vixChange5d": 0.34,
-    "move": 70.88,
-    "spyDrawdown": -1.2,
-    "qqqDrawdown": -3.63,
-    "rspSpyRel60d": 5.38,
-    "hygRet20d": 0.17,
-    "jnkRet20d": 0.35,
-    "hyOas": 2.67,
-    "hyOasChange20d": -6.0,
-    "igOas": 0.8,
-    "igOasChange20d": 1.0,
-    "dxyChange20d": -1.4,
-    "tenYYield": 4.68,
-    "tenYChange20d": 13.0,
-    "realTenY": 2.41,
-    "realTenYChange20d": 10.0,
+    "vix": 15.84,
+    "vixChange5d": 0.56,
+    "move": 74.98,
+    "spyDrawdown": -1.34,
+    "qqqDrawdown": -3.73,
+    "rspSpyRel60d": 4.04,
+    "hygRet20d": 0.33,
+    "jnkRet20d": 0.39,
+    "hyOas": 2.7,
+    "hyOasChange20d": 1.0,
+    "igOas": 0.81,
+    "igOasChange20d": 3.0,
+    "dxyChange20d": -1.49,
+    "tenYYield": 4.72,
+    "tenYChange20d": 12.0,
+    "realTenY": 2.44,
+    "realTenYChange20d": 9.0,
     "nfci": -0.55,
-    "kreRel20d": -2.69,
+    "kreRel20d": -1.38,
     "aaiiBearish": 37.9,
     "putCall": 0.65,
-    "fearGreed": 55.0
+    "fearGreed": 54.0
   },
   "scores": {
     "volatility": 0,
@@ -50,7 +50,7 @@
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-07-17",
+      "asOf": "2026-08-18",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -80,22 +80,22 @@
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-08-14",
+      "asOf": "2026-08-17",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-08-14",
+      "asOf": "2026-08-17",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-08-14",
+      "asOf": "2026-08-17",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-08-14",
+      "asOf": "2026-08-17",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
@@ -105,22 +105,22 @@
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-08-14",
+      "asOf": "2026-08-17",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-08-14",
+      "asOf": "2026-08-17",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-08-14",
+      "asOf": "2026-08-17",
       "source": "FRED DFII10",
       "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-08-14",
+      "asOf": "2026-08-17",
       "source": "FRED DFII10",
       "status": "ok"
     },
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-08-18T14:15:00+00:00",
+      "asOf": "2026-08-18T20:38:24+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
