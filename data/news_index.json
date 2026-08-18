@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-18T17:25:38Z",
+  "generatedAt": "2026-08-18T21:24:23Z",
   "entries": [
+    {
+      "id": "2026-08-18_close",
+      "date": "2026-08-18",
+      "edition": "close",
+      "title": "收盘投资动态简报 — 2026年8月18日",
+      "summary": "美股在8月18日完整现金收盘走低：高估值AI芯片股回撤、长期利率维持高位，标普500跌约0.7%、纳指跌约1.3%；Home Depot的业绩韧性与住房数据走弱形成鲜明反差。",
+      "generatedAt": "2026-08-18T16:24:23-04:00",
+      "path": "data/news/2026-08-18_close.md",
+      "wordCount": 2579,
+      "sourceCount": 31
+    },
     {
       "id": "2026-08-18_morning",
       "date": "2026-08-18",
@@ -347,6 +358,6 @@
     "start": "2026-07-23",
     "end": "2026-08-18",
     "dates": 20,
-    "reports": 31
+    "reports": 32
   }
 }
