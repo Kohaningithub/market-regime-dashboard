@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-14T15:23:03Z",
+  "generatedAt": "2026-08-18T17:21:40Z",
   "entries": [
+    {
+      "id": "2026-08-17_morning",
+      "date": "2026-08-17",
+      "edition": "morning",
+      "title": "Investment Morning Brief — August 17, 2026",
+      "summary": "There is no cross-checked U.S. premarket quote for the Sunday edition. August 14 equities eased from records as retail sales softened and oil rose; Tuesday’s trade-price data and this week’s Treasury settlement are the next verifiable macro and rate inputs.",
+      "generatedAt": "2026-08-17T07:30:00-04:00",
+      "path": "data/news-en/2026-08-17_morning.md",
+      "wordCount": 5729,
+      "sourceCount": 30
+    },
     {
       "id": "2026-08-14_morning",
       "date": "2026-08-14",
@@ -323,8 +334,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-14",
-    "dates": 18,
-    "reports": 29
+    "end": "2026-08-17",
+    "dates": 19,
+    "reports": 30
   }
 }
