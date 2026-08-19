@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-18T21:24:23Z",
+  "generatedAt": "2026-08-19T13:23:07Z",
   "entries": [
+    {
+      "id": "2026-08-19_morning",
+      "date": "2026-08-19",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月19日",
+      "summary": "AI权重股8月18日再度拖累美股，油价与高收益率仍压制估值；盘前期指大体持平，市场等待美联储会议纪要与财政部20年期国债拍卖。",
+      "generatedAt": "2026-08-19T08:42:09-04:00",
+      "path": "data/news/2026-08-19_morning.md",
+      "wordCount": 1981,
+      "sourceCount": 26
+    },
     {
       "id": "2026-08-18_close",
       "date": "2026-08-18",
@@ -356,8 +367,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-18",
-    "dates": 20,
-    "reports": 32
+    "end": "2026-08-19",
+    "dates": 21,
+    "reports": 33
   }
 }

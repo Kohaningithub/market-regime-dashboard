@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-18T21:24:23Z",
+  "generatedAt": "2026-08-19T13:23:08Z",
   "entries": [
+    {
+      "id": "2026-08-19_morning",
+      "date": "2026-08-19",
+      "edition": "morning",
+      "title": "Investment Dynamics Morning Brief — August 19, 2026",
+      "summary": "AI heavyweight selling extended on August 18 as oil and elevated yields pressured valuations; futures are broadly flat ahead of Fed minutes and a 20-year Treasury auction.",
+      "generatedAt": "2026-08-19T08:42:09-04:00",
+      "path": "data/news-en/2026-08-19_morning.md",
+      "wordCount": 4996,
+      "sourceCount": 26
+    },
     {
       "id": "2026-08-18_close",
       "date": "2026-08-18",
@@ -356,8 +367,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-18",
-    "dates": 20,
-    "reports": 32
+    "end": "2026-08-19",
+    "dates": 21,
+    "reports": 33
   }
 }
