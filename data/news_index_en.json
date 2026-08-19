@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-19T13:23:08Z",
+  "generatedAt": "2026-08-19T21:24:17Z",
   "entries": [
+    {
+      "id": "2026-08-19_close",
+      "date": "2026-08-19",
+      "edition": "close",
+      "title": "Closing Investment Brief — August 19, 2026",
+      "summary": "U.S. equities finished modestly higher after Treasury announced larger long-end liquidity-support buybacks: the S&P 500, Dow and Nasdaq each gained about 0.2%, while rate, inflation and AI-valuation risks remain unresolved.",
+      "generatedAt": "2026-08-19T16:28:00-04:00",
+      "path": "data/news-en/2026-08-19_close.md",
+      "wordCount": 7545,
+      "sourceCount": 27
+    },
     {
       "id": "2026-08-19_morning",
       "date": "2026-08-19",
@@ -369,6 +380,6 @@
     "start": "2026-07-23",
     "end": "2026-08-19",
     "dates": 21,
-    "reports": 33
+    "reports": 34
   }
 }
