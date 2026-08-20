@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-20T13:23:05Z",
+  "generatedAt": "2026-08-20T21:23:47Z",
   "entries": [
+    {
+      "id": "2026-08-20_close",
+      "date": "2026-08-20",
+      "edition": "close",
+      "title": "Close Investment Brief — August 20, 2026",
+      "summary": "U.S. cash equities closed lower on August 20 as long yields and oil rebounded while Walmart's results revived consumer concerns; the S&P 500 fell 0.9%, the Dow 1.3%, and the Nasdaq 1.0%.",
+      "generatedAt": "2026-08-20T16:28:00-04:00",
+      "path": "data/news-en/2026-08-20_close.md",
+      "wordCount": 7284,
+      "sourceCount": 36
+    },
     {
       "id": "2026-08-20_morning",
       "date": "2026-08-20",
@@ -391,6 +402,6 @@
     "start": "2026-07-23",
     "end": "2026-08-20",
     "dates": 22,
-    "reports": 35
+    "reports": 36
   }
 }
