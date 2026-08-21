@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-20T21:23:47Z",
+  "generatedAt": "2026-08-21T13:23:01Z",
   "entries": [
+    {
+      "id": "2026-08-21_morning",
+      "date": "2026-08-21",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月21日",
+      "summary": "8月20日油价、长端利率与零售担忧共同引发三周来最大美股跌幅；周五期指温和反弹，但霍尔木兹风险和消费预期仍是跨资产主线。",
+      "generatedAt": "2026-08-21T08:42:00-04:00",
+      "path": "data/news/2026-08-21_morning.md",
+      "wordCount": 1699,
+      "sourceCount": 27
+    },
     {
       "id": "2026-08-20_close",
       "date": "2026-08-20",
@@ -400,8 +411,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-20",
-    "dates": 22,
-    "reports": 36
+    "end": "2026-08-21",
+    "dates": 23,
+    "reports": 37
   }
 }

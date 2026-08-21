@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-20T21:23:47Z",
+  "generatedAt": "2026-08-21T13:23:01Z",
   "entries": [
+    {
+      "id": "2026-08-21_morning",
+      "date": "2026-08-21",
+      "edition": "morning",
+      "title": "Investment Dynamics Morning Brief — August 21, 2026",
+      "summary": "Thursday's yield-and-oil shock drove the sharpest U.S. equity loss in three weeks; Friday futures rebound modestly while retail earnings and the Strait of Hormuz remain the key cross-asset tests.",
+      "generatedAt": "2026-08-21T08:42:00-04:00",
+      "path": "data/news-en/2026-08-21_morning.md",
+      "wordCount": 4982,
+      "sourceCount": 27
+    },
     {
       "id": "2026-08-20_close",
       "date": "2026-08-20",
@@ -400,8 +411,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-20",
-    "dates": 22,
-    "reports": 36
+    "end": "2026-08-21",
+    "dates": 23,
+    "reports": 37
   }
 }
