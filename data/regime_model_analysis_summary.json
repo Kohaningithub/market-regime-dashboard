@@ -1,73 +1,73 @@
 {
-  "generatedAt": "2026-08-20T21:01:40Z",
+  "generatedAt": "2026-08-21T20:56:59Z",
   "startDate": "2021-08-17",
-  "endDate": "2026-08-20",
-  "rows": 1258,
+  "endDate": "2026-08-21",
+  "rows": 1259,
   "sourceStatus": [
     {
       "name": "vix",
       "status": "ok",
-      "detail": "Yahoo Finance ^VIX: 2025-06-16 to 2026-08-20"
+      "detail": "Yahoo Finance ^VIX: 2025-06-16 to 2026-08-21"
     },
     {
       "name": "move",
       "status": "ok",
-      "detail": "Yahoo Finance ^MOVE: 2025-06-16 to 2026-08-20"
+      "detail": "Yahoo Finance ^MOVE: 2025-06-16 to 2026-08-21"
     },
     {
       "name": "spy",
       "status": "ok",
-      "detail": "Yahoo Finance SPY: 2025-06-16 to 2026-08-20"
+      "detail": "Yahoo Finance SPY: 2025-06-16 to 2026-08-21"
     },
     {
       "name": "qqq",
       "status": "ok",
-      "detail": "Yahoo Finance QQQ: 2025-06-16 to 2026-08-20"
+      "detail": "Yahoo Finance QQQ: 2025-06-16 to 2026-08-21"
     },
     {
       "name": "hyg",
       "status": "ok",
-      "detail": "Yahoo Finance HYG: 2025-06-16 to 2026-08-20"
+      "detail": "Yahoo Finance HYG: 2025-06-16 to 2026-08-21"
     },
     {
       "name": "jnk",
       "status": "ok",
-      "detail": "Yahoo Finance JNK: 2025-06-16 to 2026-08-20"
+      "detail": "Yahoo Finance JNK: 2025-06-16 to 2026-08-21"
     },
     {
       "name": "kre",
       "status": "ok",
-      "detail": "Yahoo Finance KRE: 2025-06-16 to 2026-08-20"
+      "detail": "Yahoo Finance KRE: 2025-06-16 to 2026-08-21"
     },
     {
       "name": "rsp",
       "status": "ok",
-      "detail": "Yahoo Finance RSP: 2025-06-16 to 2026-08-20"
+      "detail": "Yahoo Finance RSP: 2025-06-16 to 2026-08-21"
     },
     {
       "name": "dxy",
       "status": "ok",
-      "detail": "Yahoo Finance DX-Y.NYB: 2025-06-16 to 2026-08-20"
+      "detail": "Yahoo Finance DX-Y.NYB: 2025-06-16 to 2026-08-21"
     },
     {
       "name": "hyOas",
       "status": "ok",
-      "detail": "FRED BAMLH0A0HYM2: 2025-06-16 to 2026-08-19"
+      "detail": "FRED BAMLH0A0HYM2: 2025-06-16 to 2026-08-20"
     },
     {
       "name": "igOas",
       "status": "ok",
-      "detail": "FRED BAMLC0A0CM: 2025-06-16 to 2026-08-19"
+      "detail": "FRED BAMLC0A0CM: 2025-06-16 to 2026-08-20"
     },
     {
       "name": "tenYYield",
       "status": "ok",
-      "detail": "FRED DGS10: 2025-06-16 to 2026-08-19"
+      "detail": "FRED DGS10: 2025-06-16 to 2026-08-20"
     },
     {
       "name": "realTenY",
       "status": "ok",
-      "detail": "FRED DFII10: 2025-06-16 to 2026-08-19"
+      "detail": "FRED DFII10: 2025-06-16 to 2026-08-20"
     },
     {
       "name": "nfci",
@@ -94,8 +94,8 @@
     "fearGreed": 0.0,
     "aaiiBearish": 0.0,
     "putCall": 1.0,
-    "hyOas": 0.3983,
-    "igOas": 0.3983,
+    "hyOas": 0.3979,
+    "igOas": 0.3979,
     "nfci": 0.0
   },
   "correlations": {
@@ -134,7 +134,7 @@
   },
   "byScoreBucket": {
     "0": {
-      "rows": 438,
+      "rows": 439,
       "rowsWith20dForward": 425,
       "avgSpyRet20dFwd": 0.3782,
       "medianSpyRet20dFwd": 0.9577,
@@ -196,7 +196,7 @@
       "avgMaxDrawdown20dFwd": -2.7246
     },
     "normal": {
-      "rows": 1188,
+      "rows": 1189,
       "rowsWith20dForward": 1164,
       "avgSpyRet20dFwd": 0.8612,
       "medianSpyRet20dFwd": 1.4848,
@@ -218,7 +218,7 @@
   },
   "byCreditScore": {
     "0": {
-      "rows": 990,
+      "rows": 991,
       "rowsWith20dForward": 966,
       "avgSpyRet20dFwd": 0.8528,
       "medianSpyRet20dFwd": 1.3726,
