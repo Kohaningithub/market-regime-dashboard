@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-08-21T13:23:01Z",
+  "generatedAt": "2026-08-24T21:22:31Z",
   "entries": [
+    {
+      "id": "2026-08-24_close",
+      "date": "2026-08-24",
+      "edition": "close",
+      "title": "收盘投资动态简报 — 2026年8月24日",
+      "summary": "美股完成8月24日现金收盘：标普500跌0.3%、纳指跌0.8%、道指涨0.3%。AI芯片回落压制成长股，油价与收益率回落则支撑金融和部分价值股。",
+      "generatedAt": "2026-08-24T16:28:00-04:00",
+      "path": "data/news/2026-08-24_close.md",
+      "wordCount": 1822,
+      "sourceCount": 23
+    },
+    {
+      "id": "2026-08-24_morning",
+      "date": "2026-08-24",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月24日",
+      "summary": "8月24日盘中，油价和10年期美债收益率回落暂缓利率压力，但英伟达、Micron与博通走弱令AI估值风险重新成为指数主线；周三GDP/PCE与英伟达财报是本周核心验证。",
+      "generatedAt": "2026-08-24T14:31:47-04:00",
+      "path": "data/news/2026-08-24_morning.md",
+      "wordCount": 2132,
+      "sourceCount": 26
+    },
     {
       "id": "2026-08-21_morning",
       "date": "2026-08-21",
@@ -411,8 +433,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-21",
-    "dates": 23,
-    "reports": 37
+    "end": "2026-08-24",
+    "dates": 24,
+    "reports": 39
   }
 }

@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-08-21T13:23:01Z",
+  "generatedAt": "2026-08-24T21:22:32Z",
   "entries": [
+    {
+      "id": "2026-08-24_close",
+      "date": "2026-08-24",
+      "edition": "close",
+      "title": "Close Investment Brief — August 24, 2026",
+      "summary": "U.S. cash trading finished mixed: the S&P 500 fell 0.3%, the Nasdaq slipped 0.8%, and the Dow gained 0.3%. Semiconductor weakness outweighed lower oil and Treasury yields.",
+      "generatedAt": "2026-08-24T16:28:00-04:00",
+      "path": "data/news-en/2026-08-24_close.md",
+      "wordCount": 4875,
+      "sourceCount": 23
+    },
+    {
+      "id": "2026-08-24_morning",
+      "date": "2026-08-24",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 24, 2026",
+      "summary": "As of Monday afternoon, lower oil and Treasury yields eased rate pressure, but declines in Nvidia, Micron and Broadcom returned AI-valuation risk to the index narrative. Wednesday's GDP/PCE releases and Nvidia earnings are this week's key tests.",
+      "generatedAt": "2026-08-24T14:31:47-04:00",
+      "path": "data/news-en/2026-08-24_morning.md",
+      "wordCount": 5804,
+      "sourceCount": 26
+    },
     {
       "id": "2026-08-21_morning",
       "date": "2026-08-21",
@@ -411,8 +433,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-21",
-    "dates": 23,
-    "reports": 37
+    "end": "2026-08-24",
+    "dates": 24,
+    "reports": 39
   }
 }
