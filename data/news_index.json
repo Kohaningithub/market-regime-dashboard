@@ -1,6 +1,50 @@
 {
-  "generatedAt": "2026-08-24T21:22:31Z",
+  "generatedAt": "2026-08-26T21:22:47Z",
   "entries": [
+    {
+      "id": "2026-08-26_close",
+      "date": "2026-08-26",
+      "edition": "close",
+      "title": "收盘投资动态简报 — 2026年8月26日",
+      "summary": "美股在偏热的7月PCE数据后接近平盘收市：标普500跌0.01%，道指跌0.21%，纳指跌0.06%；市场等待英伟达盘后业绩。",
+      "generatedAt": "2026-08-26T16:27:00-04:00",
+      "path": "data/news/2026-08-26_close.md",
+      "wordCount": 2512,
+      "sourceCount": 30
+    },
+    {
+      "id": "2026-08-26_morning",
+      "date": "2026-08-26",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月26日",
+      "summary": "官方7月PCE显示环比温和但同比仍偏高；油价和10年期收益率回落改善风险偏好，而英伟达今晚业绩仍是AI交易的关键验证。",
+      "generatedAt": "2026-08-26T08:43:15-04:00",
+      "path": "data/news/2026-08-26_morning.md",
+      "wordCount": 2249,
+      "sourceCount": 29
+    },
+    {
+      "id": "2026-08-25_close",
+      "date": "2026-08-25",
+      "edition": "close",
+      "title": "收盘投资动态简报 — 2026年8月25日",
+      "summary": "美股现金市场收高：油价连续回落缓解通胀与利率压力，标普500和道指均约涨0.3%，纳指约涨0.7%。",
+      "generatedAt": "2026-08-25T16:22:35-04:00",
+      "path": "data/news/2026-08-25_close.md",
+      "wordCount": 2103,
+      "sourceCount": 29
+    },
+    {
+      "id": "2026-08-25_morning",
+      "date": "2026-08-25",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月25日",
+      "summary": "油价与长端收益率回落带来短暂风险偏好修复，但科技股在英伟达、住房与周三GDP/PCE等关键验证前仍偏脆弱。",
+      "generatedAt": "2026-08-25T08:35:00-04:00",
+      "path": "data/news/2026-08-25_morning.md",
+      "wordCount": 2436,
+      "sourceCount": 32
+    },
     {
       "id": "2026-08-24_close",
       "date": "2026-08-24",
@@ -433,8 +477,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-24",
-    "dates": 24,
-    "reports": 39
+    "end": "2026-08-26",
+    "dates": 26,
+    "reports": 43
   }
 }

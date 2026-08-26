@@ -1,6 +1,50 @@
 {
-  "generatedAt": "2026-08-24T21:22:32Z",
+  "generatedAt": "2026-08-26T21:22:48Z",
   "entries": [
+    {
+      "id": "2026-08-26_close",
+      "date": "2026-08-26",
+      "edition": "close",
+      "title": "Close Investment Brief — August 26, 2026",
+      "summary": "U.S. cash equities finished essentially flat after hotter July PCE data: the S&P 500 slipped 0.01%, the Dow 0.21% and the Nasdaq 0.06%, as investors awaited Nvidia's after-hours results.",
+      "generatedAt": "2026-08-26T16:27:00-04:00",
+      "path": "data/news-en/2026-08-26_close.md",
+      "wordCount": 7135,
+      "sourceCount": 30
+    },
+    {
+      "id": "2026-08-26_morning",
+      "date": "2026-08-26",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 26, 2026",
+      "summary": "Official July PCE data were moderate month to month but remain elevated year over year; lower oil and yields support risk appetite while Nvidia's results tonight remain the key AI test.",
+      "generatedAt": "2026-08-26T08:43:15-04:00",
+      "path": "data/news-en/2026-08-26_morning.md",
+      "wordCount": 5896,
+      "sourceCount": 29
+    },
+    {
+      "id": "2026-08-25_close",
+      "date": "2026-08-25",
+      "edition": "close",
+      "title": "Close Investment Brief — August 25, 2026",
+      "summary": "U.S. cash equities ended higher as a second oil-price decline eased inflation and rate pressure: the S&P 500 and Dow gained about 0.3%, while the Nasdaq rose about 0.7%.",
+      "generatedAt": "2026-08-25T16:22:35-04:00",
+      "path": "data/news-en/2026-08-25_close.md",
+      "wordCount": 6598,
+      "sourceCount": 29
+    },
+    {
+      "id": "2026-08-25_morning",
+      "date": "2026-08-25",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 25, 2026",
+      "summary": "Tuesday opens with lower oil, lower long-end yields and a tentative futures rebound, while technology remains fragile ahead of NVIDIA, housing data and Wednesday's GDP/PCE releases.",
+      "generatedAt": "2026-08-25T08:35:00-04:00",
+      "path": "data/news-en/2026-08-25_morning.md",
+      "wordCount": 7319,
+      "sourceCount": 32
+    },
     {
       "id": "2026-08-24_close",
       "date": "2026-08-24",
@@ -433,8 +477,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-24",
-    "dates": 24,
-    "reports": 39
+    "end": "2026-08-26",
+    "dates": 26,
+    "reports": 43
   }
 }
