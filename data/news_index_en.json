@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-26T21:22:48Z",
+  "generatedAt": "2026-08-27T13:23:00Z",
   "entries": [
+    {
+      "id": "2026-08-27_morning",
+      "date": "2026-08-27",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 27, 2026",
+      "summary": "Nvidia's results and outlook reaffirm AI-infrastructure demand, while equities slipped modestly yesterday amid inflation and rate concerns; Nvidia is higher premarket and oil remains lower.",
+      "generatedAt": "2026-08-27T08:35:00-04:00",
+      "path": "data/news-en/2026-08-27_morning.md",
+      "wordCount": 5672,
+      "sourceCount": 26
+    },
     {
       "id": "2026-08-26_close",
       "date": "2026-08-26",
@@ -477,8 +488,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-26",
-    "dates": 26,
-    "reports": 43
+    "end": "2026-08-27",
+    "dates": 27,
+    "reports": 44
   }
 }

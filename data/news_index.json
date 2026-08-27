@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-08-26T21:22:47Z",
+  "generatedAt": "2026-08-27T13:22:59Z",
   "entries": [
+    {
+      "id": "2026-08-27_morning",
+      "date": "2026-08-27",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月27日",
+      "summary": "英伟达业绩和指引再次确认AI基础设施需求，但昨日美股在通胀与利率顾虑下微跌；盘前英伟达跳升、油价续跌，市场焦点转向需求能否兑现为回报。",
+      "generatedAt": "2026-08-27T08:35:00-04:00",
+      "path": "data/news/2026-08-27_morning.md",
+      "wordCount": 2131,
+      "sourceCount": 26
+    },
     {
       "id": "2026-08-26_close",
       "date": "2026-08-26",
@@ -477,8 +488,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-26",
-    "dates": 26,
-    "reports": 43
+    "end": "2026-08-27",
+    "dates": 27,
+    "reports": 44
   }
 }
