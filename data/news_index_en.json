@@ -1,6 +1,50 @@
 {
-  "generatedAt": "2026-08-27T13:23:00Z",
+  "generatedAt": "2026-08-31T22:02:14Z",
   "entries": [
+    {
+      "id": "2026-08-31_close",
+      "date": "2026-08-31",
+      "edition": "close",
+      "title": "US Market Close Investment Brief — August 31, 2026",
+      "summary": "Oil and yields pressured equities; energy outperformed while California utilities and selected high-beta names fell sharply.",
+      "generatedAt": "2026-08-31T16:24:00-04:00",
+      "path": "data/news-en/2026-08-31_close.md",
+      "wordCount": 8339,
+      "sourceCount": 22
+    },
+    {
+      "id": "2026-08-31_morning",
+      "date": "2026-08-31",
+      "edition": "morning",
+      "title": "Investment Morning Brief — August 31, 2026",
+      "summary": "Weekend escalation around the Strait of Hormuz lifted oil and weighed on U.S. futures; the market is repricing inflation and earnings risk ahead of JOLTS, payrolls, and the September FOMC meeting.",
+      "generatedAt": "2026-08-31T08:45:00-04:00",
+      "path": "data/news-en/2026-08-31_morning.md",
+      "wordCount": 5893,
+      "sourceCount": 26
+    },
+    {
+      "id": "2026-08-28_close",
+      "date": "2026-08-28",
+      "edition": "close",
+      "title": "Close Investment Brief — August 28, 2026",
+      "summary": "The completed U.S. cash close was mixed after Jackson Hole: SPY fell 0.23%, QQQ 0.66%, and IWM 1.37%, while energy outperformed and rate-sensitive growth lagged.",
+      "generatedAt": "2026-08-28T16:24:00-04:00",
+      "path": "data/news-en/2026-08-28_close.md",
+      "wordCount": 7314,
+      "sourceCount": 46
+    },
+    {
+      "id": "2026-08-28_morning",
+      "date": "2026-08-28",
+      "edition": "morning",
+      "title": "Morning Investment Brief — August 28, 2026",
+      "summary": "Thursday's Nvidia and Salesforce results lifted technology, but chip shares are softer and futures slightly lower Friday morning; Chair Warsh's Jackson Hole speech and oil remain immediate pricing variables.",
+      "generatedAt": "2026-08-28T08:35:00-04:00",
+      "path": "data/news-en/2026-08-28_morning.md",
+      "wordCount": 6064,
+      "sourceCount": 32
+    },
     {
       "id": "2026-08-27_morning",
       "date": "2026-08-27",
@@ -488,8 +532,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-27",
-    "dates": 27,
-    "reports": 44
+    "end": "2026-08-31",
+    "dates": 29,
+    "reports": 48
   }
 }

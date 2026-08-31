@@ -1,6 +1,50 @@
 {
-  "generatedAt": "2026-08-27T13:22:59Z",
+  "generatedAt": "2026-08-31T22:02:13Z",
   "entries": [
+    {
+      "id": "2026-08-31_close",
+      "date": "2026-08-31",
+      "edition": "close",
+      "title": "2026-08-31 美股收盘投资动态简报",
+      "summary": "油价与利率上行压低大盘；能源逆势、加州公用事业与部分高估值股承压。",
+      "generatedAt": "2026-08-31T16:24:00-04:00",
+      "path": "data/news/2026-08-31_close.md",
+      "wordCount": 3258,
+      "sourceCount": 22
+    },
+    {
+      "id": "2026-08-31_morning",
+      "date": "2026-08-31",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月31日",
+      "summary": "霍尔木兹周末军事升级推高原油并令美股期货走弱；市场在高油价、偏鹰派Fed预期与周二JOLTS之间，重新评估通胀和盈利的风险溢价。",
+      "generatedAt": "2026-08-31T08:45:00-04:00",
+      "path": "data/news/2026-08-31_morning.md",
+      "wordCount": 2319,
+      "sourceCount": 26
+    },
+    {
+      "id": "2026-08-28_close",
+      "date": "2026-08-28",
+      "edition": "close",
+      "title": "收盘投资动态简报 — 2026年8月28日",
+      "summary": "美股在Jackson Hole讲话后的完整现金收盘呈分化：SPY跌0.23%、QQQ跌0.66%、IWM跌1.37%；利率敏感成长与小盘承压，能源逆势。",
+      "generatedAt": "2026-08-28T16:24:00-04:00",
+      "path": "data/news/2026-08-28_close.md",
+      "wordCount": 2577,
+      "sourceCount": 46
+    },
+    {
+      "id": "2026-08-28_morning",
+      "date": "2026-08-28",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年8月28日",
+      "summary": "周四英伟达与Salesforce业绩推动科技股上行，但周五盘前芯片股回吐、期货略弱；美联储主席Warsh讲话和油价仍是风险资产的即时定价变量。",
+      "generatedAt": "2026-08-28T08:35:00-04:00",
+      "path": "data/news/2026-08-28_morning.md",
+      "wordCount": 2421,
+      "sourceCount": 32
+    },
     {
       "id": "2026-08-27_morning",
       "date": "2026-08-27",
@@ -488,8 +532,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-27",
-    "dates": 27,
-    "reports": 44
+    "end": "2026-08-31",
+    "dates": 29,
+    "reports": 48
   }
 }
