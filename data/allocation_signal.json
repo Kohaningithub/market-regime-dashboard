@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01T17:26:34Z",
+  "generatedAt": "2026-09-01T22:48:41Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,7 +86,7 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 26.06,
+    "opportunityScore": 25.88,
     "riskScore": 0,
     "action": "HOLD",
     "stance": "维持",
@@ -97,9 +97,9 @@
       "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。"
     },
     "components": {
-      "drawdownOpportunity": 6.41,
+      "drawdownOpportunity": 6.33,
       "sentimentOpportunity": 4.23,
-      "volatilityOpportunity": 0.42,
+      "volatilityOpportunity": 0.32,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
       "volatilityRisk": 0.0,
@@ -108,7 +108,7 @@
       "dataPenalty": 0
     },
     "asOf": "2026-09-01",
-    "generatedAt": "2026-09-01T17:26:34Z",
+    "generatedAt": "2026-09-01T22:48:33Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
@@ -116,11 +116,11 @@
     },
     "marketState": "normal",
     "keyInputs": {
-      "vix": 16.09,
-      "vixChange5d": 0.64,
-      "move": 75.32,
-      "spyDrawdown": -2.11,
-      "qqqDrawdown": -5.05,
+      "vix": 16.34,
+      "vixChange5d": 0.49,
+      "move": 77.88,
+      "spyDrawdown": -2.07,
+      "qqqDrawdown": -5.06,
       "fearGreed": 45.0,
       "aaiiBearish": 44.4,
       "putCall": 0.7,
@@ -128,8 +128,8 @@
       "hyOas": 2.63,
       "igOas": 0.8,
       "nfci": -0.57,
-      "dxyChange20d": -0.2,
-      "kreRel20d": -5.58,
+      "dxyChange20d": -0.31,
+      "kreRel20d": -4.58,
       "spyRealizedVol20dTrailing": 10.5362
     }
   },
@@ -157,10 +157,10 @@
       "avgMaxDrawdown20dFwd": -3.9825
     },
     "HOLD": {
-      "rows": 1075,
+      "rows": 1076,
       "usableRows": 1014,
       "avgOpportunityScore": 28.82,
-      "avgRiskScore": 10.73,
+      "avgRiskScore": 10.72,
       "avgSpyRet20dFwd": 0.8678,
       "winRate20d": 0.6509,
       "avgSpyRet60dFwd": 3.046,
