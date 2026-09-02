@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-02T13:21:44Z",
+  "generatedAt": "2026-09-02T21:22:02Z",
   "entries": [
+    {
+      "id": "2026-09-02_close",
+      "date": "2026-09-02",
+      "edition": "close",
+      "title": "2026-09-02 美股收盘投资动态简报",
+      "summary": "科技反弹带动美股结束三日回落，但油价、收益率与就业数据使通胀—增长取舍仍未解除。",
+      "generatedAt": "2026-09-02T16:25:56-04:00",
+      "path": "data/news/2026-09-02_close.md",
+      "wordCount": 3159,
+      "sourceCount": 23
+    },
     {
       "id": "2026-09-02_morning",
       "date": "2026-09-02",
@@ -567,6 +578,6 @@
     "start": "2026-07-23",
     "end": "2026-09-02",
     "dates": 31,
-    "reports": 51
+    "reports": 52
   }
 }
