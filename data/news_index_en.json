@@ -1,6 +1,39 @@
 {
-  "generatedAt": "2026-08-31T22:02:14Z",
+  "generatedAt": "2026-09-02T13:21:45Z",
   "entries": [
+    {
+      "id": "2026-09-02_morning",
+      "date": "2026-09-02",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 2, 2026",
+      "summary": "Oil and the global bond sell-off are still restraining risk appetite; July JOLTS was stable rather than reaccelerating, leaving productivity and Friday payrolls as the next hard-data tests.",
+      "generatedAt": "2026-09-02T08:43:21-04:00",
+      "path": "data/news-en/2026-09-02_morning.md",
+      "wordCount": 9383,
+      "sourceCount": 30
+    },
+    {
+      "id": "2026-09-01_close",
+      "date": "2026-09-01",
+      "edition": "close",
+      "title": "2026-09-01 U.S. Market Close Investment Brief",
+      "summary": "Oil, yields and inflation repricing drove a broad risk-off close; energy-linked themes held relative attention.",
+      "generatedAt": "2026-09-01T16:32:00-04:00",
+      "path": "data/news-en/2026-09-01_close.md",
+      "wordCount": 5681,
+      "sourceCount": 19
+    },
+    {
+      "id": "2026-09-01_morning",
+      "date": "2026-09-01",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 1, 2026",
+      "summary": "A renewed oil shock and global bond sell-off are pressuring risk assets; July JOLTS at 10:00 ET is the immediate labour-market catalyst.",
+      "generatedAt": "2026-09-01T08:42:00-04:00",
+      "path": "data/news-en/2026-09-01_morning.md",
+      "wordCount": 7652,
+      "sourceCount": 29
+    },
     {
       "id": "2026-08-31_close",
       "date": "2026-08-31",
@@ -532,8 +565,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-08-31",
-    "dates": 29,
-    "reports": 48
+    "end": "2026-09-02",
+    "dates": 31,
+    "reports": 51
   }
 }
