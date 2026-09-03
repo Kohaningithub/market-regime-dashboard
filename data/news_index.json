@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-02T21:22:02Z",
+  "generatedAt": "2026-09-03T13:22:49Z",
   "entries": [
+    {
+      "id": "2026-09-03_morning",
+      "date": "2026-09-03",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月3日",
+      "summary": "霍尔木兹冲突令油价与风险资产承压；博通盘前回落凸显AI资本开支回报的高门槛，08:30 ET生产率修订和周五就业报告是下一组宏观验证。",
+      "generatedAt": "2026-09-03T08:45:00-04:00",
+      "path": "data/news/2026-09-03_morning.md",
+      "wordCount": 2376,
+      "sourceCount": 28
+    },
     {
       "id": "2026-09-02_close",
       "date": "2026-09-02",
@@ -576,8 +587,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-02",
-    "dates": 31,
-    "reports": 52
+    "end": "2026-09-03",
+    "dates": 32,
+    "reports": 53
   }
 }

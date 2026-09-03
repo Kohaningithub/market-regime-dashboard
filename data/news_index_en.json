@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-02T21:22:02Z",
+  "generatedAt": "2026-09-03T13:22:50Z",
   "entries": [
+    {
+      "id": "2026-09-03_morning",
+      "date": "2026-09-03",
+      "edition": "morning",
+      "title": "Investment Morning Brief — September 3, 2026",
+      "summary": "Hormuz conflict risk is pressuring oil-sensitive risk assets; Broadcom's premarket decline highlights the high bar for AI returns, while 08:30 ET productivity data and Friday payrolls are the next macro tests.",
+      "generatedAt": "2026-09-03T08:45:00-04:00",
+      "path": "data/news-en/2026-09-03_morning.md",
+      "wordCount": 6981,
+      "sourceCount": 28
+    },
     {
       "id": "2026-09-02_close",
       "date": "2026-09-02",
@@ -576,8 +587,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-02",
-    "dates": 31,
-    "reports": 52
+    "end": "2026-09-03",
+    "dates": 32,
+    "reports": 53
   }
 }
