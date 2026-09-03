@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-03T13:22:49Z",
+  "generatedAt": "2026-09-03T21:23:35Z",
   "entries": [
+    {
+      "id": "2026-09-03_close",
+      "date": "2026-09-03",
+      "edition": "close",
+      "title": "2026-09-03 美股收盘投资动态简报",
+      "summary": "美债收益率回落带动科技股反弹，但油价、政策条件与AI业绩预期分化仍是风险主线。",
+      "generatedAt": "2026-09-03T16:25:27-04:00",
+      "path": "data/news/2026-09-03_close.md",
+      "wordCount": 2355,
+      "sourceCount": 21
+    },
     {
       "id": "2026-09-03_morning",
       "date": "2026-09-03",
@@ -589,6 +600,6 @@
     "start": "2026-07-23",
     "end": "2026-09-03",
     "dates": 32,
-    "reports": 53
+    "reports": 54
   }
 }
