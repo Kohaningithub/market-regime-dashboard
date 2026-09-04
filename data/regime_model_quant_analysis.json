@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-09-03T22:47:58Z",
+  "generatedAt": "2026-09-04T22:30:55Z",
   "method": {
     "selected": "Score-bucket event study with bootstrap confidence bands, Spearman rank correlation, and 252-trading-day rolling stability checks",
     "reason": "The regime model is ordinal and threshold-based; this keeps the analysis interpretable and avoids overfitting a small, overlapping forward-return sample.",
     "primaryTarget": "SPY forward return, realized volatility, and max drawdown over 5/10/20/60 trading days"
   },
   "meta": {
-    "rows": 1258,
+    "rows": 1259,
     "startDate": "2021-08-31",
-    "endDate": "2026-09-03",
-    "latestScore": 1,
+    "endDate": "2026-09-04",
+    "latestScore": 0,
     "latestRegime": "normal",
     "latestCompleteness": 0.9333,
-    "avgCompleteness": 0.825,
+    "avgCompleteness": 0.8251,
     "putCallMissingShare": 1.0,
-    "oasMissingShare": 0.3983
+    "oasMissingShare": 0.3979
   },
   "headline": {
     "scoreTotalReturn20Spearman": 0.1732,
@@ -27,12 +27,12 @@
   },
   "bucketAnalysis": {
     "0": {
-      "rows": 440,
+      "rows": 442,
       "avgScore": 0.0,
-      "avgCompleteness": 0.8576,
+      "avgCompleteness": 0.8579,
       "horizons": {
         "5": {
-          "rows": 440,
+          "rows": 442,
           "usableRows": 437,
           "avgReturn": 0.0011,
           "medianReturn": 0.1739,
@@ -45,7 +45,7 @@
           "tailDrawdownP10": -5.5555
         },
         "10": {
-          "rows": 440,
+          "rows": 442,
           "usableRows": 432,
           "avgReturn": 0.1131,
           "medianReturn": 0.4063,
@@ -58,7 +58,7 @@
           "tailDrawdownP10": -5.5555
         },
         "20": {
-          "rows": 440,
+          "rows": 442,
           "usableRows": 425,
           "avgReturn": 0.4032,
           "medianReturn": 0.969,
@@ -71,7 +71,7 @@
           "tailDrawdownP10": -5.5555
         },
         "60": {
-          "rows": 440,
+          "rows": 442,
           "usableRows": 416,
           "avgReturn": 2.2338,
           "medianReturn": 3.3483,
@@ -86,12 +86,12 @@
       }
     },
     "1-2": {
-      "rows": 431,
-      "avgScore": 1.355,
-      "avgCompleteness": 0.8498,
+      "rows": 430,
+      "avgScore": 1.3558,
+      "avgCompleteness": 0.8496,
       "horizons": {
         "5": {
-          "rows": 431,
+          "rows": 430,
           "usableRows": 425,
           "avgReturn": 0.4002,
           "medianReturn": 0.5695,
@@ -104,7 +104,7 @@
           "tailDrawdownP10": -5.521
         },
         "10": {
-          "rows": 431,
+          "rows": 430,
           "usableRows": 425,
           "avgReturn": 0.6775,
           "medianReturn": 1.0195,
@@ -117,7 +117,7 @@
           "tailDrawdownP10": -5.521
         },
         "20": {
-          "rows": 431,
+          "rows": 430,
           "usableRows": 422,
           "avgReturn": 1.1335,
           "medianReturn": 1.9158,
@@ -130,7 +130,7 @@
           "tailDrawdownP10": -5.521
         },
         "60": {
-          "rows": 431,
+          "rows": 430,
           "usableRows": 393,
           "avgReturn": 3.0112,
           "medianReturn": 4.2767,
@@ -266,12 +266,12 @@
   "regimeAnalysis": {
     "normal": {
       "label": "Normal",
-      "rows": 1188,
-      "avgScore": 1.766,
-      "avgCompleteness": 0.8319,
+      "rows": 1189,
+      "avgScore": 1.7637,
+      "avgCompleteness": 0.832,
       "horizons": {
         "5": {
-          "rows": 1188,
+          "rows": 1189,
           "usableRows": 1179,
           "avgReturn": 0.2287,
           "medianReturn": 0.3671,
@@ -284,7 +284,7 @@
           "tailDrawdownP10": -7.1514
         },
         "10": {
-          "rows": 1188,
+          "rows": 1189,
           "usableRows": 1174,
           "avgReturn": 0.4669,
           "medianReturn": 0.7065,
@@ -297,7 +297,7 @@
           "tailDrawdownP10": -7.1514
         },
         "20": {
-          "rows": 1188,
+          "rows": 1189,
           "usableRows": 1164,
           "avgReturn": 0.8995,
           "medianReturn": 1.5805,
@@ -310,7 +310,7 @@
           "tailDrawdownP10": -7.1514
         },
         "60": {
-          "rows": 1188,
+          "rows": 1189,
           "usableRows": 1124,
           "avgReturn": 3.0588,
           "medianReturn": 3.8845,
@@ -508,7 +508,7 @@
   "exactScoreRows": [
     {
       "score": 0,
-      "rows": 440,
+      "rows": 442,
       "avgReturn20": 0.4032,
       "medianReturn20": 0.969,
       "winRate20": 0.5906,
@@ -517,7 +517,7 @@
     },
     {
       "score": 1,
-      "rows": 278,
+      "rows": 277,
       "avgReturn20": 1.3513,
       "medianReturn20": 2.0623,
       "winRate20": 0.7306,
@@ -6784,6 +6784,12 @@
       "date": "2026-09-03",
       "return20": 0.2519,
       "vol20": 0.1512,
+      "completeness": 0.9333
+    },
+    {
+      "date": "2026-09-04",
+      "return20": 0.2523,
+      "vol20": 0.1524,
       "completeness": 0.9333
     }
   ],
@@ -23132,10 +23138,23 @@
     {
       "date": "2026-09-03",
       "spyClose": 773.17,
-      "scoreTotal": 1,
+      "scoreTotal": 0,
       "volatilityScore": 0,
       "creditScore": 0,
-      "sentimentScore": 1,
+      "sentimentScore": 0,
+      "regime": "normal",
+      "scoreInputCompleteness": 0.9333,
+      "spyRet20dFwd": null,
+      "spyRealizedVol20dFwd": null,
+      "spyMaxDrawdown20dFwd": null
+    },
+    {
+      "date": "2026-09-04",
+      "spyClose": 770.19,
+      "scoreTotal": 0,
+      "volatilityScore": 0,
+      "creditScore": 0,
+      "sentimentScore": 0,
       "regime": "normal",
       "scoreInputCompleteness": 0.9333,
       "spyRet20dFwd": null,
