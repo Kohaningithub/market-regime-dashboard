@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-04T13:23:10Z",
+  "generatedAt": "2026-09-04T21:23:22Z",
   "entries": [
+    {
+      "id": "2026-09-04_close",
+      "date": "2026-09-04",
+      "edition": "close",
+      "title": "2026-09-04 美股收盘投资动态简报",
+      "summary": "强于预期的就业数据推高加息概率和收益率，美股收低；半导体强势与可选消费的业绩失速形成鲜明分化。",
+      "generatedAt": "2026-09-04T16:24:00-04:00",
+      "path": "data/news/2026-09-04_close.md",
+      "wordCount": 2292,
+      "sourceCount": 24
+    },
     {
       "id": "2026-09-04_morning",
       "date": "2026-09-04",
@@ -611,6 +622,6 @@
     "start": "2026-07-23",
     "end": "2026-09-04",
     "dates": 33,
-    "reports": 55
+    "reports": 56
   }
 }

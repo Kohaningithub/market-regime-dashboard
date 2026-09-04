@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-04T13:23:11Z",
+  "generatedAt": "2026-09-04T21:23:23Z",
   "entries": [
+    {
+      "id": "2026-09-04_close",
+      "date": "2026-09-04",
+      "edition": "close",
+      "title": "September 4, 2026 U.S. Market Close Brief",
+      "summary": "A stronger August payrolls report lifted yields and rate-hike odds, pulling equities lower while semiconductors outperformed and Lululemon reset consumer expectations.",
+      "generatedAt": "2026-09-04T16:24:00-04:00",
+      "path": "data/news-en/2026-09-04_close.md",
+      "wordCount": 6126,
+      "sourceCount": 24
+    },
     {
       "id": "2026-09-04_morning",
       "date": "2026-09-04",
@@ -611,6 +622,6 @@
     "start": "2026-07-23",
     "end": "2026-09-04",
     "dates": 33,
-    "reports": 55
+    "reports": 56
   }
 }
