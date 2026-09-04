@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-03T21:23:35Z",
+  "generatedAt": "2026-09-04T13:23:10Z",
   "entries": [
+    {
+      "id": "2026-09-04_morning",
+      "date": "2026-09-04",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月4日",
+      "summary": "就业报告前美股期货分化；已公布的生产率改善和单位劳动力成本放缓，与贸易逆差扩大及霍尔木兹能源风险共同构成利率与增长的交叉验证。",
+      "generatedAt": "2026-09-04T08:45:00-04:00",
+      "path": "data/news/2026-09-04_morning.md",
+      "wordCount": 1948,
+      "sourceCount": 28
+    },
     {
       "id": "2026-09-03_close",
       "date": "2026-09-03",
@@ -598,8 +609,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-03",
-    "dates": 32,
-    "reports": 54
+    "end": "2026-09-04",
+    "dates": 33,
+    "reports": 55
   }
 }

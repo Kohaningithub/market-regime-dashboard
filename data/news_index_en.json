@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-03T21:23:36Z",
+  "generatedAt": "2026-09-04T13:23:11Z",
   "entries": [
+    {
+      "id": "2026-09-04_morning",
+      "date": "2026-09-04",
+      "edition": "morning",
+      "title": "Investment Morning Brief — September 4, 2026",
+      "summary": "U.S. futures are mixed before payrolls; improved productivity and slower unit-labor-cost growth must be weighed against a wider trade deficit and energy-security risk.",
+      "generatedAt": "2026-09-04T08:45:00-04:00",
+      "path": "data/news-en/2026-09-04_morning.md",
+      "wordCount": 5245,
+      "sourceCount": 28
+    },
     {
       "id": "2026-09-03_close",
       "date": "2026-09-03",
@@ -598,8 +609,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-03",
-    "dates": 32,
-    "reports": 54
+    "end": "2026-09-04",
+    "dates": 33,
+    "reports": 55
   }
 }
