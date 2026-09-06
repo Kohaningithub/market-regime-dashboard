@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-04T22:30:58Z",
+  "generatedAt": "2026-09-06T13:40:54Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -108,7 +108,7 @@
       "dataPenalty": 0
     },
     "asOf": "2026-09-04",
-    "generatedAt": "2026-09-04T22:30:51Z",
+    "generatedAt": "2026-09-06T13:40:46Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
@@ -123,14 +123,14 @@
       "qqqDrawdown": -3.54,
       "fearGreed": 42.0,
       "aaiiBearish": 37.6,
-      "putCall": 0.47,
+      "putCall": 0.58,
       "creditScore": 0,
       "hyOas": 2.65,
       "igOas": 0.81,
       "nfci": -0.56,
       "dxyChange20d": -0.44,
       "kreRel20d": -0.84,
-      "spyRealizedVol20dTrailing": 10.5362
+      "spyRealizedVol20dTrailing": 8.1061
     }
   },
   "historicalActionSummary": {
@@ -153,29 +153,29 @@
       "avgSpyRet20dFwd": 1.4893,
       "winRate20d": 0.547,
       "avgSpyRet60dFwd": 3.803,
-      "avgRealizedVol20dFwd": 23.8116,
+      "avgRealizedVol20dFwd": 23.8117,
       "avgMaxDrawdown20dFwd": -3.9825
     },
     "HOLD": {
-      "rows": 1079,
-      "usableRows": 1014,
-      "avgOpportunityScore": 28.81,
-      "avgRiskScore": 10.69,
-      "avgSpyRet20dFwd": 0.8678,
-      "winRate20d": 0.6509,
-      "avgSpyRet60dFwd": 3.046,
-      "avgRealizedVol20dFwd": 14.2274,
-      "avgMaxDrawdown20dFwd": -2.3992
+      "rows": 1075,
+      "usableRows": 1015,
+      "avgOpportunityScore": 28.86,
+      "avgRiskScore": 10.73,
+      "avgSpyRet20dFwd": 0.8925,
+      "winRate20d": 0.6542,
+      "avgSpyRet60dFwd": 3.0534,
+      "avgRealizedVol20dFwd": 14.2397,
+      "avgMaxDrawdown20dFwd": -2.387
     },
     "REDUCE": {
       "rows": 15,
       "usableRows": 15,
       "avgOpportunityScore": 64.75,
-      "avgRiskScore": 55.83,
+      "avgRiskScore": 55.82,
       "avgSpyRet20dFwd": -0.2188,
       "winRate20d": 0.4,
       "avgSpyRet60dFwd": -0.8176,
-      "avgRealizedVol20dFwd": 25.4869,
+      "avgRealizedVol20dFwd": 25.487,
       "avgMaxDrawdown20dFwd": -4.8017
     }
   },
