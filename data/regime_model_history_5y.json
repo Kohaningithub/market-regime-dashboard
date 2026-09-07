@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-09-06T13:40:50Z",
+  "generatedAt": "2026-09-07T22:58:59Z",
   "startDate": "2021-09-07",
-  "endDate": "2026-09-06",
+  "endDate": "2026-09-07",
   "rows": 1255,
   "records": [
     {
@@ -70272,7 +70272,7 @@
       "regime": "normal",
       "regimeTitle": "Normal / Mild Pullback",
       "overheated": false,
-      "spyRealizedVol20dTrailing": 8.1061,
+      "spyRealizedVol20dTrailing": null,
       "spyRet5dFwd": null,
       "spyRealizedVol5dFwd": null,
       "spyRet10dFwd": null,

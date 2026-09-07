@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-07T18:22:52Z",
+  "generatedAt": "2026-09-07T22:59:04Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -108,7 +108,7 @@
       "dataPenalty": 0
     },
     "asOf": "2026-09-04",
-    "generatedAt": "2026-09-07T18:22:52Z",
+    "generatedAt": "2026-09-07T22:58:55Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
@@ -128,9 +128,9 @@
       "hyOas": 2.65,
       "igOas": 0.81,
       "nfci": -0.56,
-      "dxyChange20d": -0.91,
+      "dxyChange20d": -0.64,
       "kreRel20d": -0.84,
-      "spyRealizedVol20dTrailing": 8.1061
+      "spyRealizedVol20dTrailing": 8.2784
     }
   },
   "historicalActionSummary": {
