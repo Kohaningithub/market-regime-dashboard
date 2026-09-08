@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-09-04T21:23:23Z",
+  "generatedAt": "2026-09-08T21:22:13Z",
   "entries": [
+    {
+      "id": "2026-09-08_close",
+      "date": "2026-09-08",
+      "edition": "close",
+      "title": "September 8, 2026 U.S. Market Close Brief",
+      "summary": "Oil and rates pressured the post-holiday close: SPY fell 0.53% while QQQ was nearly flat, leaving a clear energy-versus-duration split ahead of PPI, CPI and the FOMC.",
+      "generatedAt": "2026-09-08T16:21:21-04:00",
+      "path": "data/news-en/2026-09-08_close.md",
+      "wordCount": 6721,
+      "sourceCount": 27
+    },
+    {
+      "id": "2026-09-08_morning",
+      "date": "2026-09-08",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 8, 2026",
+      "summary": "Oil-risk repricing dominates the premarket: renewed Middle East supply concerns lifted Brent, pressured index futures, and put this week's PPI/CPI readings at the center of the pre-FOMC inflation debate.",
+      "generatedAt": "2026-09-08T08:45:00-04:00",
+      "path": "data/news-en/2026-09-08_morning.md",
+      "wordCount": 5179,
+      "sourceCount": 27
+    },
     {
       "id": "2026-09-04_close",
       "date": "2026-09-04",
@@ -620,8 +642,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-04",
-    "dates": 33,
-    "reports": 56
+    "end": "2026-09-08",
+    "dates": 34,
+    "reports": 58
   }
 }
