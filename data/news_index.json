@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-09T13:21:55Z",
+  "generatedAt": "2026-09-09T21:22:32Z",
   "entries": [
+    {
+      "id": "2026-09-09_close",
+      "date": "2026-09-09",
+      "edition": "close",
+      "title": "2026年9月9日美股收盘投资动态简报",
+      "summary": "油价重回100美元上方、国债收益率走高，令美股全面承压；但能源、Meta及部分半导体逆市走强，显示风险并非均匀扩散。",
+      "generatedAt": "2026-09-09T16:22:52-04:00",
+      "path": "data/news/2026-09-09_close.md",
+      "wordCount": 2273,
+      "sourceCount": 26
+    },
     {
       "id": "2026-09-09_morning",
       "date": "2026-09-09",
@@ -655,6 +666,6 @@
     "start": "2026-07-23",
     "end": "2026-09-09",
     "dates": 35,
-    "reports": 59
+    "reports": 60
   }
 }

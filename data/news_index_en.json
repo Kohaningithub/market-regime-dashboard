@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-09T13:21:55Z",
+  "generatedAt": "2026-09-09T21:22:33Z",
   "entries": [
+    {
+      "id": "2026-09-09_close",
+      "date": "2026-09-09",
+      "edition": "close",
+      "title": "US Equity Close Investment Brief — September 9, 2026",
+      "summary": "Oil moved back above $100 and Treasury yields rose, pressuring broad equities, while energy, Meta and selected semiconductors held up on distinct catalysts.",
+      "generatedAt": "2026-09-09T16:22:52-04:00",
+      "path": "data/news-en/2026-09-09_close.md",
+      "wordCount": 6235,
+      "sourceCount": 26
+    },
     {
       "id": "2026-09-09_morning",
       "date": "2026-09-09",
@@ -655,6 +666,6 @@
     "start": "2026-07-23",
     "end": "2026-09-09",
     "dates": 35,
-    "reports": 59
+    "reports": 60
   }
 }
