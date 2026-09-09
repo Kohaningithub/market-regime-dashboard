@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-09T17:16:21Z",
+  "generatedAt": "2026-09-09T22:44:13Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,7 +86,7 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 21.22,
+    "opportunityScore": 25.11,
     "riskScore": 0,
     "action": "HOLD",
     "stance": "维持",
@@ -97,9 +97,9 @@
       "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。"
     },
     "components": {
-      "drawdownOpportunity": 5.5,
-      "sentimentOpportunity": 0.0,
-      "volatilityOpportunity": 0.73,
+      "drawdownOpportunity": 5.74,
+      "sentimentOpportunity": 3.55,
+      "volatilityOpportunity": 0.82,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
       "volatilityRisk": 0.0,
@@ -108,28 +108,28 @@
       "dataPenalty": 0
     },
     "asOf": "2026-09-09",
-    "generatedAt": "2026-09-09T17:16:21Z",
+    "generatedAt": "2026-09-09T22:44:05Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
-      "sentiment": 0
+      "sentiment": 1
     },
     "marketState": "normal",
     "keyInputs": {
-      "vix": 16.32,
-      "vixChange5d": 1.12,
-      "move": 76.14,
-      "spyDrawdown": -1.89,
-      "qqqDrawdown": -3.82,
-      "fearGreed": 40.0,
+      "vix": 16.46,
+      "vixChange5d": 1.26,
+      "move": 76.74,
+      "spyDrawdown": -1.99,
+      "qqqDrawdown": -3.89,
+      "fearGreed": 39.0,
       "aaiiBearish": 37.6,
       "putCall": 0.48,
       "creditScore": 0,
       "hyOas": 2.67,
       "igOas": 0.81,
       "nfci": -0.56,
-      "dxyChange20d": -1.09,
-      "kreRel20d": -3.78,
+      "dxyChange20d": -1.04,
+      "kreRel20d": -3.35,
       "spyRealizedVol20dTrailing": 8.2784
     }
   },
@@ -157,10 +157,10 @@
       "avgMaxDrawdown20dFwd": -3.9825
     },
     "HOLD": {
-      "rows": 1076,
+      "rows": 1077,
       "usableRows": 1015,
       "avgOpportunityScore": 28.85,
-      "avgRiskScore": 10.72,
+      "avgRiskScore": 10.71,
       "avgSpyRet20dFwd": 0.8925,
       "winRate20d": 0.6542,
       "avgSpyRet60dFwd": 3.0534,
