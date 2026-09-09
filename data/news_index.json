@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-08T21:22:12Z",
+  "generatedAt": "2026-09-09T13:21:55Z",
   "entries": [
+    {
+      "id": "2026-09-09_morning",
+      "date": "2026-09-09",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月9日",
+      "summary": "布伦特盘中突破100美元使地缘供给风险、通胀再定价和9月Fed会议前的PPI/CPI成为早盘定价主线；芯片股相对韧性，但整体风险偏好仍受压。",
+      "generatedAt": "2026-09-09T08:45:00-04:00",
+      "path": "data/news/2026-09-09_morning.md",
+      "wordCount": 2110,
+      "sourceCount": 27
+    },
     {
       "id": "2026-09-08_close",
       "date": "2026-09-08",
@@ -642,8 +653,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-08",
-    "dates": 34,
-    "reports": 58
+    "end": "2026-09-09",
+    "dates": 35,
+    "reports": 59
   }
 }
