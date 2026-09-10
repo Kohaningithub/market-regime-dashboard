@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-09T21:22:32Z",
+  "generatedAt": "2026-09-10T13:20:47Z",
   "entries": [
+    {
+      "id": "2026-09-10_morning",
+      "date": "2026-09-10",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月10日",
+      "summary": "布伦特隔夜维持在100美元上方、长端美债收益率接近2023年以来高位；油价冲击、今日PPI与下周FOMC构成早盘主线，而可核实的美股期货仅显示温和反弹。",
+      "generatedAt": "2026-09-10T08:45:00-04:00",
+      "path": "data/news/2026-09-10_morning.md",
+      "wordCount": 2269,
+      "sourceCount": 28
+    },
     {
       "id": "2026-09-09_close",
       "date": "2026-09-09",
@@ -664,8 +675,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-09",
-    "dates": 35,
-    "reports": 60
+    "end": "2026-09-10",
+    "dates": 36,
+    "reports": 61
   }
 }

@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-09T21:22:33Z",
+  "generatedAt": "2026-09-10T13:20:48Z",
   "entries": [
+    {
+      "id": "2026-09-10_morning",
+      "date": "2026-09-10",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 10, 2026",
+      "summary": "Brent held above $100 overnight while long Treasury yields remained near a 2023-era high. The oil shock, today's PPI release and next week's FOMC are the morning's core variables; verified U.S. futures show only a modest rebound.",
+      "generatedAt": "2026-09-10T08:45:00-04:00",
+      "path": "data/news-en/2026-09-10_morning.md",
+      "wordCount": 6550,
+      "sourceCount": 28
+    },
     {
       "id": "2026-09-09_close",
       "date": "2026-09-09",
@@ -664,8 +675,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-09",
-    "dates": 35,
-    "reports": 60
+    "end": "2026-09-10",
+    "dates": 36,
+    "reports": 61
   }
 }
