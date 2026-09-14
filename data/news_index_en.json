@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-10T13:20:48Z",
+  "generatedAt": "2026-09-14T15:21:49Z",
   "entries": [
+    {
+      "id": "2026-09-14_morning",
+      "date": "2026-09-14",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 14, 2026",
+      "summary": "Friday's oil retreat supported an equity rebound, but August PPI and CPI both showed energy and transportation pressure. Separate Friday closes, weekend developments and Monday live prices.",
+      "generatedAt": "2026-09-14T08:45:00-04:00",
+      "path": "data/news-en/2026-09-14_morning.md",
+      "wordCount": 6612,
+      "sourceCount": 25
+    },
     {
       "id": "2026-09-10_morning",
       "date": "2026-09-10",
@@ -675,8 +686,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-10",
-    "dates": 36,
-    "reports": 61
+    "end": "2026-09-14",
+    "dates": 37,
+    "reports": 62
   }
 }

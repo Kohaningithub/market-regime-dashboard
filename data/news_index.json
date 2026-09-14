@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-10T13:20:47Z",
+  "generatedAt": "2026-09-14T15:21:49Z",
   "entries": [
+    {
+      "id": "2026-09-14_morning",
+      "date": "2026-09-14",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月14日",
+      "summary": "周五油价回落带动美股反弹，但8月PPI与CPI均显示能源和运输压力；周一开盘前应把周五收盘、周末新闻与周一盘中报价严格分开。",
+      "generatedAt": "2026-09-14T08:45:00-04:00",
+      "path": "data/news/2026-09-14_morning.md",
+      "wordCount": 2320,
+      "sourceCount": 25
+    },
     {
       "id": "2026-09-10_morning",
       "date": "2026-09-10",
@@ -675,8 +686,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-10",
-    "dates": 36,
-    "reports": 61
+    "end": "2026-09-14",
+    "dates": 37,
+    "reports": 62
   }
 }
