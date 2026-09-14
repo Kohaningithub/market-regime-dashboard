@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-14T15:21:49Z",
+  "generatedAt": "2026-09-14T21:21:05Z",
   "entries": [
+    {
+      "id": "2026-09-14_close",
+      "date": "2026-09-14",
+      "edition": "close",
+      "title": "2026年9月14日美股收盘投资动态简报",
+      "summary": "AI安全减速讨论、油价与5%附近长端利率压低风险偏好；但市场广度与软件反弹显示抛售并非无差别。",
+      "generatedAt": "2026-09-14T16:40:00-04:00",
+      "path": "data/news/2026-09-14_close.md",
+      "wordCount": 1905,
+      "sourceCount": 21
+    },
     {
       "id": "2026-09-14_morning",
       "date": "2026-09-14",
@@ -688,6 +699,6 @@
     "start": "2026-07-23",
     "end": "2026-09-14",
     "dates": 37,
-    "reports": 62
+    "reports": 63
   }
 }

@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-14T15:21:49Z",
+  "generatedAt": "2026-09-14T21:21:06Z",
   "entries": [
+    {
+      "id": "2026-09-14_close",
+      "date": "2026-09-14",
+      "edition": "close",
+      "title": "September 14, 2026 U.S. Closing Investment Brief",
+      "summary": "AI-safety slowdown debate, oil and higher long yields weighed on risk assets, while software resilience showed the selloff was selective.",
+      "generatedAt": "2026-09-14T16:40:00-04:00",
+      "path": "data/news-en/2026-09-14_close.md",
+      "wordCount": 4743,
+      "sourceCount": 21
+    },
     {
       "id": "2026-09-14_morning",
       "date": "2026-09-14",
@@ -688,6 +699,6 @@
     "start": "2026-07-23",
     "end": "2026-09-14",
     "dates": 37,
-    "reports": 62
+    "reports": 63
   }
 }
