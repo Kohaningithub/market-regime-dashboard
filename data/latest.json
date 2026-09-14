@@ -1,27 +1,27 @@
 {
-  "generatedAt": "2026-09-14T18:51:49Z",
+  "generatedAt": "2026-09-14T23:26:31Z",
   "asOf": "2026-09-14",
   "mode": "live",
   "values": {
-    "vix": 16.72,
-    "vixChange5d": 1.42,
-    "move": 82.21,
-    "spyDrawdown": -1.99,
-    "qqqDrawdown": -4.46,
-    "rspSpyRel60d": 0.18,
-    "hygRet20d": -0.82,
-    "jnkRet20d": -0.87,
+    "vix": 17.1,
+    "vixChange5d": 1.8,
+    "move": 83.9,
+    "spyDrawdown": -2.19,
+    "qqqDrawdown": -4.85,
+    "rspSpyRel60d": 0.32,
+    "hygRet20d": -0.94,
+    "jnkRet20d": -0.99,
     "hyOas": 2.65,
     "hyOasChange20d": -2.0,
     "igOas": 0.8,
     "igOasChange20d": 0.0,
-    "dxyChange20d": -0.27,
-    "tenYYield": 4.95,
-    "tenYChange20d": 27.0,
-    "realTenY": 2.55,
-    "realTenYChange20d": 13.0,
+    "dxyChange20d": -0.2,
+    "tenYYield": 4.96,
+    "tenYChange20d": 33.0,
+    "realTenY": 2.6,
+    "realTenYChange20d": 21.0,
     "nfci": -0.56,
-    "kreRel20d": -3.02,
+    "kreRel20d": -2.97,
     "aaiiBearish": 39.3,
     "putCall": 0.58,
     "fearGreed": 31.0
@@ -50,7 +50,7 @@
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-09-11",
+      "asOf": "2026-09-14",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -105,22 +105,22 @@
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "source": "FRED DFII10",
       "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-09-10",
+      "asOf": "2026-09-11",
       "source": "FRED DFII10",
       "status": "ok"
     },
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-09-14T18:46:38+00:00",
+      "asOf": "2026-09-14T23:07:50+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
