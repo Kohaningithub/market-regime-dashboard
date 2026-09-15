@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-14T21:21:06Z",
+  "generatedAt": "2026-09-15T13:21:46Z",
   "entries": [
+    {
+      "id": "2026-09-15_morning",
+      "date": "2026-09-15",
+      "edition": "morning",
+      "title": "Investment Morning Brief — September 15, 2026",
+      "summary": "Higher oil and long yields renewed pressure on AI equities; August inflation data and the opening FOMC meeting put the rate path at the center.",
+      "generatedAt": "2026-09-15T08:41:07-04:00",
+      "path": "data/news-en/2026-09-15_morning.md",
+      "wordCount": 5696,
+      "sourceCount": 24
+    },
     {
       "id": "2026-09-14_close",
       "date": "2026-09-14",
@@ -697,8 +708,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-14",
-    "dates": 37,
-    "reports": 63
+    "end": "2026-09-15",
+    "dates": 38,
+    "reports": 64
   }
 }

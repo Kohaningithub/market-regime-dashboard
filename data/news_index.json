@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-14T21:21:05Z",
+  "generatedAt": "2026-09-15T13:21:45Z",
   "entries": [
+    {
+      "id": "2026-09-15_morning",
+      "date": "2026-09-15",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月15日",
+      "summary": "油价与长端收益率重新上行，AI股承压；8月通胀数据和今日启动的FOMC会议令利率路径成为核心变量。",
+      "generatedAt": "2026-09-15T08:41:07-04:00",
+      "path": "data/news/2026-09-15_morning.md",
+      "wordCount": 2101,
+      "sourceCount": 24
+    },
     {
       "id": "2026-09-14_close",
       "date": "2026-09-14",
@@ -697,8 +708,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-14",
-    "dates": 37,
-    "reports": 63
+    "end": "2026-09-15",
+    "dates": 38,
+    "reports": 64
   }
 }
