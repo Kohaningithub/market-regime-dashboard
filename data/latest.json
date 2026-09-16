@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-09-16T17:44:04Z",
+  "generatedAt": "2026-09-16T23:14:13Z",
   "asOf": "2026-09-16",
   "mode": "live",
   "values": {
-    "vix": 16.81,
-    "vixChange5d": 0.35,
-    "move": 83.71,
-    "spyDrawdown": -2.38,
-    "qqqDrawdown": -4.9,
-    "rspSpyRel60d": 0.2,
-    "hygRet20d": -0.55,
-    "jnkRet20d": -0.59,
+    "vix": 17.71,
+    "vixChange5d": 1.25,
+    "move": 80.73,
+    "spyDrawdown": -3.06,
+    "qqqDrawdown": -5.45,
+    "rspSpyRel60d": -0.02,
+    "hygRet20d": -0.86,
+    "jnkRet20d": -0.86,
     "hyOas": 2.76,
     "hyOasChange20d": 1.0,
     "igOas": 0.8,
     "igOasChange20d": -2.0,
-    "dxyChange20d": 0.06,
-    "tenYYield": 4.97,
-    "tenYChange20d": 29.0,
-    "realTenY": 2.6,
-    "realTenYChange20d": 19.0,
+    "dxyChange20d": 0.69,
+    "tenYYield": 5.0,
+    "tenYChange20d": 28.0,
+    "realTenY": 2.62,
+    "realTenYChange20d": 18.0,
     "nfci": -0.56,
-    "kreRel20d": -2.84,
+    "kreRel20d": -3.67,
     "aaiiBearish": 39.3,
     "putCall": 0.56,
-    "fearGreed": 28.0
+    "fearGreed": 26.0
   },
   "scores": {
     "volatility": 0,
@@ -50,7 +50,7 @@
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-09-15",
+      "asOf": "2026-09-16",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -105,22 +105,22 @@
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-09-14",
+      "asOf": "2026-09-15",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-09-14",
+      "asOf": "2026-09-15",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-09-14",
+      "asOf": "2026-09-15",
       "source": "FRED DFII10",
       "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-09-14",
+      "asOf": "2026-09-15",
       "source": "FRED DFII10",
       "status": "ok"
     },
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-09-16T17:41:12+00:00",
+      "asOf": "2026-09-16T22:52:58+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
