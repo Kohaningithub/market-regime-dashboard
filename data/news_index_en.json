@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-15T13:21:46Z",
+  "generatedAt": "2026-09-16T13:21:50Z",
   "entries": [
+    {
+      "id": "2026-09-16_morning",
+      "date": "2026-09-16",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 16, 2026",
+      "summary": "Lower oil and firmer futures offer temporary relief, but a 5%-area long yield, faster import prices and today’s FOMC decision keep the rates path central.",
+      "generatedAt": "2026-09-16T08:42:06-04:00",
+      "path": "data/news-en/2026-09-16_morning.md",
+      "wordCount": 5289,
+      "sourceCount": 25
+    },
     {
       "id": "2026-09-15_morning",
       "date": "2026-09-15",
@@ -708,8 +719,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-15",
-    "dates": 38,
-    "reports": 64
+    "end": "2026-09-16",
+    "dates": 39,
+    "reports": 65
   }
 }

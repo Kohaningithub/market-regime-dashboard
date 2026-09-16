@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-15T13:21:45Z",
+  "generatedAt": "2026-09-16T13:21:49Z",
   "entries": [
+    {
+      "id": "2026-09-16_morning",
+      "date": "2026-09-16",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月16日",
+      "summary": "油价回落与期货反弹提供暂时缓冲，但5%附近的长端收益率、进口价格加速和FOMC决议使利率路径仍是核心风险。",
+      "generatedAt": "2026-09-16T08:42:06-04:00",
+      "path": "data/news/2026-09-16_morning.md",
+      "wordCount": 2002,
+      "sourceCount": 25
+    },
     {
       "id": "2026-09-15_morning",
       "date": "2026-09-15",
@@ -708,8 +719,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-15",
-    "dates": 38,
-    "reports": 64
+    "end": "2026-09-16",
+    "dates": 39,
+    "reports": 65
   }
 }
