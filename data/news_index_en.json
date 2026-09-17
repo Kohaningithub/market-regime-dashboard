@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-16T13:21:50Z",
+  "generatedAt": "2026-09-17T13:22:08Z",
   "entries": [
+    {
+      "id": "2026-09-17_morning",
+      "date": "2026-09-17",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 17, 2026",
+      "summary": "The Fed's unanimous hike reset the policy floor; a futures rebound and lower crude offer relief, but a 5%-area 10-year yield keeps the inflation-and-discount-rate test intact.",
+      "generatedAt": "2026-09-17T08:35:00-04:00",
+      "path": "data/news-en/2026-09-17_morning.md",
+      "wordCount": 6147,
+      "sourceCount": 26
+    },
     {
       "id": "2026-09-16_morning",
       "date": "2026-09-16",
@@ -719,8 +730,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-16",
-    "dates": 39,
-    "reports": 65
+    "end": "2026-09-17",
+    "dates": 40,
+    "reports": 66
   }
 }

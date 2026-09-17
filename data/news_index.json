@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-16T13:21:49Z",
+  "generatedAt": "2026-09-17T13:22:07Z",
   "entries": [
+    {
+      "id": "2026-09-17_morning",
+      "date": "2026-09-17",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月17日",
+      "summary": "FOMC一致加息重设政策下限；期货反弹、油价回落带来缓冲，但10年期约5%使通胀与贴现率考验仍未结束。",
+      "generatedAt": "2026-09-17T08:35:00-04:00",
+      "path": "data/news/2026-09-17_morning.md",
+      "wordCount": 2075,
+      "sourceCount": 26
+    },
     {
       "id": "2026-09-16_morning",
       "date": "2026-09-16",
@@ -719,8 +730,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-16",
-    "dates": 39,
-    "reports": 65
+    "end": "2026-09-17",
+    "dates": 40,
+    "reports": 66
   }
 }
