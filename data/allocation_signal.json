@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-18T22:48:05Z",
+  "generatedAt": "2026-09-20T14:13:39Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,7 +86,7 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 39.47,
+    "opportunityScore": 38.95,
     "riskScore": 0.59,
     "action": "HOLD",
     "stance": "维持",
@@ -97,7 +97,7 @@
       "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。"
     },
     "components": {
-      "drawdownOpportunity": 5.7,
+      "drawdownOpportunity": 5.17,
       "sentimentOpportunity": 18.77,
       "volatilityOpportunity": 0.0,
       "creditStabilityBonus": 15.0,
@@ -108,7 +108,7 @@
       "dataPenalty": 0
     },
     "asOf": "2026-09-18",
-    "generatedAt": "2026-09-18T22:47:56Z",
+    "generatedAt": "2026-09-20T14:13:28Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
@@ -119,18 +119,18 @@
       "vix": 14.81,
       "vixChange5d": -1.03,
       "move": 80.64,
-      "spyDrawdown": -2.08,
+      "spyDrawdown": -1.84,
       "qqqDrawdown": -3.21,
       "fearGreed": 29.0,
       "aaiiBearish": 53.3,
-      "putCall": 0.52,
+      "putCall": 0.58,
       "creditScore": 0,
       "hyOas": 2.7,
       "igOas": 0.78,
       "nfci": -0.56,
       "dxyChange20d": 1.33,
-      "kreRel20d": -2.51,
-      "spyRealizedVol20dTrailing": 8.5365
+      "kreRel20d": -2.75,
+      "spyRealizedVol20dTrailing": 9.1761
     }
   },
   "historicalActionSummary": {
@@ -153,19 +153,19 @@
       "avgSpyRet20dFwd": 1.4893,
       "winRate20d": 0.547,
       "avgSpyRet60dFwd": 3.803,
-      "avgRealizedVol20dFwd": 23.8116,
+      "avgRealizedVol20dFwd": 23.8117,
       "avgMaxDrawdown20dFwd": -3.9825
     },
     "HOLD": {
-      "rows": 1079,
+      "rows": 1074,
       "usableRows": 1014,
-      "avgOpportunityScore": 28.88,
-      "avgRiskScore": 10.68,
-      "avgSpyRet20dFwd": 0.9099,
-      "winRate20d": 0.6588,
-      "avgSpyRet60dFwd": 3.0547,
-      "avgRealizedVol20dFwd": 14.23,
-      "avgMaxDrawdown20dFwd": -2.3769
+      "avgOpportunityScore": 28.84,
+      "avgRiskScore": 10.71,
+      "avgSpyRet20dFwd": 0.9141,
+      "winRate20d": 0.6607,
+      "avgSpyRet60dFwd": 3.0401,
+      "avgRealizedVol20dFwd": 14.2098,
+      "avgMaxDrawdown20dFwd": -2.3689
     },
     "REDUCE": {
       "rows": 15,
