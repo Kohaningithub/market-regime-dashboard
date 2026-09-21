@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-09-17T13:22:07Z",
+  "generatedAt": "2026-09-21T21:21:11Z",
   "entries": [
+    {
+      "id": "2026-09-21_close",
+      "date": "2026-09-21",
+      "edition": "close",
+      "title": "2026年9月21日美股收盘投资动态简报",
+      "summary": "油价与长端利率回落重启AI风险偏好：纳指创收盘新高，但能源通胀、政策路径和地缘谈判仍是反弹的关键约束。",
+      "generatedAt": "2026-09-21T16:30:00-04:00",
+      "path": "data/news/2026-09-21_close.md",
+      "wordCount": 3241,
+      "sourceCount": 23
+    },
+    {
+      "id": "2026-09-21_morning",
+      "date": "2026-09-21",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月21日",
+      "summary": "上周五的油价与长端收益率仍是风险定价主线；周一开盘前应把油价回落与实体供给、通胀和融资成本风险分开观察。",
+      "generatedAt": "2026-09-21T16:50:18-04:00",
+      "path": "data/news/2026-09-21_morning.md",
+      "wordCount": 2259,
+      "sourceCount": 25
+    },
     {
       "id": "2026-09-17_morning",
       "date": "2026-09-17",
@@ -730,8 +752,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-17",
-    "dates": 40,
-    "reports": 66
+    "end": "2026-09-21",
+    "dates": 41,
+    "reports": 68
   }
 }

@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-09-17T13:22:08Z",
+  "generatedAt": "2026-09-21T21:21:12Z",
   "entries": [
+    {
+      "id": "2026-09-21_close",
+      "date": "2026-09-21",
+      "edition": "close",
+      "title": "September 21, 2026 U.S. Closing Investment Brief",
+      "summary": "Falling oil and long yields reopened AI risk appetite: the Nasdaq set a closing record, while energy inflation, policy and diplomacy remain the rebound's constraints.",
+      "generatedAt": "2026-09-21T16:30:00-04:00",
+      "path": "data/news-en/2026-09-21_close.md",
+      "wordCount": 8807,
+      "sourceCount": 23
+    },
+    {
+      "id": "2026-09-21_morning",
+      "date": "2026-09-21",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 21, 2026",
+      "summary": "Friday's oil and long-end yield signals remain the risk-pricing frame; separate any crude pullback from physical supply, inflation and financing-cost risk.",
+      "generatedAt": "2026-09-21T16:50:18-04:00",
+      "path": "data/news-en/2026-09-21_morning.md",
+      "wordCount": 6141,
+      "sourceCount": 25
+    },
     {
       "id": "2026-09-17_morning",
       "date": "2026-09-17",
@@ -730,8 +752,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-17",
-    "dates": 40,
-    "reports": 66
+    "end": "2026-09-21",
+    "dates": 41,
+    "reports": 68
   }
 }
