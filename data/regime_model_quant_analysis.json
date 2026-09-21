@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-09-20T14:13:35Z",
+  "generatedAt": "2026-09-21T23:34:22Z",
   "method": {
     "selected": "Score-bucket event study with bootstrap confidence bands, Spearman rank correlation, and 252-trading-day rolling stability checks",
     "reason": "The regime model is ordinal and threshold-based; this keeps the analysis interpretable and avoids overfitting a small, overlapping forward-return sample.",
     "primaryTarget": "SPY forward return, realized volatility, and max drawdown over 5/10/20/60 trading days"
   },
   "meta": {
-    "rows": 1254,
+    "rows": 1255,
     "startDate": "2021-09-21",
-    "endDate": "2026-09-18",
+    "endDate": "2026-09-21",
     "latestScore": 3,
     "latestRegime": "normal",
     "latestCompleteness": 0.9333,
     "avgCompleteness": 0.8247,
     "putCallMissingShare": 1.0,
-    "oasMissingShare": 0.3995
+    "oasMissingShare": 0.3992
   },
   "headline": {
     "scoreTotalReturn20Spearman": 0.1757,
@@ -145,12 +145,12 @@
       }
     },
     "3-4": {
-      "rows": 170,
-      "avgScore": 3.4647,
-      "avgCompleteness": 0.76,
+      "rows": 171,
+      "avgScore": 3.462,
+      "avgCompleteness": 0.761,
       "horizons": {
         "5": {
-          "rows": 170,
+          "rows": 171,
           "usableRows": 168,
           "avgReturn": 0.1531,
           "medianReturn": 0.3386,
@@ -163,7 +163,7 @@
           "tailDrawdownP10": -10.3988
         },
         "10": {
-          "rows": 170,
+          "rows": 171,
           "usableRows": 168,
           "avgReturn": 0.3259,
           "medianReturn": 0.9415,
@@ -176,7 +176,7 @@
           "tailDrawdownP10": -10.3988
         },
         "20": {
-          "rows": 170,
+          "rows": 171,
           "usableRows": 168,
           "avgReturn": 0.8959,
           "medianReturn": 1.4706,
@@ -189,7 +189,7 @@
           "tailDrawdownP10": -10.3988
         },
         "60": {
-          "rows": 170,
+          "rows": 171,
           "usableRows": 167,
           "avgReturn": 3.3488,
           "medianReturn": 5.3478,
@@ -266,12 +266,12 @@
   "regimeAnalysis": {
     "normal": {
       "label": "Normal",
-      "rows": 1184,
-      "avgScore": 1.7652,
-      "avgCompleteness": 0.8315,
+      "rows": 1185,
+      "avgScore": 1.7662,
+      "avgCompleteness": 0.8316,
       "horizons": {
         "5": {
-          "rows": 1184,
+          "rows": 1185,
           "usableRows": 1179,
           "avgReturn": 0.2345,
           "medianReturn": 0.3671,
@@ -284,7 +284,7 @@
           "tailDrawdownP10": -7.1514
         },
         "10": {
-          "rows": 1184,
+          "rows": 1185,
           "usableRows": 1174,
           "avgReturn": 0.484,
           "medianReturn": 0.7114,
@@ -297,7 +297,7 @@
           "tailDrawdownP10": -7.1514
         },
         "20": {
-          "rows": 1184,
+          "rows": 1185,
           "usableRows": 1164,
           "avgReturn": 0.9156,
           "medianReturn": 1.5691,
@@ -310,7 +310,7 @@
           "tailDrawdownP10": -7.1514
         },
         "60": {
-          "rows": 1184,
+          "rows": 1185,
           "usableRows": 1124,
           "avgReturn": 3.0534,
           "medianReturn": 3.8612,
@@ -535,7 +535,7 @@
     },
     {
       "score": 3,
-      "rows": 91,
+      "rows": 92,
       "avgReturn20": 0.4125,
       "medianReturn20": 0.95,
       "winRate20": 0.618,
@@ -6760,6 +6760,12 @@
       "date": "2026-09-18",
       "return20": 0.2851,
       "vol20": 0.2161,
+      "completeness": 0.9333
+    },
+    {
+      "date": "2026-09-21",
+      "return20": 0.2861,
+      "vol20": 0.2169,
       "completeness": 0.9333
     }
   ],
@@ -23056,6 +23062,19 @@
     {
       "date": "2026-09-18",
       "spyClose": 761.69,
+      "scoreTotal": 3,
+      "volatilityScore": 0,
+      "creditScore": 0,
+      "sentimentScore": 3,
+      "regime": "normal",
+      "scoreInputCompleteness": 0.9333,
+      "spyRet20dFwd": null,
+      "spyRealizedVol20dFwd": null,
+      "spyMaxDrawdown20dFwd": null
+    },
+    {
+      "date": "2026-09-21",
+      "spyClose": 773.5,
       "scoreTotal": 3,
       "volatilityScore": 0,
       "creditScore": 0,
