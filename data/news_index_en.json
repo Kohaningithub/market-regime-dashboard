@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-21T21:21:12Z",
+  "generatedAt": "2026-09-22T13:21:21Z",
   "entries": [
+    {
+      "id": "2026-09-22_morning",
+      "date": "2026-09-22",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 22, 2026",
+      "summary": "Falling oil and long-end yields are repairing risk appetite, but Middle East supply, inflation pass-through and term-premium risk remain the key morning uncertainties.",
+      "generatedAt": "2026-09-22T08:42:17-04:00",
+      "path": "data/news-en/2026-09-22_morning.md",
+      "wordCount": 6239,
+      "sourceCount": 27
+    },
     {
       "id": "2026-09-21_close",
       "date": "2026-09-21",
@@ -752,8 +763,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-21",
-    "dates": 41,
-    "reports": 68
+    "end": "2026-09-22",
+    "dates": 42,
+    "reports": 69
   }
 }
