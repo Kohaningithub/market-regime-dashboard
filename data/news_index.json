@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-23T13:20:43Z",
+  "generatedAt": "2026-09-23T21:21:23Z",
   "entries": [
+    {
+      "id": "2026-09-23_close",
+      "date": "2026-09-23",
+      "edition": "close",
+      "title": "收盘投资动态简报｜2026年9月23日",
+      "summary": "美股尾盘转强；大盘小幅收高，科技反弹与高利率、能源库存风险并存。",
+      "generatedAt": "2026-09-23T16:22:00-04:00",
+      "path": "data/news/2026-09-23_close.md",
+      "wordCount": 2464,
+      "sourceCount": 22
+    },
     {
       "id": "2026-09-23_morning",
       "date": "2026-09-23",
@@ -776,6 +787,6 @@
     "start": "2026-07-23",
     "end": "2026-09-23",
     "dates": 43,
-    "reports": 70
+    "reports": 71
   }
 }

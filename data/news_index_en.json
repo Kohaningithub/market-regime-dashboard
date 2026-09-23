@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-23T13:20:44Z",
+  "generatedAt": "2026-09-23T21:21:23Z",
   "entries": [
+    {
+      "id": "2026-09-23_close",
+      "date": "2026-09-23",
+      "edition": "close",
+      "title": "Closing Investment Brief | September 23, 2026",
+      "summary": "A late recovery left broad ETFs modestly higher; mega-cap technology offset rate and energy uncertainty.",
+      "generatedAt": "2026-09-23T16:22:00-04:00",
+      "path": "data/news-en/2026-09-23_close.md",
+      "wordCount": 4885,
+      "sourceCount": 21
+    },
     {
       "id": "2026-09-23_morning",
       "date": "2026-09-23",
@@ -776,6 +787,6 @@
     "start": "2026-07-23",
     "end": "2026-09-23",
     "dates": 43,
-    "reports": 70
+    "reports": 71
   }
 }
