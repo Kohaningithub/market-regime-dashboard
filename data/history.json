@@ -1,25 +1,7 @@
 {
-  "generatedAt": "2026-09-23T23:07:26Z",
+  "generatedAt": "2026-09-24T17:57:13Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
-    {
-      "generatedAt": "2026-07-16T13:22:37Z",
-      "asOf": "2026-07-16",
-      "regime": "normal",
-      "regimeTitle": "Normal / Mild Pullback",
-      "scores": {
-        "volatility": 0,
-        "credit": 0,
-        "sentiment": 0
-      },
-      "spyClose": 754.81,
-      "spyDrawdown": -0.37,
-      "qqqDrawdown": -3.7,
-      "fearGreed": 47.0,
-      "rspSpyRel60d": -1.25,
-      "estimatedCount": 2,
-      "valuationInScore": false
-    },
     {
       "generatedAt": "2026-07-16T17:04:48Z",
       "asOf": "2026-07-16",
@@ -2699,6 +2681,31 @@
       "realTenY": 2.63,
       "scoreInputCompleteness": 0.9545,
       "estimatedCount": 1,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-09-24T17:57:13Z",
+      "asOf": "2026-09-24",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 766.66,
+      "spyDrawdown": -1.2,
+      "qqqDrawdown": -1.09,
+      "fearGreed": 35.0,
+      "rspSpyRel60d": -3.69,
+      "vix": 15.72,
+      "move": 95.45,
+      "hyOas": 2.73,
+      "igOas": 0.77,
+      "tenYYield": 4.96,
+      "realTenY": 2.63,
+      "scoreInputCompleteness": 1.0,
+      "estimatedCount": 0,
       "valuationInScore": false
     }
   ],
@@ -3995,24 +4002,6 @@
   ],
   "entries": [
     {
-      "generatedAt": "2026-07-16T13:22:37Z",
-      "asOf": "2026-07-16",
-      "regime": "normal",
-      "regimeTitle": "Normal / Mild Pullback",
-      "scores": {
-        "volatility": 0,
-        "credit": 0,
-        "sentiment": 0
-      },
-      "spyClose": 754.81,
-      "spyDrawdown": -0.37,
-      "qqqDrawdown": -3.7,
-      "fearGreed": 47.0,
-      "rspSpyRel60d": -1.25,
-      "estimatedCount": 2,
-      "valuationInScore": false
-    },
-    {
       "generatedAt": "2026-07-16T17:04:48Z",
       "asOf": "2026-07-16",
       "regime": "normal",
@@ -6691,6 +6680,31 @@
       "realTenY": 2.63,
       "scoreInputCompleteness": 0.9545,
       "estimatedCount": 1,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-09-24T17:57:13Z",
+      "asOf": "2026-09-24",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 766.66,
+      "spyDrawdown": -1.2,
+      "qqqDrawdown": -1.09,
+      "fearGreed": 35.0,
+      "rspSpyRel60d": -3.69,
+      "vix": 15.72,
+      "move": 95.45,
+      "hyOas": 2.73,
+      "igOas": 0.77,
+      "tenYYield": 4.96,
+      "realTenY": 2.63,
+      "scoreInputCompleteness": 1.0,
+      "estimatedCount": 0,
       "valuationInScore": false
     }
   ]

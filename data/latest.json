@@ -1,35 +1,35 @@
 {
-  "generatedAt": "2026-09-23T23:07:26Z",
-  "asOf": "2026-09-23",
+  "generatedAt": "2026-09-24T17:57:13Z",
+  "asOf": "2026-09-24",
   "mode": "live",
   "values": {
-    "vix": 15.18,
-    "vixChange5d": -2.02,
+    "vix": 15.72,
+    "vixChange5d": -1.99,
     "move": 95.45,
-    "spyDrawdown": -1.05,
-    "qqqDrawdown": -0.84,
-    "rspSpyRel60d": -2.91,
-    "hygRet20d": -1.47,
-    "jnkRet20d": -1.52,
-    "hyOas": 2.68,
-    "hyOasChange20d": -2.0,
+    "spyDrawdown": -1.2,
+    "qqqDrawdown": -1.09,
+    "rspSpyRel60d": -3.69,
+    "hygRet20d": -1.99,
+    "jnkRet20d": -2.05,
+    "hyOas": 2.73,
+    "hyOasChange20d": 6.0,
     "igOas": 0.77,
-    "igOasChange20d": -4.0,
-    "dxyChange20d": 2.14,
+    "igOasChange20d": -3.0,
+    "dxyChange20d": 2.43,
     "tenYYield": 4.96,
     "tenYChange20d": 26.0,
     "realTenY": 2.63,
     "realTenYChange20d": 25.0,
     "nfci": -0.56,
-    "kreRel20d": -5.25,
-    "aaiiBearish": 40,
-    "putCall": 0.47,
+    "kreRel20d": -4.88,
+    "aaiiBearish": 48.1,
+    "putCall": 0.46,
     "fearGreed": 35.0
   },
   "scores": {
     "volatility": 0,
     "credit": 0,
-    "sentiment": 1
+    "sentiment": 2
   },
   "regime": {
     "key": "normal",
@@ -40,12 +40,12 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
@@ -55,52 +55,52 @@
       "status": "ok"
     },
     "spyDrawdown": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Yahoo Finance SPY",
       "status": "ok"
     },
     "qqqDrawdown": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Yahoo Finance QQQ",
       "status": "ok"
     },
     "rspSpyRel60d": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
     },
     "hygRet20d": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Yahoo Finance HYG",
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-09-22",
+      "asOf": "2026-09-23",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-09-22",
+      "asOf": "2026-09-23",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-09-22",
+      "asOf": "2026-09-23",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-09-22",
+      "asOf": "2026-09-23",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
@@ -130,30 +130,28 @@
       "status": "ok"
     },
     "kreRel20d": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Yahoo Finance KRE/SPY",
       "status": "ok"
     },
     "aaiiBearish": {
       "asOf": "2026-09-23",
-      "source": "Fallback neutral AAII value",
-      "status": "estimated",
-      "note": "Fetch failed for https://www.aaii.com/sentimentsurvey/sent_results: HTTP Error 503: Service Unavailable"
+      "source": "AAII Sentiment Survey",
+      "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-09-23",
+      "asOf": "2026-09-24",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-09-23T22:46:54+00:00",
+      "asOf": "2026-09-24T17:46:07+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
   },
   "notes": [
-    "aaiiBearish: Fetch failed for https://www.aaii.com/sentimentsurvey/sent_results: HTTP Error 503: Service Unavailable",
     "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019.",
     "model: Valuation percentile is unavailable from a stable public no-key source and is excluded from live scoring."
   ],
