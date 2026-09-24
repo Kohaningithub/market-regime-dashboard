@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-23T21:21:23Z",
+  "generatedAt": "2026-09-24T13:21:14Z",
   "entries": [
+    {
+      "id": "2026-09-24_morning",
+      "date": "2026-09-24",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月24日",
+      "summary": "油价的日内反弹和高位政策利率仍限制风险偏好；10:00 ET 的BLS工龄与灵活用工资料，是今日少数可预先核实的宏观验证点。",
+      "generatedAt": "2026-09-24T08:45:00-04:00",
+      "path": "data/news/2026-09-24_morning.md",
+      "wordCount": 2202,
+      "sourceCount": 23
+    },
     {
       "id": "2026-09-23_close",
       "date": "2026-09-23",
@@ -785,8 +796,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-23",
-    "dates": 43,
-    "reports": 71
+    "end": "2026-09-24",
+    "dates": 44,
+    "reports": 72
   }
 }

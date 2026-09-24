@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-23T21:21:23Z",
+  "generatedAt": "2026-09-24T13:21:15Z",
   "entries": [
+    {
+      "id": "2026-09-24_morning",
+      "date": "2026-09-24",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 24, 2026",
+      "summary": "Oil’s intraday rebound and a still-high policy rate constrain risk appetite; the 10:00 ET BLS tenure and work-flexibility releases are today’s pre-verifiable macro checkpoints.",
+      "generatedAt": "2026-09-24T08:45:00-04:00",
+      "path": "data/news-en/2026-09-24_morning.md",
+      "wordCount": 6264,
+      "sourceCount": 23
+    },
     {
       "id": "2026-09-23_close",
       "date": "2026-09-23",
@@ -785,8 +796,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-23",
-    "dates": 43,
-    "reports": 71
+    "end": "2026-09-24",
+    "dates": 44,
+    "reports": 72
   }
 }
