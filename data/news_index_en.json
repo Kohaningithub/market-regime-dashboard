@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-24T13:21:15Z",
+  "generatedAt": "2026-09-25T13:22:33Z",
   "entries": [
+    {
+      "id": "2026-09-25_morning",
+      "date": "2026-09-25",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 25, 2026",
+      "summary": "September 24 equities were nearly flat while long yields and oil remained a constraint; the 10:00 ET employee-benefits release is today’s pre-verifiable labor-cost signal.",
+      "generatedAt": "2026-09-25T08:41:18-04:00",
+      "path": "data/news-en/2026-09-25_morning.md",
+      "wordCount": 5839,
+      "sourceCount": 23
+    },
     {
       "id": "2026-09-24_morning",
       "date": "2026-09-24",
@@ -796,8 +807,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-24",
-    "dates": 44,
-    "reports": 72
+    "end": "2026-09-25",
+    "dates": 45,
+    "reports": 73
   }
 }

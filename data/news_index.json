@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-24T13:21:14Z",
+  "generatedAt": "2026-09-25T13:22:32Z",
   "entries": [
+    {
+      "id": "2026-09-25_morning",
+      "date": "2026-09-25",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月25日",
+      "summary": "9月24日股市近乎持平但长端利率与原油继续施压；10:00 ET 的员工福利统计，是今日可预先核实的劳动力成本线索。",
+      "generatedAt": "2026-09-25T08:41:18-04:00",
+      "path": "data/news/2026-09-25_morning.md",
+      "wordCount": 2044,
+      "sourceCount": 23
+    },
     {
       "id": "2026-09-24_morning",
       "date": "2026-09-24",
@@ -796,8 +807,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-24",
-    "dates": 44,
-    "reports": 72
+    "end": "2026-09-25",
+    "dates": 45,
+    "reports": 73
   }
 }
