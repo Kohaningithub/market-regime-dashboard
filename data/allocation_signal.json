@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-25T23:30:49Z",
+  "generatedAt": "2026-09-27T15:10:00Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -108,7 +108,7 @@
       "dataPenalty": 0
     },
     "asOf": "2026-09-25",
-    "generatedAt": "2026-09-25T23:30:42Z",
+    "generatedAt": "2026-09-27T15:09:50Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
@@ -123,14 +123,14 @@
       "qqqDrawdown": -0.4,
       "fearGreed": 37.0,
       "aaiiBearish": 48.1,
-      "putCall": 0.55,
+      "putCall": 0.52,
       "creditScore": 0,
       "hyOas": 2.8,
       "igOas": 0.79,
       "nfci": -0.56,
-      "dxyChange20d": 1.89,
+      "dxyChange20d": 1.83,
       "kreRel20d": -3.49,
-      "spyRealizedVol20dTrailing": 9.6396
+      "spyRealizedVol20dTrailing": 10.7936
     }
   },
   "historicalActionSummary": {
@@ -157,21 +157,21 @@
       "avgMaxDrawdown20dFwd": -3.9825
     },
     "HOLD": {
-      "rows": 1079,
+      "rows": 1074,
       "usableRows": 1014,
-      "avgOpportunityScore": 28.85,
-      "avgRiskScore": 10.67,
-      "avgSpyRet20dFwd": 0.9141,
-      "winRate20d": 0.6607,
-      "avgSpyRet60dFwd": 3.0401,
-      "avgRealizedVol20dFwd": 14.2098,
-      "avgMaxDrawdown20dFwd": -2.3689
+      "avgOpportunityScore": 28.79,
+      "avgRiskScore": 10.71,
+      "avgSpyRet20dFwd": 0.8989,
+      "winRate20d": 0.6578,
+      "avgSpyRet60dFwd": 3.0356,
+      "avgRealizedVol20dFwd": 14.1926,
+      "avgMaxDrawdown20dFwd": -2.3602
     },
     "REDUCE": {
       "rows": 15,
       "usableRows": 15,
       "avgOpportunityScore": 64.75,
-      "avgRiskScore": 55.82,
+      "avgRiskScore": 55.83,
       "avgSpyRet20dFwd": -0.2188,
       "winRate20d": 0.4,
       "avgSpyRet60dFwd": -0.8176,
