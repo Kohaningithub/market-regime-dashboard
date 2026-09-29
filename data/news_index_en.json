@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-29T13:22:16Z",
+  "generatedAt": "2026-09-29T21:21:25Z",
   "entries": [
+    {
+      "id": "2026-09-29_close",
+      "date": "2026-09-29",
+      "edition": "close",
+      "title": "Closing Investment Brief | Higher yields offset technology optimism",
+      "summary": "September 29 cash close: the S&P 500 fell 0.2%, the Dow 0.3%, and the Nasdaq 0.1%; softer oil did not stop higher long-term yields from pressuring valuations.",
+      "generatedAt": "2026-09-29T16:22:10-04:00",
+      "path": "data/news-en/2026-09-29_close.md",
+      "wordCount": 6093,
+      "sourceCount": 29
+    },
     {
       "id": "2026-09-29_morning",
       "date": "2026-09-29",
@@ -842,6 +853,6 @@
     "start": "2026-07-23",
     "end": "2026-09-29",
     "dates": 47,
-    "reports": 76
+    "reports": 77
   }
 }
