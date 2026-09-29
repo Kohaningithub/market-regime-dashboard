@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-28T23:58:41Z",
+  "generatedAt": "2026-09-29T13:22:16Z",
   "entries": [
+    {
+      "id": "2026-09-29_morning",
+      "date": "2026-09-29",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 29, 2026",
+      "summary": "September 28 oil and long-yield pressure pushed U.S. equities lower; the 10:00 ET August JOLTS release is today's first verifiable labor-demand test.",
+      "generatedAt": "2026-09-29T08:42:25-04:00",
+      "path": "data/news-en/2026-09-29_morning.md",
+      "wordCount": 6580,
+      "sourceCount": 23
+    },
     {
       "id": "2026-09-28_close",
       "date": "2026-09-28",
@@ -829,8 +840,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-28",
-    "dates": 46,
-    "reports": 75
+    "end": "2026-09-29",
+    "dates": 47,
+    "reports": 76
   }
 }
