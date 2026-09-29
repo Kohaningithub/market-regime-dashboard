@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-27T15:09:56Z",
+  "generatedAt": "2026-09-29T00:31:11Z",
   "method": {
     "selected": "Score-bucket event study with bootstrap confidence bands, Spearman rank correlation, and 252-trading-day rolling stability checks",
     "reason": "The regime model is ordinal and threshold-based; this keeps the analysis interpretable and avoids overfitting a small, overlapping forward-return sample.",
