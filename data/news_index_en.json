@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-09-25T13:22:33Z",
+  "generatedAt": "2026-09-28T23:58:41Z",
   "entries": [
+    {
+      "id": "2026-09-28_close",
+      "date": "2026-09-28",
+      "edition": "close",
+      "title": "Closing Investment Brief | Oil, yields, and a growth-stock repricing",
+      "summary": "September 28 cash close: SPY -0.74% and QQQ -1.07%; geopolitical supply risk lifted oil and yields, with longer-duration equities lagging.",
+      "generatedAt": "2026-09-28T16:21:10-04:00",
+      "path": "data/news-en/2026-09-28_close.md",
+      "wordCount": 6546,
+      "sourceCount": 28
+    },
+    {
+      "id": "2026-09-28_morning",
+      "date": "2026-09-28",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 28, 2026",
+      "summary": "Sunday has no U.S. regular session: September 25 oil relief lifted equities, but the 10-year yield set a post-2007 intraday high; September 29 JOLTS is the next verifiable labor-demand test.",
+      "generatedAt": "2026-09-28T08:45:00-04:00",
+      "path": "data/news-en/2026-09-28_morning.md",
+      "wordCount": 6133,
+      "sourceCount": 23
+    },
     {
       "id": "2026-09-25_morning",
       "date": "2026-09-25",
@@ -807,8 +829,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-25",
-    "dates": 45,
-    "reports": 73
+    "end": "2026-09-28",
+    "dates": 46,
+    "reports": 75
   }
 }

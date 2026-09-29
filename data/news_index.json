@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-09-25T13:22:32Z",
+  "generatedAt": "2026-09-28T23:58:39Z",
   "entries": [
+    {
+      "id": "2026-09-28_close",
+      "date": "2026-09-28",
+      "edition": "close",
+      "title": "收盘投资动态简报｜油价、收益率与成长股的同步重估",
+      "summary": "9月28日美股现金收盘：SPY -0.74%、QQQ -1.07%；地缘供给风险推高油价和收益率，成长股跌幅更深。",
+      "generatedAt": "2026-09-28T16:21:10-04:00",
+      "path": "data/news/2026-09-28_close.md",
+      "wordCount": 2474,
+      "sourceCount": 28
+    },
+    {
+      "id": "2026-09-28_morning",
+      "date": "2026-09-28",
+      "edition": "morning",
+      "title": "投资动态早盘简报 — 2026年9月28日",
+      "summary": "周日无美股常规盘：9月25日油价回落带动股市收高，但10年期收益率盘中创2007年以来新高；9月29日JOLTS是下一项可验证的劳动力需求检验。",
+      "generatedAt": "2026-09-28T08:45:00-04:00",
+      "path": "data/news/2026-09-28_morning.md",
+      "wordCount": 2239,
+      "sourceCount": 23
+    },
     {
       "id": "2026-09-25_morning",
       "date": "2026-09-25",
@@ -807,8 +829,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-25",
-    "dates": 45,
-    "reports": 73
+    "end": "2026-09-28",
+    "dates": 46,
+    "reports": 75
   }
 }
