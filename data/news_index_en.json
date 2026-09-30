@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-30T13:21:19Z",
+  "generatedAt": "2026-09-30T21:21:20Z",
   "entries": [
+    {
+      "id": "2026-09-30_close",
+      "date": "2026-09-30",
+      "edition": "close",
+      "title": "Close Investment Brief | Softer PCE Could Not Ease Long-End Rates",
+      "summary": "September 30 close: S&P 500 -0.3%, Dow -0.9%, Nasdaq +0.2%. Softer PCE initially helped risk appetite, but firmer growth and rising long-end yields left a divided tape.",
+      "generatedAt": "2026-09-30T16:27:00-04:00",
+      "path": "data/news-en/2026-09-30_close.md",
+      "wordCount": 5622,
+      "sourceCount": 26
+    },
     {
       "id": "2026-09-30_morning",
       "date": "2026-09-30",
@@ -864,6 +875,6 @@
     "start": "2026-07-23",
     "end": "2026-09-30",
     "dates": 48,
-    "reports": 78
+    "reports": 79
   }
 }
