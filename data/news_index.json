@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-29T21:21:24Z",
+  "generatedAt": "2026-09-30T13:21:18Z",
   "entries": [
+    {
+      "id": "2026-09-30_morning",
+      "date": "2026-09-30",
+      "edition": "morning",
+      "title": "早盘投资动态简报 — 2026年9月30日",
+      "summary": "9月29日长端收益率升至5.25%而美股小幅收低；08:30 ET 的8月PCE与二季度GDP终值将检验油价冲击是否已传导为通胀和增长压力。",
+      "generatedAt": "2026-09-30T08:45:00-04:00",
+      "path": "data/news/2026-09-30_morning.md",
+      "wordCount": 2118,
+      "sourceCount": 22
+    },
     {
       "id": "2026-09-29_close",
       "date": "2026-09-29",
@@ -851,8 +862,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-29",
-    "dates": 47,
-    "reports": 77
+    "end": "2026-09-30",
+    "dates": 48,
+    "reports": 78
   }
 }

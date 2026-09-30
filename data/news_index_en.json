@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-29T21:21:25Z",
+  "generatedAt": "2026-09-30T13:21:19Z",
   "entries": [
+    {
+      "id": "2026-09-30_morning",
+      "date": "2026-09-30",
+      "edition": "morning",
+      "title": "Morning Investment Brief — September 30, 2026",
+      "summary": "September 29 ended with a 5.25% 10-year yield and modestly lower U.S. equities; 08:30 ET PCE and final Q2 GDP are the immediate test of whether the oil shock is becoming an inflation and growth problem.",
+      "generatedAt": "2026-09-30T08:45:00-04:00",
+      "path": "data/news-en/2026-09-30_morning.md",
+      "wordCount": 5560,
+      "sourceCount": 22
+    },
     {
       "id": "2026-09-29_close",
       "date": "2026-09-29",
@@ -851,8 +862,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-29",
-    "dates": 47,
-    "reports": 77
+    "end": "2026-09-30",
+    "dates": 48,
+    "reports": 78
   }
 }
