@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-01T13:21:55Z",
+  "generatedAt": "2026-10-01T21:22:11Z",
   "entries": [
+    {
+      "id": "2026-10-01_close",
+      "date": "2026-10-01",
+      "edition": "close",
+      "title": "Close Investment Brief | Yield shock fades as AI supports equities",
+      "summary": "October 1 U.S. close: the S&P 500 gained 0.2% while the Dow and Nasdaq were nearly unchanged. The 10-year Treasury yield briefly neared 5.34% before ending at 5.23%; AI memory, chips and consulting strength offset pressure on rate-sensitive real estate.",
+      "generatedAt": "2026-10-01T16:25:00-04:00",
+      "path": "data/news-en/2026-10-01_close.md",
+      "wordCount": 7115,
+      "sourceCount": 31
+    },
     {
       "id": "2026-10-01_morning",
       "date": "2026-10-01",
@@ -886,6 +897,6 @@
     "start": "2026-07-23",
     "end": "2026-10-01",
     "dates": 49,
-    "reports": 80
+    "reports": 81
   }
 }
