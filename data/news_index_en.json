@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-30T21:21:20Z",
+  "generatedAt": "2026-10-01T13:21:55Z",
   "entries": [
+    {
+      "id": "2026-10-01_morning",
+      "date": "2026-10-01",
+      "edition": "morning",
+      "title": "Morning Investment Brief — October 1, 2026",
+      "summary": "August PCE rose 0.3% m/m and core PCE 0.2%, while Brent moved back above $100 and the 10-year yield touched 5.30%; markets are pricing stronger growth alongside energy and term-premium pressure.",
+      "generatedAt": "2026-10-01T08:45:00-04:00",
+      "path": "data/news-en/2026-10-01_morning.md",
+      "wordCount": 7340,
+      "sourceCount": 29
+    },
     {
       "id": "2026-09-30_close",
       "date": "2026-09-30",
@@ -873,8 +884,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-30",
-    "dates": 48,
-    "reports": 79
+    "end": "2026-10-01",
+    "dates": 49,
+    "reports": 80
   }
 }

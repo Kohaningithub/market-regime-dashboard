@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-09-30T21:21:19Z",
+  "generatedAt": "2026-10-01T13:21:54Z",
   "entries": [
+    {
+      "id": "2026-10-01_morning",
+      "date": "2026-10-01",
+      "edition": "morning",
+      "title": "早盘投资动态简报 — 2026年10月1日",
+      "summary": "8月PCE环比0.3%、核心环比0.2%，但布伦特油价重返100美元上方、10年期美债收益率触及5.30%；市场把增长上修与能源/期限溢价同时计价。",
+      "generatedAt": "2026-10-01T08:45:00-04:00",
+      "path": "data/news/2026-10-01_morning.md",
+      "wordCount": 2536,
+      "sourceCount": 29
+    },
     {
       "id": "2026-09-30_close",
       "date": "2026-09-30",
@@ -873,8 +884,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-09-30",
-    "dates": 48,
-    "reports": 79
+    "end": "2026-10-01",
+    "dates": 49,
+    "reports": 80
   }
 }
