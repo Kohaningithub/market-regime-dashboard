@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-02T13:22:04Z",
+  "generatedAt": "2026-10-02T22:18:55Z",
   "entries": [
+    {
+      "id": "2026-10-02_close",
+      "date": "2026-10-02",
+      "edition": "close",
+      "title": "Close Investment Brief | Softer jobs ease hike fears, but long rates remain binding",
+      "summary": "October 2 U.S. cash close: the S&P 500 gained 0.68% to 7,718.26, the Nasdaq 1.14% and the Dow 0.34%. September payrolls rose only 29,000, reducing October-hike expectations; oil retreated but the 10-year yield still ended near 5.26%.",
+      "generatedAt": "2026-10-02T16:28:00-04:00",
+      "path": "data/news-en/2026-10-02_close.md",
+      "wordCount": 6345,
+      "sourceCount": 28
+    },
     {
       "id": "2026-10-02_morning",
       "date": "2026-10-02",
@@ -908,6 +919,6 @@
     "start": "2026-07-23",
     "end": "2026-10-02",
     "dates": 50,
-    "reports": 82
+    "reports": 83
   }
 }
