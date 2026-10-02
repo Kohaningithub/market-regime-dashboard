@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-01T21:22:10Z",
+  "generatedAt": "2026-10-02T13:22:03Z",
   "entries": [
+    {
+      "id": "2026-10-02_morning",
+      "date": "2026-10-02",
+      "edition": "morning",
+      "title": "早盘投资动态简报 — 2026年10月2日",
+      "summary": "盘前股指期货上涨、油价回落，但九月就业报告将决定市场把这视为风险缓和还是利率压力的新证据。",
+      "generatedAt": "2026-10-02T06:00:00-04:00",
+      "path": "data/news/2026-10-02_morning.md",
+      "wordCount": 2011,
+      "sourceCount": 24
+    },
     {
       "id": "2026-10-01_close",
       "date": "2026-10-01",
@@ -895,8 +906,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-01",
-    "dates": 49,
-    "reports": 81
+    "end": "2026-10-02",
+    "dates": 50,
+    "reports": 82
   }
 }

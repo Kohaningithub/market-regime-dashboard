@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-01T21:22:11Z",
+  "generatedAt": "2026-10-02T13:22:04Z",
   "entries": [
+    {
+      "id": "2026-10-02_morning",
+      "date": "2026-10-02",
+      "edition": "morning",
+      "title": "Morning Investment Brief — October 2, 2026",
+      "summary": "Index futures are higher and oil is lower before the September jobs report, which will test whether the move is durable risk relief or a fresh rates signal.",
+      "generatedAt": "2026-10-02T06:00:00-04:00",
+      "path": "data/news-en/2026-10-02_morning.md",
+      "wordCount": 5590,
+      "sourceCount": 24
+    },
     {
       "id": "2026-10-01_close",
       "date": "2026-10-01",
@@ -895,8 +906,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-01",
-    "dates": 49,
-    "reports": 81
+    "end": "2026-10-02",
+    "dates": 50,
+    "reports": 82
   }
 }
