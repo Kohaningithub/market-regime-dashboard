@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-10-02T00:10:44Z",
-  "asOf": "2026-09-30",
+  "generatedAt": "2026-10-02T18:41:05Z",
+  "asOf": "2026-10-02",
   "mode": "live",
   "values": {
-    "vix": 16.39,
-    "vixChange5d": 0.72,
-    "move": 108.13,
-    "spyDrawdown": -1.72,
-    "qqqDrawdown": -1.03,
-    "rspSpyRel60d": -4.9,
-    "hygRet20d": -2.39,
-    "jnkRet20d": -2.58,
-    "hyOas": 3.12,
-    "hyOasChange20d": 46.0,
-    "igOas": 0.84,
-    "igOasChange20d": 3.0,
-    "dxyChange20d": 2.43,
+    "vix": 15.62,
+    "vixChange5d": 0.75,
+    "move": 107.64,
+    "spyDrawdown": -0.89,
+    "qqqDrawdown": 0.0,
+    "rspSpyRel60d": -3.9,
+    "hygRet20d": -2.47,
+    "jnkRet20d": -2.52,
+    "hyOas": 3.24,
+    "hyOasChange20d": 59.0,
+    "igOas": 0.86,
+    "igOasChange20d": 5.0,
+    "dxyChange20d": 2.96,
     "tenYYield": 5.29,
     "tenYChange20d": 50.0,
     "realTenY": 2.93,
     "realTenYChange20d": 49.0,
     "nfci": -0.55,
-    "kreRel20d": -4.18,
+    "kreRel20d": -5.03,
     "aaiiBearish": 46.5,
-    "putCall": 0.53,
-    "fearGreed": 28.0
+    "putCall": 0.57,
+    "fearGreed": 31.0
   },
   "scores": {
     "volatility": 0,
@@ -40,62 +40,62 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-10-01",
+      "asOf": "2026-10-02",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-10-01",
+      "asOf": "2026-10-02",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-10-01",
+      "asOf": "2026-10-02",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
     "spyDrawdown": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-02",
       "source": "Yahoo Finance SPY",
       "status": "ok"
     },
     "qqqDrawdown": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-02",
       "source": "Yahoo Finance QQQ",
       "status": "ok"
     },
     "rspSpyRel60d": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-02",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
     },
     "hygRet20d": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-02",
       "source": "Yahoo Finance HYG",
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-02",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-01",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-01",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-01",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-01",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
@@ -130,7 +130,7 @@
       "status": "ok"
     },
     "kreRel20d": {
-      "asOf": "2026-09-30",
+      "asOf": "2026-10-02",
       "source": "Yahoo Finance KRE/SPY",
       "status": "ok"
     },
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-10-01T23:51:37+00:00",
+      "asOf": "2026-10-02T18:38:53+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
