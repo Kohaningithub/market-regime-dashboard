@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-02T23:59:06Z",
+  "generatedAt": "2026-10-04T15:22:00Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -108,7 +108,7 @@
       "dataPenalty": 0
     },
     "asOf": "2026-10-02",
-    "generatedAt": "2026-10-02T23:58:57Z",
+    "generatedAt": "2026-10-04T15:21:51Z",
     "pressureScores": {
       "volatility": 0,
       "credit": 0,
@@ -123,14 +123,14 @@
       "qqqDrawdown": 0.0,
       "fearGreed": 31.0,
       "aaiiBearish": 46.5,
-      "putCall": 0.57,
+      "putCall": 0.58,
       "creditScore": 0,
       "hyOas": 3.24,
       "igOas": 0.86,
       "nfci": -0.55,
-      "dxyChange20d": 2.95,
+      "dxyChange20d": 2.96,
       "kreRel20d": -4.72,
-      "spyRealizedVol20dTrailing": 10.873
+      "spyRealizedVol20dTrailing": 10.3589
     }
   },
   "historicalActionSummary": {
@@ -146,32 +146,32 @@
       "avgMaxDrawdown20dFwd": -2.8694
     },
     "ADD_SMALL": {
-      "rows": 117,
-      "usableRows": 117,
-      "avgOpportunityScore": 63.44,
-      "avgRiskScore": 19.61,
-      "avgSpyRet20dFwd": 1.4893,
-      "winRate20d": 0.547,
-      "avgSpyRet60dFwd": 3.803,
-      "avgRealizedVol20dFwd": 23.8117,
-      "avgMaxDrawdown20dFwd": -3.9825
+      "rows": 115,
+      "usableRows": 115,
+      "avgOpportunityScore": 63.48,
+      "avgRiskScore": 19.88,
+      "avgSpyRet20dFwd": 1.3924,
+      "winRate20d": 0.5391,
+      "avgSpyRet60dFwd": 3.6658,
+      "avgRealizedVol20dFwd": 24.0515,
+      "avgMaxDrawdown20dFwd": -4.0598
     },
     "HOLD": {
-      "rows": 1079,
-      "usableRows": 1014,
-      "avgOpportunityScore": 28.8,
-      "avgRiskScore": 10.66,
-      "avgSpyRet20dFwd": 0.8989,
-      "winRate20d": 0.6578,
-      "avgSpyRet60dFwd": 3.0356,
-      "avgRealizedVol20dFwd": 14.1926,
-      "avgMaxDrawdown20dFwd": -2.3602
+      "rows": 1076,
+      "usableRows": 1016,
+      "avgOpportunityScore": 28.74,
+      "avgRiskScore": 10.68,
+      "avgSpyRet20dFwd": 0.8917,
+      "winRate20d": 0.6585,
+      "avgSpyRet60dFwd": 3.0154,
+      "avgRealizedVol20dFwd": 14.1987,
+      "avgMaxDrawdown20dFwd": -2.3642
     },
     "REDUCE": {
       "rows": 15,
       "usableRows": 15,
       "avgOpportunityScore": 64.75,
-      "avgRiskScore": 55.83,
+      "avgRiskScore": 55.82,
       "avgSpyRet20dFwd": -0.2188,
       "winRate20d": 0.4,
       "avgSpyRet60dFwd": -0.8176,
