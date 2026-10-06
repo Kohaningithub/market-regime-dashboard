@@ -1,6 +1,28 @@
 {
-  "generatedAt": "2026-10-02T22:18:54Z",
+  "generatedAt": "2026-10-06T21:20:39Z",
   "entries": [
+    {
+      "id": "2026-10-06_close",
+      "date": "2026-10-06",
+      "edition": "close",
+      "title": "收盘投资动态简报｜盈利预期压过高利率，标普创收盘新高",
+      "summary": "10月6日美股现金收盘：标普500涨0.58%至7,818.93，纳指涨0.45%至27,599.79，道指涨0.49%至51,521.28。收益率回落带来估值喘息，但油价尾盘转升与高预期盈利仍是核心检验。",
+      "generatedAt": "2026-10-06T16:30:00-04:00",
+      "path": "data/news/2026-10-06_close.md",
+      "wordCount": 2548,
+      "sourceCount": 30
+    },
+    {
+      "id": "2026-10-06_morning",
+      "date": "2026-10-06",
+      "edition": "morning",
+      "title": "早盘投资动态简报 — 2026年10月6日",
+      "summary": "盘前风险偏好受油价与收益率回落支撑；Google—Constellation核电协议把AI电力供给从叙事推进到可量化的PJM资本开支与执行风险。",
+      "generatedAt": "2026-10-06T08:45:00-04:00",
+      "path": "data/news/2026-10-06_morning.md",
+      "wordCount": 2162,
+      "sourceCount": 26
+    },
     {
       "id": "2026-10-02_close",
       "date": "2026-10-02",
@@ -917,8 +939,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-02",
-    "dates": 50,
-    "reports": 83
+    "end": "2026-10-06",
+    "dates": 51,
+    "reports": 85
   }
 }
