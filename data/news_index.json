@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-07T13:21:31Z",
+  "generatedAt": "2026-10-08T13:22:18Z",
   "entries": [
+    {
+      "id": "2026-10-08_morning",
+      "date": "2026-10-08",
+      "edition": "morning",
+      "title": "2026-10-08 早盘投资动态简报",
+      "summary": "油价与长端美债收益率重新上行，压低股指期货并检验高估值AI板块。",
+      "generatedAt": "2026-10-08T08:45:00-04:00",
+      "path": "data/news/2026-10-08_morning.md",
+      "wordCount": 2506,
+      "sourceCount": 28
+    },
     {
       "id": "2026-10-07_morning",
       "date": "2026-10-07",
@@ -950,8 +961,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-07",
-    "dates": 52,
-    "reports": 86
+    "end": "2026-10-08",
+    "dates": 53,
+    "reports": 87
   }
 }

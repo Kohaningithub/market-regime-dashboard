@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-07T13:21:32Z",
+  "generatedAt": "2026-10-08T13:22:19Z",
   "entries": [
+    {
+      "id": "2026-10-08_morning",
+      "date": "2026-10-08",
+      "edition": "morning",
+      "title": "2026-10-08 Morning Investment Brief",
+      "summary": "Rising oil and long Treasury yields are pressuring futures and testing high-duration AI equities.",
+      "generatedAt": "2026-10-08T08:45:00-04:00",
+      "path": "data/news-en/2026-10-08_morning.md",
+      "wordCount": 7414,
+      "sourceCount": 28
+    },
     {
       "id": "2026-10-07_morning",
       "date": "2026-10-07",
@@ -950,8 +961,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-07",
-    "dates": 52,
-    "reports": 86
+    "end": "2026-10-08",
+    "dates": 53,
+    "reports": 87
   }
 }
