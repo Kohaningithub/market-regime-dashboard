@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-08T13:22:19Z",
+  "generatedAt": "2026-10-08T21:20:43Z",
   "entries": [
+    {
+      "id": "2026-10-08_close",
+      "date": "2026-10-08",
+      "edition": "close",
+      "title": "Close Investment Brief | Oil surge and tech weakness split the U.S. close",
+      "summary": "October 8 U.S. cash close: the S&P 500 fell 0.5%, the Nasdaq fell 1.3%, and the Dow edged up 0.1%. Brent moved above $104 while semiconductor and AI leaders declined; the 10-year yield reversed from 5.35% to 5.23%.",
+      "generatedAt": "2026-10-08T16:30:00-04:00",
+      "path": "data/news-en/2026-10-08_close.md",
+      "wordCount": 7070,
+      "sourceCount": 30
+    },
     {
       "id": "2026-10-08_morning",
       "date": "2026-10-08",
@@ -963,6 +974,6 @@
     "start": "2026-07-23",
     "end": "2026-10-08",
     "dates": 53,
-    "reports": 87
+    "reports": 88
   }
 }
