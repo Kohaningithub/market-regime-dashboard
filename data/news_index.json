@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-08T21:20:42Z",
+  "generatedAt": "2026-10-09T13:21:55Z",
   "entries": [
+    {
+      "id": "2026-10-09_morning",
+      "date": "2026-10-09",
+      "edition": "morning",
+      "title": "2026-10-09 早盘投资动态简报",
+      "summary": "油价回落带动股指期货反弹，但科技估值、长端利率与中东局势仍令风险偏好脆弱。",
+      "generatedAt": "2026-10-09T08:45:00-04:00",
+      "path": "data/news/2026-10-09_morning.md",
+      "wordCount": 2571,
+      "sourceCount": 26
+    },
     {
       "id": "2026-10-08_close",
       "date": "2026-10-08",
@@ -972,8 +983,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-08",
-    "dates": 53,
-    "reports": 88
+    "end": "2026-10-09",
+    "dates": 54,
+    "reports": 89
   }
 }

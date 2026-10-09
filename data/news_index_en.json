@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-08T21:20:43Z",
+  "generatedAt": "2026-10-09T13:21:57Z",
   "entries": [
+    {
+      "id": "2026-10-09_morning",
+      "date": "2026-10-09",
+      "edition": "morning",
+      "title": "2026-10-09 Morning Investment Brief",
+      "summary": "Oil's pullback is lifting U.S. futures, but technology valuation, long yields, and Iran-related headline risk remain fragile.",
+      "generatedAt": "2026-10-09T08:45:00-04:00",
+      "path": "data/news-en/2026-10-09_morning.md",
+      "wordCount": 7422,
+      "sourceCount": 26
+    },
     {
       "id": "2026-10-08_close",
       "date": "2026-10-08",
@@ -972,8 +983,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-08",
-    "dates": 53,
-    "reports": 88
+    "end": "2026-10-09",
+    "dates": 54,
+    "reports": 89
   }
 }
