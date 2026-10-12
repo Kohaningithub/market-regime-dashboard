@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-09T13:21:57Z",
+  "generatedAt": "2026-10-12T18:42:58Z",
   "entries": [
+    {
+      "id": "2026-10-12_morning",
+      "date": "2026-10-12",
+      "edition": "morning",
+      "title": "October 12, 2026 Morning Brief · 14:40 ET Intraday Update",
+      "summary": "Disputed energy-truce implementation complicates the cost outlook; divergent software catalysts and coming bank earnings test whether profits can support valuations.",
+      "generatedAt": "2026-10-12T14:42:57-04:00",
+      "path": "data/news-en/2026-10-12_morning.md",
+      "wordCount": 8830,
+      "sourceCount": 11
+    },
     {
       "id": "2026-10-09_morning",
       "date": "2026-10-09",
@@ -983,8 +994,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-09",
-    "dates": 54,
-    "reports": 89
+    "end": "2026-10-12",
+    "dates": 55,
+    "reports": 90
   }
 }
