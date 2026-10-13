@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-12T18:42:58Z",
+  "generatedAt": "2026-10-13T13:16:20Z",
   "entries": [
+    {
+      "id": "2026-10-13_morning",
+      "date": "2026-10-13",
+      "edition": "morning",
+      "title": "Morning Investment Brief | Bank earnings, chip pullback, and lower oil",
+      "summary": "October 13 New York premarket: futures are split; bank results test earnings expectations while semiconductors retreat and oil eases.",
+      "generatedAt": "2026-10-13T08:42:50-04:00",
+      "path": "data/news-en/2026-10-13_morning.md",
+      "wordCount": 6757,
+      "sourceCount": 21
+    },
     {
       "id": "2026-10-12_morning",
       "date": "2026-10-12",
@@ -994,8 +1005,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-12",
-    "dates": 55,
-    "reports": 90
+    "end": "2026-10-13",
+    "dates": 56,
+    "reports": 91
   }
 }

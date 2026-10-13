@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-12T18:42:58Z",
+  "generatedAt": "2026-10-13T13:16:19Z",
   "entries": [
+    {
+      "id": "2026-10-13_morning",
+      "date": "2026-10-13",
+      "edition": "morning",
+      "title": "投资动态早盘简报｜银行财报开局、芯片回撤与油价缓解",
+      "summary": "10月13日纽约早盘：指数期货分化；银行财报提供盈利验证，半导体延续回撤，油价下跌暂缓通胀交易。",
+      "generatedAt": "2026-10-13T08:42:50-04:00",
+      "path": "data/news/2026-10-13_morning.md",
+      "wordCount": 2712,
+      "sourceCount": 21
+    },
     {
       "id": "2026-10-12_morning",
       "date": "2026-10-12",
@@ -994,8 +1005,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-12",
-    "dates": 55,
-    "reports": 90
+    "end": "2026-10-13",
+    "dates": 56,
+    "reports": 91
   }
 }
