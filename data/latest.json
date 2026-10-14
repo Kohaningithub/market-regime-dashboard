@@ -1,30 +1,30 @@
 {
-  "generatedAt": "2026-10-14T18:09:49Z",
+  "generatedAt": "2026-10-14T23:25:07Z",
   "asOf": "2026-10-14",
   "mode": "live",
   "values": {
-    "vix": 17.07,
-    "vixChange5d": 1.99,
-    "move": 98.98,
-    "spyDrawdown": -1.49,
-    "qqqDrawdown": -4.16,
-    "rspSpyRel60d": -3.13,
-    "hygRet20d": -1.61,
-    "jnkRet20d": -1.68,
+    "vix": 16.87,
+    "vixChange5d": 1.79,
+    "move": 99.06,
+    "spyDrawdown": -1.22,
+    "qqqDrawdown": -4.04,
+    "rspSpyRel60d": -2.95,
+    "hygRet20d": -1.62,
+    "jnkRet20d": -1.7,
     "hyOas": 3.16,
     "hyOasChange20d": 40.0,
     "igOas": 0.83,
     "igOasChange20d": 3.0,
-    "dxyChange20d": 2.38,
-    "tenYYield": 5.24,
-    "tenYChange20d": 28.0,
-    "realTenY": 2.91,
-    "realTenYChange20d": 31.0,
+    "dxyChange20d": 2.21,
+    "tenYYield": 5.21,
+    "tenYChange20d": 24.0,
+    "realTenY": 2.88,
+    "realTenYChange20d": 28.0,
     "nfci": -0.49,
-    "kreRel20d": -7.48,
+    "kreRel20d": -7.38,
     "aaiiBearish": 39.0,
     "putCall": 0.54,
-    "fearGreed": 31.0
+    "fearGreed": 32.0
   },
   "scores": {
     "volatility": 0,
@@ -105,22 +105,22 @@
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-10-09",
+      "asOf": "2026-10-13",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-10-09",
+      "asOf": "2026-10-13",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-10-09",
+      "asOf": "2026-10-13",
       "source": "FRED DFII10",
       "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-10-09",
+      "asOf": "2026-10-13",
       "source": "FRED DFII10",
       "status": "ok"
     },
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-10-14T18:05:04+00:00",
+      "asOf": "2026-10-14T23:08:51+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
