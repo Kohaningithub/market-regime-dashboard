@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-13T13:16:19Z",
+  "generatedAt": "2026-10-14T03:07:57Z",
   "entries": [
+    {
+      "id": "2026-10-13_close",
+      "date": "2026-10-13",
+      "edition": "close",
+      "title": "2026年10月13日美股收盘投资动态简报",
+      "summary": "指数近乎横盘，但银行财报、芯片竞争与并购令市场内部显著分化。",
+      "generatedAt": "2026-10-13T16:20:35-04:00",
+      "path": "data/news/2026-10-13_close.md",
+      "wordCount": 2352,
+      "sourceCount": 21
+    },
     {
       "id": "2026-10-13_morning",
       "date": "2026-10-13",
@@ -1007,6 +1018,6 @@
     "start": "2026-07-23",
     "end": "2026-10-13",
     "dates": 56,
-    "reports": 91
+    "reports": 92
   }
 }
