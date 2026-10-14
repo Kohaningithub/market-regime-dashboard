@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-14T13:16:41Z",
+  "generatedAt": "2026-10-14T21:16:43Z",
   "entries": [
+    {
+      "id": "2026-10-14_close",
+      "date": "2026-10-14",
+      "edition": "close",
+      "title": "October 14, 2026 U.S. Equity Close Investment Brief",
+      "summary": "An energy-led CPI surprise reset rate expectations and hit AI/semiconductors; the modest Dow loss concealed a sharper long-duration equity repricing.",
+      "generatedAt": "2026-10-14T16:21:16-04:00",
+      "path": "data/news-en/2026-10-14_close.md",
+      "wordCount": 7138,
+      "sourceCount": 20
+    },
     {
       "id": "2026-10-14_morning",
       "date": "2026-10-14",
@@ -1029,6 +1040,6 @@
     "start": "2026-07-23",
     "end": "2026-10-14",
     "dates": 57,
-    "reports": 93
+    "reports": 94
   }
 }
