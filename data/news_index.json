@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-14T03:07:57Z",
+  "generatedAt": "2026-10-14T13:16:40Z",
   "entries": [
+    {
+      "id": "2026-10-14_morning",
+      "date": "2026-10-14",
+      "edition": "morning",
+      "title": "投资动态早盘简报｜CPI公布前的利率检验与ASML盈利验证",
+      "summary": "10月14日纽约08:45 ET：期货窄幅分化，市场在今日08:30后CPI披露与芯片资本开支证据之间重新定价。",
+      "generatedAt": "2026-10-14T08:45:00-04:00",
+      "path": "data/news/2026-10-14_morning.md",
+      "wordCount": 3033,
+      "sourceCount": 22
+    },
     {
       "id": "2026-10-13_close",
       "date": "2026-10-13",
@@ -1016,8 +1027,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-13",
-    "dates": 56,
-    "reports": 92
+    "end": "2026-10-14",
+    "dates": 57,
+    "reports": 93
   }
 }

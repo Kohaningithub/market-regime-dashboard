@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-14T03:07:59Z",
+  "generatedAt": "2026-10-14T13:16:41Z",
   "entries": [
+    {
+      "id": "2026-10-14_morning",
+      "date": "2026-10-14",
+      "edition": "morning",
+      "title": "Morning Investment Brief | CPI rate test and ASML earnings evidence",
+      "summary": "October 14, 08:45 ET: futures are narrowly split before CPI while ASML supplies audited evidence of semiconductor-capex demand.",
+      "generatedAt": "2026-10-14T08:45:00-04:00",
+      "path": "data/news-en/2026-10-14_morning.md",
+      "wordCount": 8200,
+      "sourceCount": 22
+    },
     {
       "id": "2026-10-13_close",
       "date": "2026-10-13",
@@ -1016,8 +1027,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-13",
-    "dates": 56,
-    "reports": 92
+    "end": "2026-10-14",
+    "dates": 57,
+    "reports": 93
   }
 }
