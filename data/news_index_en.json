@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-15T13:22:47Z",
+  "generatedAt": "2026-10-15T21:22:31Z",
   "entries": [
+    {
+      "id": "2026-10-15_close",
+      "date": "2026-10-15",
+      "edition": "close",
+      "title": "October 15, 2026 U.S. Equity Close Investment Brief",
+      "summary": "Equities recovered from an AI-led morning wobble: strong earnings and defensives outweighed a hot producer-price report, while the narrow Nasdaq gain kept valuation risk visible.",
+      "generatedAt": "2026-10-15T16:16:17-04:00",
+      "path": "data/news-en/2026-10-15_close.md",
+      "wordCount": 6681,
+      "sourceCount": 20
+    },
     {
       "id": "2026-10-15_morning",
       "date": "2026-10-15",
@@ -1051,6 +1062,6 @@
     "start": "2026-07-23",
     "end": "2026-10-15",
     "dates": 58,
-    "reports": 95
+    "reports": 96
   }
 }
