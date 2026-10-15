@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-14T21:16:41Z",
+  "generatedAt": "2026-10-15T13:22:45Z",
   "entries": [
+    {
+      "id": "2026-10-15_morning",
+      "date": "2026-10-15",
+      "edition": "morning",
+      "title": "投资动态早盘简报｜通胀再定价压制AI，TSMC给出盈利锚",
+      "summary": "10月15日08:43 ET：昨夜CPI显示能源驱动的通胀再加速；今晨科技/AI盘前承压，但TSMC的营收与指引提供需求侧反证。",
+      "generatedAt": "2026-10-15T08:43:14-04:00",
+      "path": "data/news/2026-10-15_morning.md",
+      "wordCount": 2879,
+      "sourceCount": 26
+    },
     {
       "id": "2026-10-14_close",
       "date": "2026-10-14",
@@ -1038,8 +1049,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-14",
-    "dates": 57,
-    "reports": 94
+    "end": "2026-10-15",
+    "dates": 58,
+    "reports": 95
   }
 }

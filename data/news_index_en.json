@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-14T21:16:43Z",
+  "generatedAt": "2026-10-15T13:22:47Z",
   "entries": [
+    {
+      "id": "2026-10-15_morning",
+      "date": "2026-10-15",
+      "edition": "morning",
+      "title": "Morning Investment Brief | Inflation reprices AI as TSMC supplies an earnings anchor",
+      "summary": "October 15, 08:43 ET: September CPI confirms energy-led reacceleration; AI shares are weak in reported pre-market trading, while TSMC's results support leading-edge demand.",
+      "generatedAt": "2026-10-15T08:43:14-04:00",
+      "path": "data/news-en/2026-10-15_morning.md",
+      "wordCount": 7812,
+      "sourceCount": 26
+    },
     {
       "id": "2026-10-14_close",
       "date": "2026-10-14",
@@ -1038,8 +1049,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-14",
-    "dates": 57,
-    "reports": 94
+    "end": "2026-10-15",
+    "dates": 58,
+    "reports": 95
   }
 }
