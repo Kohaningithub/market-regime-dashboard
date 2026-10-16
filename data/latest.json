@@ -1,33 +1,33 @@
 {
-  "generatedAt": "2026-10-16T17:41:18Z",
+  "generatedAt": "2026-10-16T22:59:58Z",
   "asOf": "2026-10-16",
   "mode": "live",
   "values": {
-    "vix": 21.03,
-    "vixChange5d": 6.19,
-    "move": 100.44,
-    "spyDrawdown": -1.82,
-    "qqqDrawdown": -6.08,
-    "rspSpyRel60d": -2.39,
-    "hygRet20d": -1.63,
-    "jnkRet20d": -1.79,
+    "vix": 19.99,
+    "vixChange5d": 5.15,
+    "move": 101.1,
+    "spyDrawdown": -2.03,
+    "qqqDrawdown": -6.56,
+    "rspSpyRel60d": -2.17,
+    "hygRet20d": -1.69,
+    "jnkRet20d": -1.84,
     "hyOas": 3.23,
     "hyOasChange20d": 53.0,
     "igOas": 0.84,
     "igOasChange20d": 6.0,
-    "dxyChange20d": 1.69,
-    "tenYYield": 5.19,
-    "tenYChange20d": 19.0,
-    "realTenY": 2.84,
-    "realTenYChange20d": 22.0,
+    "dxyChange20d": 1.56,
+    "tenYYield": 5.1,
+    "tenYChange20d": 9.0,
+    "realTenY": 2.78,
+    "realTenYChange20d": 10.0,
     "nfci": -0.5,
-    "kreRel20d": -3.89,
+    "kreRel20d": -3.69,
     "aaiiBearish": 41.6,
     "putCall": 0.62,
     "fearGreed": 18.0
   },
   "scores": {
-    "volatility": 2,
+    "volatility": 1,
     "credit": 0,
     "sentiment": 3
   },
@@ -105,22 +105,22 @@
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-10-14",
+      "asOf": "2026-10-15",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-10-14",
+      "asOf": "2026-10-15",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-10-14",
+      "asOf": "2026-10-15",
       "source": "FRED DFII10",
       "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-10-14",
+      "asOf": "2026-10-15",
       "source": "FRED DFII10",
       "status": "ok"
     },
@@ -146,7 +146,7 @@
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-10-16T17:36:19+00:00",
+      "asOf": "2026-10-16T22:38:37+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T17:41:18Z",
+  "generatedAt": "2026-10-16T23:00:08Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,8 +86,8 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 51.77,
-    "riskScore": 5.55,
+    "opportunityScore": 48.86,
+    "riskScore": 2.2,
     "action": "HOLD",
     "stance": "维持",
     "reason": "缺少高胜率加仓窗口，也没有足够强的减仓信号。",
@@ -97,30 +97,30 @@
       "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。"
     },
     "components": {
-      "drawdownOpportunity": 6.13,
+      "drawdownOpportunity": 6.76,
       "sentimentOpportunity": 21.55,
-      "volatilityOpportunity": 9.09,
+      "volatilityOpportunity": 5.55,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
-      "volatilityRisk": 5.55,
+      "volatilityRisk": 2.2,
       "trendRisk": 0.0,
       "overheatRisk": 0.0,
       "dataPenalty": 0
     },
     "asOf": "2026-10-16",
-    "generatedAt": "2026-10-16T17:41:18Z",
+    "generatedAt": "2026-10-16T22:59:58Z",
     "pressureScores": {
-      "volatility": 2,
+      "volatility": 1,
       "credit": 0,
       "sentiment": 3
     },
     "marketState": "normal",
     "keyInputs": {
-      "vix": 21.03,
-      "vixChange5d": 6.19,
-      "move": 100.44,
-      "spyDrawdown": -1.82,
-      "qqqDrawdown": -6.08,
+      "vix": 19.99,
+      "vixChange5d": 5.15,
+      "move": 101.1,
+      "spyDrawdown": -2.03,
+      "qqqDrawdown": -6.56,
       "fearGreed": 18.0,
       "aaiiBearish": 41.6,
       "putCall": 0.62,
@@ -128,8 +128,8 @@
       "hyOas": 3.23,
       "igOas": 0.84,
       "nfci": -0.5,
-      "dxyChange20d": 1.69,
-      "kreRel20d": -3.89,
+      "dxyChange20d": 1.56,
+      "kreRel20d": -3.69,
       "spyRealizedVol20dTrailing": 10.1547
     }
   },
@@ -157,9 +157,9 @@
       "avgMaxDrawdown20dFwd": -4.0463
     },
     "HOLD": {
-      "rows": 1078,
+      "rows": 1079,
       "usableRows": 1014,
-      "avgOpportunityScore": 28.54,
+      "avgOpportunityScore": 28.56,
       "avgRiskScore": 10.68,
       "avgSpyRet20dFwd": 0.872,
       "winRate20d": 0.6588,
