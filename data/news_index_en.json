@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-15T21:22:31Z",
+  "generatedAt": "2026-10-16T13:15:49Z",
   "entries": [
+    {
+      "id": "2026-10-16_morning",
+      "date": "2026-10-16",
+      "edition": "morning",
+      "title": "Morning Investment Brief | AI shifts from earnings story to financing test as indices split",
+      "summary": "October 16, 2026, 08:39 ET: Dow and S&P futures were modestly higher while Nasdaq futures slipped; investors are separating AI demand evidence from data-center financing and credit risk.",
+      "generatedAt": "2026-10-16T08:39:16-04:00",
+      "path": "data/news-en/2026-10-16_morning.md",
+      "wordCount": 9743,
+      "sourceCount": 30
+    },
     {
       "id": "2026-10-15_close",
       "date": "2026-10-15",
@@ -1060,8 +1071,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-15",
-    "dates": 58,
-    "reports": 96
+    "end": "2026-10-16",
+    "dates": 59,
+    "reports": 97
   }
 }

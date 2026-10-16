@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-15T21:22:29Z",
+  "generatedAt": "2026-10-16T13:15:48Z",
   "entries": [
+    {
+      "id": "2026-10-16_morning",
+      "date": "2026-10-16",
+      "edition": "morning",
+      "title": "投资动态早盘简报｜AI从盈利叙事转向融资检验，指数温和上行但科技承压",
+      "summary": "2026年10月16日08:39 ET：道指和标普期货小涨、纳指期货微跌；市场把AI需求证据与数据中心融资/信用风险拆开定价。",
+      "generatedAt": "2026-10-16T08:39:16-04:00",
+      "path": "data/news/2026-10-16_morning.md",
+      "wordCount": 3490,
+      "sourceCount": 30
+    },
     {
       "id": "2026-10-15_close",
       "date": "2026-10-15",
@@ -1060,8 +1071,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-15",
-    "dates": 58,
-    "reports": 96
+    "end": "2026-10-16",
+    "dates": 59,
+    "reports": 97
   }
 }
