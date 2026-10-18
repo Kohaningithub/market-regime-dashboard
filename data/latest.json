@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T22:59:58Z",
+  "generatedAt": "2026-10-18T14:01:00Z",
   "asOf": "2026-10-16",
   "mode": "live",
   "values": {
@@ -15,7 +15,7 @@
     "hyOasChange20d": 53.0,
     "igOas": 0.84,
     "igOasChange20d": 6.0,
-    "dxyChange20d": 1.56,
+    "dxyChange20d": 1.62,
     "tenYYield": 5.1,
     "tenYChange20d": 9.0,
     "realTenY": 2.78,
@@ -23,7 +23,7 @@
     "nfci": -0.5,
     "kreRel20d": -3.69,
     "aaiiBearish": 41.6,
-    "putCall": 0.62,
+    "putCall": 0.65,
     "fearGreed": 18.0
   },
   "scores": {
@@ -140,13 +140,13 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-10-16",
+      "asOf": "2026-10-18",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-10-16T22:38:37+00:00",
+      "asOf": "2026-10-16T23:59:49+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
