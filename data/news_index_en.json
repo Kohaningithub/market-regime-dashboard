@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-16T21:20:21Z",
+  "generatedAt": "2026-10-19T13:22:01Z",
   "entries": [
+    {
+      "id": "2026-10-19_morning",
+      "date": "2026-10-19",
+      "edition": "morning",
+      "title": "Morning Investment Brief | AI rebound tests financing discipline as oil eases",
+      "summary": "October 19, 2026, 08:45 ET: Nasdaq futures rebounded after last week's rout, but earnings must now demonstrate AI monetization and cash-flow discipline; lower oil and yields offer only provisional support.",
+      "generatedAt": "2026-10-19T08:45:00-04:00",
+      "path": "data/news-en/2026-10-19_morning.md",
+      "wordCount": 10424,
+      "sourceCount": 39
+    },
     {
       "id": "2026-10-16_close",
       "date": "2026-10-16",
@@ -1082,8 +1093,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-16",
-    "dates": 59,
-    "reports": 98
+    "end": "2026-10-19",
+    "dates": 60,
+    "reports": 99
   }
 }
