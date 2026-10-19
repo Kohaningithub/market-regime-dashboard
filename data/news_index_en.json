@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-19T13:22:01Z",
+  "generatedAt": "2026-10-19T21:18:51Z",
   "entries": [
+    {
+      "id": "2026-10-19_close",
+      "date": "2026-10-19",
+      "edition": "close",
+      "title": "October 19, 2026 U.S. Equity Close Investment Brief",
+      "summary": "AI and semiconductor shares rebounded after last week's selloff, lifting the Nasdaq, while weak breadth, a slightly lower Dow and oil/geopolitical uncertainty kept the close selective rather than broadly risk-on.",
+      "generatedAt": "2026-10-19T16:20:58-04:00",
+      "path": "data/news-en/2026-10-19_close.md",
+      "wordCount": 7584,
+      "sourceCount": 22
+    },
     {
       "id": "2026-10-19_morning",
       "date": "2026-10-19",
@@ -1095,6 +1106,6 @@
     "start": "2026-07-23",
     "end": "2026-10-19",
     "dates": 60,
-    "reports": 99
+    "reports": 100
   }
 }
