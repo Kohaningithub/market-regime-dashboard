@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-19T21:18:49Z",
+  "generatedAt": "2026-10-20T13:22:02Z",
   "entries": [
+    {
+      "id": "2026-10-20_morning",
+      "date": "2026-10-20",
+      "edition": "morning",
+      "title": "每日投资动态简报：2026年10月20日早盘",
+      "summary": "油价、住房与财报指引共同考验科技反弹的广度。",
+      "generatedAt": "2026-10-20T08:45:26-04:00",
+      "path": "data/news/2026-10-20_morning.md",
+      "wordCount": 2574,
+      "sourceCount": 13
+    },
     {
       "id": "2026-10-19_close",
       "date": "2026-10-19",
@@ -1104,8 +1115,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-19",
-    "dates": 60,
-    "reports": 100
+    "end": "2026-10-20",
+    "dates": 61,
+    "reports": 101
   }
 }

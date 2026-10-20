@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-19T21:18:51Z",
+  "generatedAt": "2026-10-20T13:22:04Z",
   "entries": [
+    {
+      "id": "2026-10-20_morning",
+      "date": "2026-10-20",
+      "edition": "morning",
+      "title": "Daily Investment Brief: October 20, 2026 Morning",
+      "summary": "Oil, housing and earnings guidance test the breadth of the technology rebound.",
+      "generatedAt": "2026-10-20T08:45:26-04:00",
+      "path": "data/news-en/2026-10-20_morning.md",
+      "wordCount": 7358,
+      "sourceCount": 13
+    },
     {
       "id": "2026-10-19_close",
       "date": "2026-10-19",
@@ -1104,8 +1115,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-19",
-    "dates": 60,
-    "reports": 100
+    "end": "2026-10-20",
+    "dates": 61,
+    "reports": 101
   }
 }
