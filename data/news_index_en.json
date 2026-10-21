@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-20T23:04:57Z",
+  "generatedAt": "2026-10-21T13:19:49Z",
   "entries": [
+    {
+      "id": "2026-10-21_morning",
+      "date": "2026-10-21",
+      "edition": "morning",
+      "title": "Daily Investment Brief | October 21, 2026 Morning",
+      "summary": "AI server guidance lifts premarket sentiment as advertising, telecom earnings and UK inflation diverge.",
+      "generatedAt": "2026-10-21T08:44:07-04:00",
+      "path": "data/news-en/2026-10-21_morning.md",
+      "wordCount": 7844,
+      "sourceCount": 13
+    },
     {
       "id": "2026-10-20_close",
       "date": "2026-10-20",
@@ -1126,8 +1137,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-20",
-    "dates": 61,
-    "reports": 102
+    "end": "2026-10-21",
+    "dates": 62,
+    "reports": 103
   }
 }

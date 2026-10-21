@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-20T23:04:51Z",
+  "generatedAt": "2026-10-21T13:19:48Z",
   "entries": [
+    {
+      "id": "2026-10-21_morning",
+      "date": "2026-10-21",
+      "edition": "morning",
+      "title": "每日投资动态简报｜2026年10月21日早盘",
+      "summary": "AI服务器预告提振盘前，广告与电信业绩分化，英国通胀增加能源和利率风险。",
+      "generatedAt": "2026-10-21T08:44:07-04:00",
+      "path": "data/news/2026-10-21_morning.md",
+      "wordCount": 2691,
+      "sourceCount": 13
+    },
     {
       "id": "2026-10-20_close",
       "date": "2026-10-20",
@@ -1126,8 +1137,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-20",
-    "dates": 61,
-    "reports": 102
+    "end": "2026-10-21",
+    "dates": 62,
+    "reports": 103
   }
 }
