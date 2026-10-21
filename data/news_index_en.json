@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-21T13:19:49Z",
+  "generatedAt": "2026-10-21T21:16:23Z",
   "entries": [
+    {
+      "id": "2026-10-21_close",
+      "date": "2026-10-21",
+      "edition": "close",
+      "title": "US market close investment briefing — October 21, 2026",
+      "summary": "Earnings lift AI shares while streaming and telecom outlooks disappoint; focus shifts to after-hours results and returns on investment.",
+      "generatedAt": "2026-10-21T16:20:35-04:00",
+      "path": "data/news-en/2026-10-21_close.md",
+      "wordCount": 7771,
+      "sourceCount": 14
+    },
     {
       "id": "2026-10-21_morning",
       "date": "2026-10-21",
@@ -1139,6 +1150,6 @@
     "start": "2026-07-23",
     "end": "2026-10-21",
     "dates": 62,
-    "reports": 103
+    "reports": 104
   }
 }
