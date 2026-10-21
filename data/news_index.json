@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-20T13:22:02Z",
+  "generatedAt": "2026-10-20T23:04:51Z",
   "entries": [
+    {
+      "id": "2026-10-20_close",
+      "date": "2026-10-20",
+      "edition": "close",
+      "title": "美股收盘投资动态：盈利与油价推动轮动",
+      "summary": "2026年10月20日现金收盘：道指上涨，科技权重拖累纳指；关注盈利兑现、油价与融资成本。",
+      "generatedAt": "2026-10-20T16:24:56-04:00",
+      "path": "data/news/2026-10-20_close.md",
+      "wordCount": 2788,
+      "sourceCount": 14
+    },
     {
       "id": "2026-10-20_morning",
       "date": "2026-10-20",
@@ -1117,6 +1128,6 @@
     "start": "2026-07-23",
     "end": "2026-10-20",
     "dates": 61,
-    "reports": 101
+    "reports": 102
   }
 }

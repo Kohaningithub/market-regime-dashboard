@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-20T13:22:04Z",
+  "generatedAt": "2026-10-20T23:04:57Z",
   "entries": [
+    {
+      "id": "2026-10-20_close",
+      "date": "2026-10-20",
+      "edition": "close",
+      "title": "US close: earnings and retreating oil drive a divided market",
+      "summary": "October 20 cash close: the Dow rose while large technology shares restrained the Nasdaq; earnings, oil and financing costs remain in focus.",
+      "generatedAt": "2026-10-20T16:24:56-04:00",
+      "path": "data/news-en/2026-10-20_close.md",
+      "wordCount": 8628,
+      "sourceCount": 14
+    },
     {
       "id": "2026-10-20_morning",
       "date": "2026-10-20",
@@ -1117,6 +1128,6 @@
     "start": "2026-07-23",
     "end": "2026-10-20",
     "dates": 61,
-    "reports": 101
+    "reports": 102
   }
 }
