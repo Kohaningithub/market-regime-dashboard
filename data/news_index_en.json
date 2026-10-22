@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-21T21:16:23Z",
+  "generatedAt": "2026-10-22T13:22:37Z",
   "entries": [
+    {
+      "id": "2026-10-22_morning",
+      "date": "2026-10-22",
+      "edition": "morning",
+      "title": "Morning Investment Brief | October 22, 2026",
+      "summary": "AI earnings and higher oil weigh on premarket risk appetite; claims remain low.",
+      "generatedAt": "2026-10-22T08:40:54-04:00",
+      "path": "data/news-en/2026-10-22_morning.md",
+      "wordCount": 7882,
+      "sourceCount": 13
+    },
     {
       "id": "2026-10-21_close",
       "date": "2026-10-21",
@@ -1148,8 +1159,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-21",
-    "dates": 62,
-    "reports": 104
+    "end": "2026-10-22",
+    "dates": 63,
+    "reports": 105
   }
 }
