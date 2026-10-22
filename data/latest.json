@@ -1,35 +1,35 @@
 {
-  "generatedAt": "2026-10-21T23:36:23Z",
-  "asOf": "2026-10-21",
+  "generatedAt": "2026-10-22T18:09:40Z",
+  "asOf": "2026-10-22",
   "mode": "live",
   "values": {
-    "vix": 16.68,
-    "vixChange5d": -0.19,
-    "move": 95.94,
-    "spyDrawdown": -0.77,
-    "qqqDrawdown": -4.54,
-    "rspSpyRel60d": -4.51,
-    "hygRet20d": -1.0,
-    "jnkRet20d": -1.12,
-    "hyOas": 3.29,
-    "hyOasChange20d": 63.0,
-    "igOas": 0.87,
-    "igOasChange20d": 10.0,
-    "dxyChange20d": 0.58,
-    "tenYYield": 5.15,
-    "tenYChange20d": 14.0,
-    "realTenY": 2.8,
-    "realTenYChange20d": 12.0,
+    "vix": 19.15,
+    "vixChange5d": 2.69,
+    "move": 104.5,
+    "spyDrawdown": -2.14,
+    "qqqDrawdown": -7.27,
+    "rspSpyRel60d": -3.58,
+    "hygRet20d": -0.61,
+    "jnkRet20d": -0.68,
+    "hyOas": 3.27,
+    "hyOasChange20d": 54.0,
+    "igOas": 0.88,
+    "igOasChange20d": 11.0,
+    "dxyChange20d": 0.29,
+    "tenYYield": 5.12,
+    "tenYChange20d": 16.0,
+    "realTenY": 2.77,
+    "realTenYChange20d": 15.0,
     "nfci": -0.5,
-    "kreRel20d": -0.34,
-    "aaiiBearish": 41.6,
-    "putCall": 0.56,
-    "fearGreed": 31.0
+    "kreRel20d": 2.46,
+    "aaiiBearish": 45.8,
+    "putCall": 0.52,
+    "fearGreed": 20.0
   },
   "scores": {
     "volatility": 0,
     "credit": 0,
-    "sentiment": 2
+    "sentiment": 3
   },
   "regime": {
     "key": "normal",
@@ -40,136 +40,118 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
     "spyDrawdown": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance SPY",
       "status": "ok"
     },
     "qqqDrawdown": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance QQQ",
       "status": "ok"
     },
     "rspSpyRel60d": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
     },
     "hygRet20d": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance HYG",
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-10-19",
-      "source": "FRED BAMLH0A0HYM2 / ICE BofA (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. No FRED data for BAMLH0A0HYM2"
+      "asOf": "2026-10-21",
+      "source": "FRED BAMLH0A0HYM2 / ICE BofA",
+      "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-10-19",
-      "source": "FRED BAMLH0A0HYM2 / ICE BofA (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. No FRED data for BAMLH0A0HYM2"
+      "asOf": "2026-10-21",
+      "source": "FRED BAMLH0A0HYM2 / ICE BofA",
+      "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-10-19",
-      "source": "FRED BAMLC0A0CM / ICE BofA (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. No FRED data for BAMLC0A0CM"
+      "asOf": "2026-10-21",
+      "source": "FRED BAMLC0A0CM / ICE BofA",
+      "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-10-19",
-      "source": "FRED BAMLC0A0CM / ICE BofA (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. No FRED data for BAMLC0A0CM"
+      "asOf": "2026-10-21",
+      "source": "FRED BAMLC0A0CM / ICE BofA",
+      "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-10-19",
-      "source": "FRED DGS10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. No FRED data for DGS10"
+      "asOf": "2026-10-20",
+      "source": "FRED DGS10",
+      "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-10-19",
-      "source": "FRED DGS10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. No FRED data for DGS10"
+      "asOf": "2026-10-20",
+      "source": "FRED DGS10",
+      "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-10-19",
-      "source": "FRED DFII10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. No FRED data for DFII10"
+      "asOf": "2026-10-20",
+      "source": "FRED DFII10",
+      "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-10-19",
-      "source": "FRED DFII10 (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. No FRED data for DFII10"
+      "asOf": "2026-10-20",
+      "source": "FRED DFII10",
+      "status": "ok"
     },
     "nfci": {
-      "asOf": "2026-10-09",
-      "source": "FRED NFCI / Chicago Fed (stale fallback)",
-      "status": "estimated",
-      "note": "FRED fetch failed; reused previously published value. No FRED data for NFCI"
+      "asOf": "2026-10-16",
+      "source": "FRED NFCI / Chicago Fed",
+      "status": "ok"
     },
     "kreRel20d": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Yahoo Finance KRE/SPY",
       "status": "ok"
     },
     "aaiiBearish": {
-      "asOf": "2026-10-14",
+      "asOf": "2026-10-21",
       "source": "AAII Sentiment Survey",
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-10-21",
+      "asOf": "2026-10-22",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-10-21T23:16:51+00:00",
+      "asOf": "2026-10-22T18:05:15+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
   },
   "notes": [
-    "hyOas: FRED fetch failed; reused previously published value. No FRED data for BAMLH0A0HYM2",
-    "hyOasChange20d: FRED fetch failed; reused previously published value. No FRED data for BAMLH0A0HYM2",
-    "igOas: FRED fetch failed; reused previously published value. No FRED data for BAMLC0A0CM",
-    "igOasChange20d: FRED fetch failed; reused previously published value. No FRED data for BAMLC0A0CM",
-    "tenYYield: FRED fetch failed; reused previously published value. No FRED data for DGS10",
-    "tenYChange20d: FRED fetch failed; reused previously published value. No FRED data for DGS10",
-    "realTenY: FRED fetch failed; reused previously published value. No FRED data for DFII10",
-    "realTenYChange20d: FRED fetch failed; reused previously published value. No FRED data for DFII10",
-    "nfci: FRED fetch failed; reused previously published value. No FRED data for NFCI",
     "putCall: Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019.",
     "model: Valuation percentile is unavailable from a stable public no-key source and is excluded from live scoring."
   ],
