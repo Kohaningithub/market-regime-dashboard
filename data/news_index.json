@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-22T21:24:15Z",
+  "generatedAt": "2026-10-23T13:21:28Z",
   "entries": [
+    {
+      "id": "2026-10-23_morning",
+      "date": "2026-10-23",
+      "edition": "morning",
+      "title": "2026年10月23日早盘投资动态简报",
+      "summary": "油价冲击、AI资本开支与美国运通和SLB业绩共同塑造开盘前市场。",
+      "generatedAt": "2026-10-23T08:44:47-04:00",
+      "path": "data/news/2026-10-23_morning.md",
+      "wordCount": 2931,
+      "sourceCount": 13
+    },
     {
       "id": "2026-10-22_close",
       "date": "2026-10-22",
@@ -1170,8 +1181,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-22",
-    "dates": 63,
-    "reports": 106
+    "end": "2026-10-23",
+    "dates": 64,
+    "reports": 107
   }
 }
