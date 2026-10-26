@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-26T13:23:31Z",
+  "generatedAt": "2026-10-26T21:16:24Z",
   "entries": [
+    {
+      "id": "2026-10-26_close",
+      "date": "2026-10-26",
+      "edition": "close",
+      "title": "US close: tech leads a rebound, while AI financing risk remains",
+      "summary": "The S&P 500 gained 0.7% and Nasdaq 0.8%; technology led, but earnings and the Fed must validate the AI-capex narrative.",
+      "generatedAt": "2026-10-26T16:26:00-04:00",
+      "path": "data/news-en/2026-10-26_close.md",
+      "wordCount": 8046,
+      "sourceCount": 19
+    },
     {
       "id": "2026-10-26_morning",
       "date": "2026-10-26",
@@ -1194,6 +1205,6 @@
     "start": "2026-07-23",
     "end": "2026-10-26",
     "dates": 65,
-    "reports": 108
+    "reports": 109
   }
 }

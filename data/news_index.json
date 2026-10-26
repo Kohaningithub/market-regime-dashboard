@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-26T13:23:29Z",
+  "generatedAt": "2026-10-26T21:16:22Z",
   "entries": [
+    {
+      "id": "2026-10-26_close",
+      "date": "2026-10-26",
+      "edition": "close",
+      "title": "美股收盘：科技反弹领先，但AI融资与油价风险未消失",
+      "summary": "标普500涨0.7%、纳指涨0.8%；AI权重反弹，市场仍在等待科技财报和联储决议验证。",
+      "generatedAt": "2026-10-26T16:26:00-04:00",
+      "path": "data/news/2026-10-26_close.md",
+      "wordCount": 2908,
+      "sourceCount": 19
+    },
     {
       "id": "2026-10-26_morning",
       "date": "2026-10-26",
@@ -1194,6 +1205,6 @@
     "start": "2026-07-23",
     "end": "2026-10-26",
     "dates": 65,
-    "reports": 108
+    "reports": 109
   }
 }
