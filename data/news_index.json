@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-23T13:21:28Z",
+  "generatedAt": "2026-10-26T13:23:29Z",
   "entries": [
+    {
+      "id": "2026-10-26_morning",
+      "date": "2026-10-26",
+      "edition": "morning",
+      "title": "2026年10月26日早盘投资动态简报",
+      "summary": "油价从周五急升回落，市场在美联储周和密集财报前检验估值、成本与市场广度。",
+      "generatedAt": "2026-10-26T08:43:51-04:00",
+      "path": "data/news/2026-10-26_morning.md",
+      "wordCount": 3264,
+      "sourceCount": 22
+    },
     {
       "id": "2026-10-23_morning",
       "date": "2026-10-23",
@@ -1181,8 +1192,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-23",
-    "dates": 64,
-    "reports": 107
+    "end": "2026-10-26",
+    "dates": 65,
+    "reports": 108
   }
 }

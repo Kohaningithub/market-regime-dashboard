@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-23T13:21:30Z",
+  "generatedAt": "2026-10-26T13:23:31Z",
   "entries": [
+    {
+      "id": "2026-10-26_morning",
+      "date": "2026-10-26",
+      "edition": "morning",
+      "title": "October 26, 2026 Morning Investment Brief",
+      "summary": "Oil eases from a Friday spike as Fed week and an earnings-heavy calendar test valuation, margins and breadth.",
+      "generatedAt": "2026-10-26T08:43:51-04:00",
+      "path": "data/news-en/2026-10-26_morning.md",
+      "wordCount": 9955,
+      "sourceCount": 22
+    },
     {
       "id": "2026-10-23_morning",
       "date": "2026-10-23",
@@ -1181,8 +1192,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-23",
-    "dates": 64,
-    "reports": 107
+    "end": "2026-10-26",
+    "dates": 65,
+    "reports": 108
   }
 }
