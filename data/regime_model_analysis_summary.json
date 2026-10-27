@@ -1,78 +1,78 @@
 {
-  "generatedAt": "2026-10-25T14:21:57Z",
+  "generatedAt": "2026-10-27T00:04:20Z",
   "startDate": "2021-10-26",
-  "endDate": "2026-10-25",
+  "endDate": "2026-10-27",
   "rows": 1254,
   "sourceStatus": [
     {
       "name": "vix",
       "status": "ok",
-      "detail": "Yahoo Finance ^VIX: 2020-08-24 to 2026-10-23"
+      "detail": "Yahoo Finance ^VIX: 2025-08-19 to 2026-10-26"
     },
     {
       "name": "move",
       "status": "ok",
-      "detail": "Yahoo Finance ^MOVE: 2020-08-24 to 2026-10-23"
+      "detail": "Yahoo Finance ^MOVE: 2025-08-19 to 2026-10-26"
     },
     {
       "name": "spy",
       "status": "ok",
-      "detail": "Yahoo Finance SPY: 2020-08-24 to 2026-10-23"
+      "detail": "Yahoo Finance SPY: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "qqq",
       "status": "ok",
-      "detail": "Yahoo Finance QQQ: 2020-08-24 to 2026-10-23"
+      "detail": "Yahoo Finance QQQ: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "hyg",
       "status": "ok",
-      "detail": "Yahoo Finance HYG: 2020-08-24 to 2026-10-23"
+      "detail": "Yahoo Finance HYG: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "jnk",
       "status": "ok",
-      "detail": "Yahoo Finance JNK: 2020-08-24 to 2026-10-23"
+      "detail": "Yahoo Finance JNK: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "kre",
       "status": "ok",
-      "detail": "Yahoo Finance KRE: 2020-08-24 to 2026-10-23"
+      "detail": "Yahoo Finance KRE: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "rsp",
       "status": "ok",
-      "detail": "Yahoo Finance RSP: 2020-08-24 to 2026-10-23"
+      "detail": "Yahoo Finance RSP: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "dxy",
       "status": "ok",
-      "detail": "Yahoo Finance DX-Y.NYB: 2020-08-24 to 2026-10-23"
+      "detail": "Yahoo Finance DX-Y.NYB: 2025-08-19 to 2026-10-26"
     },
     {
       "name": "hyOas",
       "status": "ok",
-      "detail": "FRED BAMLH0A0HYM2: 2023-10-24 to 2026-10-22"
+      "detail": "FRED BAMLH0A0HYM2: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "igOas",
       "status": "ok",
-      "detail": "FRED BAMLC0A0CM: 2023-10-24 to 2026-10-22"
+      "detail": "FRED BAMLC0A0CM: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "tenYYield",
       "status": "ok",
-      "detail": "FRED DGS10: 2020-08-24 to 2026-10-22"
+      "detail": "FRED DGS10: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "realTenY",
       "status": "ok",
-      "detail": "FRED DFII10: 2020-08-24 to 2026-10-22"
+      "detail": "FRED DFII10: 2025-08-19 to 2026-10-23"
     },
     {
       "name": "nfci",
       "status": "ok",
-      "detail": "FRED NFCI: 2020-08-28 to 2026-10-16"
+      "detail": "FRED NFCI: 2025-08-22 to 2026-10-16"
     },
     {
       "name": "aaiiBearish",
