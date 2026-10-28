@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-27T13:18:07Z",
+  "generatedAt": "2026-10-28T13:25:35Z",
   "entries": [
+    {
+      "id": "2026-10-28_morning",
+      "date": "2026-10-28",
+      "edition": "morning",
+      "title": "2026年10月28日早盘投资动态简报",
+      "summary": "AI带动的上一交易日上涨正面对油价再升、联储决定与科技巨头财报三重验证；盘前指数分化意味着方向尚未确认。",
+      "generatedAt": "2026-10-28T08:42:39-04:00",
+      "path": "data/news/2026-10-28_morning.md",
+      "wordCount": 2975,
+      "sourceCount": 31
+    },
     {
       "id": "2026-10-27_morning",
       "date": "2026-10-27",
@@ -1214,8 +1225,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-27",
-    "dates": 66,
-    "reports": 110
+    "end": "2026-10-28",
+    "dates": 67,
+    "reports": 111
   }
 }
