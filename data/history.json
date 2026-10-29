@@ -1,32 +1,7 @@
 {
-  "generatedAt": "2026-10-28T19:05:53Z",
+  "generatedAt": "2026-10-29T00:22:14Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
-    {
-      "generatedAt": "2026-08-12T13:06:50Z",
-      "asOf": "2026-08-11",
-      "regime": "normal",
-      "regimeTitle": "Normal / Mild Pullback",
-      "scores": {
-        "volatility": 0,
-        "credit": 0,
-        "sentiment": 0
-      },
-      "spyClose": 770.56,
-      "spyDrawdown": -0.35,
-      "qqqDrawdown": -3.61,
-      "fearGreed": 61.0,
-      "rspSpyRel60d": 5.35,
-      "vix": 15.11,
-      "move": 70.88,
-      "hyOas": 2.7,
-      "igOas": 0.78,
-      "tenYYield": 4.72,
-      "realTenY": 2.43,
-      "scoreInputCompleteness": 1.0,
-      "estimatedCount": 0,
-      "valuationInScore": false
-    },
     {
       "generatedAt": "2026-08-12T14:41:57Z",
       "asOf": "2026-08-12",
@@ -2998,6 +2973,31 @@
       "igOas": 0.88,
       "tenYYield": 5.0,
       "realTenY": 2.66,
+      "scoreInputCompleteness": 1.0,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-10-29T00:22:14Z",
+      "asOf": "2026-10-27",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 769.66,
+      "spyDrawdown": -1.21,
+      "qqqDrawdown": -5.06,
+      "fearGreed": 36.0,
+      "rspSpyRel60d": -1.25,
+      "vix": 16.91,
+      "move": 94.55,
+      "hyOas": 3.18,
+      "igOas": 0.88,
+      "tenYYield": 4.99,
+      "realTenY": 2.64,
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
       "valuationInScore": false
@@ -4794,7 +4794,7 @@
       "valuationInScore": false
     },
     {
-      "generatedAt": "2026-10-27T23:58:38Z",
+      "generatedAt": "2026-10-29T00:22:14Z",
       "asOf": "2026-10-27",
       "regime": "normal",
       "regimeTitle": "Normal / Mild Pullback",
@@ -4806,45 +4806,20 @@
       "spyClose": 769.66,
       "spyDrawdown": -1.21,
       "qqqDrawdown": -5.06,
-      "fearGreed": 34.0,
+      "fearGreed": 36.0,
       "rspSpyRel60d": -1.25,
-      "vix": 17.52,
-      "move": 97.87,
-      "hyOas": 3.3,
-      "igOas": 0.9,
-      "tenYYield": 5.0,
-      "realTenY": 2.66,
+      "vix": 16.91,
+      "move": 94.55,
+      "hyOas": 3.18,
+      "igOas": 0.88,
+      "tenYYield": 4.99,
+      "realTenY": 2.64,
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
       "valuationInScore": false
     }
   ],
   "entries": [
-    {
-      "generatedAt": "2026-08-12T13:06:50Z",
-      "asOf": "2026-08-11",
-      "regime": "normal",
-      "regimeTitle": "Normal / Mild Pullback",
-      "scores": {
-        "volatility": 0,
-        "credit": 0,
-        "sentiment": 0
-      },
-      "spyClose": 770.56,
-      "spyDrawdown": -0.35,
-      "qqqDrawdown": -3.61,
-      "fearGreed": 61.0,
-      "rspSpyRel60d": 5.35,
-      "vix": 15.11,
-      "move": 70.88,
-      "hyOas": 2.7,
-      "igOas": 0.78,
-      "tenYYield": 4.72,
-      "realTenY": 2.43,
-      "scoreInputCompleteness": 1.0,
-      "estimatedCount": 0,
-      "valuationInScore": false
-    },
     {
       "generatedAt": "2026-08-12T14:41:57Z",
       "asOf": "2026-08-12",
@@ -7816,6 +7791,31 @@
       "igOas": 0.88,
       "tenYYield": 5.0,
       "realTenY": 2.66,
+      "scoreInputCompleteness": 1.0,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-10-29T00:22:14Z",
+      "asOf": "2026-10-27",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 0,
+        "credit": 0,
+        "sentiment": 2
+      },
+      "spyClose": 769.66,
+      "spyDrawdown": -1.21,
+      "qqqDrawdown": -5.06,
+      "fearGreed": 36.0,
+      "rspSpyRel60d": -1.25,
+      "vix": 16.91,
+      "move": 94.55,
+      "hyOas": 3.18,
+      "igOas": 0.88,
+      "tenYYield": 4.99,
+      "realTenY": 2.64,
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
       "valuationInScore": false
