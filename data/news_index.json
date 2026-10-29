@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-29T02:56:40Z",
+  "generatedAt": "2026-10-29T13:16:45Z",
   "entries": [
+    {
+      "id": "2026-10-29_morning",
+      "date": "2026-10-29",
+      "edition": "morning",
+      "title": "2026-10-29 早盘投资动态简报",
+      "summary": "Fed按兵不动后，Alphabet的预期差与AI资本开支成为开盘前风险定价主轴。",
+      "generatedAt": "2026-10-29T08:39:55-04:00",
+      "path": "data/news/2026-10-29_morning.md",
+      "wordCount": 2808,
+      "sourceCount": 32
+    },
     {
       "id": "2026-10-28_close",
       "date": "2026-10-28",
@@ -1236,8 +1247,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-28",
-    "dates": 67,
-    "reports": 112
+    "end": "2026-10-29",
+    "dates": 68,
+    "reports": 113
   }
 }
