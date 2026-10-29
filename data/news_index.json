@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-29T13:16:45Z",
+  "generatedAt": "2026-10-29T21:19:14Z",
   "entries": [
+    {
+      "id": "2026-10-29_close",
+      "date": "2026-10-29",
+      "edition": "close",
+      "title": "美股收盘：Alphabet冲击AI交易，指数下跌但小盘与广度相对坚韧",
+      "summary": "10月29日现金收盘，纳指因Alphabet业绩后的AI资本开支忧虑领跌；GDP强于预期和正市场广度并未阻止权重科技重估。",
+      "generatedAt": "2026-10-29T16:24:00-04:00",
+      "path": "data/news/2026-10-29_close.md",
+      "wordCount": 2928,
+      "sourceCount": 17
+    },
     {
       "id": "2026-10-29_morning",
       "date": "2026-10-29",
@@ -1249,6 +1260,6 @@
     "start": "2026-07-23",
     "end": "2026-10-29",
     "dates": 68,
-    "reports": 113
+    "reports": 114
   }
 }

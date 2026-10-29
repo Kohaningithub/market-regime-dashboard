@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-29T13:16:47Z",
+  "generatedAt": "2026-10-29T21:19:16Z",
   "entries": [
+    {
+      "id": "2026-10-29_close",
+      "date": "2026-10-29",
+      "edition": "close",
+      "title": "US Close: Alphabet Revives AI-Capex Anxiety as Tech Weighs on Indexes",
+      "summary": "At the October 29 cash close, the Nasdaq lagged as Alphabet's results refocused investors on AI cash burn; solid GDP and positive breadth did not prevent a repricing of mega-cap technology.",
+      "generatedAt": "2026-10-29T16:24:00-04:00",
+      "path": "data/news-en/2026-10-29_close.md",
+      "wordCount": 8509,
+      "sourceCount": 17
+    },
     {
       "id": "2026-10-29_morning",
       "date": "2026-10-29",
@@ -1249,6 +1260,6 @@
     "start": "2026-07-23",
     "end": "2026-10-29",
     "dates": 68,
-    "reports": 113
+    "reports": 114
   }
 }
