@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-28T13:25:37Z",
+  "generatedAt": "2026-10-29T02:56:41Z",
   "entries": [
+    {
+      "id": "2026-10-28_close",
+      "date": "2026-10-28",
+      "edition": "close",
+      "title": "US Close: Fed pauses as AI hardware outperforms",
+      "summary": "The S&P 500, Dow and Nasdaq edged higher. Chips and data-center infrastructure led, while rates, oil and after-hours mega-cap earnings remain the key valuation tests.",
+      "generatedAt": "2026-10-28T16:27:14-04:00",
+      "path": "data/news-en/2026-10-28_close.md",
+      "wordCount": 5861,
+      "sourceCount": 17
+    },
     {
       "id": "2026-10-28_morning",
       "date": "2026-10-28",
@@ -1227,6 +1238,6 @@
     "start": "2026-07-23",
     "end": "2026-10-28",
     "dates": 67,
-    "reports": 111
+    "reports": 112
   }
 }

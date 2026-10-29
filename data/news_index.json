@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-28T13:25:35Z",
+  "generatedAt": "2026-10-29T02:56:40Z",
   "entries": [
+    {
+      "id": "2026-10-28_close",
+      "date": "2026-10-28",
+      "edition": "close",
+      "title": "美股收盘：Fed按兵不动，AI硬件强于大盘",
+      "summary": "标普500、道指和纳指小幅上涨；芯片与数据中心基础设施领涨，但利率、油价和盘后大型科技财报仍是估值验证点。",
+      "generatedAt": "2026-10-28T16:27:14-04:00",
+      "path": "data/news/2026-10-28_close.md",
+      "wordCount": 2291,
+      "sourceCount": 17
+    },
     {
       "id": "2026-10-28_morning",
       "date": "2026-10-28",
@@ -1227,6 +1238,6 @@
     "start": "2026-07-23",
     "end": "2026-10-28",
     "dates": 67,
-    "reports": 111
+    "reports": 112
   }
 }
