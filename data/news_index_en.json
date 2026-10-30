@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-30T13:17:04Z",
+  "generatedAt": "2026-10-30T21:23:02Z",
   "entries": [
+    {
+      "id": "2026-10-30_close",
+      "date": "2026-10-30",
+      "edition": "close",
+      "title": "Closing Investment Brief | AI return hurdle drives technology repricing",
+      "summary": "U.S. equities closed sharply lower on October 30 as investors repriced AI spending, cash conversion and guidance, while energy and staples showed earnings-led resilience.",
+      "generatedAt": "2026-10-30T16:27:00-04:00",
+      "path": "data/news-en/2026-10-30_close.md",
+      "wordCount": 7911,
+      "sourceCount": 36
+    },
     {
       "id": "2026-10-30_morning",
       "date": "2026-10-30",
@@ -1271,6 +1282,6 @@
     "start": "2026-07-23",
     "end": "2026-10-30",
     "dates": 69,
-    "reports": 115
+    "reports": 116
   }
 }

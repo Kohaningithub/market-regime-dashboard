@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-30T13:17:02Z",
+  "generatedAt": "2026-10-30T21:23:00Z",
   "entries": [
+    {
+      "id": "2026-10-30_close",
+      "date": "2026-10-30",
+      "edition": "close",
+      "title": "收盘投资动态｜AI 回报率重估触发科技股急跌",
+      "summary": "10月30日美股现金盘收跌，AI资本开支的现金流与盈利兑现压力压过了能源和必选消费的财报韧性。",
+      "generatedAt": "2026-10-30T16:27:00-04:00",
+      "path": "data/news/2026-10-30_close.md",
+      "wordCount": 3006,
+      "sourceCount": 37
+    },
     {
       "id": "2026-10-30_morning",
       "date": "2026-10-30",
@@ -1271,6 +1282,6 @@
     "start": "2026-07-23",
     "end": "2026-10-30",
     "dates": 69,
-    "reports": 115
+    "reports": 116
   }
 }
