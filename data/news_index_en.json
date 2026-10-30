@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-29T21:19:16Z",
+  "generatedAt": "2026-10-30T13:17:04Z",
   "entries": [
+    {
+      "id": "2026-10-30_morning",
+      "date": "2026-10-30",
+      "edition": "morning",
+      "title": "October 30, 2026 Morning Investment Brief",
+      "summary": "Amazon and Intel extend the AI-return reset into Friday premarket while Hormuz risk lifts oil; distinguish those live signals from Thursday's cash close.",
+      "generatedAt": "2026-10-30T08:41:26-04:00",
+      "path": "data/news-en/2026-10-30_morning.md",
+      "wordCount": 8589,
+      "sourceCount": 34
+    },
     {
       "id": "2026-10-29_close",
       "date": "2026-10-29",
@@ -1258,8 +1269,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-29",
-    "dates": 68,
-    "reports": 114
+    "end": "2026-10-30",
+    "dates": 69,
+    "reports": 115
   }
 }

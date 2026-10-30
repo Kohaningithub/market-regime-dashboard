@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-29T21:19:14Z",
+  "generatedAt": "2026-10-30T13:17:02Z",
   "entries": [
+    {
+      "id": "2026-10-30_morning",
+      "date": "2026-10-30",
+      "edition": "morning",
+      "title": "2026年10月30日早盘投资动态简报",
+      "summary": "亚马逊和英特尔的财报指引将AI回报率重估延续至周五盘前，霍尔木兹风险则推高油价；必须区分实时盘前与周四收盘。",
+      "generatedAt": "2026-10-30T08:41:26-04:00",
+      "path": "data/news/2026-10-30_morning.md",
+      "wordCount": 2777,
+      "sourceCount": 34
+    },
     {
       "id": "2026-10-29_close",
       "date": "2026-10-29",
@@ -1258,8 +1269,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-29",
-    "dates": 68,
-    "reports": 114
+    "end": "2026-10-30",
+    "dates": 69,
+    "reports": 115
   }
 }
