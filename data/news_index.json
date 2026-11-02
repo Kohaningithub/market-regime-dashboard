@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-30T21:23:00Z",
+  "generatedAt": "2026-11-02T14:24:25Z",
   "entries": [
+    {
+      "id": "2026-11-02_morning",
+      "date": "2026-11-02",
+      "edition": "morning",
+      "title": "2026-11-02 早盘投资动态简报",
+      "summary": "油价回落带来盘前反弹，但市场仍在重估 AI 资本开支的回报门槛。",
+      "generatedAt": "2026-11-02T08:38:54-05:00",
+      "path": "data/news/2026-11-02_morning.md",
+      "wordCount": 2884,
+      "sourceCount": 30
+    },
     {
       "id": "2026-10-30_close",
       "date": "2026-10-30",
@@ -1280,8 +1291,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-30",
-    "dates": 69,
-    "reports": 116
+    "end": "2026-11-02",
+    "dates": 70,
+    "reports": 117
   }
 }

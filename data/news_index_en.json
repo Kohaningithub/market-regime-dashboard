@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-10-30T21:23:02Z",
+  "generatedAt": "2026-11-02T14:24:27Z",
   "entries": [
+    {
+      "id": "2026-11-02_morning",
+      "date": "2026-11-02",
+      "edition": "morning",
+      "title": "2026-11-02 Morning Investment Brief",
+      "summary": "Lower oil is supporting a premarket rebound, while AI capital-spending returns remain the central valuation test.",
+      "generatedAt": "2026-11-02T08:38:54-05:00",
+      "path": "data/news-en/2026-11-02_morning.md",
+      "wordCount": 7462,
+      "sourceCount": 30
+    },
     {
       "id": "2026-10-30_close",
       "date": "2026-10-30",
@@ -1280,8 +1291,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-10-30",
-    "dates": 69,
-    "reports": 116
+    "end": "2026-11-02",
+    "dates": 70,
+    "reports": 117
   }
 }
