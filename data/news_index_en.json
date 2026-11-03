@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-02T22:21:20Z",
+  "generatedAt": "2026-11-03T14:16:45Z",
   "entries": [
+    {
+      "id": "2026-11-03_morning",
+      "date": "2026-11-03",
+      "edition": "morning",
+      "title": "2026-11-03 Morning Investment Brief",
+      "summary": "Oil's renewed risk premium and an AI-capex cash-return test leave index futures mixed ahead of the U.S. midterms.",
+      "generatedAt": "2026-11-03T08:43:09-05:00",
+      "path": "data/news-en/2026-11-03_morning.md",
+      "wordCount": 8087,
+      "sourceCount": 30
+    },
     {
       "id": "2026-11-02_close",
       "date": "2026-11-02",
@@ -1302,8 +1313,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-02",
-    "dates": 70,
-    "reports": 118
+    "end": "2026-11-03",
+    "dates": 71,
+    "reports": 119
   }
 }
