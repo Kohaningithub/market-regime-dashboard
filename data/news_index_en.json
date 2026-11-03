@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-03T14:16:45Z",
+  "generatedAt": "2026-11-03T22:16:14Z",
   "entries": [
+    {
+      "id": "2026-11-03_close",
+      "date": "2026-11-03",
+      "edition": "close",
+      "title": "Closing Investment Brief | AI rebound lifts indexes while breadth and Apple lag",
+      "summary": "At the completed November 3 US cash close, the S&P 500 gained 0.4% and the Nasdaq 0.8%, led by AI-linked semiconductors, while the Dow fell 0.4% and most S&P constituents declined.",
+      "generatedAt": "2026-11-03T16:22:28-05:00",
+      "path": "data/news-en/2026-11-03_close.md",
+      "wordCount": 8023,
+      "sourceCount": 34
+    },
     {
       "id": "2026-11-03_morning",
       "date": "2026-11-03",
@@ -1315,6 +1326,6 @@
     "start": "2026-07-23",
     "end": "2026-11-03",
     "dates": 71,
-    "reports": 119
+    "reports": 120
   }
 }
