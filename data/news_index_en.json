@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-03T22:16:14Z",
+  "generatedAt": "2026-11-04T14:17:14Z",
   "entries": [
+    {
+      "id": "2026-11-04_morning",
+      "date": "2026-11-04",
+      "edition": "morning",
+      "title": "2026-11-04 Morning Investment Brief",
+      "summary": "Futures rose on the expectation of divided government, while AMD's outlook and data-center weakness show a more selective AI tape.",
+      "generatedAt": "2026-11-04T08:35:46-05:00",
+      "path": "data/news-en/2026-11-04_morning.md",
+      "wordCount": 6374,
+      "sourceCount": 29
+    },
     {
       "id": "2026-11-03_close",
       "date": "2026-11-03",
@@ -1324,8 +1335,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-03",
-    "dates": 71,
-    "reports": 120
+    "end": "2026-11-04",
+    "dates": 72,
+    "reports": 121
   }
 }

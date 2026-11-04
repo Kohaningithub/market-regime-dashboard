@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-03T22:16:13Z",
+  "generatedAt": "2026-11-04T14:17:12Z",
   "entries": [
+    {
+      "id": "2026-11-04_morning",
+      "date": "2026-11-04",
+      "edition": "morning",
+      "title": "2026-11-04 早盘投资动态简报",
+      "summary": "中期选举后的分裂政府预期推高期货；AMD 的强劲指引与数据中心链下跌共同显示 AI 定价正在分化。",
+      "generatedAt": "2026-11-04T08:35:46-05:00",
+      "path": "data/news/2026-11-04_morning.md",
+      "wordCount": 2617,
+      "sourceCount": 29
+    },
     {
       "id": "2026-11-03_close",
       "date": "2026-11-03",
@@ -1324,8 +1335,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-03",
-    "dates": 71,
-    "reports": 120
+    "end": "2026-11-04",
+    "dates": 72,
+    "reports": 121
   }
 }
