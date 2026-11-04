@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-03T20:16:38Z",
+  "generatedAt": "2026-11-04T00:52:29Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,7 +86,7 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 51.56,
+    "opportunityScore": 51.26,
     "riskScore": 2.0,
     "action": "HOLD",
     "stance": "维持",
@@ -97,9 +97,9 @@
       "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。"
     },
     "components": {
-      "drawdownOpportunity": 10.56,
+      "drawdownOpportunity": 10.42,
       "sentimentOpportunity": 20.94,
-      "volatilityOpportunity": 5.06,
+      "volatilityOpportunity": 4.89,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
       "volatilityRisk": 2.0,
@@ -108,7 +108,7 @@
       "dataPenalty": 0
     },
     "asOf": "2026-11-03",
-    "generatedAt": "2026-11-03T20:16:37Z",
+    "generatedAt": "2026-11-04T00:52:20Z",
     "pressureScores": {
       "volatility": 1,
       "credit": 0,
@@ -116,11 +116,11 @@
     },
     "marketState": "normal",
     "keyInputs": {
-      "vix": 20.96,
-      "vixChange5d": 3.44,
-      "move": 99.87,
-      "spyDrawdown": -3.23,
-      "qqqDrawdown": -9.87,
+      "vix": 20.83,
+      "vixChange5d": 3.31,
+      "move": 99.97,
+      "spyDrawdown": -3.18,
+      "qqqDrawdown": -9.79,
       "fearGreed": 19.0,
       "aaiiBearish": 41.4,
       "putCall": 0.67,
@@ -128,9 +128,9 @@
       "hyOas": 3.43,
       "igOas": 0.94,
       "nfci": -0.49,
-      "dxyChange20d": 0.03,
-      "kreRel20d": 7.88,
-      "spyRealizedVol20dTrailing": 11.5942
+      "dxyChange20d": -0.09,
+      "kreRel20d": 7.42,
+      "spyRealizedVol20dTrailing": 10.0854
     }
   },
   "historicalActionSummary": {
@@ -157,10 +157,10 @@
       "avgMaxDrawdown20dFwd": -4.0332
     },
     "HOLD": {
-      "rows": 1073,
+      "rows": 1075,
       "usableRows": 1013,
-      "avgOpportunityScore": 28.78,
-      "avgRiskScore": 10.59,
+      "avgOpportunityScore": 28.82,
+      "avgRiskScore": 10.58,
       "avgSpyRet20dFwd": 0.8535,
       "winRate20d": 0.6575,
       "avgSpyRet60dFwd": 2.9862,
