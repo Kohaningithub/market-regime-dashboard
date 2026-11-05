@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-04T14:17:14Z",
+  "generatedAt": "2026-11-05T00:01:24Z",
   "entries": [
+    {
+      "id": "2026-11-04_close",
+      "date": "2026-11-04",
+      "edition": "close",
+      "title": "Close Investment Brief | Post-election risk appetite returns, while AI and energy reprice",
+      "summary": "At the completed November 4 cash close, AP reported the S&P 500 up 1.6%, the Nasdaq up 1.4% and the Dow up more than 1,500 points. Falling oil and yields supported the rally, while AI, defense and oil equities lagged.",
+      "generatedAt": "2026-11-04T16:20:11-05:00",
+      "path": "data/news-en/2026-11-04_close.md",
+      "wordCount": 8012,
+      "sourceCount": 31
+    },
     {
       "id": "2026-11-04_morning",
       "date": "2026-11-04",
@@ -1337,6 +1348,6 @@
     "start": "2026-07-23",
     "end": "2026-11-04",
     "dates": 72,
-    "reports": 121
+    "reports": 122
   }
 }
