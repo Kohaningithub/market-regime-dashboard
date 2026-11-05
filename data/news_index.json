@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-05T00:01:18Z",
+  "generatedAt": "2026-11-05T14:24:54Z",
   "entries": [
+    {
+      "id": "2026-11-05_morning",
+      "date": "2026-11-05",
+      "edition": "morning",
+      "title": "2026-11-05 早盘投资动态简报",
+      "summary": "昨日油价急跌和选后制衡预期推高大盘，但今晨 AI/芯片承压；今日生产率与明日就业报告是利率—估值传导的近端验证。",
+      "generatedAt": "2026-11-05T08:42:13-05:00",
+      "path": "data/news/2026-11-05_morning.md",
+      "wordCount": 2548,
+      "sourceCount": 22
+    },
     {
       "id": "2026-11-04_close",
       "date": "2026-11-04",
@@ -1346,8 +1357,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-04",
-    "dates": 72,
-    "reports": 122
+    "end": "2026-11-05",
+    "dates": 73,
+    "reports": 123
   }
 }

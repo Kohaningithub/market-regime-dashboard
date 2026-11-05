@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-05T00:01:24Z",
+  "generatedAt": "2026-11-05T14:24:56Z",
   "entries": [
+    {
+      "id": "2026-11-05_morning",
+      "date": "2026-11-05",
+      "edition": "morning",
+      "title": "2026-11-05 Morning Investment Brief",
+      "summary": "Yesterday's oil-price collapse and post-election checks-and-balances rally lifted the broad market, but AI shares remain fragile; productivity and Friday payrolls are the next rate-to-valuation tests.",
+      "generatedAt": "2026-11-05T08:42:13-05:00",
+      "path": "data/news-en/2026-11-05_morning.md",
+      "wordCount": 6400,
+      "sourceCount": 22
+    },
     {
       "id": "2026-11-04_close",
       "date": "2026-11-04",
@@ -1346,8 +1357,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-04",
-    "dates": 72,
-    "reports": 122
+    "end": "2026-11-05",
+    "dates": 73,
+    "reports": 123
   }
 }
