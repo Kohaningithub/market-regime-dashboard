@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-05T14:24:54Z",
+  "generatedAt": "2026-11-06T03:07:32Z",
   "entries": [
+    {
+      "id": "2026-11-05_close",
+      "date": "2026-11-05",
+      "edition": "close",
+      "title": "收盘投资动态：AI 基建重估触发全面避险",
+      "summary": "11月5日美股现金收盘：AI 供应链急挫，指数抹去前日大部分涨幅；利率下行并未托住高估值科技。",
+      "generatedAt": "2026-11-05T16:28:28-05:00",
+      "path": "data/news/2026-11-05_close.md",
+      "wordCount": 2715,
+      "sourceCount": 21
+    },
     {
       "id": "2026-11-05_morning",
       "date": "2026-11-05",
@@ -1359,6 +1370,6 @@
     "start": "2026-07-23",
     "end": "2026-11-05",
     "dates": 73,
-    "reports": 123
+    "reports": 124
   }
 }

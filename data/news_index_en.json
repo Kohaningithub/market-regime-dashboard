@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-05T14:24:56Z",
+  "generatedAt": "2026-11-06T03:07:35Z",
   "entries": [
+    {
+      "id": "2026-11-05_close",
+      "date": "2026-11-05",
+      "edition": "close",
+      "title": "Closing Investment Brief: AI infrastructure repricing drives risk-off session",
+      "summary": "November 5 U.S. cash close: AI-linked shares sold off sharply, erasing much of Wednesday's rally despite lower Treasury yields.",
+      "generatedAt": "2026-11-05T16:28:28-05:00",
+      "path": "data/news-en/2026-11-05_close.md",
+      "wordCount": 6897,
+      "sourceCount": 21
+    },
     {
       "id": "2026-11-05_morning",
       "date": "2026-11-05",
@@ -1359,6 +1370,6 @@
     "start": "2026-07-23",
     "end": "2026-11-05",
     "dates": 73,
-    "reports": 123
+    "reports": 124
   }
 }
