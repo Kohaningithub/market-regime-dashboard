@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-11-05T01:02:10Z",
+  "generatedAt": "2026-11-06T01:06:08Z",
   "method": {
     "selected": "Score-bucket event study with bootstrap confidence bands, Spearman rank correlation, and 252-trading-day rolling stability checks",
     "reason": "The regime model is ordinal and threshold-based; this keeps the analysis interpretable and avoids overfitting a small, overlapping forward-return sample.",
     "primaryTarget": "SPY forward return, realized volatility, and max drawdown over 5/10/20/60 trading days"
   },
   "meta": {
-    "rows": 1256,
+    "rows": 1257,
     "startDate": "2021-11-02",
-    "endDate": "2026-11-03",
-    "latestScore": 4,
+    "endDate": "2026-11-04",
+    "latestScore": 2,
     "latestRegime": "normal",
     "latestCompleteness": 0.9333,
-    "avgCompleteness": 0.8248,
+    "avgCompleteness": 0.8249,
     "putCallMissingShare": 1.0,
-    "oasMissingShare": 0.3989
+    "oasMissingShare": 0.3986
   },
   "headline": {
     "scoreTotalReturn20Spearman": 0.1617,
@@ -86,12 +86,12 @@
       }
     },
     "1-2": {
-      "rows": 451,
-      "avgScore": 1.3792,
-      "avgCompleteness": 0.8532,
+      "rows": 452,
+      "avgScore": 1.3805,
+      "avgCompleteness": 0.8534,
       "horizons": {
         "5": {
-          "rows": 451,
+          "rows": 452,
           "usableRows": 446,
           "avgReturn": 0.3605,
           "medianReturn": 0.5078,
@@ -104,7 +104,7 @@
           "tailDrawdownP10": -5.5385
         },
         "10": {
-          "rows": 451,
+          "rows": 452,
           "usableRows": 444,
           "avgReturn": 0.5938,
           "medianReturn": 0.9446,
@@ -117,7 +117,7 @@
           "tailDrawdownP10": -5.5385
         },
         "20": {
-          "rows": 451,
+          "rows": 452,
           "usableRows": 435,
           "avgReturn": 1.0946,
           "medianReturn": 1.8835,
@@ -130,7 +130,7 @@
           "tailDrawdownP10": -5.5385
         },
         "60": {
-          "rows": 451,
+          "rows": 452,
           "usableRows": 416,
           "avgReturn": 3.0468,
           "medianReturn": 3.9851,
@@ -266,12 +266,12 @@
   "regimeAnalysis": {
     "normal": {
       "label": "Normal",
-      "rows": 1186,
-      "avgScore": 1.7597,
-      "avgCompleteness": 0.8317,
+      "rows": 1187,
+      "avgScore": 1.7599,
+      "avgCompleteness": 0.8318,
       "horizons": {
         "5": {
-          "rows": 1186,
+          "rows": 1187,
           "usableRows": 1179,
           "avgReturn": 0.2148,
           "medianReturn": 0.3517,
@@ -284,7 +284,7 @@
           "tailDrawdownP10": -7.1514
         },
         "10": {
-          "rows": 1186,
+          "rows": 1187,
           "usableRows": 1174,
           "avgReturn": 0.4338,
           "medianReturn": 0.694,
@@ -297,7 +297,7 @@
           "tailDrawdownP10": -7.1514
         },
         "20": {
-          "rows": 1186,
+          "rows": 1187,
           "usableRows": 1164,
           "avgReturn": 0.821,
           "medianReturn": 1.3901,
@@ -310,7 +310,7 @@
           "tailDrawdownP10": -7.1514
         },
         "60": {
-          "rows": 1186,
+          "rows": 1187,
           "usableRows": 1124,
           "avgReturn": 3.0149,
           "medianReturn": 3.7769,
@@ -526,7 +526,7 @@
     },
     {
       "score": 2,
-      "rows": 171,
+      "rows": 172,
       "avgReturn20": 0.6722,
       "medianReturn20": 1.3333,
       "winRate20": 0.6646,
@@ -6772,6 +6772,12 @@
       "date": "2026-11-03",
       "return20": 0.316,
       "vol20": 0.1923,
+      "completeness": 0.9333
+    },
+    {
+      "date": "2026-11-04",
+      "return20": 0.3171,
+      "vol20": 0.1919,
       "completeness": 0.9333
     }
   ],
@@ -23098,6 +23104,19 @@
       "volatilityScore": 1,
       "creditScore": 0,
       "sentimentScore": 3,
+      "regime": "normal",
+      "scoreInputCompleteness": 0.9333,
+      "spyRet20dFwd": null,
+      "spyRealizedVol20dFwd": null,
+      "spyMaxDrawdown20dFwd": null
+    },
+    {
+      "date": "2026-11-04",
+      "spyClose": 766.81,
+      "scoreTotal": 2,
+      "volatilityScore": 0,
+      "creditScore": 0,
+      "sentimentScore": 2,
       "regime": "normal",
       "scoreInputCompleteness": 0.9333,
       "spyRet20dFwd": null,

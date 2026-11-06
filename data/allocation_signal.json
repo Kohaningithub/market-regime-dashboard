@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-05T20:48:55Z",
+  "generatedAt": "2026-11-06T01:06:11Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,41 +86,41 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 71.05,
-    "riskScore": 12.19,
-    "action": "ADD_SMALL",
-    "stance": "小幅分批加仓/维持偏加",
-    "reason": "机会信号已经出现，但历史优势不如深度恐慌场景，适合小步执行。",
+    "opportunityScore": 63.95,
+    "riskScore": 19.59,
+    "action": "HOLD",
+    "stance": "维持",
+    "reason": "缺少高胜率加仓窗口，也没有足够强的减仓信号。",
     "guidance": {
-      "allocation": "可小幅加快定投或再平衡，不宜一次性重仓。",
-      "riskBudget": "保留后续更深回撤时继续加仓的空间。",
-      "watch": "若信用压力上升或波动扩散，应暂停加仓。"
+      "allocation": "维持现有配置、定投和再平衡纪律。",
+      "riskBudget": "没有足够强的加仓边际，也没有系统性减仓信号。",
+      "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。"
     },
     "components": {
-      "drawdownOpportunity": 17.45,
+      "drawdownOpportunity": 6.59,
       "sentimentOpportunity": 22.35,
-      "volatilityOpportunity": 16.25,
+      "volatilityOpportunity": 20,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
-      "volatilityRisk": 12.19,
+      "volatilityRisk": 19.59,
       "trendRisk": 0.0,
       "overheatRisk": 0.0,
       "dataPenalty": 0
     },
-    "asOf": "2026-11-05",
-    "generatedAt": "2026-11-05T20:48:54Z",
+    "asOf": "2026-11-04",
+    "generatedAt": "2026-11-06T01:06:04Z",
     "pressureScores": {
-      "volatility": 3,
+      "volatility": 4,
       "credit": 0,
       "sentiment": 3
     },
-    "marketState": "panic",
+    "marketState": "normal",
     "keyInputs": {
-      "vix": 26.02,
-      "vixChange5d": 8.82,
-      "move": 97.74,
-      "spyDrawdown": -5.65,
-      "qqqDrawdown": -14.34,
+      "vix": 28.18,
+      "vixChange5d": 10.98,
+      "move": 97.92,
+      "spyDrawdown": -1.58,
+      "qqqDrawdown": -8.91,
       "fearGreed": 20.0,
       "aaiiBearish": 48.4,
       "putCall": 0.44,
@@ -129,7 +129,7 @@
       "igOas": 0.91,
       "nfci": -0.46,
       "dxyChange20d": -0.56,
-      "kreRel20d": 9.65,
+      "kreRel20d": 9.07,
       "spyRealizedVol20dTrailing": 10.0854
     }
   },
@@ -157,10 +157,10 @@
       "avgMaxDrawdown20dFwd": -4.0332
     },
     "HOLD": {
-      "rows": 1075,
+      "rows": 1076,
       "usableRows": 1013,
       "avgOpportunityScore": 28.82,
-      "avgRiskScore": 10.58,
+      "avgRiskScore": 10.57,
       "avgSpyRet20dFwd": 0.8535,
       "winRate20d": 0.6575,
       "avgSpyRet60dFwd": 2.9862,
