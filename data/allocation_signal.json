@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-06T01:06:11Z",
+  "generatedAt": "2026-11-06T20:04:16Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,50 +86,50 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 63.95,
-    "riskScore": 19.59,
-    "action": "HOLD",
-    "stance": "维持",
-    "reason": "缺少高胜率加仓窗口，也没有足够强的减仓信号。",
+    "opportunityScore": 66.99,
+    "riskScore": 4.18,
+    "action": "ADD_SMALL",
+    "stance": "小幅分批加仓/维持偏加",
+    "reason": "机会信号已经出现，但历史优势不如深度恐慌场景，适合小步执行。",
     "guidance": {
-      "allocation": "维持现有配置、定投和再平衡纪律。",
-      "riskBudget": "没有足够强的加仓边际，也没有系统性减仓信号。",
-      "watch": "观察回撤是否加深、恐慌是否升温，以及信用压力是否扩散。"
+      "allocation": "可小幅加快定投或再平衡，不宜一次性重仓。",
+      "riskBudget": "保留后续更深回撤时继续加仓的空间。",
+      "watch": "若信用压力上升或波动扩散，应暂停加仓。"
     },
     "components": {
-      "drawdownOpportunity": 6.59,
-      "sentimentOpportunity": 22.35,
-      "volatilityOpportunity": 20,
+      "drawdownOpportunity": 16.29,
+      "sentimentOpportunity": 25,
+      "volatilityOpportunity": 10.7,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
-      "volatilityRisk": 19.59,
+      "volatilityRisk": 4.18,
       "trendRisk": 0.0,
       "overheatRisk": 0.0,
       "dataPenalty": 0
     },
-    "asOf": "2026-11-04",
-    "generatedAt": "2026-11-06T01:06:04Z",
+    "asOf": "2026-11-06",
+    "generatedAt": "2026-11-06T20:04:15Z",
     "pressureScores": {
-      "volatility": 4,
+      "volatility": 2,
       "credit": 0,
-      "sentiment": 3
+      "sentiment": 4
     },
     "marketState": "normal",
     "keyInputs": {
-      "vix": 28.18,
-      "vixChange5d": 10.98,
-      "move": 97.92,
-      "spyDrawdown": -1.58,
-      "qqqDrawdown": -8.91,
-      "fearGreed": 20.0,
+      "vix": 24.56,
+      "vixChange5d": 5.14,
+      "move": 93.11,
+      "spyDrawdown": -5.29,
+      "qqqDrawdown": -13.28,
+      "fearGreed": 23.0,
       "aaiiBearish": 48.4,
-      "putCall": 0.44,
+      "putCall": 0.89,
       "creditScore": 0,
-      "hyOas": 3.32,
-      "igOas": 0.91,
+      "hyOas": 3.48,
+      "igOas": 0.93,
       "nfci": -0.46,
-      "dxyChange20d": -0.56,
-      "kreRel20d": 9.07,
+      "dxyChange20d": 0.1,
+      "kreRel20d": 10.61,
       "spyRealizedVol20dTrailing": 10.0854
     }
   },
