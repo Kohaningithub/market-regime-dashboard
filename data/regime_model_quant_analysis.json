@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-11-06T01:06:08Z",
+  "generatedAt": "2026-11-07T00:18:06Z",
   "method": {
     "selected": "Score-bucket event study with bootstrap confidence bands, Spearman rank correlation, and 252-trading-day rolling stability checks",
     "reason": "The regime model is ordinal and threshold-based; this keeps the analysis interpretable and avoids overfitting a small, overlapping forward-return sample.",
     "primaryTarget": "SPY forward return, realized volatility, and max drawdown over 5/10/20/60 trading days"
   },
   "meta": {
-    "rows": 1257,
+    "rows": 1259,
     "startDate": "2021-11-02",
-    "endDate": "2026-11-04",
-    "latestScore": 2,
-    "latestRegime": "normal",
+    "endDate": "2026-11-06",
+    "latestScore": 6,
+    "latestRegime": "panic",
     "latestCompleteness": 0.9333,
-    "avgCompleteness": 0.8249,
+    "avgCompleteness": 0.8251,
     "putCallMissingShare": 1.0,
-    "oasMissingShare": 0.3986
+    "oasMissingShare": 0.3979
   },
   "headline": {
     "scoreTotalReturn20Spearman": 0.1617,
@@ -204,12 +204,12 @@
       }
     },
     "5+": {
-      "rows": 209,
-      "avgScore": 7.3206,
-      "avgCompleteness": 0.7509,
+      "rows": 211,
+      "avgScore": 7.3128,
+      "avgCompleteness": 0.7526,
       "horizons": {
         "5": {
-          "rows": 209,
+          "rows": 211,
           "usableRows": 209,
           "avgReturn": 0.5985,
           "medianReturn": 0.9174,
@@ -222,7 +222,7 @@
           "tailDrawdownP10": -9.2374
         },
         "10": {
-          "rows": 209,
+          "rows": 211,
           "usableRows": 209,
           "avgReturn": 1.2243,
           "medianReturn": 1.7286,
@@ -235,7 +235,7 @@
           "tailDrawdownP10": -9.2374
         },
         "20": {
-          "rows": 209,
+          "rows": 211,
           "usableRows": 209,
           "avgReturn": 2.4653,
           "medianReturn": 4.0808,
@@ -248,7 +248,7 @@
           "tailDrawdownP10": -9.2374
         },
         "60": {
-          "rows": 209,
+          "rows": 211,
           "usableRows": 209,
           "avgReturn": 4.8375,
           "medianReturn": 4.4708,
@@ -326,12 +326,12 @@
     },
     "panic": {
       "label": "Panic",
-      "rows": 33,
-      "avgScore": 7.7273,
-      "avgCompleteness": 0.6909,
+      "rows": 35,
+      "avgScore": 7.6571,
+      "avgCompleteness": 0.7048,
       "horizons": {
         "5": {
-          "rows": 33,
+          "rows": 35,
           "usableRows": 33,
           "avgReturn": 0.7182,
           "medianReturn": 1.4877,
@@ -344,7 +344,7 @@
           "tailDrawdownP10": -6.1987
         },
         "10": {
-          "rows": 33,
+          "rows": 35,
           "usableRows": 33,
           "avgReturn": 2.1563,
           "medianReturn": 2.7163,
@@ -357,7 +357,7 @@
           "tailDrawdownP10": -6.1987
         },
         "20": {
-          "rows": 33,
+          "rows": 35,
           "usableRows": 33,
           "avgReturn": 4.0005,
           "medianReturn": 5.2524,
@@ -370,7 +370,7 @@
           "tailDrawdownP10": -6.1987
         },
         "60": {
-          "rows": 33,
+          "rows": 35,
           "usableRows": 33,
           "avgReturn": 3.2881,
           "medianReturn": 3.1968,
@@ -562,7 +562,7 @@
     },
     {
       "score": 6,
-      "rows": 41,
+      "rows": 42,
       "avgReturn20": 2.7556,
       "medianReturn20": 4.8402,
       "winRate20": 0.6585,
@@ -571,7 +571,7 @@
     },
     {
       "score": 7,
-      "rows": 36,
+      "rows": 37,
       "avgReturn20": 2.367,
       "medianReturn20": 4.3952,
       "winRate20": 0.6667,
@@ -6778,6 +6778,18 @@
       "date": "2026-11-04",
       "return20": 0.3171,
       "vol20": 0.1919,
+      "completeness": 0.9333
+    },
+    {
+      "date": "2026-11-05",
+      "return20": 0.3161,
+      "vol20": 0.1879,
+      "completeness": 0.9333
+    },
+    {
+      "date": "2026-11-06",
+      "return20": 0.3161,
+      "vol20": 0.1837,
       "completeness": 0.9333
     }
   ],
@@ -23118,6 +23130,32 @@
       "creditScore": 0,
       "sentimentScore": 2,
       "regime": "normal",
+      "scoreInputCompleteness": 0.9333,
+      "spyRet20dFwd": null,
+      "spyRealizedVol20dFwd": null,
+      "spyMaxDrawdown20dFwd": null
+    },
+    {
+      "date": "2026-11-05",
+      "spyClose": 733.0,
+      "scoreTotal": 7,
+      "volatilityScore": 4,
+      "creditScore": 0,
+      "sentimentScore": 3,
+      "regime": "panic",
+      "scoreInputCompleteness": 0.9333,
+      "spyRet20dFwd": null,
+      "spyRealizedVol20dFwd": null,
+      "spyMaxDrawdown20dFwd": null
+    },
+    {
+      "date": "2026-11-06",
+      "spyClose": 735.29,
+      "scoreTotal": 6,
+      "volatilityScore": 3,
+      "creditScore": 0,
+      "sentimentScore": 3,
+      "regime": "panic",
       "scoreInputCompleteness": 0.9333,
       "spyRet20dFwd": null,
       "spyRealizedVol20dFwd": null,
