@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-07T00:18:02Z",
+  "generatedAt": "2026-11-08T16:39:41Z",
   "asOf": "2026-11-06",
   "mode": "live",
   "values": {
@@ -15,7 +15,7 @@
     "hyOasChange20d": 33.0,
     "igOas": 0.93,
     "igOasChange20d": 11.0,
-    "dxyChange20d": 0.07,
+    "dxyChange20d": 0.09,
     "tenYYield": 4.84,
     "tenYChange20d": -44.0,
     "realTenY": 2.6,
@@ -23,13 +23,13 @@
     "nfci": -0.46,
     "kreRel20d": 10.78,
     "aaiiBearish": 48.4,
-    "putCall": 0.89,
+    "putCall": 0.59,
     "fearGreed": 22.0
   },
   "scores": {
     "volatility": 3,
     "credit": 0,
-    "sentiment": 4
+    "sentiment": 3
   },
   "regime": {
     "key": "panic",
@@ -140,7 +140,7 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-11-07",
+      "asOf": "2026-11-08",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
