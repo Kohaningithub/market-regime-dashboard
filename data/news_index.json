@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-06T14:18:16Z",
+  "generatedAt": "2026-11-11T15:24:41Z",
   "entries": [
+    {
+      "id": "2026-11-11_morning",
+      "date": "2026-11-11",
+      "edition": "morning",
+      "title": "2026-11-11 早盘投资动态简报",
+      "summary": "CPI 的月度黏性推高政策利率不确定性，但 CoreWeave 上调收入指引令 AI 基础设施股盘前反弹；Veterans Day 美债现券休市使利率价格发现受限。",
+      "generatedAt": "2026-11-11T09:51:20-05:00",
+      "path": "data/news/2026-11-11_morning.md",
+      "wordCount": 2621,
+      "sourceCount": 24
+    },
     {
       "id": "2026-11-06_morning",
       "date": "2026-11-06",
@@ -1379,8 +1390,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-06",
-    "dates": 74,
-    "reports": 125
+    "end": "2026-11-11",
+    "dates": 75,
+    "reports": 126
   }
 }
