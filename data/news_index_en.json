@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-12T02:33:21Z",
+  "generatedAt": "2026-11-12T14:24:39Z",
   "entries": [
+    {
+      "id": "2026-11-12_morning",
+      "date": "2026-11-12",
+      "edition": "morning",
+      "title": "2026-11-12 Morning Investment Brief",
+      "summary": "Yesterday's AI-earnings rebound has been interrupted overnight by reporting on Nvidia's CEO; the premarket question is whether a governance shock stays company-specific while Cisco and Applied Materials provide the next fundamental AI-infrastructure tests after the close.",
+      "generatedAt": "2026-11-12T08:38:05-05:00",
+      "path": "data/news-en/2026-11-12_morning.md",
+      "wordCount": 7937,
+      "sourceCount": 25
+    },
     {
       "id": "2026-11-11_close",
       "date": "2026-11-11",
@@ -1401,8 +1412,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-11",
-    "dates": 75,
-    "reports": 127
+    "end": "2026-11-12",
+    "dates": 76,
+    "reports": 128
   }
 }

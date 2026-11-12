@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-12T02:33:19Z",
+  "generatedAt": "2026-11-12T14:24:37Z",
   "entries": [
+    {
+      "id": "2026-11-12_morning",
+      "date": "2026-11-12",
+      "edition": "morning",
+      "title": "2026-11-12 早盘投资动态简报",
+      "summary": "昨日 AI 业绩驱动的反弹在隔夜被 Nvidia CEO 去留报道打断；盘前的关键不是宏观新数据，而是 AI 领导权风险能否局限于单一公司，以及今晚 Cisco、Applied Materials 的订单指引能否重新锚定基本面。",
+      "generatedAt": "2026-11-12T08:38:05-05:00",
+      "path": "data/news/2026-11-12_morning.md",
+      "wordCount": 3313,
+      "sourceCount": 25
+    },
     {
       "id": "2026-11-11_close",
       "date": "2026-11-11",
@@ -1401,8 +1412,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-11",
-    "dates": 75,
-    "reports": 127
+    "end": "2026-11-12",
+    "dates": 76,
+    "reports": 128
   }
 }
