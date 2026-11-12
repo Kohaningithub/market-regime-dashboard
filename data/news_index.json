@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-11T15:24:41Z",
+  "generatedAt": "2026-11-12T02:33:19Z",
   "entries": [
+    {
+      "id": "2026-11-11_close",
+      "date": "2026-11-11",
+      "edition": "close",
+      "title": "11月11日收盘投资动态简报：AI基础设施反弹，但通胀与融资约束未消失",
+      "summary": "CoreWeave的业绩与指引缓解AI投资回报焦虑，科技与半导体带动美股收高；10月通胀、油价和债券休市令贴现率风险仍待后续验证。",
+      "generatedAt": "2026-11-11T16:26:26-05:00",
+      "path": "data/news/2026-11-11_close.md",
+      "wordCount": 3094,
+      "sourceCount": 26
+    },
     {
       "id": "2026-11-11_morning",
       "date": "2026-11-11",
@@ -1392,6 +1403,6 @@
     "start": "2026-07-23",
     "end": "2026-11-11",
     "dates": 75,
-    "reports": 126
+    "reports": 127
   }
 }

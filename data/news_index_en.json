@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-11T15:24:43Z",
+  "generatedAt": "2026-11-12T02:33:21Z",
   "entries": [
+    {
+      "id": "2026-11-11_close",
+      "date": "2026-11-11",
+      "edition": "close",
+      "title": "November 11 Close: AI infrastructure rebounds, but inflation and funding constraints remain",
+      "summary": "CoreWeave's results eased fears about AI returns and lifted technology and semiconductors; October inflation, higher oil and a closed bond market leave the discount-rate test for Thursday.",
+      "generatedAt": "2026-11-11T16:26:26-05:00",
+      "path": "data/news-en/2026-11-11_close.md",
+      "wordCount": 8350,
+      "sourceCount": 26
+    },
     {
       "id": "2026-11-11_morning",
       "date": "2026-11-11",
@@ -1392,6 +1403,6 @@
     "start": "2026-07-23",
     "end": "2026-11-11",
     "dates": 75,
-    "reports": 126
+    "reports": 127
   }
 }
