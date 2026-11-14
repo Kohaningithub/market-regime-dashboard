@@ -1,20 +1,20 @@
 {
-  "generatedAt": "2026-11-13T01:27:37Z",
+  "generatedAt": "2026-11-14T01:00:27Z",
   "method": {
     "selected": "Score-bucket event study with bootstrap confidence bands, Spearman rank correlation, and 252-trading-day rolling stability checks",
     "reason": "The regime model is ordinal and threshold-based; this keeps the analysis interpretable and avoids overfitting a small, overlapping forward-return sample.",
     "primaryTarget": "SPY forward return, realized volatility, and max drawdown over 5/10/20/60 trading days"
   },
   "meta": {
-    "rows": 1257,
+    "rows": 1258,
     "startDate": "2021-11-09",
-    "endDate": "2026-11-11",
+    "endDate": "2026-11-12",
     "latestScore": 2,
     "latestRegime": "normal",
     "latestCompleteness": 0.9333,
-    "avgCompleteness": 0.8249,
+    "avgCompleteness": 0.825,
     "putCallMissingShare": 1.0,
-    "oasMissingShare": 0.3986
+    "oasMissingShare": 0.3983
   },
   "headline": {
     "scoreTotalReturn20Spearman": 0.1536,
@@ -86,12 +86,12 @@
       }
     },
     "1-2": {
-      "rows": 455,
-      "avgScore": 1.3846,
-      "avgCompleteness": 0.8536,
+      "rows": 456,
+      "avgScore": 1.386,
+      "avgCompleteness": 0.8538,
       "horizons": {
         "5": {
-          "rows": 455,
+          "rows": 456,
           "usableRows": 451,
           "avgReturn": 0.3302,
           "medianReturn": 0.5003,
@@ -104,7 +104,7 @@
           "tailDrawdownP10": -5.5448
         },
         "10": {
-          "rows": 455,
+          "rows": 456,
           "usableRows": 446,
           "avgReturn": 0.585,
           "medianReturn": 0.9382,
@@ -117,7 +117,7 @@
           "tailDrawdownP10": -5.5448
         },
         "20": {
-          "rows": 455,
+          "rows": 456,
           "usableRows": 440,
           "avgReturn": 1.0406,
           "medianReturn": 1.8453,
@@ -130,7 +130,7 @@
           "tailDrawdownP10": -5.5448
         },
         "60": {
-          "rows": 455,
+          "rows": 456,
           "usableRows": 416,
           "avgReturn": 3.0468,
           "medianReturn": 3.9851,
@@ -266,12 +266,12 @@
   "regimeAnalysis": {
     "normal": {
       "label": "Normal",
-      "rows": 1185,
-      "avgScore": 1.7637,
-      "avgCompleteness": 0.8316,
+      "rows": 1186,
+      "avgScore": 1.7639,
+      "avgCompleteness": 0.8317,
       "horizons": {
         "5": {
-          "rows": 1185,
+          "rows": 1186,
           "usableRows": 1179,
           "avgReturn": 0.205,
           "medianReturn": 0.3507,
@@ -284,7 +284,7 @@
           "tailDrawdownP10": -7.1514
         },
         "10": {
-          "rows": 1185,
+          "rows": 1186,
           "usableRows": 1174,
           "avgReturn": 0.4213,
           "medianReturn": 0.686,
@@ -297,7 +297,7 @@
           "tailDrawdownP10": -7.1514
         },
         "20": {
-          "rows": 1185,
+          "rows": 1186,
           "usableRows": 1164,
           "avgReturn": 0.8132,
           "medianReturn": 1.3901,
@@ -310,7 +310,7 @@
           "tailDrawdownP10": -7.1514
         },
         "60": {
-          "rows": 1185,
+          "rows": 1186,
           "usableRows": 1124,
           "avgReturn": 3.0158,
           "medianReturn": 3.7769,
@@ -526,7 +526,7 @@
     },
     {
       "score": 2,
-      "rows": 175,
+      "rows": 176,
       "avgReturn20": 0.5393,
       "medianReturn20": 1.1966,
       "winRate20": 0.6442,
@@ -6778,6 +6778,12 @@
       "date": "2026-11-11",
       "return20": 0.2759,
       "vol20": 0.1867,
+      "completeness": 0.9333
+    },
+    {
+      "date": "2026-11-12",
+      "return20": 0.2764,
+      "vol20": 0.1876,
       "completeness": 0.9333
     }
   ],
@@ -23113,6 +23119,19 @@
     {
       "date": "2026-11-11",
       "spyClose": 759.81,
+      "scoreTotal": 2,
+      "volatilityScore": 0,
+      "creditScore": 0,
+      "sentimentScore": 2,
+      "regime": "normal",
+      "scoreInputCompleteness": 0.9333,
+      "spyRet20dFwd": null,
+      "spyRealizedVol20dFwd": null,
+      "spyMaxDrawdown20dFwd": null
+    },
+    {
+      "date": "2026-11-12",
+      "spyClose": 757.12,
       "scoreTotal": 2,
       "volatilityScore": 0,
       "creditScore": 0,
