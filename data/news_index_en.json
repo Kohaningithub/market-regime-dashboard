@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-17T14:22:31Z",
+  "generatedAt": "2026-11-17T22:25:04Z",
   "entries": [
+    {
+      "id": "2026-11-17_close",
+      "date": "2026-11-17",
+      "edition": "close",
+      "title": "Closing Investment Brief: AI risk premium spreads beyond technology",
+      "summary": "U.S. equities finished broadly lower on November 17 as AI governance and return-on-capital concerns, oil and firmer cost data kept pressure on duration-sensitive assets.",
+      "generatedAt": "2026-11-17T16:20:09-05:00",
+      "path": "data/news-en/2026-11-17_close.md",
+      "wordCount": 8395,
+      "sourceCount": 20
+    },
     {
       "id": "2026-11-17_morning",
       "date": "2026-11-17",
@@ -1480,6 +1491,6 @@
     "start": "2026-07-23",
     "end": "2026-11-17",
     "dates": 79,
-    "reports": 134
+    "reports": 135
   }
 }

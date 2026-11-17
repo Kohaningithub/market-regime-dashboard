@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-17T14:22:29Z",
+  "generatedAt": "2026-11-17T22:25:02Z",
   "entries": [
+    {
+      "id": "2026-11-17_close",
+      "date": "2026-11-17",
+      "edition": "close",
+      "title": "收盘投资动态：AI 风险溢价扩散，防御也未能独善其身",
+      "summary": "11 月17日美股现金收盘普跌；AI 治理与资本回报疑虑、油价和偏强成本数据共同抬高贴现率敏感资产的风险溢价。",
+      "generatedAt": "2026-11-17T16:20:09-05:00",
+      "path": "data/news/2026-11-17_close.md",
+      "wordCount": 3227,
+      "sourceCount": 20
+    },
     {
       "id": "2026-11-17_morning",
       "date": "2026-11-17",
@@ -1480,6 +1491,6 @@
     "start": "2026-07-23",
     "end": "2026-11-17",
     "dates": 79,
-    "reports": 134
+    "reports": 135
   }
 }
