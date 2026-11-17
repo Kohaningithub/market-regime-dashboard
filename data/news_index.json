@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-17T00:57:19Z",
+  "generatedAt": "2026-11-17T14:22:29Z",
   "entries": [
+    {
+      "id": "2026-11-17_morning",
+      "date": "2026-11-17",
+      "edition": "morning",
+      "title": "2026-11-17 早盘投资动态简报",
+      "summary": "隔夜AI链继续承压，但美国盘前期指趋稳；英伟达盘后业绩、出口管制执行与进口价格数据共同决定科技风险溢价能否收敛。",
+      "generatedAt": "2026-11-17T08:47:44-05:00",
+      "path": "data/news/2026-11-17_morning.md",
+      "wordCount": 2927,
+      "sourceCount": 30
+    },
     {
       "id": "2026-11-16_close",
       "date": "2026-11-16",
@@ -1467,8 +1478,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-16",
-    "dates": 78,
-    "reports": 133
+    "end": "2026-11-17",
+    "dates": 79,
+    "reports": 134
   }
 }

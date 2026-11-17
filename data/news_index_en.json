@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-17T00:57:26Z",
+  "generatedAt": "2026-11-17T14:22:31Z",
   "entries": [
+    {
+      "id": "2026-11-17_morning",
+      "date": "2026-11-17",
+      "edition": "morning",
+      "title": "November 17, 2026 Morning Investment Brief",
+      "summary": "AI risk remains globally visible, but U.S. premarket trading is steadier ahead of Nvidia results; import/export prices, export-control implementation and company guidance are the real tests.",
+      "generatedAt": "2026-11-17T08:47:44-05:00",
+      "path": "data/news-en/2026-11-17_morning.md",
+      "wordCount": 8222,
+      "sourceCount": 30
+    },
     {
       "id": "2026-11-16_close",
       "date": "2026-11-16",
@@ -1467,8 +1478,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-16",
-    "dates": 78,
-    "reports": 133
+    "end": "2026-11-17",
+    "dates": 79,
+    "reports": 134
   }
 }
