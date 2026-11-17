@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-16T14:23:45Z",
+  "generatedAt": "2026-11-17T00:57:26Z",
   "entries": [
+    {
+      "id": "2026-11-16_close",
+      "date": "2026-11-16",
+      "edition": "close",
+      "title": "November 16 Close: AI governance and export controls reprice technology risk",
+      "summary": "The S&P 500 fell 1.9%, the Nasdaq 2.5% and the Dow 739 points as Nvidia-led AI risk repricing outweighed lower oil and Treasury yields.",
+      "generatedAt": "2026-11-16T16:19:30-05:00",
+      "path": "data/news-en/2026-11-16_close.md",
+      "wordCount": 7194,
+      "sourceCount": 24
+    },
     {
       "id": "2026-11-16_morning",
       "date": "2026-11-16",
@@ -1458,6 +1469,6 @@
     "start": "2026-07-23",
     "end": "2026-11-16",
     "dates": 78,
-    "reports": 132
+    "reports": 133
   }
 }
