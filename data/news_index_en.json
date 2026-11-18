@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-18T14:17:48Z",
+  "generatedAt": "2026-11-18T22:17:53Z",
   "entries": [
+    {
+      "id": "2026-11-18_close",
+      "date": "2026-11-18",
+      "edition": "close",
+      "title": "Close Brief: Tech Repair Failed to Broaden as Rates and Energy Hit the Dow",
+      "summary": "U.S. cash equities closed split on November 18: Nasdaq and small caps rose, while the Dow, financials and energy fell; FOMC minutes preserved the higher-for-longer risk.",
+      "generatedAt": "2026-11-18T16:22:36-05:00",
+      "path": "data/news-en/2026-11-18_close.md",
+      "wordCount": 6948,
+      "sourceCount": 18
+    },
     {
       "id": "2026-11-18_morning",
       "date": "2026-11-18",
@@ -1502,6 +1513,6 @@
     "start": "2026-07-23",
     "end": "2026-11-18",
     "dates": 80,
-    "reports": 136
+    "reports": 137
   }
 }
