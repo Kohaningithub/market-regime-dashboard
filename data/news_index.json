@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-17T22:25:02Z",
+  "generatedAt": "2026-11-18T14:17:46Z",
   "entries": [
+    {
+      "id": "2026-11-18_morning",
+      "date": "2026-11-18",
+      "edition": "morning",
+      "title": "2026-11-18 早盘投资动态简报",
+      "summary": "英伟达强劲业绩与1300亿美元季度收入指引修复AI需求预期，推动科技期货反弹；但利润率下行、昨日广泛下跌和午后FOMC纪要意味着反弹尚待现金盘广度验证。",
+      "generatedAt": "2026-11-18T08:43:46-05:00",
+      "path": "data/news/2026-11-18_morning.md",
+      "wordCount": 3388,
+      "sourceCount": 43
+    },
     {
       "id": "2026-11-17_close",
       "date": "2026-11-17",
@@ -1489,8 +1500,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-17",
-    "dates": 79,
-    "reports": 135
+    "end": "2026-11-18",
+    "dates": 80,
+    "reports": 136
   }
 }
