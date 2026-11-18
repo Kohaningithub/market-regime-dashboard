@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-17T21:53:59Z",
+  "generatedAt": "2026-11-18T21:34:39Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,8 +86,8 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 67.4,
-    "riskScore": 16.73,
+    "opportunityScore": 65.83,
+    "riskScore": 15.57,
     "action": "ADD_SMALL",
     "stance": "小幅分批加仓/维持偏加",
     "reason": "机会信号已经出现，但历史优势不如深度恐慌场景，适合小步执行。",
@@ -97,39 +97,39 @@
       "watch": "若信用压力上升或波动扩散，应暂停加仓。"
     },
     "components": {
-      "drawdownOpportunity": 17.91,
+      "drawdownOpportunity": 18.43,
       "sentimentOpportunity": 20.44,
-      "volatilityOpportunity": 14.05,
+      "volatilityOpportunity": 11.96,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
-      "volatilityRisk": 16.73,
+      "volatilityRisk": 15.57,
       "trendRisk": 0.0,
       "overheatRisk": 0.0,
       "dataPenalty": 0
     },
-    "asOf": "2026-11-17",
-    "generatedAt": "2026-11-17T21:53:59Z",
+    "asOf": "2026-11-18",
+    "generatedAt": "2026-11-18T21:34:38Z",
     "pressureScores": {
-      "volatility": 3,
+      "volatility": 2,
       "credit": 0,
       "sentiment": 3
     },
-    "marketState": "panic",
+    "marketState": "normal",
     "keyInputs": {
-      "vix": 25.46,
-      "vixChange5d": 6.0,
-      "move": 101.88,
-      "spyDrawdown": -5.99,
-      "qqqDrawdown": -13.52,
+      "vix": 24.56,
+      "vixChange5d": 7.07,
+      "move": 98.15,
+      "spyDrawdown": -6.28,
+      "qqqDrawdown": -13.18,
       "fearGreed": 25.0,
       "aaiiBearish": 51.4,
-      "putCall": 0.73,
+      "putCall": 0.71,
       "creditScore": 0,
-      "hyOas": 3.34,
-      "igOas": 0.9,
-      "nfci": -0.46,
-      "dxyChange20d": 1.78,
-      "kreRel20d": 5.34,
+      "hyOas": 3.43,
+      "igOas": 0.92,
+      "nfci": -0.48,
+      "dxyChange20d": 1.99,
+      "kreRel20d": 5.72,
       "spyRealizedVol20dTrailing": 22.0719
     }
   },
