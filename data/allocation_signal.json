@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-18T21:34:39Z",
+  "generatedAt": "2026-11-19T01:59:32Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,8 +86,8 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 65.83,
-    "riskScore": 15.57,
+    "opportunityScore": 65.31,
+    "riskScore": 15.9,
     "action": "ADD_SMALL",
     "stance": "小幅分批加仓/维持偏加",
     "reason": "机会信号已经出现，但历史优势不如深度恐慌场景，适合小步执行。",
@@ -97,18 +97,18 @@
       "watch": "若信用压力上升或波动扩散，应暂停加仓。"
     },
     "components": {
-      "drawdownOpportunity": 18.43,
+      "drawdownOpportunity": 17.91,
       "sentimentOpportunity": 20.44,
       "volatilityOpportunity": 11.96,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
-      "volatilityRisk": 15.57,
+      "volatilityRisk": 15.9,
       "trendRisk": 0.0,
       "overheatRisk": 0.0,
       "dataPenalty": 0
     },
-    "asOf": "2026-11-18",
-    "generatedAt": "2026-11-18T21:34:38Z",
+    "asOf": "2026-11-17",
+    "generatedAt": "2026-11-19T01:59:26Z",
     "pressureScores": {
       "volatility": 2,
       "credit": 0,
@@ -119,8 +119,8 @@
       "vix": 24.56,
       "vixChange5d": 7.07,
       "move": 98.15,
-      "spyDrawdown": -6.28,
-      "qqqDrawdown": -13.18,
+      "spyDrawdown": -5.99,
+      "qqqDrawdown": -13.52,
       "fearGreed": 25.0,
       "aaiiBearish": 51.4,
       "putCall": 0.71,
@@ -128,9 +128,9 @@
       "hyOas": 3.43,
       "igOas": 0.92,
       "nfci": -0.48,
-      "dxyChange20d": 1.99,
-      "kreRel20d": 5.72,
-      "spyRealizedVol20dTrailing": 22.0719
+      "dxyChange20d": 2.0,
+      "kreRel20d": 5.34,
+      "spyRealizedVol20dTrailing": 22.3678
     }
   },
   "historicalActionSummary": {
@@ -146,10 +146,10 @@
       "avgMaxDrawdown20dFwd": -2.8694
     },
     "ADD_SMALL": {
-      "rows": 120,
+      "rows": 121,
       "usableRows": 118,
-      "avgOpportunityScore": 63.6,
-      "avgRiskScore": 19.28,
+      "avgOpportunityScore": 63.62,
+      "avgRiskScore": 19.19,
       "avgSpyRet20dFwd": 1.425,
       "winRate20d": 0.5424,
       "avgSpyRet60dFwd": 3.8926,
@@ -157,10 +157,10 @@
       "avgMaxDrawdown20dFwd": -4.0332
     },
     "HOLD": {
-      "rows": 1071,
+      "rows": 1072,
       "usableRows": 1013,
-      "avgOpportunityScore": 29.0,
-      "avgRiskScore": 10.51,
+      "avgOpportunityScore": 29.03,
+      "avgRiskScore": 10.49,
       "avgSpyRet20dFwd": 0.8487,
       "winRate20d": 0.6555,
       "avgSpyRet60dFwd": 2.9932,
