@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-18T22:17:53Z",
+  "generatedAt": "2026-11-19T14:18:15Z",
   "entries": [
+    {
+      "id": "2026-11-19_morning",
+      "date": "2026-11-19",
+      "edition": "morning",
+      "title": "2026-11-19 Morning Investment Brief",
+      "summary": "AI fundamentals, retail results, and Fed rate-path disagreement frame the morning; cash-market breadth remains the key confirmation.",
+      "generatedAt": "2026-11-19T08:44:34-05:00",
+      "path": "data/news-en/2026-11-19_morning.md",
+      "wordCount": 6657,
+      "sourceCount": 36
+    },
     {
       "id": "2026-11-18_close",
       "date": "2026-11-18",
@@ -1511,8 +1522,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-18",
-    "dates": 80,
-    "reports": 137
+    "end": "2026-11-19",
+    "dates": 81,
+    "reports": 138
   }
 }
