@@ -1,32 +1,7 @@
 {
-  "generatedAt": "2026-11-19T21:47:23Z",
+  "generatedAt": "2026-11-20T21:31:28Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
-    {
-      "generatedAt": "2026-09-01T22:48:33Z",
-      "asOf": "2026-09-01",
-      "regime": "normal",
-      "regimeTitle": "Normal / Mild Pullback",
-      "scores": {
-        "volatility": 0,
-        "credit": 0,
-        "sentiment": 1
-      },
-      "spyClose": 761.78,
-      "spyDrawdown": -2.07,
-      "qqqDrawdown": -5.06,
-      "fearGreed": 45.0,
-      "rspSpyRel60d": 1.5,
-      "vix": 16.34,
-      "move": 77.88,
-      "hyOas": 2.63,
-      "igOas": 0.8,
-      "tenYYield": 4.75,
-      "realTenY": 2.44,
-      "scoreInputCompleteness": 1.0,
-      "estimatedCount": 0,
-      "valuationInScore": false
-    },
     {
       "generatedAt": "2026-09-02T17:19:28Z",
       "asOf": "2026-09-02",
@@ -2997,6 +2972,31 @@
       "hyOas": 3.47,
       "igOas": 0.93,
       "tenYYield": 5.07,
+      "realTenY": 2.88,
+      "scoreInputCompleteness": 1.0,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-11-20T21:31:28Z",
+      "asOf": "2026-11-20",
+      "regime": "extreme",
+      "regimeTitle": "Extreme Panic",
+      "scores": {
+        "volatility": 5,
+        "credit": 0,
+        "sentiment": 4
+      },
+      "spyClose": 689.81,
+      "spyDrawdown": -11.46,
+      "qqqDrawdown": -19.9,
+      "fearGreed": 10.0,
+      "rspSpyRel60d": 4.85,
+      "vix": 35.89,
+      "move": 106.26,
+      "hyOas": 3.52,
+      "igOas": 0.94,
+      "tenYYield": 5.04,
       "realTenY": 2.88,
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
@@ -5292,34 +5292,34 @@
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
       "valuationInScore": false
-    }
-  ],
-  "entries": [
+    },
     {
-      "generatedAt": "2026-09-01T22:48:33Z",
-      "asOf": "2026-09-01",
-      "regime": "normal",
-      "regimeTitle": "Normal / Mild Pullback",
+      "generatedAt": "2026-11-20T21:31:28Z",
+      "asOf": "2026-11-20",
+      "regime": "extreme",
+      "regimeTitle": "Extreme Panic",
       "scores": {
-        "volatility": 0,
+        "volatility": 5,
         "credit": 0,
-        "sentiment": 1
+        "sentiment": 4
       },
-      "spyClose": 761.78,
-      "spyDrawdown": -2.07,
-      "qqqDrawdown": -5.06,
-      "fearGreed": 45.0,
-      "rspSpyRel60d": 1.5,
-      "vix": 16.34,
-      "move": 77.88,
-      "hyOas": 2.63,
-      "igOas": 0.8,
-      "tenYYield": 4.75,
-      "realTenY": 2.44,
+      "spyClose": 689.81,
+      "spyDrawdown": -11.46,
+      "qqqDrawdown": -19.9,
+      "fearGreed": 10.0,
+      "rspSpyRel60d": 4.85,
+      "vix": 35.89,
+      "move": 106.26,
+      "hyOas": 3.52,
+      "igOas": 0.94,
+      "tenYYield": 5.04,
+      "realTenY": 2.88,
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
       "valuationInScore": false
-    },
+    }
+  ],
+  "entries": [
     {
       "generatedAt": "2026-09-02T17:19:28Z",
       "asOf": "2026-09-02",
@@ -8290,6 +8290,31 @@
       "hyOas": 3.47,
       "igOas": 0.93,
       "tenYYield": 5.07,
+      "realTenY": 2.88,
+      "scoreInputCompleteness": 1.0,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-11-20T21:31:28Z",
+      "asOf": "2026-11-20",
+      "regime": "extreme",
+      "regimeTitle": "Extreme Panic",
+      "scores": {
+        "volatility": 5,
+        "credit": 0,
+        "sentiment": 4
+      },
+      "spyClose": 689.81,
+      "spyDrawdown": -11.46,
+      "qqqDrawdown": -19.9,
+      "fearGreed": 10.0,
+      "rspSpyRel60d": 4.85,
+      "vix": 35.89,
+      "move": 106.26,
+      "hyOas": 3.52,
+      "igOas": 0.94,
+      "tenYYield": 5.04,
       "realTenY": 2.88,
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
