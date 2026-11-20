@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-19T14:18:15Z",
+  "generatedAt": "2026-11-19T23:55:28Z",
   "entries": [
+    {
+      "id": "2026-11-19_close",
+      "date": "2026-11-19",
+      "edition": "close",
+      "title": "Close Brief: AI IPO Euphoria Faded Into a Broad Selloff",
+      "summary": "The completed November 19 U.S. cash session reversed an early Anthropic/AI rally: the S&P 500, Dow and Nasdaq all fell, with more than 90% of S&P constituents lower. Softer orders alongside elevated price pressure reinforced the valuation, growth and financing test.",
+      "generatedAt": "2026-11-19T16:21:25-05:00",
+      "path": "data/news-en/2026-11-19_close.md",
+      "wordCount": 8018,
+      "sourceCount": 20
+    },
     {
       "id": "2026-11-19_morning",
       "date": "2026-11-19",
@@ -1524,6 +1535,6 @@
     "start": "2026-07-23",
     "end": "2026-11-19",
     "dates": 81,
-    "reports": 138
+    "reports": 139
   }
 }
