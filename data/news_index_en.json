@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-19T23:55:28Z",
+  "generatedAt": "2026-11-20T14:19:03Z",
   "entries": [
+    {
+      "id": "2026-11-20_morning",
+      "date": "2026-11-20",
+      "edition": "morning",
+      "title": "November 20, 2026 Morning Investment Brief",
+      "summary": "AI valuation de-risking is driving a seventh risk-off session, while verified retail and software results offer a narrower fundamental counterweight.",
+      "generatedAt": "2026-11-20T08:45:26-05:00",
+      "path": "data/news-en/2026-11-20_morning.md",
+      "wordCount": 6863,
+      "sourceCount": 36
+    },
     {
       "id": "2026-11-19_close",
       "date": "2026-11-19",
@@ -1533,8 +1544,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-19",
-    "dates": 81,
-    "reports": 139
+    "end": "2026-11-20",
+    "dates": 82,
+    "reports": 140
   }
 }
