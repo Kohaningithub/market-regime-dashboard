@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-20T14:19:03Z",
+  "generatedAt": "2026-11-21T00:00:09Z",
   "entries": [
+    {
+      "id": "2026-11-20_close",
+      "date": "2026-11-20",
+      "edition": "close",
+      "title": "Close Brief: AI De-risking Deepens as the Nasdaq Underperforms",
+      "summary": "At the completed November 20 U.S. cash close, the S&P 500 fell 3.70%, the Nasdaq 5.28% and the Dow 1.93%. Chip and AI shares led the decline while selected defensives held up; firmer consumer sentiment did not offset the market's valuation, financing and capital-return test.",
+      "generatedAt": "2026-11-20T16:21:09-05:00",
+      "path": "data/news-en/2026-11-20_close.md",
+      "wordCount": 7299,
+      "sourceCount": 19
+    },
     {
       "id": "2026-11-20_morning",
       "date": "2026-11-20",
@@ -1546,6 +1557,6 @@
     "start": "2026-07-23",
     "end": "2026-11-20",
     "dates": 82,
-    "reports": 140
+    "reports": 141
   }
 }
