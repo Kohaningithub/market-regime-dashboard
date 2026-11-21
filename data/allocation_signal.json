@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-20T21:31:29Z",
+  "generatedAt": "2026-11-21T01:43:17Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,18 +86,18 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 90.0,
+    "opportunityScore": 83.12,
     "riskScore": 28.0,
-    "action": "ADD",
-    "stance": "加仓",
-    "reason": "恐慌和回撤足够深，同时信用风险未失控，历史上该组合的反弹概率和收益更好。",
+    "action": "ADD_SMALL",
+    "stance": "小幅分批加仓/维持偏加",
+    "reason": "机会信号已经出现，但历史优势不如深度恐慌场景，适合小步执行。",
     "guidance": {
-      "allocation": "可按计划增加权益风险敞口，但仍应分批执行。",
-      "riskBudget": "接受未来 20-60 个交易日波动仍偏高，预先设置单次和总加仓上限。",
-      "watch": "确认信用利差、NFCI、银行股相对表现没有同步恶化。"
+      "allocation": "可小幅加快定投或再平衡，不宜一次性重仓。",
+      "riskBudget": "保留后续更深回撤时继续加仓的空间。",
+      "watch": "若信用压力上升或波动扩散，应暂停加仓。"
     },
     "components": {
-      "drawdownOpportunity": 30,
+      "drawdownOpportunity": 23.12,
       "sentimentOpportunity": 25,
       "volatilityOpportunity": 20,
       "creditStabilityBonus": 15.0,
@@ -107,20 +107,20 @@
       "overheatRisk": 0.0,
       "dataPenalty": 0
     },
-    "asOf": "2026-11-20",
-    "generatedAt": "2026-11-20T21:31:28Z",
+    "asOf": "2026-11-19",
+    "generatedAt": "2026-11-21T01:43:10Z",
     "pressureScores": {
       "volatility": 5,
       "credit": 0,
       "sentiment": 4
     },
-    "marketState": "extreme",
+    "marketState": "panic",
     "keyInputs": {
       "vix": 35.89,
       "vixChange5d": 16.59,
-      "move": 106.26,
-      "spyDrawdown": -11.46,
-      "qqqDrawdown": -19.9,
+      "move": 106.31,
+      "spyDrawdown": -8.11,
+      "qqqDrawdown": -15.09,
       "fearGreed": 10.0,
       "aaiiBearish": 42.2,
       "putCall": 0.62,
@@ -128,8 +128,8 @@
       "hyOas": 3.52,
       "igOas": 0.94,
       "nfci": -0.48,
-      "dxyChange20d": 2.04,
-      "kreRel20d": 3.88,
+      "dxyChange20d": 1.99,
+      "kreRel20d": 2.08,
       "spyRealizedVol20dTrailing": 22.3678
     }
   },
@@ -146,10 +146,10 @@
       "avgMaxDrawdown20dFwd": -2.8694
     },
     "ADD_SMALL": {
-      "rows": 121,
+      "rows": 123,
       "usableRows": 118,
-      "avgOpportunityScore": 63.62,
-      "avgRiskScore": 19.19,
+      "avgOpportunityScore": 63.75,
+      "avgRiskScore": 19.08,
       "avgSpyRet20dFwd": 1.425,
       "winRate20d": 0.5424,
       "avgSpyRet60dFwd": 3.8926,
