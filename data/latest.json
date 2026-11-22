@@ -1,41 +1,41 @@
 {
-  "generatedAt": "2026-11-21T01:43:10Z",
-  "asOf": "2026-11-19",
+  "generatedAt": "2026-11-22T17:48:50Z",
+  "asOf": "2026-11-20",
   "mode": "live",
   "values": {
     "vix": 35.89,
     "vixChange5d": 16.59,
     "move": 106.31,
-    "spyDrawdown": -8.11,
-    "qqqDrawdown": -15.09,
-    "rspSpyRel60d": 2.09,
-    "hygRet20d": -0.22,
-    "jnkRet20d": -0.13,
+    "spyDrawdown": -11.46,
+    "qqqDrawdown": -19.9,
+    "rspSpyRel60d": 4.85,
+    "hygRet20d": -0.42,
+    "jnkRet20d": -0.48,
     "hyOas": 3.52,
     "hyOasChange20d": 12.0,
     "igOas": 0.94,
     "igOasChange20d": 5.0,
-    "dxyChange20d": 1.99,
+    "dxyChange20d": 1.96,
     "tenYYield": 5.04,
     "tenYChange20d": -9.0,
     "realTenY": 2.88,
     "realTenYChange20d": 12.0,
     "nfci": -0.48,
-    "kreRel20d": 2.08,
+    "kreRel20d": 3.88,
     "aaiiBearish": 42.2,
-    "putCall": 0.62,
+    "putCall": 0.77,
     "fearGreed": 10.0
   },
   "scores": {
     "volatility": 5,
     "credit": 0,
-    "sentiment": 4
+    "sentiment": 5
   },
   "regime": {
-    "key": "panic",
-    "title": "Panic Pullback",
-    "summary": "市场情绪进入恐惧区，指数回调较深，但信用和美元流动性尚未出现失序信号。适合按计划分批加仓。",
-    "tone": "warning",
+    "key": "extreme",
+    "title": "Extreme Panic",
+    "summary": "波动率和情绪已经极端，但信用市场尚未失控。可以开始关注抄底窗口，执行上仍应分批和控制仓位。",
+    "tone": "danger",
     "overheated": false
   },
   "fieldMeta": {
@@ -55,27 +55,27 @@
       "status": "ok"
     },
     "spyDrawdown": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "Yahoo Finance SPY",
       "status": "ok"
     },
     "qqqDrawdown": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "Yahoo Finance QQQ",
       "status": "ok"
     },
     "rspSpyRel60d": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "Yahoo Finance RSP/SPY",
       "status": "ok"
     },
     "hygRet20d": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "Yahoo Finance HYG",
       "status": "ok"
     },
     "jnkRet20d": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "Yahoo Finance JNK",
       "status": "ok"
     },
@@ -130,7 +130,7 @@
       "status": "ok"
     },
     "kreRel20d": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "Yahoo Finance KRE/SPY",
       "status": "ok"
     },
@@ -140,7 +140,7 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-11-21",
+      "asOf": "2026-11-22",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
