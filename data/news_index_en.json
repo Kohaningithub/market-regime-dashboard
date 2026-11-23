@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-21T00:00:09Z",
+  "generatedAt": "2026-11-23T14:17:22Z",
   "entries": [
+    {
+      "id": "2026-11-23_morning",
+      "date": "2026-11-23",
+      "edition": "morning",
+      "title": "November 23, 2026 Morning Investment Brief",
+      "summary": "AI shares are rebounding before the open after Friday's rout, but cash-market breadth and upcoming server earnings must validate whether this is more than a technical bounce.",
+      "generatedAt": "2026-11-23T08:47:30-05:00",
+      "path": "data/news-en/2026-11-23_morning.md",
+      "wordCount": 6526,
+      "sourceCount": 34
+    },
     {
       "id": "2026-11-20_close",
       "date": "2026-11-20",
@@ -1555,8 +1566,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-20",
-    "dates": 82,
-    "reports": 141
+    "end": "2026-11-23",
+    "dates": 83,
+    "reports": 142
   }
 }

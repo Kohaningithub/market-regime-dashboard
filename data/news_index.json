@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-21T00:00:03Z",
+  "generatedAt": "2026-11-23T14:17:20Z",
   "entries": [
+    {
+      "id": "2026-11-23_morning",
+      "date": "2026-11-23",
+      "edition": "morning",
+      "title": "2026-11-23 早盘投资动态简报",
+      "summary": "AI股上周五急跌后盘前反弹；反弹能否穿透至现金盘广度，将决定其是技术性修复还是对资本效率担忧的缓解。",
+      "generatedAt": "2026-11-23T08:47:30-05:00",
+      "path": "data/news/2026-11-23_morning.md",
+      "wordCount": 2451,
+      "sourceCount": 34
+    },
     {
       "id": "2026-11-20_close",
       "date": "2026-11-20",
@@ -1555,8 +1566,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-20",
-    "dates": 82,
-    "reports": 141
+    "end": "2026-11-23",
+    "dates": 83,
+    "reports": 142
   }
 }
