@@ -1,56 +1,56 @@
 {
-  "generatedAt": "2026-11-22T17:48:50Z",
+  "generatedAt": "2026-11-24T01:11:45Z",
   "asOf": "2026-11-20",
   "mode": "live",
   "values": {
-    "vix": 35.89,
-    "vixChange5d": 16.59,
-    "move": 106.31,
+    "vix": 26.62,
+    "vixChange5d": 3.71,
+    "move": 100.91,
     "spyDrawdown": -11.46,
     "qqqDrawdown": -19.9,
     "rspSpyRel60d": 4.85,
     "hygRet20d": -0.42,
     "jnkRet20d": -0.48,
-    "hyOas": 3.52,
-    "hyOasChange20d": 12.0,
-    "igOas": 0.94,
-    "igOasChange20d": 5.0,
-    "dxyChange20d": 1.96,
-    "tenYYield": 5.04,
-    "tenYChange20d": -9.0,
-    "realTenY": 2.88,
-    "realTenYChange20d": 12.0,
+    "hyOas": 3.76,
+    "hyOasChange20d": 38.0,
+    "igOas": 0.98,
+    "igOasChange20d": 7.0,
+    "dxyChange20d": 2.27,
+    "tenYYield": 4.92,
+    "tenYChange20d": -4.0,
+    "realTenY": 2.77,
+    "realTenYChange20d": 13.0,
     "nfci": -0.48,
     "kreRel20d": 3.88,
     "aaiiBearish": 42.2,
     "putCall": 0.77,
-    "fearGreed": 10.0
+    "fearGreed": 17.0
   },
   "scores": {
-    "volatility": 5,
+    "volatility": 2,
     "credit": 0,
-    "sentiment": 5
+    "sentiment": 4
   },
   "regime": {
-    "key": "extreme",
-    "title": "Extreme Panic",
-    "summary": "波动率和情绪已经极端，但信用市场尚未失控。可以开始关注抄底窗口，执行上仍应分批和控制仓位。",
-    "tone": "danger",
+    "key": "normal",
+    "title": "Normal / Mild Pullback",
+    "summary": "信用市场稳定，波动率未进入失控区。若指数只是普通调整，可以维持正常定投和再平衡纪律。",
+    "tone": "calm",
     "overheated": false
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-11-20",
+      "asOf": "2026-11-23",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-11-20",
+      "asOf": "2026-11-23",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "move": {
-      "asOf": "2026-11-20",
+      "asOf": "2026-11-23",
       "source": "Yahoo Finance ^MOVE / ICE BofA MOVE Index",
       "status": "ok"
     },
@@ -80,47 +80,47 @@
       "status": "ok"
     },
     "hyOas": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "hyOasChange20d": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "FRED BAMLH0A0HYM2 / ICE BofA",
       "status": "ok"
     },
     "igOas": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "igOasChange20d": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "FRED BAMLC0A0CM / ICE BofA",
       "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-11-20",
+      "asOf": "2026-11-24",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
     "tenYYield": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "tenYChange20d": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "FRED DGS10",
       "status": "ok"
     },
     "realTenY": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "FRED DFII10",
       "status": "ok"
     },
     "realTenYChange20d": {
-      "asOf": "2026-11-19",
+      "asOf": "2026-11-20",
       "source": "FRED DFII10",
       "status": "ok"
     },
@@ -140,13 +140,13 @@
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-11-22",
+      "asOf": "2026-11-24",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-11-20T23:59:52+00:00",
+      "asOf": "2026-11-23T23:59:56+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-22T17:49:00Z",
+  "generatedAt": "2026-11-24T01:11:45Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,8 +86,8 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 90.0,
-    "riskScore": 28.0,
+    "opportunityScore": 81.11,
+    "riskScore": 19.43,
     "action": "ADD",
     "stance": "加仓",
     "reason": "恐慌和回撤足够深，同时信用风险未失控，历史上该组合的反弹概率和收益更好。",
@@ -99,36 +99,36 @@
     "components": {
       "drawdownOpportunity": 30,
       "sentimentOpportunity": 25,
-      "volatilityOpportunity": 20,
+      "volatilityOpportunity": 11.11,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
-      "volatilityRisk": 28,
+      "volatilityRisk": 19.43,
       "trendRisk": 0.0,
       "overheatRisk": 0.0,
       "dataPenalty": 0
     },
     "asOf": "2026-11-20",
-    "generatedAt": "2026-11-22T17:48:50Z",
+    "generatedAt": "2026-11-24T01:11:45Z",
     "pressureScores": {
-      "volatility": 5,
+      "volatility": 2,
       "credit": 0,
-      "sentiment": 5
+      "sentiment": 4
     },
-    "marketState": "extreme",
+    "marketState": "normal",
     "keyInputs": {
-      "vix": 35.89,
-      "vixChange5d": 16.59,
-      "move": 106.31,
+      "vix": 26.62,
+      "vixChange5d": 3.71,
+      "move": 100.91,
       "spyDrawdown": -11.46,
       "qqqDrawdown": -19.9,
-      "fearGreed": 10.0,
+      "fearGreed": 17.0,
       "aaiiBearish": 42.2,
       "putCall": 0.77,
       "creditScore": 0,
-      "hyOas": 3.52,
-      "igOas": 0.94,
+      "hyOas": 3.76,
+      "igOas": 0.98,
       "nfci": -0.48,
-      "dxyChange20d": 1.96,
+      "dxyChange20d": 2.27,
       "kreRel20d": 3.88,
       "spyRealizedVol20dTrailing": 26.2638
     }

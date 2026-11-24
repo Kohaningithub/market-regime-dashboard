@@ -1,32 +1,7 @@
 {
-  "generatedAt": "2026-11-22T17:48:50Z",
+  "generatedAt": "2026-11-24T01:11:45Z",
   "historyStartedAt": "2026-06-18",
   "recentUpdates": [
-    {
-      "generatedAt": "2026-09-03T17:11:24Z",
-      "asOf": "2026-09-03",
-      "regime": "normal",
-      "regimeTitle": "Normal / Mild Pullback",
-      "scores": {
-        "volatility": 0,
-        "credit": 0,
-        "sentiment": 1
-      },
-      "spyClose": 772.43,
-      "spyDrawdown": -0.7,
-      "qqqDrawdown": -3.83,
-      "fearGreed": 36.0,
-      "rspSpyRel60d": 1.16,
-      "vix": 14.6,
-      "move": 79.71,
-      "hyOas": 2.66,
-      "igOas": 0.81,
-      "tenYYield": 4.79,
-      "realTenY": 2.44,
-      "scoreInputCompleteness": 1.0,
-      "estimatedCount": 0,
-      "valuationInScore": false
-    },
     {
       "generatedAt": "2026-09-03T22:47:54Z",
       "asOf": "2026-09-03",
@@ -2998,6 +2973,31 @@
       "igOas": 0.94,
       "tenYYield": 5.04,
       "realTenY": 2.88,
+      "scoreInputCompleteness": 1.0,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-11-24T01:11:45Z",
+      "asOf": "2026-11-20",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 2,
+        "credit": 0,
+        "sentiment": 4
+      },
+      "spyClose": 689.81,
+      "spyDrawdown": -11.46,
+      "qqqDrawdown": -19.9,
+      "fearGreed": 17.0,
+      "rspSpyRel60d": 4.85,
+      "vix": 26.62,
+      "move": 100.91,
+      "hyOas": 3.76,
+      "igOas": 0.98,
+      "tenYYield": 4.92,
+      "realTenY": 2.77,
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
       "valuationInScore": false
@@ -5344,57 +5344,32 @@
       "valuationInScore": false
     },
     {
-      "generatedAt": "2026-11-22T17:48:50Z",
+      "generatedAt": "2026-11-24T01:11:45Z",
       "asOf": "2026-11-20",
-      "regime": "extreme",
-      "regimeTitle": "Extreme Panic",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
       "scores": {
-        "volatility": 5,
+        "volatility": 2,
         "credit": 0,
-        "sentiment": 5
+        "sentiment": 4
       },
       "spyClose": 689.81,
       "spyDrawdown": -11.46,
       "qqqDrawdown": -19.9,
-      "fearGreed": 10.0,
+      "fearGreed": 17.0,
       "rspSpyRel60d": 4.85,
-      "vix": 35.89,
-      "move": 106.31,
-      "hyOas": 3.52,
-      "igOas": 0.94,
-      "tenYYield": 5.04,
-      "realTenY": 2.88,
+      "vix": 26.62,
+      "move": 100.91,
+      "hyOas": 3.76,
+      "igOas": 0.98,
+      "tenYYield": 4.92,
+      "realTenY": 2.77,
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
       "valuationInScore": false
     }
   ],
   "entries": [
-    {
-      "generatedAt": "2026-09-03T17:11:24Z",
-      "asOf": "2026-09-03",
-      "regime": "normal",
-      "regimeTitle": "Normal / Mild Pullback",
-      "scores": {
-        "volatility": 0,
-        "credit": 0,
-        "sentiment": 1
-      },
-      "spyClose": 772.43,
-      "spyDrawdown": -0.7,
-      "qqqDrawdown": -3.83,
-      "fearGreed": 36.0,
-      "rspSpyRel60d": 1.16,
-      "vix": 14.6,
-      "move": 79.71,
-      "hyOas": 2.66,
-      "igOas": 0.81,
-      "tenYYield": 4.79,
-      "realTenY": 2.44,
-      "scoreInputCompleteness": 1.0,
-      "estimatedCount": 0,
-      "valuationInScore": false
-    },
     {
       "generatedAt": "2026-09-03T22:47:54Z",
       "asOf": "2026-09-03",
@@ -8366,6 +8341,31 @@
       "igOas": 0.94,
       "tenYYield": 5.04,
       "realTenY": 2.88,
+      "scoreInputCompleteness": 1.0,
+      "estimatedCount": 0,
+      "valuationInScore": false
+    },
+    {
+      "generatedAt": "2026-11-24T01:11:45Z",
+      "asOf": "2026-11-20",
+      "regime": "normal",
+      "regimeTitle": "Normal / Mild Pullback",
+      "scores": {
+        "volatility": 2,
+        "credit": 0,
+        "sentiment": 4
+      },
+      "spyClose": 689.81,
+      "spyDrawdown": -11.46,
+      "qqqDrawdown": -19.9,
+      "fearGreed": 17.0,
+      "rspSpyRel60d": 4.85,
+      "vix": 26.62,
+      "move": 100.91,
+      "hyOas": 3.76,
+      "igOas": 0.98,
+      "tenYYield": 4.92,
+      "realTenY": 2.77,
       "scoreInputCompleteness": 1.0,
       "estimatedCount": 0,
       "valuationInScore": false
