@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-24T23:15:34Z",
+  "generatedAt": "2026-11-25T22:44:20Z",
   "model": "allocation_signal",
   "method": {
     "summary": "Separate opportunity and risk, then map the market state to ADD / ADD_SMALL / HOLD / REDUCE.",
@@ -86,8 +86,8 @@
     }
   },
   "currentSignal": {
-    "opportunityScore": 69.01,
-    "riskScore": 19.12,
+    "opportunityScore": 73.99,
+    "riskScore": 21.44,
     "action": "ADD_SMALL",
     "stance": "小幅分批加仓/维持偏加",
     "reason": "机会信号已经出现，但历史优势不如深度恐慌场景，适合小步执行。",
@@ -97,18 +97,18 @@
       "watch": "若信用压力上升或波动扩散，应暂停加仓。"
     },
     "components": {
-      "drawdownOpportunity": 22.63,
-      "sentimentOpportunity": 22.27,
-      "volatilityOpportunity": 9.12,
+      "drawdownOpportunity": 23.41,
+      "sentimentOpportunity": 23.37,
+      "volatilityOpportunity": 12.21,
       "creditStabilityBonus": 15.0,
       "creditRisk": 0.0,
-      "volatilityRisk": 19.12,
+      "volatilityRisk": 21.44,
       "trendRisk": 0.0,
       "overheatRisk": 0.0,
       "dataPenalty": 0
     },
-    "asOf": "2026-11-24",
-    "generatedAt": "2026-11-24T23:15:34Z",
+    "asOf": "2026-11-25",
+    "generatedAt": "2026-11-25T22:44:19Z",
     "pressureScores": {
       "volatility": 2,
       "credit": 0,
@@ -116,20 +116,20 @@
     },
     "marketState": "normal",
     "keyInputs": {
-      "vix": 26.36,
-      "vixChange5d": 0.9,
-      "move": 98.84,
-      "spyDrawdown": -7.74,
-      "qqqDrawdown": -16.0,
-      "fearGreed": 17.0,
+      "vix": 28.29,
+      "vixChange5d": 3.73,
+      "move": 97.54,
+      "spyDrawdown": -8.01,
+      "qqqDrawdown": -16.55,
+      "fearGreed": 15.0,
       "aaiiBearish": 42.2,
-      "putCall": 0.55,
+      "putCall": 0.57,
       "creditScore": 0,
-      "hyOas": 3.63,
-      "igOas": 0.97,
-      "nfci": -0.48,
-      "dxyChange20d": 1.49,
-      "kreRel20d": 2.92,
+      "hyOas": 3.72,
+      "igOas": 0.98,
+      "nfci": -0.44,
+      "dxyChange20d": 1.47,
+      "kreRel20d": 4.35,
       "spyRealizedVol20dTrailing": 26.2638
     }
   },
