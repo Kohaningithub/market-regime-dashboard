@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-25T22:44:19Z",
+  "generatedAt": "2026-11-26T22:34:26Z",
   "asOf": "2026-11-25",
   "mode": "live",
   "values": {
-    "vix": 28.29,
-    "vixChange5d": 3.73,
+    "vix": 26.8,
+    "vixChange5d": -1.64,
     "move": 97.54,
     "spyDrawdown": -8.01,
     "qqqDrawdown": -16.55,
@@ -15,15 +15,15 @@
     "hyOasChange20d": 54.0,
     "igOas": 0.98,
     "igOasChange20d": 10.0,
-    "dxyChange20d": 1.47,
+    "dxyChange20d": 1.71,
     "tenYYield": 4.91,
     "tenYChange20d": -9.0,
     "realTenY": 2.79,
     "realTenYChange20d": 13.0,
     "nfci": -0.44,
     "kreRel20d": 4.35,
-    "aaiiBearish": 42.2,
-    "putCall": 0.57,
+    "aaiiBearish": 45.4,
+    "putCall": 0.64,
     "fearGreed": 15.0
   },
   "scores": {
@@ -40,12 +40,12 @@
   },
   "fieldMeta": {
     "vix": {
-      "asOf": "2026-11-25",
+      "asOf": "2026-11-26",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
     "vixChange5d": {
-      "asOf": "2026-11-25",
+      "asOf": "2026-11-26",
       "source": "Yahoo Finance ^VIX / Cboe VIX",
       "status": "ok"
     },
@@ -100,7 +100,7 @@
       "status": "ok"
     },
     "dxyChange20d": {
-      "asOf": "2026-11-25",
+      "asOf": "2026-11-26",
       "source": "Yahoo Finance DX-Y.NYB",
       "status": "ok"
     },
@@ -135,18 +135,18 @@
       "status": "ok"
     },
     "aaiiBearish": {
-      "asOf": "2026-11-18",
+      "asOf": "2026-11-25",
       "source": "AAII Sentiment Survey",
       "status": "ok"
     },
     "putCall": {
-      "asOf": "2026-11-25",
+      "asOf": "2026-11-26",
       "source": "Cboe Daily Market Statistics",
       "status": "ok",
       "note": "Current daily equity put/call ratio; public Cboe history endpoint currently stops at 2019."
     },
     "fearGreed": {
-      "asOf": "2026-11-25T22:26:17+00:00",
+      "asOf": "2026-11-26T01:59:59+00:00",
       "source": "CNN Fear & Greed Index",
       "status": "ok"
     }
