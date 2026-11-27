@@ -1,6 +1,17 @@
 {
-  "generatedAt": "2026-11-23T14:17:22Z",
+  "generatedAt": "2026-11-27T03:12:11Z",
   "entries": [
+    {
+      "id": "2026-11-25_close",
+      "date": "2026-11-25",
+      "edition": "close",
+      "title": "Closing brief: AI selloff fades, while the Dow and small caps finish higher",
+      "summary": "At the November 25 regular-session close, the S&P 500 fell 0.25% and Nasdaq 0.62%, while the Dow gained 0.33% and Russell 2000 0.71%. An early plunge on AI valuation, tariff uncertainty and hot PCE inflation was largely retraced, leaving a narrow technology-versus-energy and small-cap split.",
+      "generatedAt": "2026-11-25T22:24:05-05:00",
+      "path": "data/news-en/2026-11-25_close.md",
+      "wordCount": 9284,
+      "sourceCount": 23
+    },
     {
       "id": "2026-11-23_morning",
       "date": "2026-11-23",
@@ -1566,8 +1577,8 @@
   ],
   "coverage": {
     "start": "2026-07-23",
-    "end": "2026-11-23",
-    "dates": 83,
-    "reports": 142
+    "end": "2026-11-25",
+    "dates": 84,
+    "reports": 143
   }
 }
